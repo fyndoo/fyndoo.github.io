@@ -1,0 +1,5 @@
+date=2020-05-28 15:24:13+0000
+os=Linux 4.19.76-linuxkit
+schemaspy-version=6.1.1-SNAPSHOT
+schemaspy-build=6.1.1-SNAPSHOT.41 2020-05-13 23:48:28
+diagramImplementation=Graphviz dot 2.38
