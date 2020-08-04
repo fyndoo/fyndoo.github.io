@@ -80,7 +80,7 @@
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="ion ion-key"></i>
-                            <h3 class="box-title">15 Foreign Key Constraints</h3>
+                            <h3 class="box-title">14 Foreign Key Constraints</h3>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -152,18 +152,30 @@
                                         <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_cover_agreement</td>
+                                        <td>FK_collateral_agreement</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
+                                                    <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.collateralreferenceid</span></td>
+                                                </tr>
+                                                <tr>
                                                     <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
+                                                    <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -194,12 +206,18 @@
                                                 <tr>
                                                     <td><a href='tables/sz_financinggoal.html'>sz_financinggoal</a><span>.agreementreferenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_financinggoal.html'>sz_financinggoal</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -212,12 +230,18 @@
                                                 <tr>
                                                     <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.agreementreferenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -266,12 +290,18 @@
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.mainborrowerreferenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -302,12 +332,18 @@
                                                 <tr>
                                                     <td><a href='tables/sz_borrower.html'>sz_borrower</a><span>.agreementreferenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_borrower.html'>sz_borrower</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -320,23 +356,8 @@
                                                 <tr>
                                                     <td><a href='tables/sz_borrower.html'>sz_borrower</a><span>.counterpartyreferenceid</span></td>
                                                 </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.referenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>FK_financialstmt_counterparty</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_financialstatement.html'>sz_financialstatement</a><span>.counterpartyreferenceid</span></td>
+                                                    <td><a href='tables/sz_borrower.html'>sz_borrower</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -344,6 +365,9 @@
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -356,12 +380,18 @@
                                                 <tr>
                                                     <td><a href='tables/sz_facility.html'>sz_facility</a><span>.agreementreferenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_facility.html'>sz_facility</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -397,7 +427,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: false
+                        pagination: true
                     }
                 </script>
             </div>

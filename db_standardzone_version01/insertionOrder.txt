@@ -4,13 +4,12 @@ sz_user
 sz_process
 sz_agreement
 sz_collateral
-sz_collateral_object
-sz_facility
 sz_fiatlast
 sz_fiatresult
-sz_financialstatement
-sz_financinggoal
 sz_processevents
-sz_borrower
+sz_facility
+sz_financinggoal
 sz_processstatuschange
+sz_collateral_object
+sz_borrower
 sz_metadata

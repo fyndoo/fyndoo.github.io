@@ -167,12 +167,33 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_facility.agreementreferenceid references sz_agreement.referenceid via FK_facility_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td title="sz_facility.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_facility_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.referenceid</span></td>
                                                 <td class="constraint detail">FK_facility_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
                                     </td>
                                     <td><p>Source=CAS : Unique identifier of an agreement</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_facility.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_facility_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_facility_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>FBL: Processnumber which generate the new agreement</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="productname">productname</span></td>
@@ -656,21 +677,20 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="305,5,716,984">
+<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="305,5,716,1013">
 <area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,96,261,272">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_facility.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="257,180,513,356">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,88,213,176">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="28,241,191,329">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="257,103,513,279">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,20,213,108">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="28,135,191,223">
 <area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="675,5,851,93">
 <area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="674,111,851,199">
-<area shape="rect" id="node6" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="646,216,879,304">
-<area shape="rect" id="node7" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="557,321,968,1300">
-<area shape="rect" id="node8" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="658,1317,867,1405">
+<area shape="rect" id="node6" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="557,216,968,1224">
+<area shape="rect" id="node7" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="658,1241,867,1329">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_facility.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -681,7 +701,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: false
+                        pagination: true
                     }
                 </script>
             </div>

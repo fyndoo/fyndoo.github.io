@@ -1,13 +1,12 @@
 sz_metadata
-sz_processstatuschange
 sz_borrower
-sz_processevents
+sz_collateral_object
+sz_processstatuschange
 sz_financinggoal
-sz_financialstatement
+sz_facility
+sz_processevents
 sz_fiatresult
 sz_fiatlast
-sz_facility
-sz_collateral_object
 sz_collateral
 sz_agreement
 sz_process
