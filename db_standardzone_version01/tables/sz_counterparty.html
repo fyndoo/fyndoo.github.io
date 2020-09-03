@@ -119,6 +119,10 @@
                                                 <td title="sz_borrower.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_borrower_counterparty"><a href='sz_borrower.html'>sz_borrower</a><span class='relatedKey'>.counterpartyreferenceid</span></td>
                                                 <td class="constraint detail">FK_borrower_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
+                                            <tr>
+                                                <td title="sz_counterpartyrating.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_cprating_counterparty"><a href='sz_counterpartyrating.html'>sz_counterpartyrating</a><span class='relatedKey'>.counterpartyreferenceid</span></td>
+                                                <td class="constraint detail">FK_cprating_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -143,6 +147,10 @@
                                             <tr>
                                                 <td title="sz_borrower.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_borrower_counterparty"><a href='sz_borrower.html'>sz_borrower</a><span class='relatedKey'>.processnumber</span></td>
                                                 <td class="constraint detail">FK_borrower_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_counterpartyrating.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_cprating_counterparty"><a href='sz_counterpartyrating.html'>sz_counterpartyrating</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_cprating_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -478,20 +486,22 @@
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="440,5,696,181">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,108,396,705">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,179,396,776">
 <area shape="rect" id="node3" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="740,24,987,229">
+<area shape="rect" id="node4" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="440,235,696,381">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_counterparty.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="440,225,696,401">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,97,396,695">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="119,712,282,800">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="440,264,696,440">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,91,396,688">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="119,705,282,793">
 <area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="740,5,987,211">
 <area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="775,228,952,316">
-<area shape="rect" id="node6" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="785,333,941,421">
-<area shape="rect" id="node7" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="759,439,968,527">
+<area shape="rect" id="node6" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="440,64,696,211">
+<area shape="rect" id="node7" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="785,333,941,421">
+<area shape="rect" id="node8" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="759,439,968,527">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_counterparty.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

@@ -205,6 +205,23 @@
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="number_of_status_changes">number_of_status_changes</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><span id="statuschange_code">statuschange_code</span></td>
                                     <td>varchar</td>
                                     <td>255</td>
@@ -289,6 +306,23 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="hours_in_status">hours_in_status</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -311,7 +345,7 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="rz_dashboard_statuschange.html" target="_top" title="rz_dashboard_statuschange" alt="" coords="5,5,404,373">
+<area shape="rect" id="node1" href="rz_dashboard_statuschange.html" target="_top" title="rz_dashboard_statuschange" alt="" coords="5,5,404,432">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/rz_dashboard_statuschange.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -329,7 +363,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT p.processnumber,&#10;    p.processtype AS process_name,&#10;    p.startdatetime AS process_startdatetime,&#10;    p.enddatetime AS process_enddatetime,&#10;    p.durationtimehours AS process_durationtimehours,&#10;    p.currentstatus AS process_currentstatus,&#10;    sp.code AS statuschange_code,&#10;    sp.name AS statuschange_name,&#10;    sp.datetime AS statuschange_datetime,&#10;    sp.processstatusgroupname AS statuschange_name_group,&#10;    sp.userreferenceid AS statuschange_userid&#10;   FROM (wlc.sz_processstatuschange sp&#10;     LEFT JOIN wlc.sz_process p ON ((sp.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype AS process_name,&#10;    p.startdatetime AS process_startdatetime,&#10;    p.enddatetime AS process_enddatetime,&#10;    p.durationtimehours AS process_durationtimehours,&#10;    p.currentstatus AS process_currentstatus,&#10;    sp.code AS statuschange_code,&#10;    sp.name AS statuschange_name,&#10;    sp.datetime AS statuschange_datetime,&#10;    sp.processstatusgroupname AS statuschange_name_group,&#10;    sp.userreferenceid AS statuschange_userid&#10;   FROM (wln.sz_processstatuschange sp&#10;     LEFT JOIN wln.sz_process p ON ((sp.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype AS process_name,&#10;    p.startdatetime AS process_startdatetime,&#10;    p.enddatetime AS process_enddatetime,&#10;    p.durationtimehours AS process_durationtimehours,&#10;    p.currentstatus AS process_currentstatus,&#10;    sp.code AS statuschange_code,&#10;    sp.name AS statuschange_name,&#10;    sp.datetime AS statuschange_datetime,&#10;    sp.processstatusgroupname AS statuschange_name_group,&#10;    sp.userreferenceid AS statuschange_userid&#10;   FROM (wlr.sz_processstatuschange sp&#10;     LEFT JOIN wlr.sz_process p ON ((sp.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype AS process_name,&#10;    p.startdatetime AS process_startdatetime,&#10;    p.enddatetime AS process_enddatetime,&#10;    p.durationtimehours AS process_durationtimehours,&#10;    p.currentstatus AS process_currentstatus,&#10;    sp.code AS statuschange_code,&#10;    sp.name AS statuschange_name,&#10;    sp.datetime AS statuschange_datetime,&#10;    sp.processstatusgroupname AS statuschange_name_group,&#10;    sp.userreferenceid AS statuschange_userid&#10;   FROM (wls.sz_processstatuschange sp&#10;     LEFT JOIN wls.sz_process p ON ((sp.processnumber = p.processnumber)));</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT p.processnumber,&#10;    p.processtype AS process_name,&#10;    p.startdatetime AS process_startdatetime,&#10;    p.enddatetime AS process_enddatetime,&#10;    p.durationtimehours AS process_durationtimehours,&#10;    p.currentstatus AS process_currentstatus,&#10;    p.numberofstatuschanges AS number_of_status_changes,&#10;    sp.code AS statuschange_code,&#10;    sp.name AS statuschange_name,&#10;    sp.datetime AS statuschange_datetime,&#10;    sp.processstatusgroupname AS statuschange_name_group,&#10;    sp.userreferenceid AS statuschange_userid,&#10;    sp.hoursinstatus AS hours_in_status&#10;   FROM (wlc.sz_processstatuschange sp&#10;     LEFT JOIN wlc.sz_process p ON ((sp.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype AS process_name,&#10;    p.startdatetime AS process_startdatetime,&#10;    p.enddatetime AS process_enddatetime,&#10;    p.durationtimehours AS process_durationtimehours,&#10;    p.currentstatus AS process_currentstatus,&#10;    p.numberofstatuschanges AS number_of_status_changes,&#10;    sp.code AS statuschange_code,&#10;    sp.name AS statuschange_name,&#10;    sp.datetime AS statuschange_datetime,&#10;    sp.processstatusgroupname AS statuschange_name_group,&#10;    sp.userreferenceid AS statuschange_userid,&#10;    sp.hoursinstatus AS hours_in_status&#10;   FROM (wln.sz_processstatuschange sp&#10;     LEFT JOIN wln.sz_process p ON ((sp.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype AS process_name,&#10;    p.startdatetime AS process_startdatetime,&#10;    p.enddatetime AS process_enddatetime,&#10;    p.durationtimehours AS process_durationtimehours,&#10;    p.currentstatus AS process_currentstatus,&#10;    p.numberofstatuschanges AS number_of_status_changes,&#10;    sp.code AS statuschange_code,&#10;    sp.name AS statuschange_name,&#10;    sp.datetime AS statuschange_datetime,&#10;    sp.processstatusgroupname AS statuschange_name_group,&#10;    sp.userreferenceid AS statuschange_userid,&#10;    sp.hoursinstatus AS hours_in_status&#10;   FROM (wlr.sz_processstatuschange sp&#10;     LEFT JOIN wlr.sz_process p ON ((sp.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype AS process_name,&#10;    p.startdatetime AS process_startdatetime,&#10;    p.enddatetime AS process_enddatetime,&#10;    p.durationtimehours AS process_durationtimehours,&#10;    p.currentstatus AS process_currentstatus,&#10;    p.numberofstatuschanges AS number_of_status_changes,&#10;    sp.code AS statuschange_code,&#10;    sp.name AS statuschange_name,&#10;    sp.datetime AS statuschange_datetime,&#10;    sp.processstatusgroupname AS statuschange_name_group,&#10;    sp.userreferenceid AS statuschange_userid,&#10;    sp.hoursinstatus AS hours_in_status&#10;   FROM (wls.sz_processstatuschange sp&#10;     LEFT JOIN wls.sz_process p ON ((sp.processnumber = p.processnumber)));</textarea>
                             <div style="padding-top: 5px;"><hr></div>
                             <div class="box box-solid">
                                 <div class="box-header with-border">

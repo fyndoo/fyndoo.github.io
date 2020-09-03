@@ -4,12 +4,12 @@ sz_collateral_object
 sz_processstatuschange
 sz_financinggoal
 sz_facility
+sz_counterpartyrating
 sz_processevents
-sz_fiatresult
-sz_fiatlast
+sz_contactperson
+sz_businessrules
 sz_collateral
 sz_agreement
-sz_process
 sz_user
-sz_contactperson
+sz_process
 sz_counterparty
