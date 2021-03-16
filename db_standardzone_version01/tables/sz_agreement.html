@@ -165,12 +165,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_agreement.[mainborrowerreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_agreement_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_agreement_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="sz_agreement.processnumber references sz_process.processnumber via FK_agreement_process"><a href='sz_process.html'>sz_process</a><span class='relatedKey'>.processnumber</span></td>
                                                 <td class="constraint detail">FK_agreement_process<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_agreement.[mainborrowerreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_agreement_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_agreement_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -388,7 +388,7 @@
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="311,255,696,647">
 <area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,120,267,267">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="14,287,258,404">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,287,267,404">
 <area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="757,5,1004,211">
 <area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="767,228,995,404">
 <area shape="rect" id="node6" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="740,421,1021,568">
@@ -400,17 +400,18 @@
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="311,283,696,675">
 <area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,159,267,305">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="14,795,258,912">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,848,267,965">
 <area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="757,5,1004,211">
-<area shape="rect" id="node5" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="398,692,609,780">
+<area shape="rect" id="node5" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="398,903,609,991">
 <area shape="rect" id="node6" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="767,228,995,404">
 <area shape="rect" id="node7" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="1065,260,1299,348">
-<area shape="rect" id="node8" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="395,797,612,885">
+<area shape="rect" id="node8" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="395,1008,612,1096">
 <area shape="rect" id="node9" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="375,141,631,229">
 <area shape="rect" id="node10" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="740,421,1021,568">
 <area shape="rect" id="node11" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="767,585,995,732">
-<area shape="rect" id="node12" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="395,903,611,991">
-<area shape="rect" id="node13" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="369,1008,638,1096">
+<area shape="rect" id="node12" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="389,1113,618,1201">
+<area shape="rect" id="node13" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="395,692,611,780">
+<area shape="rect" id="node14" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="369,797,638,885">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_agreement.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

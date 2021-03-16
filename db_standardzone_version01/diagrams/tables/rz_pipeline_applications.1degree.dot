@@ -54,6 +54,7 @@ digraph "oneDegreeRelationshipsDiagram" {
       <TR><TD PORT="bindingofferdate" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="174" HEIGHT="16">bindingofferdate</TD></TR></TABLE></TD><TD PORT="bindingofferdate.type" ALIGN="LEFT">date[13]</TD></TR>
       <TR><TD PORT="process_passing_date" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="174" HEIGHT="16">process_passing_date</TD></TR></TABLE></TD><TD PORT="process_passing_date.type" ALIGN="LEFT">date[13]</TD></TR>
       <TR><TD PORT="process_finished" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="174" HEIGHT="16">process_finished</TD></TR></TABLE></TD><TD PORT="process_finished.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="additionalrentalincome" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="174" HEIGHT="16">additionalrentalincome</TD></TR></TABLE></TD><TD PORT="additionalrentalincome.type" ALIGN="LEFT">numeric[11,2]</TD></TR>
     </TABLE>>
     URL="rz_pipeline_applications.html"
     target="_top"

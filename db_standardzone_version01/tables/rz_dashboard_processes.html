@@ -171,6 +171,40 @@
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="externalreferencecontract">externalreferencecontract</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="externalreferencerequest">externalreferencerequest</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><span id="processstatus">processstatus</span></td>
                                     <td>int4</td>
                                     <td>10</td>
@@ -379,7 +413,7 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="rz_dashboard_processes.html" target="_top" title="rz_dashboard_processes" alt="" coords="5,5,401,491">
+<area shape="rect" id="node1" href="rz_dashboard_processes.html" target="_top" title="rz_dashboard_processes" alt="" coords="5,5,401,549">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/rz_dashboard_processes.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -397,7 +431,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT p.processnumber,&#10;    p.processtype,&#10;    p.whitelabel,&#10;    p.contractnumber,&#10;    p.processstatus,&#10;    p.startdatetime,&#10;    p.enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.loanpassingdate,&#10;    p.numberofstatuschanges,&#10;    pe.bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    pe.conditionalofferdate,&#10;    pe.conditionalofferdate_hours&#10;   FROM (wlc.sz_process p&#10;     LEFT JOIN wlc.sz_processevents pe ON ((pe.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype,&#10;    p.whitelabel,&#10;    p.contractnumber,&#10;    p.processstatus,&#10;    p.startdatetime,&#10;    p.enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.loanpassingdate,&#10;    p.numberofstatuschanges,&#10;    pe.bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    pe.conditionalofferdate,&#10;    pe.conditionalofferdate_hours&#10;   FROM (wln.sz_process p&#10;     LEFT JOIN wlc.sz_processevents pe ON ((pe.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype,&#10;    p.whitelabel,&#10;    p.contractnumber,&#10;    p.processstatus,&#10;    p.startdatetime,&#10;    p.enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.loanpassingdate,&#10;    p.numberofstatuschanges,&#10;    pe.bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    pe.conditionalofferdate,&#10;    pe.conditionalofferdate_hours&#10;   FROM (wlr.sz_process p&#10;     LEFT JOIN wlc.sz_processevents pe ON ((pe.processnumber = p.processnumber))); SELECT p.processnumber,&#10;    p.processtype,&#10;    p.whitelabel,&#10;    p.contractnumber,&#10;    p.processstatus,&#10;    p.startdatetime,&#10;    p.enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.loanpassingdate,&#10;    p.numberofstatuschanges,&#10;    pe.bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    pe.conditionalofferdate,&#10;    pe.conditionalofferdate_hours&#10;   FROM (wls.sz_process p&#10;     LEFT JOIN wlc.sz_processevents pe ON ((pe.processnumber = p.processnumber)));</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT p.processnumber,&#10;    p.processtype,&#10;    p.whitelabel,&#10;    p.contractnumber,&#10;    p.externalreferencecontract,&#10;    p.externalreferencerequest,&#10;    p.processstatus,&#10;    p.startdatetime,&#10;    p.enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.loanpassingdate,&#10;    p.numberofstatuschanges,&#10;    pe.bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    pe.conditionalofferdate,&#10;    pe.conditionalofferdate_hours&#10;   FROM (wlc.sz_process p&#10;     LEFT JOIN wlc.sz_processevents pe ON ((pe.processnumber = p.processnumber)));</textarea>
                             <div style="padding-top: 5px;"><hr></div>
                             <div class="box box-solid">
                                 <div class="box-header with-border">

@@ -3,13 +3,15 @@ sz_process
 sz_user
 sz_agreement
 sz_collateral
+sz_collateral_object
 sz_businessrules
 sz_contactperson
+sz_otherproperties
 sz_processevents
 sz_counterpartyrating
 sz_facility
 sz_financinggoal
 sz_processstatuschange
-sz_collateral_object
+sz_collateral_object_rental
 sz_borrower
 sz_metadata
