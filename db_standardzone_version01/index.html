@@ -78,7 +78,7 @@
                         <div class="col-md-12">
                             <div class="callout callout-info">
                                 <h4>SchemaSpy Analysis of data-analytics</h4>
-                                <p>Generated on Thu Jun 04 13:35 GMT 2020</p>
+                                <p>Generated on Fri Aug 20 06:22 GMT 2021</p>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                                 <span class="info-box-icon bg-aqua"><i class="fa fa-table"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">TABLES</span>
-                                    <span class="info-box-number">16</span>
+                                    <span class="info-box-number">19</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -115,7 +115,7 @@
                                 <span class="info-box-icon bg-teal"><i class="fa fa-table"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">VIEWS</span>
-                                    <span class="info-box-number">4</span>
+                                    <span class="info-box-number">9</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -127,7 +127,7 @@
                                 <span class="info-box-icon bg-green"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">COLUMNS</span>
-                                    <span class="info-box-number">220</span>
+                                    <span class="info-box-number">384</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -151,7 +151,7 @@
                                 <span class="info-box-icon bg-red-active"><i class="fa fa-question" aria-hidden="true"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Anomalies</span>
-                                    <span class="info-box-number">6</span>
+                                    <span class="info-box-number">9</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -177,7 +177,7 @@
                             <span class="label label-primary pull-right"><i class="fa fa-cog fa-2x"></i></span>
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <p>Database Type: PostgreSQL - 12.2 (Debian 12.2-2.pgdg100+1)</p>
+                            <p>Database Type: PostgreSQL - 13.2 (Debian 13.2-1.pgdg100+1)</p>
                         </div><!-- /.box-body -->
                     </div>
                     <div class="box box-primary">
@@ -202,23 +202,23 @@
                                         <td class="detail"><a href="tables/sz_processstatuschange.html">sz_processstatuschange</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">2</td>
-                                        <td class="detail" align="right">7</td>
+                                        <td class="detail" align="right">9</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_fiatlast.html">sz_fiatlast</a></td>
+                                        <td class="detail"><a href="tables/sz_relation.html">sz_relation</a></td>
                                         <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
+                                        <td class="detail" align="right">2</td>
                                         <td class="detail" align="right">6</td>
                                         <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"></td>
+                                        <td class="comment detail" style="display: table-cell;"><p>Associative table implementing the many-to-many relation between Agreement and Counterparty</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_collateral_object.html">sz_collateral_object</a></td>
-                                        <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">9</td>
+                                        <td class="detail" align="right">3</td>
+                                        <td class="detail" align="right">3</td>
+                                        <td class="detail" align="right">13</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
@@ -226,73 +226,97 @@
                                         <td class="detail"><a href="tables/sz_processevents.html">sz_processevents</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">5</td>
+                                        <td class="detail" align="right">9</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_portalrequest.html">sz_portalrequest</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">21</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_counterpartyrating.html">sz_counterpartyrating</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">2</td>
+                                        <td class="detail" align="right">8</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_businessrules.html">sz_businessrules</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">1</td>
+                                        <td class="detail" align="right">11</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_fee.html">sz_fee</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">14</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_contactperson.html">sz_contactperson</a></td>
-                                        <td class="detail" align="right">1</td>
                                         <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">5</td>
+                                        <td class="detail" align="right">1</td>
+                                        <td class="detail" align="right">8</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_financinggoal.html">sz_financinggoal</a></td>
                                         <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">5</td>
+                                        <td class="detail" align="right">2</td>
+                                        <td class="detail" align="right">6</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_collateral.html">sz_collateral</a></td>
-                                        <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">9</td>
+                                        <td class="detail" align="right">3</td>
+                                        <td class="detail" align="right">2</td>
+                                        <td class="detail" align="right">11</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_counterparty.html">sz_counterparty</a></td>
-                                        <td class="detail" align="right">3</td>
+                                        <td class="detail" align="right">6</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">21</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_process.html">sz_process</a></td>
+                                        <td class="detail" align="right">6</td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">17</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_process.html">sz_process</a></td>
-                                        <td class="detail" align="right">5</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">10</td>
-                                        <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"></td>
-                                    </tr>
-                                    <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_agreement.html">sz_agreement</a></td>
-                                        <td class="detail" align="right">5</td>
-                                        <td class="detail" align="right">2</td>
-                                        <td class="detail" align="right">11</td>
-                                        <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"></td>
-                                    </tr>
-                                    <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_fiatresult.html">sz_fiatresult</a></td>
-                                        <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">11</td>
-                                        <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"></td>
-                                    </tr>
-                                    <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_borrower.html">sz_borrower</a></td>
-                                        <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">2</td>
                                         <td class="detail" align="right">6</td>
+                                        <td class="detail" align="right">3</td>
+                                        <td class="detail" align="right">11</td>
                                         <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"><p>Associative table implementing the many-to-many relation between Agreement and Counterparty</p></td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_collateral_object_rental.html">sz_collateral_object_rental</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">3</td>
+                                        <td class="detail" align="right">13</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_metadata.html">sz_metadata</a></td>
@@ -311,18 +335,18 @@
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_financialstatement.html">sz_financialstatement</a></td>
+                                        <td class="detail"><a href="tables/sz_facility.html">sz_facility</a></td>
                                         <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">10</td>
+                                        <td class="detail" align="right">2</td>
+                                        <td class="detail" align="right">40</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_facility.html">sz_facility</a></td>
+                                        <td class="detail"><a href="tables/sz_otherproperties.html">sz_otherproperties</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">31</td>
+                                        <td class="detail" align="right">4</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
@@ -335,15 +359,23 @@
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/rz_pipeline_collaterals.html">rz_pipeline_collaterals</a></td>
+                                        <td class="detail"><a href="tables/rz_pipeline_coll_object.html">rz_pipeline_coll_object</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">12</td>
+                                        <td class="detail" align="right">10</td>
                                         <td class="detail" align="right">View</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/rz_dashboard_statuschange.html">rz_dashboard_statuschange</a></td>
+                                        <td class="detail"><a href="tables/rz_dashboard_objectpostalcode.html">rz_dashboard_objectpostalcode</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">20</td>
+                                        <td class="detail" align="right">View</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/rz_pipeline_coll_object_rental.html">rz_pipeline_coll_object_rental</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">11</td>
@@ -351,10 +383,42 @@
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/rz_pipeline_collaterals.html">rz_pipeline_collaterals</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">13</td>
+                                        <td class="detail" align="right">View</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/rz_dashboard_statuschange.html">rz_dashboard_statuschange</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">14</td>
+                                        <td class="detail" align="right">View</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/rz_dashboard_processes.html">rz_dashboard_processes</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">21</td>
+                                        <td class="detail" align="right">View</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/rz_dashboard_portal.html">rz_dashboard_portal</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">14</td>
+                                        <td class="detail" align="right">View</td>
+                                        <td class="comment detail" style="display: table-cell;"></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/rz_pipeline_applications.html">rz_pipeline_applications</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">31</td>
+                                        <td class="detail" align="right">35</td>
                                         <td class="detail" align="right">View</td>
                                         <td class="comment detail" style="display: table-cell;"></td>
                                     </tr>
@@ -365,7 +429,7 @@
                 <!-- /.content -->
                 <script>
                     var config = {
-                        pagination: false
+                        pagination: true
                     }
                 </script>
             </div>

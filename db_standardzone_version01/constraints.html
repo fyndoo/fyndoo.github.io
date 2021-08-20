@@ -134,36 +134,54 @@
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_sz_fiatlast_process</td>
+                                        <td>FK_borrower_counterparty</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_fiatlast.html'>sz_fiatlast</a><span>.processnumber</span></td>
+                                                    <td><a href='tables/sz_relation.html'>sz_relation</a><span>.counterpartyreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_relation.html'>sz_relation</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_process.html'>sz_process</a><span>.processnumber</span></td>
+                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
-                                        <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_cover_agreement</td>
+                                        <td>FK_collateral_object</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.collateralreferenceid</span></td>
+                                                </tr>
                                                 <tr>
                                                     <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.agreementreferenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
+                                                    <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -188,11 +206,74 @@
                                         <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
                                     </tr>
                                     <tr>
+                                        <td>FK_cprating_counterparty</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_counterpartyrating.html'>sz_counterpartyrating</a><span>.counterpartyreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_counterpartyrating.html'>sz_counterpartyrating</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FK_sz_businessrules_process</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_businessrules.html'>sz_businessrules</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_process.html'>sz_process</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FK_process_contactperson</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_contactperson.html'>sz_contactperson</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_process.html'>sz_process</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
                                         <td>FK_financinggoal_agreement</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_financinggoal.html'>sz_financinggoal</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_financinggoal.html'>sz_financinggoal</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -200,6 +281,9 @@
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -212,6 +296,9 @@
                                                 <tr>
                                                     <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.agreementreferenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral.html'>sz_collateral</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td>
@@ -219,23 +306,8 @@
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
                                                 </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>FK_process_contactperson</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_process.html'>sz_process</a><span>.contactpersonreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_contactperson.html'>sz_contactperson</a><span>.referenceid</span></td>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -266,59 +338,8 @@
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.mainborrowerreferenceid</span></td>
                                                 </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.referenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>FK_sz_fiatresult_process</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_fiatresult.html'>sz_fiatresult</a><span>.processnumber</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_process.html'>sz_process</a><span>.processnumber</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>FK_borrower_agreement</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_borrower.html'>sz_borrower</a><span>.agreementreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>FK_borrower_counterparty</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_borrower.html'>sz_borrower</a><span>.counterpartyreferenceid</span></td>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -327,23 +348,38 @@
                                                 <tr>
                                                     <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.referenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_financialstmt_counterparty</td>
+                                        <td>FK_collateral_object_rental</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_financialstatement.html'>sz_financialstatement</a><span>.counterpartyreferenceid</span></td>
+                                                    <td><a href='tables/sz_collateral_object_rental.html'>sz_collateral_object_rental</a><span>.collateral_objectreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral_object_rental.html'>sz_collateral_object_rental</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral_object_rental.html'>sz_collateral_object_rental</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_counterparty.html'>sz_counterparty</a><span>.referenceid</span></td>
+                                                    <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.referenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_collateral_object.html'>sz_collateral_object</a><span>.processnumber</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -356,6 +392,9 @@
                                                 <tr>
                                                     <td><a href='tables/sz_facility.html'>sz_facility</a><span>.agreementreferenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_facility.html'>sz_facility</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td>
@@ -363,9 +402,30 @@
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
+                                                </tr>
                                             </table>
                                         </td>
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FK_sz_otherproperties_process</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_otherproperties.html'>sz_otherproperties</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_process.html'>sz_process</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -397,7 +457,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: false
+                        pagination: true
                     }
                 </script>
             </div>
