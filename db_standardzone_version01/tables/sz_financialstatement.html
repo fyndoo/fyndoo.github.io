@@ -103,7 +103,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><span id="id">id</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="id">id</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title=''></td>
@@ -154,7 +154,7 @@
                                     <td><p>moment of last update</p></td>
                                 </tr>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="counterpartyreferenceid">counterpartyreferenceid</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="counterpartyreferenceid">counterpartyreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title=''></td>
@@ -167,33 +167,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_financialstatement.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_financialstmt_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td title="sz_financialstatement.counterpartyreferenceid references sz_counterparty.referenceid via FK_financialstmt_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.referenceid</span></td>
                                                 <td class="constraint detail">FK_financialstmt_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
                                     </td>
                                     <td><p>Source=FINAN : Unique identifier of a counterparty</p></td>
-                                </tr>
-                                <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_financialstatement.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_financialstmt_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_financialstmt_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><span id="statementdate">statementdate</span></td>
@@ -322,10 +301,10 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_financialstatement</td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_financialstatementid</td>
                                     <td>Primary key</td>
-                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
-                                    <td>counterpartyreferenceid + processnumber</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>id</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -350,17 +329,17 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_financialstatement.html" target="_top" title="sz_financialstatement" alt="" coords="311,5,687,397">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,96,267,243">
+<area shape="rect" id="node1" href="sz_financialstatement.html" target="_top" title="sz_financialstatement" alt="" coords="311,5,687,368">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,96,267,213">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_financialstatement.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="404,465,593,553">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,290,267,437">
-<area shape="rect" id="node3" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="731,465,907,553">
-<area shape="rect" id="node4" href="sz_financialstatement.html" target="_top" title="sz_financialstatement" alt="" coords="311,56,687,448">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="404,5,593,93">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,71,267,188">
+<area shape="rect" id="node3" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="731,40,907,128">
+<area shape="rect" id="node4" href="sz_financialstatement.html" target="_top" title="sz_financialstatement" alt="" coords="311,147,687,509">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_financialstatement.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -371,7 +350,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: true
+                        pagination: false
                     }
                 </script>
             </div>

@@ -1,5 +1,5 @@
-date=2021-03-15 20:57:05+0000
-os=Linux 4.19.128-microsoft-standard
+date=2020-06-04 13:35:29+0000
+os=Linux 4.19.76-linuxkit
 schemaspy-version=6.1.1-SNAPSHOT
-schemaspy-build=6.1.1-SNAPSHOT.41 2020-10-02 14:04:37
+schemaspy-build=6.1.1-SNAPSHOT.41 2020-05-13 23:48:28
 diagramImplementation=Graphviz dot 2.38

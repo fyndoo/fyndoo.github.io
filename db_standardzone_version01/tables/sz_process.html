@@ -104,8 +104,8 @@
                                 <tbody>
                                 <tr>
                                     <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
+                                    <td>varchar</td>
+                                    <td>255</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -116,16 +116,12 @@
                                                 <td class="constraint detail">FK_agreement_process<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_businessrules.processnumber references sz_process.processnumber via FK_sz_businessrules_process"><a href='sz_businessrules.html'>sz_businessrules</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_sz_businessrules_process<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="sz_fiatlast.processnumber references sz_process.processnumber via FK_sz_fiatlast_process"><a href='sz_fiatlast.html'>sz_fiatlast</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_sz_fiatlast_process<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_contactperson.processnumber references sz_process.processnumber via FK_process_contactperson"><a href='sz_contactperson.html'>sz_contactperson</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_process_contactperson<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_otherproperties.processnumber references sz_process.processnumber via FK_sz_otherproperties_process"><a href='sz_otherproperties.html'>sz_otherproperties</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_sz_otherproperties_process<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="sz_fiatresult.processnumber references sz_process.processnumber via FK_sz_fiatresult_process"><a href='sz_fiatresult.html'>sz_fiatresult</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_sz_fiatresult_process<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
                                                 <td title="sz_processevents.processnumber references sz_process.processnumber via FK_sz_processevents_process"><a href='sz_processevents.html'>sz_processevents</a><span class='relatedKey'>.processnumber</span></td>
@@ -162,57 +158,6 @@
                                 </tr>
                                 <tr>
                                     <td><span id="whitelabel">whitelabel</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="contractnumber">contractnumber</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="externalreferencecontract">externalreferencecontract</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="externalreferencerequest">externalreferencerequest</span></td>
                                     <td>varchar</td>
                                     <td>255</td>
                                     <td title='nullable'>√</td>
@@ -281,8 +226,8 @@
                                 </tr>
                                 <tr>
                                     <td><span id="durationtimehours">durationtimehours</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
+                                    <td>int4</td>
+                                    <td>10</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -314,9 +259,9 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="loanpassingdate">loanpassingdate</span></td>
-                                    <td>date</td>
-                                    <td>13</td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="contactpersonreferenceid">contactpersonreferenceid</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -326,14 +271,18 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_process.contactpersonreferenceid references sz_contactperson.referenceid via FK_process_contactperson"><a href='sz_contactperson.html'>sz_contactperson</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_process_contactperson<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="numberofstatuschanges">numberofstatuschanges</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
+                                    <td><span id="loanpassingdate">loanpassingdate</span></td>
+                                    <td>date</td>
+                                    <td>13</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -400,31 +349,32 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="457,5,713,181">
-<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,428,396,879">
-<area shape="rect" id="node3" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="479,199,691,316">
-<area shape="rect" id="node4" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="477,333,694,480">
-<area shape="rect" id="node5" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="467,497,704,615">
-<area shape="rect" id="node6" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="440,632,731,749">
-<area shape="rect" id="node7" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="451,767,720,943">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="707,5,963,181">
+<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="267,360,652,723">
+<area shape="rect" id="node5" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="5,597,223,715">
+<area shape="rect" id="node3" href="sz_fiatlast.html" target="_top" title="sz_fiatlast" alt="" coords="727,199,943,345">
+<area shape="rect" id="node4" href="sz_fiatresult.html" target="_top" title="sz_fiatresult" alt="" coords="696,363,973,480">
+<area shape="rect" id="node6" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="727,497,943,615">
+<area shape="rect" id="node7" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="700,632,969,808">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_process.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="457,103,713,279">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="97,73,305,161">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,443,396,893">
-<area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="791,5,967,93">
-<area shape="rect" id="node5" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="479,565,691,683">
-<area shape="rect" id="node6" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="791,321,968,409">
-<area shape="rect" id="node7" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="477,700,694,847">
-<area shape="rect" id="node8" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="801,111,957,199">
-<area shape="rect" id="node9" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="775,216,984,304">
-<area shape="rect" id="node10" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="467,296,704,413">
-<area shape="rect" id="node11" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="440,431,731,548">
-<area shape="rect" id="node12" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="451,864,720,1040">
-<area shape="rect" id="node13" href="sz_user.html" target="_top" title="sz_user" alt="" coords="132,925,269,1013">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="707,160,963,336">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="355,125,563,213">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="267,503,652,865">
+<area shape="rect" id="node11" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="5,740,223,857">
+<area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="1046,5,1222,93">
+<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1045,111,1223,199">
+<area shape="rect" id="node6" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="1017,216,1251,304">
+<area shape="rect" id="node7" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1056,321,1212,409">
+<area shape="rect" id="node8" href="sz_fiatlast.html" target="_top" title="sz_fiatlast" alt="" coords="727,353,943,500">
+<area shape="rect" id="node9" href="sz_fiatresult.html" target="_top" title="sz_fiatresult" alt="" coords="696,517,973,635">
+<area shape="rect" id="node10" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1029,427,1239,515">
+<area shape="rect" id="node12" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="727,652,943,769">
+<area shape="rect" id="node13" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="700,809,969,985">
+<area shape="rect" id="node14" href="sz_user.html" target="_top" title="sz_user" alt="" coords="391,883,528,971">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_process.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -435,7 +385,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: true
+                        pagination: false
                     }
                 </script>
             </div>

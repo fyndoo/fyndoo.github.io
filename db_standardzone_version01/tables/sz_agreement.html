@@ -112,19 +112,23 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_borrower.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_borrower_agreement"><a href='sz_borrower.html'>sz_borrower</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td title="sz_borrower.agreementreferenceid references sz_agreement.referenceid via FK_borrower_agreement"><a href='sz_borrower.html'>sz_borrower</a><span class='relatedKey'>.agreementreferenceid</span></td>
                                                 <td class="constraint detail">FK_borrower_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_collateral.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_collateral_agreement"><a href='sz_collateral.html'>sz_collateral</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td title="sz_collateral.agreementreferenceid references sz_agreement.referenceid via FK_collateral_agreement"><a href='sz_collateral.html'>sz_collateral</a><span class='relatedKey'>.agreementreferenceid</span></td>
                                                 <td class="constraint detail">FK_collateral_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_facility.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_facility_agreement"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td title="sz_collateral_object.agreementreferenceid references sz_agreement.referenceid via FK_cover_agreement"><a href='sz_collateral_object.html'>sz_collateral_object</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td class="constraint detail">FK_cover_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_facility.agreementreferenceid references sz_agreement.referenceid via FK_facility_agreement"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.agreementreferenceid</span></td>
                                                 <td class="constraint detail">FK_facility_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_financinggoal.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_financinggoal_agreement"><a href='sz_financinggoal.html'>sz_financinggoal</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td title="sz_financinggoal.agreementreferenceid references sz_agreement.referenceid via FK_financinggoal_agreement"><a href='sz_financinggoal.html'>sz_financinggoal</a><span class='relatedKey'>.agreementreferenceid</span></td>
                                                 <td class="constraint detail">FK_financinggoal_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
@@ -134,47 +138,6 @@
                                         </table>
                                     </td>
                                     <td><p>Source=CAS : Unique identifier of an agreement</p></td>
-                                </tr>
-                                <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_borrower.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_borrower_agreement"><a href='sz_borrower.html'>sz_borrower</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_borrower_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_collateral.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_collateral_agreement"><a href='sz_collateral.html'>sz_collateral</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_collateral_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_facility.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_facility_agreement"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_facility_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_financinggoal.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_financinggoal_agreement"><a href='sz_financinggoal.html'>sz_financinggoal</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_financinggoal_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_agreement.processnumber references sz_process.processnumber via FK_agreement_process"><a href='sz_process.html'>sz_process</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_agreement_process<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_agreement.[mainborrowerreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_agreement_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_agreement_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td><p>FBL: Processnumber which generate the new agreement</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="created">created</span></td>
@@ -241,7 +204,7 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_agreement.[mainborrowerreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_agreement_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td title="sz_agreement.mainborrowerreferenceid references sz_counterparty.referenceid via FK_agreement_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.referenceid</span></td>
                                                 <td class="constraint detail">FK_agreement_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
@@ -333,6 +296,27 @@
                                     </td>
                                     <td><p>Source=CAS : The date the credit agreement was last changed (and lead to a new actual version of this credit agreement)</p></td>
                                 </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_agreement.processnumber references sz_process.processnumber via FK_agreement_process"><a href='sz_process.html'>sz_process</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_agreement_process<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>FBL: Processnumber which generate the new agreement</p></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -358,10 +342,10 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_agreement</td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_agreementreferenceid</td>
                                     <td>Primary key</td>
-                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
-                                    <td>referenceid + processnumber</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>referenceid</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -386,32 +370,33 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="311,255,696,647">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,120,267,267">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,287,267,404">
-<area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="757,5,1004,211">
-<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="767,228,995,404">
-<area shape="rect" id="node6" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="740,421,1021,568">
-<area shape="rect" id="node7" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="767,585,995,732">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="311,263,696,655">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,257,267,375">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="8,559,264,705">
+<area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="757,5,1004,181">
+<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="767,603,995,720">
+<area shape="rect" id="node6" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="764,199,997,316">
+<area shape="rect" id="node7" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="740,333,1021,451">
+<area shape="rect" id="node8" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="767,468,995,585">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_agreement.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="311,283,696,675">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,159,267,305">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,848,267,965">
-<area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="757,5,1004,211">
-<area shape="rect" id="node5" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="398,903,609,991">
-<area shape="rect" id="node6" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="767,228,995,404">
-<area shape="rect" id="node7" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="1065,260,1299,348">
-<area shape="rect" id="node8" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="395,1008,612,1096">
-<area shape="rect" id="node9" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="375,141,631,229">
-<area shape="rect" id="node10" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="740,421,1021,568">
-<area shape="rect" id="node11" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="767,585,995,732">
-<area shape="rect" id="node12" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="389,1113,618,1201">
-<area shape="rect" id="node13" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="395,692,611,780">
-<area shape="rect" id="node14" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="369,797,638,885">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="572,263,957,655">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="267,159,528,276">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="269,775,525,921">
+<area shape="rect" id="node12" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="5,807,223,895">
+<area shape="rect" id="node4" href="sz_borrower.html" target="_top" title="sz_borrower" alt="" coords="1019,5,1265,181">
+<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1028,603,1256,720">
+<area shape="rect" id="node6" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="1025,199,1259,316">
+<area shape="rect" id="node7" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1001,333,1283,451">
+<area shape="rect" id="node8" href="sz_fiatlast.html" target="_top" title="sz_fiatlast" alt="" coords="685,777,844,865">
+<area shape="rect" id="node9" href="sz_fiatresult.html" target="_top" title="sz_fiatresult" alt="" coords="677,883,853,971">
+<area shape="rect" id="node10" href="sz_financialstatement.html" target="_top" title="sz_financialstatement" alt="" coords="637,93,892,181">
+<area shape="rect" id="node11" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1028,468,1256,585">
+<area shape="rect" id="node13" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="657,988,873,1076">
+<area shape="rect" id="node14" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="630,672,899,760">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_agreement.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -422,7 +407,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: true
+                        pagination: false
                     }
                 </script>
             </div>
