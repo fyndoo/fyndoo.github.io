@@ -1,9 +1,11 @@
 sz_counterparty
 sz_process
+sz_annualaccounts
 sz_user
 sz_agreement
 sz_collateral
 sz_collateral_object
+sz_annualaccountsdetails
 sz_businessrules
 sz_contactperson
 sz_otherproperties

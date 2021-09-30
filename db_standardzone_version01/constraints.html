@@ -80,7 +80,7 @@
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="ion ion-key"></i>
-                            <h3 class="box-title">15 Foreign Key Constraints</h3>
+                            <h3 class="box-title">16 Foreign Key Constraints</h3>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -308,6 +308,24 @@
                                                 </tr>
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FK_annualaccounts_details</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_annualaccountsdetails.html'>sz_annualaccountsdetails</a><span>.documentid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_annualaccounts.html'>sz_annualaccounts</a><span>.documentid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
