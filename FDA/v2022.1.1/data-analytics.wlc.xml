@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><database name="data-analytics" schema="wlc" type="PostgreSQL - 14.0 (Debian 14.0-1.pgdg110+1)">
+<?xml version="1.0" encoding="UTF-8"?><database name="data-analytics" schema="wlc" type="PostgreSQL - 14.1 (Debian 14.1-1.pgdg110+1)">
    <sequences>
       <sequence increment="1" name="fin_application_events_id_seq" startValue="1"/>
    </sequences>
@@ -187,8 +187,8 @@
             <child column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral"/>
             <child column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_facility"/>
             <child column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financinggoal"/>
-            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
             <parent column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="created" nullable="false" remarks="moment of row creation" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="now()" digits="6" id="3" name="modified" nullable="false" remarks="moment of last update" size="29" type="timestamp" typeCode="93"/>

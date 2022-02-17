@@ -87,7 +87,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -397,7 +403,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT rel.agreementreferenceid AS agreement_id,&#10;    cp.referenceid AS counterparty_id,&#10;    cp.legalentity,&#10;    cp.datelastchanged,&#10;    cp.address,&#10;    cp.postalcode,&#10;    cp.isholding,&#10;    cp.counterpartysegmentcode,&#10;    cp.counterpartycategorycode,&#10;    cp.organisationname,&#10;    cp.numberofemployees,&#10;    cp.cocnumber,&#10;    cp.sectorcodestandard,&#10;    cp.legalform,&#10;    cp.countrycode&#10;   FROM (wlc.sz_counterparty cp&#10;     JOIN ( SELECT DISTINCT sz_relation.counterpartyreferenceid,&#10;            sz_relation.agreementreferenceid,&#10;            sz_relation.processnumber&#10;           FROM wlc.sz_relation) rel ON ((((rel.counterpartyreferenceid)::text = (cp.referenceid)::text) AND (rel.processnumber = cp.processnumber))))&#10;  ORDER BY rel.agreementreferenceid; SELECT rel.agreementreferenceid AS agreement_id,&#10;    cp.referenceid AS counterparty_id,&#10;    cp.legalentity,&#10;    cp.datelastchanged,&#10;    cp.address,&#10;    cp.postalcode,&#10;    cp.isholding,&#10;    cp.counterpartysegmentcode,&#10;    cp.counterpartycategorycode,&#10;    cp.organisationname,&#10;    cp.numberofemployees,&#10;    cp.cocnumber,&#10;    cp.sectorcodestandard,&#10;    cp.legalform,&#10;    cp.countrycode&#10;   FROM (wlv.sz_counterparty cp&#10;     JOIN ( SELECT DISTINCT sz_relation.counterpartyreferenceid,&#10;            sz_relation.agreementreferenceid,&#10;            sz_relation.processnumber&#10;           FROM wlv.sz_relation) rel ON ((((rel.counterpartyreferenceid)::text = (cp.referenceid)::text) AND (rel.processnumber = cp.processnumber))))&#10;  ORDER BY rel.agreementreferenceid;</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT rel.agreementreferenceid AS agreement_id,&#10;    cp.referenceid AS counterparty_id,&#10;    cp.legalentity,&#10;    cp.datelastchanged,&#10;    cp.address,&#10;    cp.postalcode,&#10;    cp.isholding,&#10;    cp.counterpartysegmentcode,&#10;    cp.counterpartycategorycode,&#10;    cp.organisationname,&#10;    cp.numberofemployees,&#10;    cp.cocnumber,&#10;    cp.sectorcodestandard,&#10;    cp.legalform,&#10;    cp.countrycode&#10;   FROM (wlc.sz_counterparty cp&#10;     JOIN ( SELECT DISTINCT sz_relation.counterpartyreferenceid,&#10;            sz_relation.agreementreferenceid,&#10;            sz_relation.processnumber&#10;           FROM wlc.sz_relation) rel ON ((((rel.counterpartyreferenceid)::text &#61; (cp.referenceid)::text) AND (rel.processnumber &#61; cp.processnumber))))&#10;  ORDER BY rel.agreementreferenceid; SELECT rel.agreementreferenceid AS agreement_id,&#10;    cp.referenceid AS counterparty_id,&#10;    cp.legalentity,&#10;    cp.datelastchanged,&#10;    cp.address,&#10;    cp.postalcode,&#10;    cp.isholding,&#10;    cp.counterpartysegmentcode,&#10;    cp.counterpartycategorycode,&#10;    cp.organisationname,&#10;    cp.numberofemployees,&#10;    cp.cocnumber,&#10;    cp.sectorcodestandard,&#10;    cp.legalform,&#10;    cp.countrycode&#10;   FROM (wlv.sz_counterparty cp&#10;     JOIN ( SELECT DISTINCT sz_relation.counterpartyreferenceid,&#10;            sz_relation.agreementreferenceid,&#10;            sz_relation.processnumber&#10;           FROM wlv.sz_relation) rel ON ((((rel.counterpartyreferenceid)::text &#61; (cp.referenceid)::text) AND (rel.processnumber &#61; cp.processnumber))))&#10;  ORDER BY rel.agreementreferenceid;</textarea>
                             <div style="padding-top: 5px;"><hr></div>
                             <div class="box box-solid">
                                 <div class="box-header with-border">

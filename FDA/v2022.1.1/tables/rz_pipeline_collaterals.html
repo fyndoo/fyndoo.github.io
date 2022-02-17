@@ -87,7 +87,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -363,7 +369,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT col.agreementreferenceid AS agreement_id,&#10;    col.referenceid AS collateral_id,&#10;    col.collateraltype,&#10;    col.definitioncode,&#10;    col.description,&#10;    col.valuationdate,&#10;    col.valuationcurrency,&#10;    col.valuationamount,&#10;    colobj.referenceid AS collateral_object_id,&#10;    colobj.postalcode AS object_postalcode,&#10;    colobj.place AS object_place,&#10;    colobj.marketvalue AS object_marketvalue,&#10;    colobj.purchasevalue AS object_purchasevalue&#10;   FROM (wlc.sz_collateral col&#10;     LEFT JOIN wlc.sz_collateral_object colobj ON ((((col.agreementreferenceid)::text = (colobj.agreementreferenceid)::text) AND (col.processnumber = colobj.processnumber)))); SELECT col.agreementreferenceid AS agreement_id,&#10;    col.referenceid AS collateral_id,&#10;    col.collateraltype,&#10;    col.definitioncode,&#10;    col.description,&#10;    col.valuationdate,&#10;    col.valuationcurrency,&#10;    col.valuationamount,&#10;    colobj.referenceid AS collateral_object_id,&#10;    colobj.postalcode AS object_postalcode,&#10;    colobj.place AS object_place,&#10;    colobj.marketvalue AS object_marketvalue,&#10;    colobj.purchasevalue AS object_purchasevalue&#10;   FROM (wlv.sz_collateral col&#10;     LEFT JOIN wlv.sz_collateral_object colobj ON ((((col.agreementreferenceid)::text = (colobj.agreementreferenceid)::text) AND (col.processnumber = colobj.processnumber))));</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT col.agreementreferenceid AS agreement_id,&#10;    col.referenceid AS collateral_id,&#10;    col.collateraltype,&#10;    col.definitioncode,&#10;    col.description,&#10;    col.valuationdate,&#10;    col.valuationcurrency,&#10;    col.valuationamount,&#10;    colobj.referenceid AS collateral_object_id,&#10;    colobj.postalcode AS object_postalcode,&#10;    colobj.place AS object_place,&#10;    colobj.marketvalue AS object_marketvalue,&#10;    colobj.purchasevalue AS object_purchasevalue&#10;   FROM (wlc.sz_collateral col&#10;     LEFT JOIN wlc.sz_collateral_object colobj ON ((((col.agreementreferenceid)::text &#61; (colobj.agreementreferenceid)::text) AND (col.processnumber &#61; colobj.processnumber)))); SELECT col.agreementreferenceid AS agreement_id,&#10;    col.referenceid AS collateral_id,&#10;    col.collateraltype,&#10;    col.definitioncode,&#10;    col.description,&#10;    col.valuationdate,&#10;    col.valuationcurrency,&#10;    col.valuationamount,&#10;    colobj.referenceid AS collateral_object_id,&#10;    colobj.postalcode AS object_postalcode,&#10;    colobj.place AS object_place,&#10;    colobj.marketvalue AS object_marketvalue,&#10;    colobj.purchasevalue AS object_purchasevalue&#10;   FROM (wlv.sz_collateral col&#10;     LEFT JOIN wlv.sz_collateral_object colobj ON ((((col.agreementreferenceid)::text &#61; (colobj.agreementreferenceid)::text) AND (col.processnumber &#61; colobj.processnumber))));</textarea>
                             <div style="padding-top: 5px;"><hr></div>
                             <div class="box box-solid">
                                 <div class="box-header with-border">
