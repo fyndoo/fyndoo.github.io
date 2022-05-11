@@ -1,5 +1,11 @@
 FDA Standard Zone:
 
+[Version 2022.2.x](/v2022.2.x/relationships.html)
+* Work in progress (status of april 2022)
+
+[Version 2022.1.2](/v2022.1.2/relationships.html)
+* Changed unique key constaints of sz_annualaccountsdetails to a primary key constraint 
+
 [Version 2022.1.1](/v2022.1.1/relationships.html)
 * Added externalreference to sz_counterparty
 * Added externalreference to sz_agreement
@@ -7,5 +13,3 @@ FDA Standard Zone:
 * Added externalreference to sz_collateral_object
 
 [Version 2022.1](/v2022.1/relationships.html)
-
-
