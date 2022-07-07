@@ -18,5 +18,6 @@ sz_financinggoal
 sz_processstatuschange
 sz_relation
 sz_collateral_object_rental
+sz_collateral_object_taxation
 sz_metadata
 sz_portalrequest

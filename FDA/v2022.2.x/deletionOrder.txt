@@ -1,5 +1,6 @@
 sz_portalrequest
 sz_metadata
+sz_collateral_object_taxation
 sz_collateral_object_rental
 sz_relation
 sz_processstatuschange

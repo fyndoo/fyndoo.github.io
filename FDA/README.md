@@ -1,7 +1,7 @@
 FDA Standard Zone:
 
 [Version 2022.2.x](/v2022.2.x/relationships.html)
-* Work in progress (status of april 2022)
+* [Changelog from 2022.1 to 2022.2](changelog_2022.1_2022.2.md)
 
 [Version 2022.1.2](/v2022.1.2/relationships.html)
 * Changed unique key constaints of sz_annualaccountsdetails to a primary key constraint 
