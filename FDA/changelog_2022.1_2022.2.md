@@ -1,5 +1,5 @@
-FDA Standard Zone version 2022.2:
-
+Changelog FDA Standard Zone version from 2022.1 to 2022.2:
+-
 * Removed all columns with the name 'modified' and 'created' in the following tables:
   * sz_agreement
   * sz_businessrules

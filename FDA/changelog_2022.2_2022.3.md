@@ -1,4 +1,4 @@
-FDA Standard Zone version 2022.3:
+Changelog FDA Standard Zone version from 2022.2 to 2022.3:
 
 * Foreignkey constraint 'sz_counterparty'
   * Removed FK on 'externalreferenceid' 
