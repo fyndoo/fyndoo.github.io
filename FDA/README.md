@@ -1,8 +1,8 @@
 FDA Standard Zone:
 
-[Version 2022.3.0 WIP ](/v2022.3.x/relationships.html)
+[Version 2022.3.0](/v2022.3.x/relationships.html)
 * [Changelog from 2022.2 to 2022.3](changelog_2022.2_2022.3.md)
-* [Documentation version 2022.3 WIP](DataExport_StandardZone_version2022.3.pdf) 
+* [Documentation version 2022.3](DataExport_StandardZone_version2022.3.pdf) 
 
 [Version 2022.2.0](/v2022.2.x/relationships.html)
 * [Changelog from 2022.1 to 2022.2](changelog_2022.1_2022.2.md)
