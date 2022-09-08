@@ -21,6 +21,9 @@ Changelog FDA Standard Zone version from 2022.2 to 2022.3:
   * Column 'financialsid' can be empty, when no data is available for the counterparty in Fyndoo Financials
   * Column 'financialsid' has no unique constraint, so multiple counterpartyreferenceid can be linked to the same financialsid
 
+* visualisation of the changes
+![alt text](changelog_2022.2_2022.3.png "figure")
+
 
 
 
