@@ -1,7 +1,7 @@
 sz_process
 sz_financials
 sz_user
-sz_annualaccounts_counterparty
+sz_counterparty_financials
 sz_counterparty
 sz_agreement
 sz_collateral

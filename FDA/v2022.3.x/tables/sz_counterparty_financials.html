@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_fee - data-analytics Database</title>
+        <title>sz_counterparty_financials - data-analytics Database</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>sz_fee</h1><br />
+                    <h1>sz_counterparty_financials</h1><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -109,7 +109,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><span id="referenceid">referenceid</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="counterpartyreferenceid">counterpartyreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title=''></td>
@@ -117,86 +117,22 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_counterparty.referenceid references sz_counterparty_financials.counterpartyreferenceid via FK_sz_annualaccounts_cp2"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_sz_annualaccounts_cp2<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Unique identifier of an agreement</p></td>
+                                    <td><p>Identifier of a counterparty</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="processnumber">processnumber</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Unique identifier of an process</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="created">created</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of row creation</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="modified">modified</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of last update</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="facilityreferenceid">facilityreferenceid</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="financialsid">financialsid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="agreementreferenceid">agreementreferenceid</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -206,149 +142,53 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_counterparty_financials.financialsid references sz_financials.financialsid via FK_sz_annualaccounts_cp1"><a href='sz_financials.html'>sz_financials</a><span class='relatedKey'>.financialsid</span></td>
+                                                <td class="constraint detail">FK_sz_annualaccounts_cp1<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="name">name</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="startdate">startdate</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="fiatamountofthefee">fiatamountofthefee</span></td>
-                                    <td>float8</td>
-                                    <td>17,17</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="offeramountofthefee">offeramountofthefee</span></td>
-                                    <td>float8</td>
-                                    <td>17,17</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="fiatpercentageofthefee">fiatpercentageofthefee</span></td>
-                                    <td>float8</td>
-                                    <td>17,17</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="offerpercentageofthefee">offerpercentageofthefee</span></td>
-                                    <td>float8</td>
-                                    <td>17,17</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="frequency">frequency</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="daycountconvention">daycountconvention</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
+                                    <td><p>Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty</p></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_annualaccounts_cp</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>counterpartyreferenceid</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
                     </div>
                     <div class="box box-primary">
                         <div class="box-header with-border">
@@ -364,13 +204,28 @@
                                 <h5>Close relationships within degrees of separation</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_fee.html" target="_top" title="sz_fee" alt="" coords="5,5,377,485">
+<area shape="rect" id="node1" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="632,8,893,155">
+<area shape="rect" id="node2" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="228,5,588,133">
+<area shape="rect" id="node3" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,37,184,131">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_fee.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_counterparty_financials.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="971,25,1160,113">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="632,113,893,260">
+<area shape="rect" id="node5" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="228,111,588,239">
+<area shape="rect" id="node3" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="293,5,523,93">
+<area shape="rect" id="node4" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,73,184,167">
+<area shape="rect" id="node6" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="937,131,1193,219">
+<area shape="rect" id="node7" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="983,236,1148,324">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_counterparty_financials.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>
