@@ -16,7 +16,7 @@ Changelog FDA Standard Zone version from 2022.2 to 2022.3:
   
 * added extra table 'sz_counterparty_financials'
   * Table is used to connect data from Fyndoo Lending to Fyndoo Financials
-  * Column 's' is primarykey
+  * Column 'counterpartyreferenceid' is primarykey
   * Column 'financialsid' is the reference to data in Fyndoo Financials
   * Column 'financialsid' can be empty, when no data is available for the counterparty in Fyndoo Financials
   * Column 'financialsid' has no unique constraint, so multiple counterpartyreferenceid can be linked to the same financialsid
