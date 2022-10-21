@@ -130,40 +130,6 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="created">created</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of row creation</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="modified">modified</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of last update</p></td>
-                                </tr>
-                                <tr>
                                     <td><span id="mainfacilityreferenceid">mainfacilityreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
@@ -533,6 +499,23 @@
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="offerinterestcorrection">offerinterestcorrection</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><span id="loantovalue">loantovalue</span></td>
                                     <td>float8</td>
                                     <td>17,17</td>
@@ -855,6 +838,57 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="interestratename">interestratename</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Interest productname e.g. &lsquo;3 month Euribor + opslag&rsquo;</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="interestratecode">interestratecode</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Interest productcode  e.g. &lsquo;EU.IR.000003&rsquo;</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="interesttype">interesttype</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Interest type e.g. &lsquo;Fixed&rsquo; or &lsquo;Variable&rsquo;</p></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -914,22 +948,23 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="305,5,713,1336">
-<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,125,261,301">
-<area shape="rect" id="node3" href="sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="757,37,1003,213">
+<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="305,5,713,1395">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,67,261,243">
+<area shape="rect" id="node3" href="sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="757,8,1003,184">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_facility.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="257,147,513,323">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,208,213,296">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="28,103,191,191">
-<area shape="rect" id="node4" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="673,216,850,304">
-<area shape="rect" id="node5" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="557,321,965,1652">
-<area shape="rect" id="node6" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="651,5,872,93">
-<area shape="rect" id="node7" href="sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="1009,353,1255,529">
-<area shape="rect" id="node8" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="657,111,866,199">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="257,600,513,776">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,1072,213,1160">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="28,632,191,720">
+<area shape="rect" id="node4" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="673,111,850,199">
+<area shape="rect" id="node5" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="557,216,965,1605">
+<area shape="rect" id="node6" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="651,1623,872,1711">
+<area shape="rect" id="node7" href="sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="1009,219,1255,395">
+<area shape="rect" id="node8" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="657,5,866,93">
+<area shape="rect" id="node9" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="679,1728,844,1816">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_facility.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

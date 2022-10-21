@@ -130,40 +130,6 @@
                                     <td><p>Unique identifier of a collateral</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="created">created</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of row creation</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="modified">modified</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of last update</p></td>
-                                </tr>
-                                <tr>
                                     <td><span id="collateraltype">collateraltype</span></td>
                                     <td>varchar</td>
                                     <td>255</td>
@@ -391,23 +357,25 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="305,5,660,427">
-<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,125,261,301">
-<area shape="rect" id="node3" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="704,67,937,272">
+<area shape="rect" id="node1" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="305,5,643,368">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,67,261,243">
+<area shape="rect" id="node3" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="687,8,920,213">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_collateral.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="257,223,513,399">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,284,213,372">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="28,179,191,267">
-<area shape="rect" id="node4" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="557,216,912,637">
-<area shape="rect" id="node5" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="956,277,1189,483">
-<area shape="rect" id="node6" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="1233,339,1523,427">
-<area shape="rect" id="node7" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="657,655,813,743">
-<area shape="rect" id="node8" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="624,5,845,93">
-<area shape="rect" id="node9" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="630,111,839,199">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="257,501,513,677">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,664,213,752">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="28,533,191,621">
+<area shape="rect" id="node4" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="557,111,895,473">
+<area shape="rect" id="node5" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="939,113,1172,319">
+<area shape="rect" id="node6" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="1225,107,1515,195">
+<area shape="rect" id="node7" href="sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="1216,212,1524,300">
+<area shape="rect" id="node8" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="648,491,804,579">
+<area shape="rect" id="node9" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="615,596,837,684">
+<area shape="rect" id="node10" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="621,5,831,93">
+<area shape="rect" id="node11" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="643,701,809,789">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_collateral.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

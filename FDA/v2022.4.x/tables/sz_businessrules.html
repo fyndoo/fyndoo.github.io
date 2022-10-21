@@ -117,6 +117,10 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_businessrules_parameters.[businessrulereferenceid, processnumber, fiatreferenceid] references sz_businessrules.[referenceid, processnumber, fiatreferenceid] via FK_sz_businessrules_parameters"><a href='sz_businessrules_parameters.html'>sz_businessrules_parameters</a><span class='relatedKey'>.businessrulereferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_businessrules_parameters<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -124,40 +128,6 @@
                                         </table>
                                     </td>
                                     <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="created">created</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of row creation</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="modified">modified</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of last update</p></td>
                                 </tr>
                                 <tr>
                                     <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
@@ -168,6 +138,10 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_businessrules_parameters.[businessrulereferenceid, processnumber, fiatreferenceid] references sz_businessrules.[referenceid, processnumber, fiatreferenceid] via FK_sz_businessrules_parameters"><a href='sz_businessrules_parameters.html'>sz_businessrules_parameters</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_sz_businessrules_parameters<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -189,6 +163,10 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_businessrules_parameters.[businessrulereferenceid, processnumber, fiatreferenceid] references sz_businessrules.[referenceid, processnumber, fiatreferenceid] via FK_sz_businessrules_parameters"><a href='sz_businessrules_parameters.html'>sz_businessrules_parameters</a><span class='relatedKey'>.fiatreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_businessrules_parameters<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -358,20 +336,22 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="311,5,649,397">
-<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,96,267,213">
+<area shape="rect" id="node1" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="311,32,629,365">
+<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,64,267,181">
+<area shape="rect" id="node3" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="673,5,984,211">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_businessrules.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="385,5,575,93">
-<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,571,267,688">
-<area shape="rect" id="node3" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="311,111,649,503">
-<area shape="rect" id="node4" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="371,520,589,608">
-<area shape="rect" id="node5" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="365,625,595,713">
-<area shape="rect" id="node6" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="372,731,588,819">
-<area shape="rect" id="node7" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="345,836,615,924">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="375,5,565,93">
+<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,512,267,629">
+<area shape="rect" id="node3" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="311,111,629,444">
+<area shape="rect" id="node4" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="673,84,984,289">
+<area shape="rect" id="node5" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="361,461,579,549">
+<area shape="rect" id="node6" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="355,567,585,655">
+<area shape="rect" id="node7" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="362,672,578,760">
+<area shape="rect" id="node8" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="335,777,605,865">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_businessrules.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

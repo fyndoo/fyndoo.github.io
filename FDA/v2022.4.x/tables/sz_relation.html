@@ -122,41 +122,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><span id="created">created</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of row creation</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="modified">modified</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of last update</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="agreementreferenceid">agreementreferenceid</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="agreementreferenceid">agreementreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title='nullable'>√</td>
@@ -168,6 +134,10 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_relation.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_relation_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_relation_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td><p>Unique identifier of an agreement</p></td>
@@ -185,6 +155,10 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_relation.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_relation_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_relation_agreement<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                             <tr>
                                                 <td title="sz_relation.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_borrower_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.processnumber</span></td>
                                                 <td class="constraint detail">FK_borrower_counterparty<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
@@ -246,7 +220,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Unique identifier of an agreement</p></td>
+                                    <td><p>Unique identifier of this table.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -307,18 +281,24 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="311,5,684,280">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,96,267,272">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="311,5,567,181">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,97,267,244">
+<area shape="rect" id="node3" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="611,65,956,281">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_relation.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="676,5,865,93">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="279,93,540,269">
-<area shape="rect" id="node3" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="5,155,235,243">
-<area shape="rect" id="node4" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="643,111,899,199">
-<area shape="rect" id="node5" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="584,216,957,491">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="627,223,816,311">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="341,361,549,449">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="364,220,527,308">
+<area shape="rect" id="node5" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="5,359,297,447">
+<area shape="rect" id="node4" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="977,5,1155,93">
+<area shape="rect" id="node6" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="593,359,849,447">
+<area shape="rect" id="node7" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="988,111,1144,199">
+<area shape="rect" id="node8" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="955,216,1177,304">
+<area shape="rect" id="node9" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="961,321,1171,409">
+<area shape="rect" id="node10" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="893,427,1239,643">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_relation.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

@@ -121,40 +121,10 @@
                                                 <td title="sz_collateral_object_rental.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_rental"><a href='sz_collateral_object_rental.html'>sz_collateral_object_rental</a><span class='relatedKey'>.collateral_objectreferenceid</span></td>
                                                 <td class="constraint detail">FK_collateral_object_rental<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="created">created</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="modified">modified</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_collateral_object_taxation.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_taxation"><a href='sz_collateral_object_taxation.html'>sz_collateral_object_taxation</a><span class='relatedKey'>.collateral_objectreferenceid</span></td>
+                                                <td class="constraint detail">FK_collateral_object_taxation<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -197,6 +167,10 @@
                                                 <td title="sz_collateral_object_rental.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_rental"><a href='sz_collateral_object_rental.html'>sz_collateral_object_rental</a><span class='relatedKey'>.agreementreferenceid</span></td>
                                                 <td class="constraint detail">FK_collateral_object_rental<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
+                                            <tr>
+                                                <td title="sz_collateral_object_taxation.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_taxation"><a href='sz_collateral_object_taxation.html'>sz_collateral_object_taxation</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td class="constraint detail">FK_collateral_object_taxation<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -221,6 +195,10 @@
                                             <tr>
                                                 <td title="sz_collateral_object_rental.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_rental"><a href='sz_collateral_object_rental.html'>sz_collateral_object_rental</a><span class='relatedKey'>.processnumber</span></td>
                                                 <td class="constraint detail">FK_collateral_object_rental<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_collateral_object_taxation.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_taxation"><a href='sz_collateral_object_taxation.html'>sz_collateral_object_taxation</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_collateral_object_taxation<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -455,6 +433,108 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="propertysurface">propertysurface</span></td>
+                                    <td>numeric</td>
+                                    <td>11,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="officespacesurface">officespacesurface</span></td>
+                                    <td>numeric</td>
+                                    <td>11,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="street">street</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="country">country</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="rank">rank</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="prioramount">prioramount</span></td>
+                                    <td>numeric</td>
+                                    <td>11,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -514,18 +594,20 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="277,5,633,632">
-<area shape="rect" id="node2" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="5,96,233,272">
-<area shape="rect" id="node3" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="677,67,967,272">
+<area shape="rect" id="node1" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="277,128,616,872">
+<area shape="rect" id="node2" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="5,160,233,336">
+<area shape="rect" id="node3" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="669,5,959,211">
+<area shape="rect" id="node4" href="sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="660,228,968,433">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_collateral_object.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="239,96,467,272">
-<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,143,195,231">
-<area shape="rect" id="node3" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="511,5,867,632">
-<area shape="rect" id="node4" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="911,67,1200,272">
+<area shape="rect" id="node1" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="239,160,467,336">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,207,195,295">
+<area shape="rect" id="node3" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="511,128,849,872">
+<area shape="rect" id="node4" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="903,5,1192,211">
+<area shape="rect" id="node5" href="sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="893,228,1201,433">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_collateral_object.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

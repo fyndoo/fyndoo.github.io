@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>rz_dashboard_objectpostalcode - data-analytics Database</title>
+        <title>dashboard_process_facilities - data-analytics Database</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>rz_dashboard_objectpostalcode</h1><br />
+                    <h1>dashboard_process_facilities</h1><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -109,9 +109,9 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><span id="referenceid">referenceid</span></td>
+                                    <td><span id="whitelabel">whitelabel</span></td>
                                     <td>varchar</td>
-                                    <td>128</td>
+                                    <td>255</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -126,60 +126,9 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="created">created</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="modified">modified</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="collateralreferenceid">collateralreferenceid</span></td>
+                                    <td><span id="processname">processname</span></td>
                                     <td>varchar</td>
-                                    <td>128</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="agreementreferenceid">agreementreferenceid</span></td>
-                                    <td>varchar</td>
-                                    <td>128</td>
+                                    <td>255</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -211,9 +160,9 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="postalcode">postalcode</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
+                                    <td><span id="process_finished">process_finished</span></td>
+                                    <td>bool</td>
+                                    <td>1</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -228,9 +177,9 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="place">place</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
+                                    <td><span id="process_startdatetime">process_startdatetime</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -245,247 +194,26 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="marketvalue">marketvalue</span></td>
+                                    <td><span id="process_enddatetime">process_enddatetime</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="durationtimehours">durationtimehours</span></td>
                                     <td>numeric</td>
                                     <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="purchasevalue">purchasevalue</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="executionvalue">executionvalue</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="energylabel">energylabel</span></td>
-                                    <td>varchar</td>
-                                    <td>25</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="sequenceid">sequenceid</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="externalreferenceid">externalreferenceid</span></td>
-                                    <td>varchar</td>
-                                    <td>128</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="propertyspecifications">propertyspecifications</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="insurance">insurance</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="constructionyear">constructionyear</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="leasehold">leasehold</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="leaseholdenddate">leaseholdenddate</span></td>
-                                    <td>date</td>
-                                    <td>13</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="latitude">latitude</span></td>
-                                    <td>float8</td>
-                                    <td>17,17</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="longitude">longitude</span></td>
-                                    <td>float8</td>
-                                    <td>17,17</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="place_postalcode">place_postalcode</span></td>
-                                    <td>varchar</td>
-                                    <td>180</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="province">province</span></td>
-                                    <td>varchar</td>
-                                    <td>100</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -517,7 +245,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="process_finished">process_finished</span></td>
+                                    <td><span id="numberofstatuschanges">numberofstatuschanges</span></td>
                                     <td>int4</td>
                                     <td>10</td>
                                     <td title='nullable'>√</td>
@@ -534,9 +262,247 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="processname">processname</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
+                                    <td><span id="firsttimeright">firsttimeright</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="bindingofferdate">bindingofferdate</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="bindingofferdate_hours">bindingofferdate_hours</span></td>
+                                    <td>numeric</td>
+                                    <td>11,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="conditionalofferdate">conditionalofferdate</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="conditionalofferdate_hours">conditionalofferdate_hours</span></td>
+                                    <td>numeric</td>
+                                    <td>11,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="finishedsuccessful">finishedsuccessful</span></td>
+                                    <td>bool</td>
+                                    <td>1</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="numberoffacilities">numberoffacilities</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="sum_agreedlimitamount">sum_agreedlimitamount</span></td>
+                                    <td>numeric</td>
+                                    <td>131089</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="sum_limitamount">sum_limitamount</span></td>
+                                    <td>numeric</td>
+                                    <td>131089</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="avg_loantovalue">avg_loantovalue</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="avg_debtservicecoverageratio">avg_debtservicecoverageratio</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="avg_annualinterestrate">avg_annualinterestrate</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="avg_facilityduration">avg_facilityduration</span></td>
+                                    <td>numeric</td>
+                                    <td>131089</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="avg_fixedrateperiod">avg_fixedrateperiod</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="lastmutationdate">lastmutationdate</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -572,9 +538,9 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="rz_dashboard_objectpostalcode.html" target="_top" title="rz_dashboard_objectpostalcode" alt="" coords="5,5,431,813">
+<area shape="rect" id="node1" href="dashboard_process_facilities.html" target="_top" title="dashboard_process_facilities" alt="" coords="5,5,431,755">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/rz_dashboard_objectpostalcode.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/dashboard_process_facilities.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>
@@ -590,7 +556,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT sco.referenceid,&#10;    sco.created,&#10;    sco.modified,&#10;    sco.collateralreferenceid,&#10;    sco.agreementreferenceid,&#10;    sco.processnumber,&#10;    sco.postalcode,&#10;    sco.place,&#10;    sco.marketvalue,&#10;    sco.purchasevalue,&#10;    sco.executionvalue,&#10;    sco.energylabel,&#10;    sco.sequenceid,&#10;    sco.externalreferenceid,&#10;    sco.propertyspecifications,&#10;    sco.insurance,&#10;    sco.constructionyear,&#10;    sco.leasehold,&#10;    sco.leaseholdenddate,&#10;    post.latitude,&#10;    post.longitude,&#10;    post.place AS place_postalcode,&#10;    post.province,&#10;    p.currentstatus,&#10;    p.processstatus AS process_finished,&#10;    p.processname&#10;   FROM (((wla.sz_collateral_object sco&#10;     JOIN data_postalcode post ON (((post.postalcode)::text &#61; (sco.postalcode)::text)))&#10;     JOIN wla.sz_agreement agr ON ((((sco.agreementreferenceid)::text &#61; (agr.referenceid)::text) AND (sco.processnumber &#61; agr.processnumber))))&#10;     JOIN wla.sz_process p ON ((agr.processnumber &#61; p.processnumber))); SELECT sco.referenceid,&#10;    sco.created,&#10;    sco.modified,&#10;    sco.collateralreferenceid,&#10;    sco.agreementreferenceid,&#10;    sco.processnumber,&#10;    sco.postalcode,&#10;    sco.place,&#10;    sco.marketvalue,&#10;    sco.purchasevalue,&#10;    sco.executionvalue,&#10;    sco.energylabel,&#10;    sco.sequenceid,&#10;    sco.externalreferenceid,&#10;    sco.propertyspecifications,&#10;    sco.insurance,&#10;    sco.constructionyear,&#10;    sco.leasehold,&#10;    sco.leaseholdenddate,&#10;    post.latitude,&#10;    post.longitude,&#10;    post.place AS place_postalcode,&#10;    post.province,&#10;    p.currentstatus,&#10;    p.processstatus AS process_finished,&#10;    p.processname&#10;   FROM (((wlb.sz_collateral_object sco&#10;     JOIN data_postalcode post ON (((post.postalcode)::text &#61; (sco.postalcode)::text)))&#10;     JOIN wlb.sz_agreement agr ON ((((sco.agreementreferenceid)::text &#61; (agr.referenceid)::text) AND (sco.processnumber &#61; agr.processnumber))))&#10;     JOIN wlb.sz_process p ON ((agr.processnumber &#61; p.processnumber))); SELECT sco.referenceid,&#10;    sco.created,&#10;    sco.modified,&#10;    sco.collateralreferenceid,&#10;    sco.agreementreferenceid,&#10;    sco.processnumber,&#10;    sco.postalcode,&#10;    sco.place,&#10;    sco.marketvalue,&#10;    sco.purchasevalue,&#10;    sco.executionvalue,&#10;    sco.energylabel,&#10;    sco.sequenceid,&#10;    sco.externalreferenceid,&#10;    sco.propertyspecifications,&#10;    sco.insurance,&#10;    sco.constructionyear,&#10;    sco.leasehold,&#10;    sco.leaseholdenddate,&#10;    post.latitude,&#10;    post.longitude,&#10;    post.place AS place_postalcode,&#10;    post.province,&#10;    p.currentstatus,&#10;    p.processstatus AS process_finished,&#10;    p.processname&#10;   FROM (((wlc.sz_collateral_object sco&#10;     JOIN data_postalcode post ON (((post.postalcode)::text &#61; (sco.postalcode)::text)))&#10;     JOIN wlc.sz_agreement agr ON ((((sco.agreementreferenceid)::text &#61; (agr.referenceid)::text) AND (sco.processnumber &#61; agr.processnumber))))&#10;     JOIN wlc.sz_process p ON ((agr.processnumber &#61; p.processnumber))); SELECT sco.referenceid,&#10;    sco.created,&#10;    sco.modified,&#10;    sco.collateralreferenceid,&#10;    sco.agreementreferenceid,&#10;    sco.processnumber,&#10;    sco.postalcode,&#10;    sco.place,&#10;    sco.marketvalue,&#10;    sco.purchasevalue,&#10;    sco.executionvalue,&#10;    sco.energylabel,&#10;    sco.sequenceid,&#10;    sco.externalreferenceid,&#10;    sco.propertyspecifications,&#10;    sco.insurance,&#10;    sco.constructionyear,&#10;    sco.leasehold,&#10;    sco.leaseholdenddate,&#10;    post.latitude,&#10;    post.longitude,&#10;    post.place AS place_postalcode,&#10;    post.province,&#10;    p.currentstatus,&#10;    p.processstatus AS process_finished,&#10;    p.processname&#10;   FROM (((wlnl.sz_collateral_object sco&#10;     JOIN data_postalcode post ON (((post.postalcode)::text &#61; (sco.postalcode)::text)))&#10;     JOIN wlnl.sz_agreement agr ON ((((sco.agreementreferenceid)::text &#61; (agr.referenceid)::text) AND (sco.processnumber &#61; agr.processnumber))))&#10;     JOIN wlnl.sz_process p ON ((agr.processnumber &#61; p.processnumber))); SELECT sco.referenceid,&#10;    sco.created,&#10;    sco.modified,&#10;    sco.collateralreferenceid,&#10;    sco.agreementreferenceid,&#10;    sco.processnumber,&#10;    sco.postalcode,&#10;    sco.place,&#10;    sco.marketvalue,&#10;    sco.purchasevalue,&#10;    sco.executionvalue,&#10;    sco.energylabel,&#10;    sco.sequenceid,&#10;    sco.externalreferenceid,&#10;    sco.propertyspecifications,&#10;    sco.insurance,&#10;    sco.constructionyear,&#10;    sco.leasehold,&#10;    sco.leaseholdenddate,&#10;    post.latitude,&#10;    post.longitude,&#10;    post.place AS place_postalcode,&#10;    post.province,&#10;    p.currentstatus,&#10;    p.processstatus AS process_finished,&#10;    p.processname&#10;   FROM (((wlr.sz_collateral_object sco&#10;     JOIN data_postalcode post ON (((post.postalcode)::text &#61; (sco.postalcode)::text)))&#10;     JOIN wlr.sz_agreement agr ON ((((sco.agreementreferenceid)::text &#61; (agr.referenceid)::text) AND (sco.processnumber &#61; agr.processnumber))))&#10;     JOIN wlr.sz_process p ON ((agr.processnumber &#61; p.processnumber))); SELECT sco.referenceid,&#10;    sco.created,&#10;    sco.modified,&#10;    sco.collateralreferenceid,&#10;    sco.agreementreferenceid,&#10;    sco.processnumber,&#10;    sco.postalcode,&#10;    sco.place,&#10;    sco.marketvalue,&#10;    sco.purchasevalue,&#10;    sco.executionvalue,&#10;    sco.energylabel,&#10;    sco.sequenceid,&#10;    sco.externalreferenceid,&#10;    sco.propertyspecifications,&#10;    sco.insurance,&#10;    sco.constructionyear,&#10;    sco.leasehold,&#10;    sco.leaseholdenddate,&#10;    post.latitude,&#10;    post.longitude,&#10;    post.place AS place_postalcode,&#10;    post.province,&#10;    p.currentstatus,&#10;    p.processstatus AS process_finished,&#10;    p.processname&#10;   FROM (((wls.sz_collateral_object sco&#10;     JOIN data_postalcode post ON (((post.postalcode)::text &#61; (sco.postalcode)::text)))&#10;     JOIN wls.sz_agreement agr ON ((((sco.agreementreferenceid)::text &#61; (agr.referenceid)::text) AND (sco.processnumber &#61; agr.processnumber))))&#10;     JOIN wls.sz_process p ON ((agr.processnumber &#61; p.processnumber))); SELECT sco.referenceid,&#10;    sco.created,&#10;    sco.modified,&#10;    sco.collateralreferenceid,&#10;    sco.agreementreferenceid,&#10;    sco.processnumber,&#10;    sco.postalcode,&#10;    sco.place,&#10;    sco.marketvalue,&#10;    sco.purchasevalue,&#10;    sco.executionvalue,&#10;    sco.energylabel,&#10;    sco.sequenceid,&#10;    sco.externalreferenceid,&#10;    sco.propertyspecifications,&#10;    sco.insurance,&#10;    sco.constructionyear,&#10;    sco.leasehold,&#10;    sco.leaseholdenddate,&#10;    post.latitude,&#10;    post.longitude,&#10;    post.place AS place_postalcode,&#10;    post.province,&#10;    p.currentstatus,&#10;    p.processstatus AS process_finished,&#10;    p.processname&#10;   FROM (((wlv.sz_collateral_object sco&#10;     JOIN data_postalcode post ON (((post.postalcode)::text &#61; (sco.postalcode)::text)))&#10;     JOIN wlv.sz_agreement agr ON ((((sco.agreementreferenceid)::text &#61; (agr.referenceid)::text) AND (sco.processnumber &#61; agr.processnumber))))&#10;     JOIN wlv.sz_process p ON ((agr.processnumber &#61; p.processnumber)));</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wla.sz_process p&#10;     LEFT JOIN wla.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wla.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wla.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1)))); SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wlbe.sz_process p&#10;     LEFT JOIN wlbe.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlbe.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wlbe.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1)))); SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wlb.sz_process p&#10;     LEFT JOIN wlb.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlb.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wlb.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1)))); SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wlc.sz_process p&#10;     LEFT JOIN wlc.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlc.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wlc.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1)))); SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wlnl.sz_process p&#10;     LEFT JOIN wlnl.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlnl.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wlnl.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1)))); SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wlnwm.sz_process p&#10;     LEFT JOIN wlnwm.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlnwm.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wlnwm.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1)))); SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wlr.sz_process p&#10;     LEFT JOIN wlr.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlr.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wlr.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1)))); SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wls.sz_process p&#10;     LEFT JOIN wls.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wls.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wls.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1)))); SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wlv.sz_process p&#10;     LEFT JOIN wlv.sz_processevents pe ON ((pe.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlv.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber &#61; p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wlv.sz_processstatuschange) ps ON (((p.processnumber &#61; ps.processnumber) AND (ps.rownumber &#61; 1))));</textarea>
                             <div style="padding-top: 5px;"><hr></div>
                             <div class="box box-solid">
                                 <div class="box-header with-border">
@@ -600,6 +566,8 @@
                                 <!-- /.box-header -->
                                 <div class="box-body">
                                     <ul class="list-unstyled">
+                                        <li><a href="sz_facility.html">sz_facility</a></li>
+                                        <li><a href="sz_processstatuschange.html">sz_processstatuschange</a></li>
                                     </ul>
                                 </div><!-- /.box-body -->
                             </div>

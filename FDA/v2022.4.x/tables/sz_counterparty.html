@@ -133,6 +133,10 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_counterparty.referenceid references sz_counterparty_financials.counterpartyreferenceid via FK_sz_annualaccounts_cp2"><a href='sz_counterparty_financials.html'>sz_counterparty_financials</a><span class='relatedKey'>.counterpartyreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_annualaccounts_cp2<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td><p>Unique identifier of a counterparty</p></td>
@@ -165,40 +169,6 @@
                                         </table>
                                     </td>
                                     <td><p>Unique identifier of an process</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="created">created</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of row creation</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="modified">modified</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>now()</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>moment of last update</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="legalentity">legalentity</span></td>
@@ -490,7 +460,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="externalreferenceid">externalreferenceid</span></td>
+                                    <td><span id="externalreferenceid">externalreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title='nullable'>√</td>
@@ -502,10 +472,6 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_counterparty.externalreferenceid references sz_annualaccounts.counterpartyreferenceid"><a href='sz_annualaccounts.html'>sz_annualaccounts</a><span class='relatedKey'>.counterpartyreferenceid</span></td>
-                                                <td class="constraint detail">Defined in XML<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td><p>Unique external reference identifier of an collateral_object</p></td>
@@ -569,27 +535,27 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="728,5,984,181">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="296,225,684,940">
-<area shape="rect" id="node3" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="5,815,252,961">
-<area shape="rect" id="node4" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="728,199,984,375">
-<area shape="rect" id="node5" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="733,392,979,568">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="756,5,1012,181">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="341,193,712,849">
+<area shape="rect" id="node3" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="5,196,297,319">
+<area shape="rect" id="node4" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="756,235,1012,411">
+<area shape="rect" id="node5" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1056,53,1303,259">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_counterparty.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="728,392,984,568">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="296,196,684,911">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="409,928,571,1016">
-<area shape="rect" id="node5" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="5,437,252,584">
-<area shape="rect" id="node4" href="sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="349,91,631,179">
-<area shape="rect" id="node6" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1050,461,1227,549">
-<area shape="rect" id="node7" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="728,199,984,375">
-<area shape="rect" id="node8" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1061,567,1217,655">
-<area shape="rect" id="node9" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1028,251,1249,339">
-<area shape="rect" id="node10" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1034,356,1243,444">
-<area shape="rect" id="node11" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="733,5,979,181">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="1012,219,1201,307">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="564,339,935,995">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="668,216,831,304">
+<area shape="rect" id="node5" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="228,341,520,464">
+<area shape="rect" id="node4" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1301,321,1478,409">
+<area shape="rect" id="node6" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,373,184,461">
+<area shape="rect" id="node7" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="979,360,1235,536">
+<area shape="rect" id="node8" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1311,5,1467,93">
+<area shape="rect" id="node9" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1279,111,1500,199">
+<area shape="rect" id="node10" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1285,216,1494,304">
+<area shape="rect" id="node11" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1307,427,1472,515">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_counterparty.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
