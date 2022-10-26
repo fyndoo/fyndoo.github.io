@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>rz_pipeline_coll_object - data-analytics Database</title>
+        <title>sz_fiat - data-analytics Database</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>rz_pipeline_coll_object</h1><br />
+                    <h1>sz_fiat</h1><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -109,14 +109,18 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><span id="referenceid">referenceid</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="referenceid">referenceid</span></td>
                                     <td>varchar</td>
-                                    <td>128</td>
-                                    <td title='nullable'>√</td>
+                                    <td>255</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_businessrules.fiatreferenceid references sz_fiat.referenceid via FK_sz_fiat"><a href='sz_businessrules.html'>sz_businessrules</a><span class='relatedKey'>.fiatreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_fiat<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -126,43 +130,30 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="collateralreferenceid">collateralreferenceid</span></td>
-                                    <td>varchar</td>
-                                    <td>128</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="agreementreferenceid">agreementreferenceid</span></td>
-                                    <td>varchar</td>
-                                    <td>128</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="processnumber">processnumber</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
                                     <td>int8</td>
                                     <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_fiat.processnumber references sz_process.processnumber via FK_sz_fiat_proces"><a href='sz_process.html'>sz_process</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_sz_fiat_proces<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Unique identifier of an process</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="fiatdate">fiatdate</span></td>
+                                    <td>timestamp</td>
+                                    <td>29,6</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -177,7 +168,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="postalcode">postalcode</span></td>
+                                    <td><span id="name">name</span></td>
                                     <td>varchar</td>
                                     <td>255</td>
                                     <td title='nullable'>√</td>
@@ -194,9 +185,9 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="place">place</span></td>
+                                    <td><span id="resultdescription">resultdescription</span></td>
                                     <td>varchar</td>
-                                    <td>255</td>
+                                    <td>800</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -211,60 +202,9 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="marketvalue">marketvalue</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="purchasevalue">purchasevalue</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="executionvalue">executionvalue</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="energylabel">energylabel</span></td>
+                                    <td><span id="resultcode">resultcode</span></td>
                                     <td>varchar</td>
-                                    <td>25</td>
+                                    <td>20</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -284,6 +224,42 @@
                     </div>
                     <div class="box box-primary">
                         <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_fiat</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>referenceid</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
                             <i class="fa fa-code-fork"></i>
                             <h3 id="Relationships" class="box-title">Relationships</h3>
                             <div class="box-tools pull-right">
@@ -296,40 +272,32 @@
                                 <h5>Close relationships within degrees of separation</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="rz_pipeline_coll_object.html" target="_top" title="rz_pipeline_coll_object" alt="" coords="5,5,343,344">
+<area shape="rect" id="node1" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="667,5,879,181">
+<area shape="rect" id="node2" href="sz_fiat.html" target="_top" title="sz_fiat" alt="" coords="311,85,623,331">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,64,267,181">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/rz_pipeline_coll_object.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_fiat.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="273,5,463,93">
+<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,412,168,500">
+<area shape="rect" id="node3" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="568,116,779,204">
+<area shape="rect" id="node4" href="sz_fiat.html" target="_top" title="sz_fiat" alt="" coords="212,147,524,392">
+<area shape="rect" id="node5" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="823,113,1133,201">
+<area shape="rect" id="node6" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="259,409,477,497">
+<area shape="rect" id="node7" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="253,515,483,603">
+<area shape="rect" id="node8" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="260,620,476,708">
+<area shape="rect" id="node9" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="233,725,503,813">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_fiat.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
-                            </div>
-                        </div><!-- /.box-body -->
-                    </div>
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <i class="fa fa-file-code-o"></i>
-                            <h3 id="ViewDefinition" class="box-title">View Definition</h3>
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div>
-                        </div>
-                        <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT colobj.referenceid,&#10;    colobj.collateralreferenceid,&#10;    colobj.agreementreferenceid,&#10;    colobj.processnumber,&#10;    colobj.postalcode,&#10;    colobj.place,&#10;    colobj.marketvalue,&#10;    colobj.purchasevalue,&#10;    colobj.executionvalue,&#10;    colobj.energylabel&#10;   FROM wlc.sz_collateral_object colobj;</textarea>
-                            <div style="padding-top: 5px;"><hr></div>
-                            <div class="box box-solid">
-                                <div class="box-header with-border">
-                                    <i class="fa fa-puzzle-piece"></i>
-                                    <h3 class="box-title">Possibly Referenced Tables/Views</h3>
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body">
-                                    <ul class="list-unstyled">
-                                    </ul>
-                                </div><!-- /.box-body -->
                             </div>
                         </div><!-- /.box-body -->
                     </div>
