@@ -214,6 +214,22 @@
             <column ascending="true" name="columnenddate"/>
          </index>
       </table>
+      <table name="sz_approval" remarks="" schema="wlc" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
+            <child column="fiatreferenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="fiatdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="resultdescription" nullable="true" remarks="" size="800" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="resultcode" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_approval" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
       <table name="sz_businessrules" remarks="" schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="16" type="varchar" typeCode="12">
             <child column="businessrulereferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules_parameters"/>
@@ -224,7 +240,7 @@
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fiatreferenceid" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
             <child column="fiatreferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules_parameters"/>
-            <parent column="referenceid" foreignKey="FK_sz_fiat" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fiat"/>
+            <parent column="referenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wlc" table="sz_approval"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="true" remarks="" size="1000" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="initial_result" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
@@ -574,22 +590,6 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_fiat" remarks="" schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
-            <child column="fiatreferenceid" foreignKey="FK_sz_fiat" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_sz_fiat_proces" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="fiatdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="resultdescription" nullable="true" remarks="" size="800" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="resultcode" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
-         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
-         <index name="PK_sz_fiat" unique="true">
-            <column ascending="true" name="referenceid"/>
-         </index>
-      </table>
       <table name="sz_financials" remarks="Table is used as Many-To-Many relation" schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
             <child column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wlc" table="sz_annualaccounts"/>
@@ -660,9 +660,9 @@
       <table name="sz_process" remarks="" schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <child column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wlc" table="sz_approval"/>
             <child column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules"/>
             <child column="processnumber" foreignKey="FK_process_contactperson" implied="false" onDeleteCascade="true" schema="wlc" table="sz_contactperson"/>
-            <child column="processnumber" foreignKey="FK_sz_fiat_proces" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fiat"/>
             <child column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_otherproperties"/>
             <child column="processnumber" foreignKey="FK_sz_processevents_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_processevents"/>
             <child column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_processstatuschange"/>

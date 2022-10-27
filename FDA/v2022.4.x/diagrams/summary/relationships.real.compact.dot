@@ -135,19 +135,6 @@ digraph "compactRelationshipsDiagram" {
     target="_top"
     tooltip="sz_facility"
   ];
-  "sz_fiat" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="37" HEIGHT="16"><B>sz_fiat</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="referenceid" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">referenceid</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="processnumber" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">processnumber</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
-    </TABLE>>
-    URL="tables/sz_fiat.html"
-    target="_top"
-    tooltip="sz_fiat"
-  ];
   "sz_fee_facility" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -325,6 +312,19 @@ digraph "compactRelationshipsDiagram" {
     target="_top"
     tooltip="sz_process"
   ];
+  "sz_approval" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16"><B>sz_approval</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="referenceid" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">referenceid</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="processnumber" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="102" HEIGHT="16">processnumber</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
+    </TABLE>>
+    URL="tables/sz_approval.html"
+    target="_top"
+    tooltip="sz_approval"
+  ];
   "sz_user" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -342,7 +342,8 @@ digraph "compactRelationshipsDiagram" {
   "sz_agreement":"processnumber":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_annualaccounts":"financialsid":w -> "sz_financials":"financialsid":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_annualaccountsdetails":"annualaccountsid":w -> "sz_annualaccounts":"annualaccountsid":e [arrowhead=none dir=back arrowtail=crowodot];
-  "sz_businessrules":"fiatreferenceid":w -> "sz_fiat":"referenceid":e [arrowhead=none dir=back arrowtail=crowodot];
+  "sz_approval":"processnumber":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
+  "sz_businessrules":"fiatreferenceid":w -> "sz_approval":"referenceid":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_businessrules":"processnumber":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_businessrules_parameters":"businessrulereferenceid":w -> "sz_businessrules":"referenceid":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_businessrules_parameters":"fiatreferenceid":w -> "sz_businessrules":"fiatreferenceid":e [arrowhead=none dir=back arrowtail=crowodot];
@@ -369,7 +370,6 @@ digraph "compactRelationshipsDiagram" {
   "sz_fee_agreement":"processnumber":w -> "sz_agreement":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_fee_facility":"facilityreferenceid":w -> "sz_facility":"referenceid":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_fee_facility":"processnumber":w -> "sz_facility":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
-  "sz_fiat":"processnumber":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_financinggoal":"agreementreferenceid":w -> "sz_agreement":"referenceid":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_financinggoal":"processnumber":w -> "sz_agreement":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_otherproperties":"processnumber":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=teeodot];

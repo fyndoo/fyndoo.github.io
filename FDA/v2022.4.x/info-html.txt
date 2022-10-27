@@ -1,4 +1,4 @@
-date=2022-10-26 20:18:54+0000
+date=2022-10-27 12:56:01+0000
 os=Linux 5.10.124-linuxkit
 schemaspy-version=6.1.1-SNAPSHOT
 schemaspy-build=6.1.1-SNAPSHOT.41 2022-07-04 14:23:58

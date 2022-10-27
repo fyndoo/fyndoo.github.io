@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_businessrulesfiat - data-analytics Database</title>
+        <title>sz_approval - data-analytics Database</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>sz_businessrulesfiat</h1><br />
+                    <h1>sz_approval</h1><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -118,8 +118,8 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_businessrules.fiatreferenceid references sz_businessrulesfiat.referenceid via FK_sz_businessrulesfiat"><a href='sz_businessrules.html'>sz_businessrules</a><span class='relatedKey'>.fiatreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_businessrulesfiat<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="sz_businessrules.fiatreferenceid references sz_approval.referenceid via FK_sz_approval"><a href='sz_businessrules.html'>sz_businessrules</a><span class='relatedKey'>.fiatreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_approval<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -143,8 +143,8 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_businessrulesfiat.processnumber references sz_process.processnumber via FK_sz_businessrulesfiat_proces"><a href='sz_process.html'>sz_process</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_sz_businessrulesfiat_proces<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="sz_approval.processnumber references sz_process.processnumber via FK_sz_approval_proces"><a href='sz_process.html'>sz_process</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_sz_approval_proces<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -168,24 +168,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="fiatgroupid">fiatgroupid</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="fiatgroupname">fiatgroupname</span></td>
+                                    <td><span id="name">name</span></td>
                                     <td>varchar</td>
                                     <td>255</td>
                                     <td title='nullable'>√</td>
@@ -202,24 +185,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="fiatweight">fiatweight</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="fiatdescription">fiatdescription</span></td>
+                                    <td><span id="resultdescription">resultdescription</span></td>
                                     <td>varchar</td>
                                     <td>800</td>
                                     <td title='nullable'>√</td>
@@ -236,7 +202,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="fiatstatuscode">fiatstatuscode</span></td>
+                                    <td><span id="resultcode">resultcode</span></td>
                                     <td>varchar</td>
                                     <td>20</td>
                                     <td title='nullable'>√</td>
@@ -283,7 +249,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_businessrulesfiat</td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_approval</td>
                                     <td>Primary key</td>
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>referenceid</td>
@@ -311,25 +277,25 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="689,5,901,181">
-<area shape="rect" id="node2" href="sz_businessrulesfiat.html" target="_top" title="sz_businessrulesfiat" alt="" coords="311,85,645,389">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,64,267,181">
+<area shape="rect" id="node1" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="311,85,623,331">
+<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,64,267,181">
+<area shape="rect" id="node3" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="667,5,879,181">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_businessrulesfiat.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_approval.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="285,5,474,93">
-<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,471,168,559">
-<area shape="rect" id="node3" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="591,116,801,204">
-<area shape="rect" id="node4" href="sz_businessrulesfiat.html" target="_top" title="sz_businessrulesfiat" alt="" coords="212,147,547,451">
-<area shape="rect" id="node5" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="845,113,1156,201">
-<area shape="rect" id="node6" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="271,468,488,556">
-<area shape="rect" id="node7" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="265,573,494,661">
-<area shape="rect" id="node8" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="271,679,487,767">
-<area shape="rect" id="node9" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="245,784,514,872">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="273,5,463,93">
+<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,412,168,500">
+<area shape="rect" id="node3" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="212,147,524,392">
+<area shape="rect" id="node4" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="568,116,779,204">
+<area shape="rect" id="node5" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="823,113,1133,201">
+<area shape="rect" id="node6" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="259,409,477,497">
+<area shape="rect" id="node7" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="253,515,483,603">
+<area shape="rect" id="node8" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="260,620,476,708">
+<area shape="rect" id="node9" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="233,725,503,813">
 </map>
-                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_businessrulesfiat.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_approval.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>

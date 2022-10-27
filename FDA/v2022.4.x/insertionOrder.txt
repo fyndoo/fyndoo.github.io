@@ -1,8 +1,8 @@
 sz_process
 sz_financials
 sz_user
+sz_approval
 sz_counterparty_financials
-sz_fiat
 sz_counterparty
 sz_agreement
 sz_collateral

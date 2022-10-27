@@ -5,7 +5,7 @@ Changelog FDA Standard Zone version from 2022.3 to 2022.4:
 
 * Added table 'sz_businessrules_parameters'
 
-* Added table 'sz_fiat'
+* Added table 'sz_approval'
   
 * Changes in table 'sz_processevents'
   * Added column finishedsuccessful

@@ -122,16 +122,16 @@
                                                 <td class="constraint detail">FK_agreement_process<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
+                                                <td title="sz_approval.processnumber references sz_process.processnumber via FK_sz_approval_proces"><a href='sz_approval.html'>sz_approval</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_sz_approval_proces<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="sz_businessrules.processnumber references sz_process.processnumber via FK_sz_businessrules_process"><a href='sz_businessrules.html'>sz_businessrules</a><span class='relatedKey'>.processnumber</span></td>
                                                 <td class="constraint detail">FK_sz_businessrules_process<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
                                                 <td title="sz_contactperson.processnumber references sz_process.processnumber via FK_process_contactperson"><a href='sz_contactperson.html'>sz_contactperson</a><span class='relatedKey'>.processnumber</span></td>
                                                 <td class="constraint detail">FK_process_contactperson<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_fiat.processnumber references sz_process.processnumber via FK_sz_fiat_proces"><a href='sz_fiat.html'>sz_fiat</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_sz_fiat_proces<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
                                                 <td title="sz_otherproperties.processnumber references sz_process.processnumber via FK_sz_otherproperties_process"><a href='sz_otherproperties.html'>sz_otherproperties</a><span class='relatedKey'>.processnumber</span></td>
@@ -486,8 +486,8 @@
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="455,5,711,181">
 <area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,425,393,993">
-<area shape="rect" id="node3" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="772,153,984,329">
-<area shape="rect" id="node4" href="sz_fiat.html" target="_top" title="sz_fiat" alt="" coords="490,235,675,381">
+<area shape="rect" id="node3" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="490,235,675,381">
+<area shape="rect" id="node4" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="772,153,984,329">
 <area shape="rect" id="node5" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="474,399,691,545">
 <area shape="rect" id="node6" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="464,563,701,680">
 <area shape="rect" id="node7" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="437,697,728,815">
@@ -500,8 +500,8 @@
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="455,145,711,321">
 <area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="95,107,303,195">
 <area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="5,537,393,1105">
-<area shape="rect" id="node4" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="777,707,988,795">
-<area shape="rect" id="node5" href="sz_fiat.html" target="_top" title="sz_fiat" alt="" coords="518,339,647,427">
+<area shape="rect" id="node4" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="497,339,669,427">
+<area shape="rect" id="node5" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="777,707,988,795">
 <area shape="rect" id="node6" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="1037,704,1348,792">
 <area shape="rect" id="node7" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="794,111,971,199">
 <area shape="rect" id="node8" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="474,444,691,591">
