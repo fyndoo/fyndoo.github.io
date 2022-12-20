@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><database name="pecan-test" schema="public" type="PostgreSQL - 9.5.16">
+   <sequences>
+      <sequence increment="1" name="aanmelding_id_seq" startValue="1"/>
+      <sequence increment="1" name="aanvraag_handmatige_toetsing_id_seq" startValue="1"/>
+      <sequence increment="1" name="aanvrager_id_seq" startValue="1"/>
+      <sequence increment="1" name="attachment_id_seq" startValue="1"/>
+      <sequence increment="1" name="energiecontract_id_seq" startValue="1"/>
+      <sequence increment="1" name="inkomensverklaring_bd_verzamelinkomens_id_seq" startValue="1"/>
+      <sequence increment="1" name="toekenningen_naar_rato_id_seq" startValue="1"/>
+      <sequence increment="1" name="toetsing_id_seq" startValue="1"/>
+      <sequence increment="1" name="toetsing_input_id_seq" startValue="1"/>
+      <sequence increment="1" name="toetsing_output_id_seq" startValue="1"/>
+      <sequence increment="1" name="verzekeringsbericht_uwv_inkomens_id_seq" startValue="1"/>
+      <sequence increment="1" name="vooraf_ingevulde_aangifte_bd_brutolonen_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="aanmelding" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('aanmelding_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_aanmelding_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="created_at" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_aanmelding" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uk_aanmelding_toetsing_id" unique="true">
+            <column ascending="true" name="toetsing"/>
+         </index>
+      </table>
+      <table name="aanvraag_handmatige_toetsing" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('aanvraag_handmatige_toetsing_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_aanvraag_handmatige_toetsing_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="created_at" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="contactpersoon_telefoon" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="reden_voor_aanvraag_handmatige_toetsing" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="contactpersoon_keuze" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_aanvraag_handmatige_toetsing" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uk_aanvraag_handmatige_toetsing_toetsing" unique="true">
+            <column ascending="true" name="toetsing"/>
+         </index>
+      </table>
+      <table name="aanvrager" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('aanvrager_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="aanvrager" foreignKey="fk_aanvrager_verzekeringsbericht_uwv" implied="false" onDeleteCascade="false" schema="public" table="attachment"/>
+            <child column="aanvrager" foreignKey="fk_inkomensverklaring_bd_verzamelinkomens_aanvrager" implied="false" onDeleteCascade="false" schema="public" table="inkomensverklaring_bd_verzamelinkomens"/>
+            <child column="aanvrager" foreignKey="fk_verzekeringsbericht_uwv_inkomens_aanvrager" implied="false" onDeleteCascade="false" schema="public" table="verzekeringsbericht_uwv_inkomens"/>
+            <child column="aanvrager" foreignKey="fk_vooraf_ingevulde_aangifte_bd_brutolonen_aanvrager" implied="false" onDeleteCascade="false" schema="public" table="vooraf_ingevulde_aangifte_bd_brutolonen"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing_input" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_aanvrager_toetsing_input" implied="false" onDeleteCascade="false" schema="public" table="toetsing_input"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="geboortedatum" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="verzekeringsbericht_uwv_hash" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="inkomensverklaring_bd_hash" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="manueel_opgevoerd_brutomaandinkomen" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_aanvrager" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="attachment" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('attachment_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="mime" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="charset" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="filename" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="content_disposition" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="data" nullable="false" remarks="" size="2147483647" type="bytea" typeCode="-2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="aanvrager" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_aanvrager_verzekeringsbericht_uwv" implied="false" onDeleteCascade="false" schema="public" table="aanvrager"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_attachment" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="energiecontract" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('energiecontract_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing_input" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_energiecontract_toetsing_input" implied="false" onDeleteCascade="false" schema="public" table="toetsing_input"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="energiemaatschappij_identificatiecode" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="energiemaatschappij_naam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="energiecontract_klantnummer" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="contracthouder_initialen" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="contracthouder_achternaam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="contracthouder_postcode" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="contracthouder_huisnummer" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="contract_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="huidig_voorschot" nullable="false" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="advies_voorschot" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="betalingsregeling_maandbedrag" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_energiecontract" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="inkomensverklaring_bd_verzamelinkomens" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('inkomensverklaring_bd_verzamelinkomens_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="aanvrager" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_inkomensverklaring_bd_verzamelinkomens_aanvrager" implied="false" onDeleteCascade="false" schema="public" table="aanvrager"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="jaar" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="verzamelinkomen" nullable="false" remarks="" size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_inkomensverklaring_bd_verzamelinkomens" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="toekenningen_naar_rato" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('toekenningen_naar_rato_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing_output" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_toekenningen_naar_rato_toetsing_output" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="energiemaatschappij_identificatiecode" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="energiemaatschappij_naam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="contract_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="toegekendBedrag_naar_rato" nullable="false" remarks="" size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_toekenningen_naar_rato" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="toetsing" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('toetsing_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="toetsing" foreignKey="fk_aanmelding_toetsing" implied="false" onDeleteCascade="false" schema="public" table="aanmelding"/>
+            <child column="toetsing" foreignKey="fk_aanvraag_handmatige_toetsing_toetsing" implied="false" onDeleteCascade="false" schema="public" table="aanvraag_handmatige_toetsing"/>
+            <child column="toetsing" foreignKey="fk_toetsing_input_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing_input"/>
+            <child column="toetsing" foreignKey="fk_toetsing_output_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing_referentienummer" nullable="false" remarks="" size="36" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="created_at" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_toetsing" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uk_aanmelding_toetsing_referentienummer" unique="true">
+            <column ascending="true" name="toetsing_referentienummer"/>
+         </index>
+      </table>
+      <table name="toetsing_input" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('toetsing_input_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="toetsing_input" foreignKey="fk_aanvrager_toetsing_input" implied="false" onDeleteCascade="false" schema="public" table="aanvrager"/>
+            <child column="toetsing_input" foreignKey="fk_energiecontract_toetsing_input" implied="false" onDeleteCascade="false" schema="public" table="energiecontract"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="hoofdaanvrager_emailadres" nullable="false" remarks="" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="toetsing" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_toetsing_input_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="hoofdaanvrager_naam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="totaal_aantal_bewoners" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="extern_referentienummer" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="toetsingsperiode" nullable="true" remarks="" size="7" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_toetsing_input" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="toetsing_output" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('toetsing_output_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="toetsing_output" foreignKey="fk_toekenningen_naar_rato_toetsing_output" implied="false" onDeleteCascade="false" schema="public" table="toekenningen_naar_rato"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsingsresultaat" nullable="false" remarks="" size="11" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="toegekend_bedrag" nullable="false" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="toetsing" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_toetsing_output_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="toelichting_bij_toetsingsresultaat" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="berekend_bruto_huishoudinkomen" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="berekend_inkomensniveau" nullable="true" remarks="" size="5" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="berekend_normbedrag" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="berekend_voorschot" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_toetsing_output" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="verzekeringsbericht_uwv_inkomens" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('verzekeringsbericht_uwv_inkomens_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="aanvrager" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_verzekeringsbericht_uwv_inkomens_aanvrager" implied="false" onDeleteCascade="false" schema="public" table="aanvrager"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="startdatum" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="einddatum" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="sociale_verzekeringsloon" nullable="false" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="aantal_uren" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_verzekeringsbericht_uwv_inkomens" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="view_aanmeldingen" numRows="0" remarks="" schema="public" type="VIEW" viewSql=" SELECT t.toetsing_referentienummer AS toetsingreferentienummer,&#10;    ti.extern_referentienummer AS externreferentienummer,&#10;    toutput.berekend_voorschot AS berekendvoorschot,&#10;    toutput.toegekend_bedrag AS toegekendbedrag,&#10;    a.created_at AS tijdstipaanmelding&#10;   FROM (((aanmelding a&#10;     JOIN toetsing t ON ((a.toetsing = t.id)))&#10;     JOIN toetsing_input ti ON ((t.id = ti.toetsing)))&#10;     JOIN toetsing_output toutput ON ((t.id = toutput.toetsing)));">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="toetsingreferentienummer" nullable="true" remarks="" size="36" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="externreferentienummer" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="berekendvoorschot" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="toegekendbedrag" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="tijdstipaanmelding" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+      </table>
+      <table name="view_energiecontracten" numRows="0" remarks="" schema="public" type="VIEW" viewSql=" SELECT t.toetsing_referentienummer AS toetsingreferentienummer,&#10;    e.energiemaatschappij_identificatiecode AS energiemaatschappijidentificatiecode,&#10;    e.energiemaatschappij_naam AS energiemaatschappijnaam,&#10;    e.energiecontract_klantnummer AS energiecontractklantnummer,&#10;    e.contracthouder_initialen AS contracthouderinitialen,&#10;    e.contracthouder_achternaam AS contracthouderachternaam,&#10;    e.contracthouder_postcode AS contracthouderpostcode,&#10;    e.contracthouder_huisnummer AS contracthouderhuisnummer,&#10;    e.contract_type AS contracttype,&#10;    e.huidig_voorschot AS huidigvoorschot,&#10;    e.advies_voorschot AS adviesvoorschot&#10;   FROM (((aanmelding a&#10;     JOIN toetsing t ON ((a.toetsing = t.id)))&#10;     JOIN toetsing_input ti ON ((t.id = ti.toetsing)))&#10;     JOIN energiecontract e ON ((e.toetsing_input = ti.id)));">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="toetsingreferentienummer" nullable="true" remarks="" size="36" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="energiemaatschappijidentificatiecode" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="energiemaatschappijnaam" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="energiecontractklantnummer" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="contracthouderinitialen" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="contracthouderachternaam" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="contracthouderpostcode" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="contracthouderhuisnummer" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="contracttype" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="huidigvoorschot" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="adviesvoorschot" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+      </table>
+      <table name="vooraf_ingevulde_aangifte_bd_brutolonen" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('vooraf_ingevulde_aangifte_bd_brutolonen_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="aanvrager" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_vooraf_ingevulde_aangifte_bd_brutolonen_aanvrager" implied="false" onDeleteCascade="false" schema="public" table="aanvrager"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="jaar" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="brutoloon" nullable="false" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="siv_code" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pk_vooraf_ingevulde_aangifte_bd_brutolonen" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+   </tables>
+</database>
