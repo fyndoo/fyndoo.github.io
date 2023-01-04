@@ -120,7 +120,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="energiemaatschappij_identificatiecode" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="energiemaatschappij_naam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="contract_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="toegekendBedrag_naar_rato" nullable="false" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="toegekendbedrag_naar_rato" nullable="false" remarks="" size="11" type="numeric" typeCode="2"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="pk_toekenningen_naar_rato" unique="true">
             <column ascending="true" name="id"/>
