@@ -74,6 +74,19 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>toetsing_output_current</h1><br />
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-text-o"></i>
+                            <h3 id="Description" class="box-title">Description</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body clearfix">
+                            <p>Deze tabel is identiek aan toetsing_output, maar hierin komt alleen de meest recente berekening van een toetsing.</p>
+                        </div><!-- /.box-body -->
+                    </div>
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -109,7 +122,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><span id="id">id</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="id">id</span></td>
                                     <td>int8</td>
                                     <td>19</td>
                                     <td title='nullable'>√</td>
@@ -117,6 +130,10 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="toekenningen_naar_rato.toetsing_output references toetsing_output_current.id"><a href='toekenningen_naar_rato.html'>toekenningen_naar_rato</a><span class='relatedKey'>.toetsing_output</span></td>
+                                                <td class="constraint detail">Defined in XML<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -160,7 +177,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="toetsing">toetsing</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="toetsing">toetsing</span></td>
                                     <td>int8</td>
                                     <td>19</td>
                                     <td title='nullable'>√</td>
@@ -168,10 +185,6 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="toekenningen_naar_rato.toetsing_output references toetsing_output_current.toetsing"><a href='toekenningen_naar_rato.html'>toekenningen_naar_rato</a><span class='relatedKey'>.toetsing_output</span></td>
-                                                <td class="constraint detail">Defined in XML<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -394,9 +407,9 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="824,67,1183,213">
-<area shape="rect" id="node2" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,5,780,491">
-<area shape="rect" id="node3" href="toetsing.html" target="_top" title="toetsing" alt="" coords="5,96,276,243">
+<area shape="rect" id="node1" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="824,5,1183,152">
+<area shape="rect" id="node2" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,32,780,517">
+<area shape="rect" id="node3" href="toetsing.html" target="_top" title="toetsing" alt="" coords="5,123,276,269">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/toetsing_output_current.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -405,7 +418,7 @@
 <area shape="rect" id="node1" href="aanmelding.html" target="_top" title="aanmelding" alt="" coords="463,5,637,93">
 <area shape="rect" id="node2" href="toetsing.html" target="_top" title="toetsing" alt="" coords="5,213,276,360">
 <area shape="rect" id="node3" href="aanvraag_handmatige_toetsing.html" target="_top" title="aanvraag_handmatige_toetsing" alt="" coords="385,111,715,199">
-<area shape="rect" id="node4" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="824,284,1183,431">
+<area shape="rect" id="node4" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="824,240,1183,387">
 <area shape="rect" id="node5" href="toetsing_output.html" target="_top" title="toetsing_output" alt="" coords="447,216,653,304">
 <area shape="rect" id="node6" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,321,780,807">
 <area shape="rect" id="node7" href="toetsing_input.html" target="_top" title="toetsing_input" alt="" coords="453,824,647,912">

@@ -6,7 +6,7 @@ digraph "twoDegreesRelationshipsDiagram" {
   "toekenningen_naar_rato":"toetsing_output":w -> "toetsing_output_current":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_input":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_output":"toetsing":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "toetsing_output_current":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "toetsing_output_current":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "aanmelding" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">

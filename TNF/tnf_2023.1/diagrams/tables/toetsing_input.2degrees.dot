@@ -8,7 +8,7 @@ digraph "twoDegreesRelationshipsDiagram" {
   "inkomensverklaring_bd_verzamelinkomens":"elipses":w -> "aanvrager":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_input":"toetsing":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_output":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "toetsing_output_current":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "toetsing_output_current":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "verzekeringsbericht_uwv_inkomens":"elipses":w -> "aanvrager":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "vooraf_ingevulde_aangifte_bd_brutolonen":"elipses":w -> "aanvrager":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "aanmelding" [

@@ -4,7 +4,7 @@ digraph "twoDegreesRelationshipsDiagram" {
   "aanvraag_handmatige_toetsing":"toetsing":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=teeodot];
   "toetsing_input":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_output":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "toetsing_output_current":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "toetsing_output_current":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "aanmelding" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">

@@ -3,10 +3,10 @@ digraph "twoDegreesRelationshipsDiagram" {
   "aanmelding":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=teeodot];
   "aanvraag_handmatige_toetsing":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=teeodot];
   "toekenningen_naar_rato":"toetsing_output":w -> "toetsing_output":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "toekenningen_naar_rato":"toetsing_output":w -> "toetsing_output_current":"toetsing.type":e [arrowhead=none dir=back arrowtail=crowodot];
+  "toekenningen_naar_rato":"toetsing_output":w -> "toetsing_output_current":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_input":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_output":"elipses":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "toetsing_output_current":"toetsing":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "toetsing_output_current":"toetsing":w -> "toetsing":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "aanmelding" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -81,10 +81,10 @@ digraph "twoDegreesRelationshipsDiagram" {
    label=<
     <TABLE BORDER="2" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
       <TR><TD COLSPAN="4"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="145" HEIGHT="16"><B>toetsing_output_current</B></TD><TD ALIGN="RIGHT">[view]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">id</TD></TR></TABLE></TD><TD PORT="id.type" ALIGN="LEFT">int8[19]</TD></TR>
+      <TR><TD PORT="id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">id</TD></TR></TABLE></TD><TD PORT="id.type" ALIGN="LEFT">int8[19]</TD></TR>
       <TR><TD PORT="toetsingsresultaat" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">toetsingsresultaat</TD></TR></TABLE></TD><TD PORT="toetsingsresultaat.type" ALIGN="LEFT">varchar[11]</TD></TR>
       <TR><TD PORT="toegekend_bedrag" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">toegekend_bedrag</TD></TR></TABLE></TD><TD PORT="toegekend_bedrag.type" ALIGN="LEFT">numeric[11,2]</TD></TR>
-      <TR><TD PORT="toetsing" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">toetsing</TD></TR></TABLE></TD><TD PORT="toetsing.type" ALIGN="LEFT">int8[19]</TD></TR>
+      <TR><TD PORT="toetsing" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">toetsing</TD></TR></TABLE></TD><TD PORT="toetsing.type" ALIGN="LEFT">int8[19]</TD></TR>
       <TR><TD PORT="toelichting_bij_toetsingsresultaat" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">toelichting_bij_toetsingsresultaat</TD></TR></TABLE></TD><TD PORT="toelichting_bij_toetsingsresultaat.type" ALIGN="LEFT">varchar[255]</TD></TR>
       <TR><TD PORT="berekend_bruto_huishoudinkomen" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">berekend_bruto_huishoudinkomen</TD></TR></TABLE></TD><TD PORT="berekend_bruto_huishoudinkomen.type" ALIGN="LEFT">numeric[11,2]</TD></TR>
       <TR><TD PORT="berekend_inkomensniveau" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">berekend_inkomensniveau</TD></TR></TABLE></TD><TD PORT="berekend_inkomensniveau.type" ALIGN="LEFT">numeric[5,2]</TD></TR>

@@ -5,10 +5,10 @@ digraph "twoDegreesRelationshipsDiagram" {
   "aanvrager":"elipses":w -> "toetsing_input":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "energiecontract":"elipses":w -> "toetsing_input":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "toekenningen_naar_rato":"elipses":w -> "toetsing_output":"id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "toekenningen_naar_rato":"elipses":w -> "toetsing_output_current":"toetsing":e [arrowhead=none dir=back arrowtail=crowodot];
+  "toekenningen_naar_rato":"elipses":w -> "toetsing_output_current":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_input":"toetsing":w -> "toetsing":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "toetsing_output":"toetsing":w -> "toetsing":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
-  "toetsing_output_current":"toetsing":w -> "toetsing":"id.type":e [arrowhead=none dir=back arrowtail=teeodot];
+  "toetsing_output_current":"toetsing":w -> "toetsing":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "aanmelding" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -111,7 +111,8 @@ digraph "twoDegreesRelationshipsDiagram" {
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
       <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="145" HEIGHT="16"><B>toetsing_output_current</B></TD><TD ALIGN="RIGHT">[view]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="toetsing" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">toetsing</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">id</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="toetsing" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="210" HEIGHT="16">toetsing</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
     </TABLE>>
     URL="toetsing_output_current.html"
