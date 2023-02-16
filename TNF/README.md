@@ -4,7 +4,7 @@ Below the documentation of the versions of the ‘data model 'tijdelijke noodfon
 
 Data export TNF version 2023.1 (CONCEPT)
 * [Graphical overview 2023.1](/tnf_2023.1/relationships.html)
-
+* [Changelog from 2022.2 to 2023.1](changelog_2022.2_2023.1.md)
 
 Data export TNF version 2022.2
 * [Graphical overview 2022.2](/tnf_2022.2/relationships.html)
