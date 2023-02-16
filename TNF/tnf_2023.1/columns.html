@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>pecan-test Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="index.html" class="navbar-brand"><b>pecan-test</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>Columns</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 class="box-title">Columns</h3>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="column_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="50"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                    <tr>
+                                        <th>Table</th>
+                                        <th>Type</th>
+                                        <th>Column</th>
+                                        <th>Type</th>
+                                        <th>Size</th>
+                                        <th title='Are nulls allowed?'>Nullable</th>
+                                        <th title='Is column automatically updated?'>Auto</th>
+                                        <th title='Default value'>Default</th>
+                                        <th title='Comments' class="toggle"><span>Comments</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <script>
+                    var tableData = [
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "huidigvoorschot",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "matrix_versions",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "attachment",
+        "tableFileName": "attachment",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "mime",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvrager",
+        "tableFileName": "aanvrager",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('aanvrager_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "rank",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_input",
+        "tableFileName": "toetsing_input",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "calculation_date",
+        "type": "timestamp",
+        "length": 29,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "kenmerk",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvraag_handmatige_toetsing",
+        "tableFileName": "aanvraag_handmatige_toetsing",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "created_at",
+        "type": "timestamptz",
+        "length": 35,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "now()",
+        "comments": ""
+    },
+    {
+        "tableName": "attachment",
+        "tableFileName": "attachment",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('attachment_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "view_aanmeldingen",
+        "tableFileName": "view_aanmeldingen",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toegekendbedrag",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toekenningen_naar_rato",
+        "tableFileName": "toekenningen_naar_rato",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contract_type",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "application_version",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableFileName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>aanvrager",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekend_bruto_huishoudinkomen",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "verzekeringsbericht_uwv_inkomens",
+        "tableFileName": "verzekeringsbericht_uwv_inkomens",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('verzekeringsbericht_uwv_inkomens_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toetsingreferentienummer",
+        "type": "varchar",
+        "length": 36,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "attachment",
+        "tableFileName": "attachment",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "data",
+        "type": "bytea",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "energiemaatschappij_identificatiecode",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "energiemaatschappij_naam",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracthouder_initialen",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanmelding",
+        "tableFileName": "aanmelding",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "created_at",
+        "type": "timestamptz",
+        "length": 35,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "now()",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "application_version",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "matrix_versions",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvrager",
+        "tableFileName": "aanvrager",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "manueel_opgevoerd_brutomaandinkomen",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "betalingsregeling_maandbedrag",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "attachment",
+        "tableFileName": "attachment",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "content_disposition",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvraag_handmatige_toetsing",
+        "tableFileName": "aanvraag_handmatige_toetsing",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "reden_voor_aanvraag_handmatige_toetsing",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvraag_handmatige_toetsing",
+        "tableFileName": "aanvraag_handmatige_toetsing",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>toetsing",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "volgnummer",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "1",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>toetsing_input",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "inkomensverklaring_bd_verzamelinkomens",
+        "tableFileName": "inkomensverklaring_bd_verzamelinkomens",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('inkomensverklaring_bd_verzamelinkomens_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "view_aanmeldingen",
+        "tableFileName": "view_aanmeldingen",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekendvoorschot",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_input",
+        "tableFileName": "toetsing_input",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "hoofdaanvrager_emailadres",
+        "type": "varchar",
+        "length": 512,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_input",
+        "tableFileName": "toetsing_input",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "extern_referentienummer",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekend_voorschot",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanmelding",
+        "tableFileName": "aanmelding",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('aanmelding_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "attachment",
+        "tableFileName": "attachment",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>aanvrager",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvraag_handmatige_toetsing",
+        "tableFileName": "aanvraag_handmatige_toetsing",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('aanvraag_handmatige_toetsing_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "attachment",
+        "tableFileName": "attachment",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "filename",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracthouderhuisnummer",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "advies_voorschot",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvrager",
+        "tableFileName": "aanvrager",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "inkomensverklaring_bd_hash",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "model_version",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_aanmeldingen",
+        "tableFileName": "view_aanmeldingen",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "tijdstipaanmelding",
+        "type": "timestamptz",
+        "length": 35,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracthouder_huisnummer",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracthouderachternaam",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toekenningen_naar_rato",
+        "tableFileName": "toekenningen_naar_rato",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>toetsing_output",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "adviesvoorschot",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>toetsing",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>toetsing",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekend_normbedrag",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "energiemaatschappijidentificatiecode",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_input",
+        "tableFileName": "toetsing_input",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "totaal_aantal_bewoners",
+        "type": "int4",
+        "length": 10,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "energiemaatschappijnaam",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contract_type",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing",
+        "tableFileName": "toetsing",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('toetsing_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvrager",
+        "tableFileName": "aanvrager",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>toetsing_input",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "model_version",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableFileName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "jaar",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "volgnummer",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvraag_handmatige_toetsing",
+        "tableFileName": "aanvraag_handmatige_toetsing",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contactpersoon_telefoon",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracthouderinitialen",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toegekend_bedrag",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toetsingsresultaat",
+        "type": "varchar",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "inkomensverklaring_bd_verzamelinkomens",
+        "tableFileName": "inkomensverklaring_bd_verzamelinkomens",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>aanvrager",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanmelding",
+        "tableFileName": "aanmelding",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>toetsing",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toetsingsresultaat",
+        "type": "varchar",
+        "length": 11,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvraag_handmatige_toetsing",
+        "tableFileName": "aanvraag_handmatige_toetsing",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contactpersoon_keuze",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "attachment",
+        "tableFileName": "attachment",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "charset",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toegekend_bedrag",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toekenningen_naar_rato",
+        "tableFileName": "toekenningen_naar_rato",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toegekend_bedrag_naar_rato",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_input",
+        "tableFileName": "toetsing_input",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toetsingsperiode",
+        "type": "varchar",
+        "length": 7,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "verzekeringsbericht_uwv_inkomens",
+        "tableFileName": "verzekeringsbericht_uwv_inkomens",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "einddatum",
+        "type": "timestamp",
+        "length": 29,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toekenningen_naar_rato",
+        "tableFileName": "toekenningen_naar_rato",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "energiemaatschappij_naam",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekend_voorschot",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "inkomensverklaring_bd_verzamelinkomens",
+        "tableFileName": "inkomensverklaring_bd_verzamelinkomens",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "verzamelinkomen",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "kenmerk",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "energiecontract_klantnummer",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekend_normbedrag",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toelichting_bij_toetsingsresultaat",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "verzekeringsbericht_uwv_inkomens",
+        "tableFileName": "verzekeringsbericht_uwv_inkomens",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "sociale_verzekeringsloon",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('toetsing_output_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvrager",
+        "tableFileName": "aanvrager",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "verzekeringsbericht_uwv_hash",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracthouder_postcode",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekend_inkomensniveau",
+        "type": "numeric",
+        "length": 5,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekend_bruto_huishoudinkomen",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing",
+        "tableFileName": "toetsing",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'><\/i>toetsing_referentienummer",
+        "type": "varchar",
+        "length": 36,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "berekend_inkomensniveau",
+        "type": "numeric",
+        "length": 5,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_aanmeldingen",
+        "tableFileName": "view_aanmeldingen",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toetsingreferentienummer",
+        "type": "varchar",
+        "length": 36,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableFileName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "brutoloon",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "verzekeringsbericht_uwv_inkomens",
+        "tableFileName": "verzekeringsbericht_uwv_inkomens",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>aanvrager",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_input",
+        "tableFileName": "toetsing_input",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>toetsing",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableFileName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "siv_code",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "huidig_voorschot",
+        "type": "numeric",
+        "length": 11,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_input",
+        "tableFileName": "toetsing_input",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "hoofdaanvrager_naam",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toekenningen_naar_rato",
+        "tableFileName": "toekenningen_naar_rato",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "energiemaatschappij_identificatiecode",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "energiecontractklantnummer",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing",
+        "tableFileName": "toetsing",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "created_at",
+        "type": "timestamptz",
+        "length": 35,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "now()",
+        "comments": ""
+    },
+    {
+        "tableName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableFileName": "vooraf_ingevulde_aangifte_bd_brutolonen",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('vooraf_ingevulde_aangifte_bd_brutolonen_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output",
+        "tableFileName": "toetsing_output",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "toelichting_bij_toetsingsresultaat",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "toekenningen_naar_rato",
+        "tableFileName": "toekenningen_naar_rato",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('toekenningen_naar_rato_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracttype",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "aanvrager",
+        "tableFileName": "aanvrager",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "geboortedatum",
+        "type": "timestamp",
+        "length": 29,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_energiecontracten",
+        "tableFileName": "view_energiecontracten",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracthouderpostcode",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "verzekeringsbericht_uwv_inkomens",
+        "tableFileName": "verzekeringsbericht_uwv_inkomens",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "aantal_uren",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "inkomensverklaring_bd_verzamelinkomens",
+        "tableFileName": "inkomensverklaring_bd_verzamelinkomens",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "jaar",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "view_aanmeldingen",
+        "tableFileName": "view_aanmeldingen",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "externreferentienummer",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('energiecontract_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_input",
+        "tableFileName": "toetsing_input",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'><\/i>id",
+        "type": "bigserial",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "√",
+        "defaultValue": "nextval('toetsing_input_id_seq'::regclass)",
+        "comments": ""
+    },
+    {
+        "tableName": "toetsing_output_current",
+        "tableFileName": "toetsing_output_current",
+        "tableType": "View",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "id",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "energiecontract",
+        "tableFileName": "energiecontract",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "contracthouder_achternaam",
+        "type": "text",
+        "length": 2147483647,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "verzekeringsbericht_uwv_inkomens",
+        "tableFileName": "verzekeringsbericht_uwv_inkomens",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "startdatum",
+        "type": "timestamp",
+        "length": 29,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    }
+];
+                    var config = {
+                        pagination: true
+                    };
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="column.js"></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>
