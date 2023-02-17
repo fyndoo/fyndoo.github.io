@@ -115,8 +115,8 @@
       <table name="toekenningen_naar_rato" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('toekenningen_naar_rato_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing_output" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="Defined in XML" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output_current"/>
             <parent column="id" foreignKey="fk_toekenningen_naar_rato_toetsing_output" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output"/>
+            <parent column="id" foreignKey="Defined in XML" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output_current"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="energiemaatschappij_identificatiecode" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="energiemaatschappij_naam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
@@ -181,14 +181,15 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="application_version" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="model_version" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="matrix_versions" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="1" digits="0" id="12" name="volgnummer" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="kenmerk" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="12" name="created_at" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="1" digits="0" id="13" name="volgnummer" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="kenmerk" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="pk_toetsing_output" unique="true">
             <column ascending="true" name="id"/>
          </index>
       </table>
-      <table name="toetsing_output_current" numRows="0" remarks="Deze tabel is identiek aan toetsing_output, maar hierin komt alleen de meest recente berekening van een toetsing." schema="public" type="VIEW" viewSql=" SELECT tout.id,&#10;    tout.toetsingsresultaat,&#10;    tout.toegekend_bedrag,&#10;    tout.toetsing,&#10;    tout.toelichting_bij_toetsingsresultaat,&#10;    tout.berekend_bruto_huishoudinkomen,&#10;    tout.berekend_inkomensniveau,&#10;    tout.berekend_normbedrag,&#10;    tout.berekend_voorschot,&#10;    tout.application_version,&#10;    tout.model_version,&#10;    tout.matrix_versions,&#10;    tout.volgnummer,&#10;    tout.kenmerk,&#10;    tout.rank&#10;   FROM ( SELECT toutput.id,&#10;            toutput.toetsingsresultaat,&#10;            toutput.toegekend_bedrag,&#10;            toutput.toetsing,&#10;            toutput.toelichting_bij_toetsingsresultaat,&#10;            toutput.berekend_bruto_huishoudinkomen,&#10;            toutput.berekend_inkomensniveau,&#10;            toutput.berekend_normbedrag,&#10;            toutput.berekend_voorschot,&#10;            toutput.application_version,&#10;            toutput.model_version,&#10;            toutput.matrix_versions,&#10;            toutput.volgnummer,&#10;            toutput.kenmerk,&#10;            rank() OVER (PARTITION BY toutput.toetsing ORDER BY toutput.volgnummer DESC) AS rank&#10;           FROM toetsing_output toutput) tout&#10;  WHERE (tout.rank = 1);">
+      <table name="toetsing_output_current" numRows="0" remarks="Deze tabel is identiek aan toetsing_output, maar hierin komt alleen de meest recente berekening van een toetsing." schema="public" type="VIEW" viewSql=" SELECT tout.id,&#10;    tout.toetsingsresultaat,&#10;    tout.toegekend_bedrag,&#10;    tout.toetsing,&#10;    tout.toelichting_bij_toetsingsresultaat,&#10;    tout.berekend_bruto_huishoudinkomen,&#10;    tout.berekend_inkomensniveau,&#10;    tout.berekend_normbedrag,&#10;    tout.berekend_voorschot,&#10;    tout.application_version,&#10;    tout.model_version,&#10;    tout.matrix_versions,&#10;    tout.created_at,&#10;    tout.volgnummer,&#10;    tout.kenmerk&#10;   FROM ( SELECT toutput.id,&#10;            toutput.toetsingsresultaat,&#10;            toutput.toegekend_bedrag,&#10;            toutput.toetsing,&#10;            toutput.toelichting_bij_toetsingsresultaat,&#10;            toutput.berekend_bruto_huishoudinkomen,&#10;            toutput.berekend_inkomensniveau,&#10;            toutput.berekend_normbedrag,&#10;            toutput.berekend_voorschot,&#10;            toutput.application_version,&#10;            toutput.model_version,&#10;            toutput.matrix_versions,&#10;            toutput.created_at,&#10;            toutput.volgnummer,&#10;            toutput.kenmerk,&#10;            rank() OVER (PARTITION BY toutput.toetsing ORDER BY toutput.volgnummer DESC) AS rank&#10;           FROM toetsing_output toutput) tout&#10;  WHERE (tout.rank = 1);">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
             <child column="toetsing_output" foreignKey="Defined in XML" implied="false" onDeleteCascade="false" schema="public" table="toekenningen_naar_rato"/>
          </column>
@@ -205,9 +206,9 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="application_version" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="model_version" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="matrix_versions" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="volgnummer" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="kenmerk" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="rank" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="12" name="created_at" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="volgnummer" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="kenmerk" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
       </table>
       <table name="verzekeringsbericht_uwv_inkomens" remarks="" schema="public" type="TABLE">

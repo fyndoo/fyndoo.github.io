@@ -334,6 +334,23 @@
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="created_at">created_at</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><span id="volgnummer">volgnummer</span></td>
                                     <td>int8</td>
                                     <td>19</td>
@@ -354,23 +371,6 @@
                                     <td><span id="kenmerk">kenmerk</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="rank">rank</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -407,21 +407,21 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="824,5,1183,152">
-<area shape="rect" id="node2" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,32,780,517">
+<area shape="rect" id="node1" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="832,5,1191,152">
+<area shape="rect" id="node2" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,32,788,517">
 <area shape="rect" id="node3" href="toetsing.html" target="_top" title="toetsing" alt="" coords="5,123,276,269">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/toetsing_output_current.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="aanmelding.html" target="_top" title="aanmelding" alt="" coords="463,5,637,93">
+<area shape="rect" id="node1" href="aanmelding.html" target="_top" title="aanmelding" alt="" coords="467,5,641,93">
 <area shape="rect" id="node2" href="toetsing.html" target="_top" title="toetsing" alt="" coords="5,213,276,360">
-<area shape="rect" id="node3" href="aanvraag_handmatige_toetsing.html" target="_top" title="aanvraag_handmatige_toetsing" alt="" coords="385,111,715,199">
-<area shape="rect" id="node4" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="824,240,1183,387">
-<area shape="rect" id="node5" href="toetsing_output.html" target="_top" title="toetsing_output" alt="" coords="447,216,653,304">
-<area shape="rect" id="node6" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,321,780,807">
-<area shape="rect" id="node7" href="toetsing_input.html" target="_top" title="toetsing_input" alt="" coords="453,824,647,912">
+<area shape="rect" id="node3" href="aanvraag_handmatige_toetsing.html" target="_top" title="aanvraag_handmatige_toetsing" alt="" coords="389,111,719,199">
+<area shape="rect" id="node4" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="832,240,1191,387">
+<area shape="rect" id="node5" href="toetsing_output.html" target="_top" title="toetsing_output" alt="" coords="451,216,657,304">
+<area shape="rect" id="node6" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,321,788,807">
+<area shape="rect" id="node7" href="toetsing_input.html" target="_top" title="toetsing_input" alt="" coords="457,824,651,912">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/toetsing_output_current.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -439,7 +439,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT tout.id,&#10;    tout.toetsingsresultaat,&#10;    tout.toegekend_bedrag,&#10;    tout.toetsing,&#10;    tout.toelichting_bij_toetsingsresultaat,&#10;    tout.berekend_bruto_huishoudinkomen,&#10;    tout.berekend_inkomensniveau,&#10;    tout.berekend_normbedrag,&#10;    tout.berekend_voorschot,&#10;    tout.application_version,&#10;    tout.model_version,&#10;    tout.matrix_versions,&#10;    tout.volgnummer,&#10;    tout.kenmerk,&#10;    tout.rank&#10;   FROM ( SELECT toutput.id,&#10;            toutput.toetsingsresultaat,&#10;            toutput.toegekend_bedrag,&#10;            toutput.toetsing,&#10;            toutput.toelichting_bij_toetsingsresultaat,&#10;            toutput.berekend_bruto_huishoudinkomen,&#10;            toutput.berekend_inkomensniveau,&#10;            toutput.berekend_normbedrag,&#10;            toutput.berekend_voorschot,&#10;            toutput.application_version,&#10;            toutput.model_version,&#10;            toutput.matrix_versions,&#10;            toutput.volgnummer,&#10;            toutput.kenmerk,&#10;            rank() OVER (PARTITION BY toutput.toetsing ORDER BY toutput.volgnummer DESC) AS rank&#10;           FROM toetsing_output toutput) tout&#10;  WHERE (tout.rank &#61; 1);</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT tout.id,&#10;    tout.toetsingsresultaat,&#10;    tout.toegekend_bedrag,&#10;    tout.toetsing,&#10;    tout.toelichting_bij_toetsingsresultaat,&#10;    tout.berekend_bruto_huishoudinkomen,&#10;    tout.berekend_inkomensniveau,&#10;    tout.berekend_normbedrag,&#10;    tout.berekend_voorschot,&#10;    tout.application_version,&#10;    tout.model_version,&#10;    tout.matrix_versions,&#10;    tout.created_at,&#10;    tout.volgnummer,&#10;    tout.kenmerk&#10;   FROM ( SELECT toutput.id,&#10;            toutput.toetsingsresultaat,&#10;            toutput.toegekend_bedrag,&#10;            toutput.toetsing,&#10;            toutput.toelichting_bij_toetsingsresultaat,&#10;            toutput.berekend_bruto_huishoudinkomen,&#10;            toutput.berekend_inkomensniveau,&#10;            toutput.berekend_normbedrag,&#10;            toutput.berekend_voorschot,&#10;            toutput.application_version,&#10;            toutput.model_version,&#10;            toutput.matrix_versions,&#10;            toutput.created_at,&#10;            toutput.volgnummer,&#10;            toutput.kenmerk,&#10;            rank() OVER (PARTITION BY toutput.toetsing ORDER BY toutput.volgnummer DESC) AS rank&#10;           FROM toetsing_output toutput) tout&#10;  WHERE (tout.rank &#61; 1);</textarea>
                             <div style="padding-top: 5px;"><hr></div>
                             <div class="box box-solid">
                                 <div class="box-header with-border">

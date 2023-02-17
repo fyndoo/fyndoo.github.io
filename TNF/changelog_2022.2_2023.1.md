@@ -6,3 +6,4 @@ Changelog data export TNF from 2022.2 to 2023.1:
 * Add column 'matrix_versions' in table 'toetsing_output'
 * Add column 'volgnummer' in table 'toetsing_output'
 * Add column 'kenmerk' in table 'toetsing_output'
+* Add column 'created_at' in table 'toetsing_output'
