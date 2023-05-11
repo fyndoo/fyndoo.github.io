@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?><database name="data-analytics" schema="wlv" type="PostgreSQL - 15.2 (Debian 15.2-1.pgdg110+1)">
+   <tables>
+      <table name="dashboard_process_facilities" numRows="0" remarks="" schema="wlv" type="VIEW" viewSql=" SELECT p.whitelabel,&#10;    p.processname,&#10;    p.processnumber,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.currentstatus,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    pe.finishedsuccessful,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM (((wlv.sz_process p&#10;     LEFT JOIN wlv.sz_processevents pe ON ((pe.processnumber = p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlv.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber = p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.referenceid,&#10;            sz_processstatuschange.code,&#10;            sz_processstatuschange.name,&#10;            sz_processstatuschange.status_startdatetime,&#10;            sz_processstatuschange.status_enddatetime,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.processstatusgroupname,&#10;            sz_processstatuschange.userreferenceid,&#10;            sz_processstatuschange.workingdaysinstatus&#10;           FROM wlv.sz_processstatuschange) ps ON (((p.processnumber = ps.processnumber) AND (ps.rownumber = 1))));">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="whitelabel" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="process_finished" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="process_startdatetime" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="process_enddatetime" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="durationtimehours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="currentstatus" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="numberofstatuschanges" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="firsttimeright" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="bindingofferdate" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="bindingofferdate_hours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="12" name="conditionalofferdate" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="conditionalofferdate_hours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="finishedsuccessful" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="numberoffacilities" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="sum_agreedlimitamount" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="sum_limitamount" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="18" name="avg_loantovalue" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="19" name="avg_debtservicecoverageratio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="20" name="avg_annualinterestrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="avg_facilityduration" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="avg_fixedrateperiod" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="23" name="lastmutationdate" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+      </table>
+      <table name="process_summary" numRows="0" remarks="" schema="wlv" type="VIEW" viewSql=" SELECT p.processnumber,&#10;    p.whitelabel,&#10;    p.processname,&#10;    p.processtype,&#10;    p.currentstatus,&#10;    (p.processstatus)::boolean AS process_finished,&#10;    pe.finishedsuccessful,&#10;    agr.mainborrowerreferenceid,&#10;    agr.referenceid AS agreement_referenceid,&#10;    agr.externalreferenceid AS agreement_externalreferenceid,&#10;    (p.startdatetime)::timestamp with time zone AS process_startdatetime,&#10;    (p.enddatetime)::timestamp with time zone AS process_enddatetime,&#10;    p.durationtimehours,&#10;    p.numberofstatuschanges,&#10;    p.firsttimeright,&#10;    (pe.bindingofferdate)::timestamp with time zone AS bindingofferdate,&#10;    pe.bindingofferdate_hours,&#10;    (pe.conditionalofferdate)::timestamp with time zone AS conditionalofferdate,&#10;    pe.conditionalofferdate_hours,&#10;    fac.numberoffacilities,&#10;    fac.sum_agreedlimitamount,&#10;    fac.sum_limitamount,&#10;    fac.avg_loantovalue,&#10;    fac.avg_debtservicecoverageratio,&#10;    fac.avg_annualinterestrate,&#10;    fac.avg_facilityduration,&#10;    fac.avg_fixedrateperiod,&#10;    (ps.status_startdatetime)::timestamp with time zone AS lastmutationdate&#10;   FROM ((((wlv.sz_process p&#10;     LEFT JOIN wlv.sz_processevents pe ON ((pe.processnumber = p.processnumber)))&#10;     LEFT JOIN wlv.sz_agreement agr ON ((agr.processnumber = p.processnumber)))&#10;     LEFT JOIN ( SELECT sz_facility.processnumber,&#10;            count(DISTINCT sz_facility.referenceid) AS numberoffacilities,&#10;            sum(sz_facility.agreedlimitamount) AS sum_agreedlimitamount,&#10;            sum(sz_facility.limitamount) AS sum_limitamount,&#10;            avg(sz_facility.loantovalue) AS avg_loantovalue,&#10;            avg(sz_facility.debtservicecoverageratio) AS avg_debtservicecoverageratio,&#10;            avg(sz_facility.annualinterestrate) AS avg_annualinterestrate,&#10;            avg(sz_facility.facilityduration) AS avg_facilityduration,&#10;            avg(sz_facility.fixedrateperiod) AS avg_fixedrateperiod&#10;           FROM wlv.sz_facility&#10;          GROUP BY sz_facility.processnumber) fac ON ((fac.processnumber = p.processnumber)))&#10;     LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;            sz_processstatuschange.processnumber,&#10;            sz_processstatuschange.status_startdatetime&#10;           FROM wlv.sz_processstatuschange) ps ON (((p.processnumber = ps.processnumber) AND (ps.rownumber = 1))));">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="whitelabel" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processtype" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="currentstatus" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="process_finished" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="finishedsuccessful" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="mainborrowerreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="agreement_referenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="agreement_externalreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="process_startdatetime" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="process_enddatetime" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="durationtimehours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="numberofstatuschanges" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="firsttimeright" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="15" name="bindingofferdate" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="bindingofferdate_hours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="17" name="conditionalofferdate" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="conditionalofferdate_hours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="numberoffacilities" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="sum_agreedlimitamount" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="sum_limitamount" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="avg_loantovalue" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="23" name="avg_debtservicecoverageratio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="24" name="avg_annualinterestrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="avg_facilityduration" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="26" name="avg_fixedrateperiod" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="27" name="lastmutationdate" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+      </table>
+      <table name="rz_pipeline_applications" numRows="0" remarks="" schema="wlv" type="VIEW" viewSql=" SELECT agr.processnumber,&#10;    process.code AS process_status_code,&#10;    process.name AS process_status,&#10;    process.processstatusgroupname AS process_status_group,&#10;    date(process.status_startdatetime) AS process_status_date,&#10;    fac.agreedlimitamount AS original_principal_amount,&#10;    process.whitelabel AS originator,&#10;    'Link'::text AS servicer,&#10;    bo.cnt AS no_of_borrowers,&#10;    agr.mainborrowerreferenceid AS mainborrower_id,&#10;    cp.legalentity AS mainborrower_legalentity,&#10;    agr.startdate AS origination_date,&#10;    (date((agr.startdate + ('1 mon'::interval * fac.fixedrateperiod))) - 1) AS end_interest_rate_fixing,&#10;    fac.fixedrateperiod,&#10;    fac.annualinterestrate AS interest_rate,&#10;    fac.repaymenttype,&#10;    col.no_of_collateral_objects,&#10;    col.object_place,&#10;    col.object_postalcode,&#10;    col.object_marketvalue,&#10;    col.object_purchasevalue,&#10;    fac.loantovalue AS ltv,&#10;    fac.debtservicecoverageratio AS dscr,&#10;    fac.interestcoveragerationarrow,&#10;    fac.reversionmargininterestrate,&#10;    fac.facilityduration,&#10;    fac.borrowerfee AS upfrontborrowerfee,&#10;    date(process.startdatetime) AS process_start_date,&#10;    date(pevent.conditionalofferdate) AS conditionalofferdate,&#10;    date(pevent.bindingofferdate) AS bindingofferdate,&#10;    process.loanpassingdate AS process_passing_date,&#10;    process.processstatus AS process_finished,&#10;    other.additionalrentalincome,&#10;    cp.annualincome,&#10;    cp.employmentstatus,&#10;    fac.discountrate,&#10;    fac.discounttype,&#10;    fac.nominalratebeforediscount,&#10;    pevent.finishedsuccessful,&#10;    process.loanpassingdate,&#10;    process.processtype&#10;   FROM (((((((wlv.sz_agreement agr&#10;     JOIN wlv.sz_counterparty cp ON ((((cp.referenceid)::text = (agr.mainborrowerreferenceid)::text) AND (cp.processnumber = agr.processnumber))))&#10;     LEFT JOIN wlv.sz_facility fac ON ((((fac.agreementreferenceid)::text = (agr.referenceid)::text) AND (fac.processnumber = agr.processnumber))))&#10;     LEFT JOIN wlv.sz_processevents pevent ON ((agr.processnumber = pevent.processnumber)))&#10;     LEFT JOIN ( SELECT sz_relation.agreementreferenceid,&#10;            count(DISTINCT sz_relation.counterpartyreferenceid) AS cnt&#10;           FROM wlv.sz_relation&#10;          GROUP BY sz_relation.agreementreferenceid) bo ON (((bo.agreementreferenceid)::text = (agr.referenceid)::text)))&#10;     LEFT JOIN ( SELECT cc.agreementreferenceid,&#10;            cc.no_of_collateral_objects,&#10;            cc.place AS object_place,&#10;            cc.postalcode AS object_postalcode,&#10;            cc.marketvaluesum AS object_marketvalue,&#10;            cc.purchasevaluesum AS object_purchasevalue&#10;           FROM ( SELECT sz_collateral_object.referenceid,&#10;                    sz_collateral_object.collateralreferenceid,&#10;                    sz_collateral_object.agreementreferenceid,&#10;                    sz_collateral_object.processnumber,&#10;                    sz_collateral_object.postalcode,&#10;                    sz_collateral_object.place,&#10;                    sz_collateral_object.marketvalue,&#10;                    sz_collateral_object.purchasevalue,&#10;                    sz_collateral_object.executionvalue,&#10;                    sz_collateral_object.energylabel,&#10;                    sz_collateral_object.sequenceid,&#10;                    sz_collateral_object.externalreferenceid,&#10;                    sz_collateral_object.propertyspecifications,&#10;                    sz_collateral_object.insurance,&#10;                    sz_collateral_object.constructionyear,&#10;                    sz_collateral_object.leasehold,&#10;                    sz_collateral_object.leaseholdenddate,&#10;                    sz_collateral_object.propertysurface,&#10;                    sz_collateral_object.officespacesurface,&#10;                    sz_collateral_object.street,&#10;                    sz_collateral_object.country,&#10;                    sz_collateral_object.rank,&#10;                    sz_collateral_object.prioramount,&#10;                    rank() OVER (PARTITION BY sz_collateral_object.agreementreferenceid ORDER BY sz_collateral_object.marketvalue, sz_collateral_object.referenceid DESC) AS rank1,&#10;                    count(sz_collateral_object.referenceid) OVER (PARTITION BY sz_collateral_object.agreementreferenceid) AS no_of_collateral_objects,&#10;                    sum(sz_collateral_object.marketvalue) OVER (PARTITION BY sz_collateral_object.agreementreferenceid) AS marketvaluesum,&#10;                    sum(sz_collateral_object.purchasevalue) OVER (PARTITION BY sz_collateral_object.agreementreferenceid) AS purchasevaluesum&#10;                   FROM wlv.sz_collateral_object) cc&#10;          WHERE (cc.rank1 = 1)) col ON (((agr.referenceid)::text = (col.agreementreferenceid)::text)))&#10;     LEFT JOIN ( SELECT ps.rownumber,&#10;            ps.referenceid,&#10;            ps.code,&#10;            ps.name,&#10;            ps.status_startdatetime,&#10;            ps.status_enddatetime,&#10;            ps.processnumber,&#10;            ps.processstatusgroupname,&#10;            ps.userreferenceid,&#10;            ps.workingdaysinstatus,&#10;            p.processname,&#10;            p.whitelabel,&#10;            p.startdatetime,&#10;            p.loanpassingdate,&#10;            p.processstatus,&#10;            p.processtype&#10;           FROM (wlv.sz_process p&#10;             LEFT JOIN ( SELECT row_number() OVER (PARTITION BY sz_processstatuschange.processnumber ORDER BY sz_processstatuschange.status_startdatetime DESC) AS rownumber,&#10;                    sz_processstatuschange.referenceid,&#10;                    sz_processstatuschange.code,&#10;                    sz_processstatuschange.name,&#10;                    sz_processstatuschange.status_startdatetime,&#10;                    sz_processstatuschange.status_enddatetime,&#10;                    sz_processstatuschange.processnumber,&#10;                    sz_processstatuschange.processstatusgroupname,&#10;                    sz_processstatuschange.userreferenceid,&#10;                    sz_processstatuschange.workingdaysinstatus&#10;                   FROM wlv.sz_processstatuschange) ps ON (((p.processnumber = ps.processnumber) AND (ps.rownumber = 1))))) process ON ((process.processnumber = agr.processnumber)))&#10;     LEFT JOIN wlv.sz_otherproperties other ON ((process.processnumber = other.processnumber)))&#10;  WHERE ((process.processtype)::text = 'LoanOrigination'::text)&#10;  ORDER BY agr.referenceid;">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="process_status_code" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="process_status" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="process_status_group" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="process_status_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="original_principal_amount" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="originator" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="servicer" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="no_of_borrowers" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="mainborrower_id" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="mainborrower_legalentity" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="origination_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="end_interest_rate_fixing" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="13" name="fixedrateperiod" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="14" name="interest_rate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="repaymenttype" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="no_of_collateral_objects" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="object_place" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="object_postalcode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="object_marketvalue" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="object_purchasevalue" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="21" name="ltv" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="dscr" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="23" name="interestcoveragerationarrow" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="24" name="reversionmargininterestrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="facilityduration" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="26" name="upfrontborrowerfee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="process_start_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="conditionalofferdate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="bindingofferdate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="process_passing_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="process_finished" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="32" name="additionalrentalincome" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="33" name="annualincome" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="employmentstatus" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="35" name="discountrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="discounttype" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="37" name="nominalratebeforediscount" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="finishedsuccessful" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="loanpassingdate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="processtype" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+      </table>
+      <table name="rz_pipeline_borrowers" numRows="0" remarks="" schema="wlv" type="VIEW" viewSql=" SELECT rel.processnumber,&#10;    cp.referenceid AS counterparty_id,&#10;    cp.legalentity,&#10;    cp.datelastchanged,&#10;    cp.address,&#10;    cp.postalcode,&#10;    cp.isholding,&#10;    cp.counterpartysegmentcode,&#10;    cp.counterpartycategorycode,&#10;    cp.organisationname,&#10;    cp.numberofemployees,&#10;    cp.cocnumber,&#10;    cp.sectorcodestandard,&#10;    cp.legalform,&#10;    cp.countrycode&#10;   FROM (wlv.sz_counterparty cp&#10;     JOIN ( SELECT DISTINCT sz_relation.counterpartyreferenceid,&#10;            sz_relation.agreementreferenceid,&#10;            sz_relation.processnumber&#10;           FROM wlv.sz_relation) rel ON ((((rel.counterpartyreferenceid)::text = (cp.referenceid)::text) AND (rel.processnumber = cp.processnumber))))&#10;  ORDER BY rel.processnumber;">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="counterparty_id" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="legalentity" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="datelastchanged" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="address" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="postalcode" nullable="true" remarks="" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="isholding" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="counterpartysegmentcode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="counterpartycategorycode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="organisationname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="numberofemployees" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="cocnumber" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="sectorcodestandard" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="legalform" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="countrycode" nullable="true" remarks="" size="25" type="varchar" typeCode="12"/>
+      </table>
+      <table name="rz_pipeline_coll_object" numRows="0" remarks="" schema="wlv" type="VIEW" viewSql=" SELECT colobj.referenceid,&#10;    colobj.collateralreferenceid,&#10;    colobj.agreementreferenceid,&#10;    colobj.processnumber,&#10;    colobj.postalcode,&#10;    colobj.place,&#10;    colobj.marketvalue,&#10;    colobj.purchasevalue,&#10;    colobj.executionvalue,&#10;    colobj.energylabel&#10;   FROM wlv.sz_collateral_object colobj;">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateralreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="postalcode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="place" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="marketvalue" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="purchasevalue" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="executionvalue" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="energylabel" nullable="true" remarks="" size="25" type="varchar" typeCode="12"/>
+      </table>
+      <table name="rz_pipeline_coll_object_rental" numRows="0" remarks="" schema="wlv" type="VIEW" viewSql=" SELECT colobjrent.referenceid,&#10;    colobjrent.collateral_objectreferenceid,&#10;    colobjrent.agreementreferenceid,&#10;    colobjrent.processnumber,&#10;    colobjrent.regulatedproperty,&#10;    colobjrent.pointscoreforregulatedrent,&#10;    colobjrent.admissiblemonthlyrent,&#10;    colobjrent.coldrentpermonth,&#10;    colobjrent.marketbasedrent,&#10;    colobjrent.totalrentpermonth,&#10;    colobjrent.totalrentperyear&#10;   FROM wlv.sz_collateral_object_rental colobjrent;">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_objectreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="regulatedproperty" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="5" id="5" name="pointscoreforregulatedrent" nullable="true" remarks="" size="9" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="admissiblemonthlyrent" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="coldrentpermonth" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="marketbasedrent" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalrentpermonth" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalrentperyear" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+      </table>
+      <table name="rz_pipeline_collaterals" numRows="0" remarks="" schema="wlv" type="VIEW" viewSql=" SELECT col.processnumber,&#10;    col.referenceid AS collateral_id,&#10;    col.collateraltype,&#10;    col.definitioncode,&#10;    col.description,&#10;    col.valuationdate,&#10;    col.valuationcurrency,&#10;    col.valuationamount,&#10;    colobj.referenceid AS collateral_object_id,&#10;    colobj.postalcode AS object_postalcode,&#10;    colobj.place AS object_place,&#10;    colobj.marketvalue AS object_marketvalue,&#10;    colobj.purchasevalue AS object_purchasevalue&#10;   FROM (wlv.sz_collateral col&#10;     LEFT JOIN wlv.sz_collateral_object colobj ON ((((col.agreementreferenceid)::text = (colobj.agreementreferenceid)::text) AND (col.processnumber = colobj.processnumber))));">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_id" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="collateraltype" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definitioncode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="valuationdate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="valuationcurrency" nullable="true" remarks="" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="valuationamount" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="collateral_object_id" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="object_postalcode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="object_place" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="object_marketvalue" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="object_purchasevalue" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+      </table>
+      <table name="sz_agreement" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
+            <child column="agreementreferenceid" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral"/>
+            <child column="agreementreferenceid" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_facility"/>
+            <child column="agreementreferenceid" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_fee_agreement"/>
+            <child column="agreementreferenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_financinggoal"/>
+            <child column="agreementreferenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_relation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <child column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral"/>
+            <child column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_facility"/>
+            <child column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_fee_agreement"/>
+            <child column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_financinggoal"/>
+            <child column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_relation"/>
+            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlv" table="sz_process"/>
+            <parent column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel" nullable="false" remarks="The whitelabel" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="mainborrowerreferenceid" nullable="true" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="startdate" nullable="false" remarks="The start date of this credit agreement" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="enddate" nullable="true" remarks="The end date of the agreement" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="reviewdate" nullable="true" remarks="The review date of the agreement" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="agreementperfect" nullable="true" remarks="Whether or not this credit agreement is perfect" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="datelastchanged" nullable="true" remarks="The date the credit agreement was last changed (and lead to a new actual version of this credit agreement)" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an agreement" size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_agreement" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_annualaccounts" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="annualaccountsid" nullable="false" remarks="Internal identifier of the document (eg. document of type history)" size="128" type="varchar" typeCode="12">
+            <child column="annualaccountsid" foreignKey="FK_annualaccounts_details" implied="false" onDeleteCascade="true" schema="wlv" table="sz_annualaccountsdetails"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
+            <parent column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wlv" table="sz_financials"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="documenttype" nullable="true" remarks="Documenttype of underlying data (eg. history)" size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="annualaccountsid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_annualaccounts" unique="true">
+            <column ascending="true" name="annualaccountsid"/>
+         </index>
+      </table>
+      <table name="sz_annualaccountsdetails" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="annualaccountsid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
+            <parent column="annualaccountsid" foreignKey="FK_annualaccounts_details" implied="false" onDeleteCascade="true" schema="wlv" table="sz_annualaccounts"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="0" id="1" name="columnenddate" nullable="false" remarks="End date of the column in the history application" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="CashAndEquivalents" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="CurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="ebitda" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="FinancialExpenses" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="FinancialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="IntangibleFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="Inventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="MaterialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="10" name="MinorityInterests" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="11" name="NetSales" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="12" name="NetWorth" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="13" name="NonCurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="14" name="OperatingIncome" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="15" name="OtherShortTermDebt" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="16" name="OverdraftCurrentAccount" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="17" name="ProfitAfterTax" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="18" name="Provisions" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="19" name="Receivables" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="20" name="SubordinatedDebts" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="21" name="TotalAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="TotalNumberOfEmployees" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="23" name="TradePayablesTotal" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="24" name="dscr" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="25" name="ValCheck" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="26" name="QuickRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="27" name="CurrentRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="28" name="SolvencyRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="29" name="InterestCoverageRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="30" name="ChangeInInventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="31" name="DepreciationOfAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="32" name="ShareResultMinorityInterest" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="33" name="CurrentAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <primaryKey column="annualaccountsid" sequenceNumberInPK="1"/>
+         <primaryKey column="columnenddate" sequenceNumberInPK="2"/>
+         <index name="PK_sz_annualaccountsdetails" unique="true">
+            <column ascending="true" name="annualaccountsid"/>
+            <column ascending="true" name="columnenddate"/>
+         </index>
+      </table>
+      <table name="sz_approval" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
+            <child column="fiatreferenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wlv" table="sz_businessrules"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wlv" table="sz_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="approvaldate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="resultdescription" nullable="true" remarks="" size="800" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="resultcode" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_approval" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
+      <table name="sz_businessrules" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="UUID" size="128" type="varchar" typeCode="12">
+            <child column="businessrulereferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlv" table="sz_businessrules_parameters"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <child column="processnumber" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlv" table="sz_businessrules_parameters"/>
+            <parent column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wlv" table="sz_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fiatreferenceid" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
+            <child column="fiatreferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlv" table="sz_businessrules_parameters"/>
+            <parent column="referenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wlv" table="sz_approval"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="true" remarks="" size="1000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="initial_result" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="final_result" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="overruled" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="overrule_motivation" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="rejection_reason" nullable="true" remarks="" size="1000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="referenceid_sequence" nullable="true" remarks="" size="16" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <primaryKey column="fiatreferenceid" sequenceNumberInPK="3"/>
+         <index name="PK_sz_businessrules" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+            <column ascending="true" name="fiatreferenceid"/>
+         </index>
+      </table>
+      <table name="sz_businessrules_parameters" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="businessrulereferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlv" table="sz_businessrules"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlv" table="sz_businessrules"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fiatreferenceid" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
+            <parent column="fiatreferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlv" table="sz_businessrules"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parametername" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="5" id="5" name="numericvalue" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="alfanumericvalue" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="booleanvalue" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="datevalue" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="businessrulereferenceid_sequence" nullable="true" remarks="" size="16" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="businessrulereferenceid" sequenceNumberInPK="2"/>
+         <index name="PK_sz_businessrules_parameters" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="businessrulereferenceid"/>
+         </index>
+      </table>
+      <table name="sz_collateral" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a collateral" size="128" type="varchar" typeCode="12">
+            <child column="collateralreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateraltype" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
+            <child column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+            <parent column="referenceid" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <child column="processnumber" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+            <parent column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="definitioncode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="description" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="valuationdate" nullable="true" remarks="Collateral &gt; Valuation &gt; ValuationDate" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="valuationcurrency" nullable="true" remarks="The currency code for identification of the currency" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="valuationamount" nullable="true" remarks="Collateral &gt; Valuation &gt; ValuationValue." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral" size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="agreementreferenceid" sequenceNumberInPK="2"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="3"/>
+         <index name="PK_sz_collateral" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="agreementreferenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_collateral_object" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="collateral_objectreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object_rental"/>
+            <child column="collateral_objectreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object_taxation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateralreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object_rental"/>
+            <child column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object_taxation"/>
+            <parent column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <child column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object_rental"/>
+            <child column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object_taxation"/>
+            <parent column="processnumber" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="postalcode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="place" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="marketvalue" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="purchasevalue" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="executionvalue" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="energylabel" nullable="true" remarks="" size="25" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="sequenceid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral_object" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="propertyspecifications" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="insurance" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="constructionyear" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="leasehold" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="leaseholdenddate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="17" name="propertysurface" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="officespacesurface" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="street" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="country" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="rank" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="prioramount" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="agreementreferenceid" sequenceNumberInPK="2"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="3"/>
+         <index name="PK_sz_collateral_object" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="agreementreferenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_collateral_object_rental" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_objectreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="regulatedproperty" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="5" id="5" name="pointscoreforregulatedrent" nullable="true" remarks="" size="9" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="admissiblemonthlyrent" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="coldrentpermonth" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="marketbasedrent" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalrentpermonth" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalrentperyear" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="sequenceid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_collateral_object_rental" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_collateral_object_taxation" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_objectreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlv" table="sz_collateral_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="valuationdate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="valuationmethod" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="valuationvaluetype" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="valuationvalue" nullable="true" remarks="This is called 'marktwaarde' in the application. Correction is already applied on this value." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="marketvaluecurrentstate" nullable="true" remarks="Market value current state" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="correctionpercentage" nullable="true" remarks="Market value correction percentage. eg: 0.9 is 90%" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="sequenceid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_collateral_object_val" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
+      <table name="sz_contactperson" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_process_contactperson" implied="false" onDeleteCascade="true" schema="wlv" table="sz_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="organisationname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="emailaddress" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="telephone" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="type" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_contactpersonreferenceid" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
+      <table name="sz_counterparty" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
+            <child column="mainborrowerreferenceid" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+            <child column="counterpartyreferenceid" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterpartyrating"/>
+            <child column="counterpartyreferenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_relation"/>
+            <parent column="counterpartyreferenceid" foreignKey="FK_sz_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty_financials"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <child column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+            <child column="processnumber" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterpartyrating"/>
+            <child column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_relation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="legalentity" nullable="false" remarks="Organisation (1) Personal (0)" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="datelastchanged" nullable="false" remarks="Date of last change" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="address" nullable="true" remarks="The address of the counterparty" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="postalcode" nullable="true" remarks="Free formatted postalcode, no specific country restrictions" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="isholding" nullable="true" remarks="Derived information and indicaties if the counterparty is a Holding company" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="counterpartysegmentcode" nullable="true" remarks="The segment code of this counterparty." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="counterpartycategorycode" nullable="true" remarks="The counterparty category this counterparty belongs to." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="foundationdate" nullable="true" remarks="The foundation date of the organisation" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="organisationname" nullable="true" remarks="Name of the organisation" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="numberofemployees" nullable="true" remarks="The number of employees of the organisation" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="cocnumber" nullable="true" remarks="Chamber of commerce code" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="legalform" nullable="true" remarks="The legal form of a counterparty. Example values (nl): BV, NV, VOF. The values should correspond with the configured values in Force Business Lending." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="countrycode" nullable="true" remarks="The country code that matches with a country description. The list of country descriptions can differ per customer installation." size="25" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="annualincome" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="employmentstatus" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="sectorcodestandard" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="sectorcodecustom" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral_object" size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_counterparty" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_counterparty_financials" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="counterpartyreferenceid" nullable="false" remarks="Identifier of a counterparty" size="128" type="varchar" typeCode="12">
+            <child column="referenceid" foreignKey="FK_sz_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="true" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
+            <parent column="financialsid" foreignKey="FK_sz_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wlv" table="sz_financials"/>
+         </column>
+         <primaryKey column="counterpartyreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_annualaccounts_cp" unique="true">
+            <column ascending="true" name="counterpartyreferenceid"/>
+         </index>
+      </table>
+      <table name="sz_counterpartyrating" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="counterpartyreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="RatingType" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="RatingValue" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="pd" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_counterpartyrating" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_facility" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="facilityreferenceid" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlv" table="sz_fee_facility"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="mainfacilityreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <child column="processnumber" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlv" table="sz_fee_facility"/>
+            <parent column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="productname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="productdefinitioncode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="repaymenttype" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="agreedlimitamount" nullable="true" remarks="The agreed or contractual limit on top-facility level." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="agreedlimitcurrency" nullable="true" remarks="The currency code for identification of the currency" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="limitamount" nullable="true" remarks="The amount of the limit" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="limitcurrency" nullable="true" remarks="The currency code for identification of the currency" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="facilitystartdate" nullable="true" remarks="The start date of the facility" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="facilityduration" nullable="true" remarks="The duration of the facility" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="facilityenddate" nullable="true" remarks="The end date of the facility" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="facilityaccountnumber" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="15" name="fixedrateperiod" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="16" name="floor" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="17" name="indicativebaserate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="18" name="indicativeinterestmargin" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="19" name="liquidityspread" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="20" name="offerbaserate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="21" name="offerinterestmargin" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="offerinterestcorrection" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="23" name="loantovalue" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="24" name="annualinterestrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="25" name="annualannuity" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="26" name="redemptionatstartmonth" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="27" name="annualrentalincomesurplus" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="28" name="interestcoveragerationarrow" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="29" name="interestcoverageratiobroad" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="30" name="debtservicecoverageratio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="31" name="reversionmargininterestrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="32" name="borrowerfee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="33" name="interestreferencedate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="34" name="interestproductstartdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="35" name="firstinterestpaymentdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="36" name="interestproductenddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="37" name="firstrepaymentdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="repaymentfrequency" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="39" name="discountrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="discounttype" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="41" name="nominalratebeforediscount" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="interestratename" nullable="true" remarks="Interest productname e.g. '3 month Euribor + opslag'" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="interestratecode" nullable="true" remarks="Interest productcode  e.g. 'EU.IR.000003'" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="interesttype" nullable="true" remarks="Interest type e.g. 'Fixed' or 'Variable'" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="tenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Fyndoo, but tenant formatted" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="externalreferenceid" nullable="true" remarks="ReferenceId received from an external application" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="parenttenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Fyndoo, but tenant formatted of the parent facility" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="parentexternalreferenceid" nullable="true" remarks="ReferenceId received from an external application of the parent facility" size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_facility" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_fee_agreement" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="startdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="fiatamountofthefee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="offeramountofthefee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="fiatpercentageofthefee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="offerpercentageofthefee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="frequency" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="daycountconvention" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_fee_agreement" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_fee_facility" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlv" table="sz_facility"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="facilityreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlv" table="sz_facility"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="startdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="fiatamountofthefee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="offeramountofthefee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="fiatpercentageofthefee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="offerpercentageofthefee" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="frequency" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="daycountconvention" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_fee_facility" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_financials" remarks="Table is used as Many-To-Many relation" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
+            <child column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wlv" table="sz_annualaccounts"/>
+            <child column="financialsid" foreignKey="FK_sz_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty_financials"/>
+         </column>
+         <primaryKey column="financialsid" sequenceNumberInPK="1"/>
+         <index name="PK_financialsid" unique="true">
+            <column ascending="true" name="financialsid"/>
+         </index>
+      </table>
+      <table name="sz_financinggoal" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a financinggoal" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definitioncode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_financinggoal" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_metadata" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="key" nullable="false" remarks="Label of the information" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="value" nullable="true" remarks="Value of the information" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="description" nullable="true" remarks="Description of the key, value pair." size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="type" nullable="true" remarks="INFO, FACT, ASSERT" size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="key" sequenceNumberInPK="1"/>
+         <index name="PK_metadata_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="sz_otherproperties" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wlv" table="sz_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="1" name="additionalrentalincome" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="1"/>
+         <index name="PK_sz_otherproperties" unique="true">
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_portalrequest" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="entrepreneurUserId" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="entrepreneurUserLastName" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="entrepreneurUserEmailAddress" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="creationdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="modificationdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="sentdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="externalReferenceId" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="requestedLoanAmount" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="financingGoalCode" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="financingGoalName" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="repaymentTypeCode" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="repaymentTypeName" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="entrepreneurIsPrivatePerson" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="entrepreneurEmailAddress" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="contactInfoLastName" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="contactInfoMobileNumber" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="contactInfoEmailAddress" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="contactInfoOrganisationName" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+      </table>
+      <table name="sz_process" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <child column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+            <child column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wlv" table="sz_approval"/>
+            <child column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wlv" table="sz_businessrules"/>
+            <child column="processnumber" foreignKey="FK_process_contactperson" implied="false" onDeleteCascade="true" schema="wlv" table="sz_contactperson"/>
+            <child column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wlv" table="sz_otherproperties"/>
+            <child column="processnumber" foreignKey="FK_sz_processevents_process" implied="false" onDeleteCascade="false" schema="wlv" table="sz_processevents"/>
+            <child column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wlv" table="sz_processstatuschange"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="contractnumber" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="externalreferencecontract" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="externalreferencerequest" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="processstatus" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="7" name="startdatetime" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="enddatetime" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="durationtimehours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="currentstatus" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="loanpassingdate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="latestexecutiondate" nullable="true" remarks="Last possible loan passingdate" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="numberofstatuschanges" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="firsttimeright" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="currency" nullable="true" remarks="" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="teamcode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="channel" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="processtype" nullable="true" remarks="processtype e.g. LoanOrigination, LoanReview, LoanModification, etc." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="mainadministrator" nullable="true" remarks="User which is the main administrator of the process" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_mainadministrator_user" implied="false" onDeleteCascade="true" schema="wlv" table="sz_user"/>
+         </column>
+         <primaryKey column="processnumber" sequenceNumberInPK="1"/>
+         <index name="PK_processnumber" unique="true">
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_processevents" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_sz_processevents_process" implied="false" onDeleteCascade="false" schema="wlv" table="sz_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="conditionalofferdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="conditionalofferdate_hours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="bindingofferdate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="bindingofferdate_hours" nullable="true" remarks="" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="processedfinancialfiguresauto" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="offersent" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="finishedsuccessful" nullable="true" remarks="True if the process has reached a successful status" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="finishedsuccessfuldate" nullable="true" remarks="Date and time of when the process has reached a successful status" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="1"/>
+         <index name="PK_sz_processevents" unique="true">
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_processstatuschange" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="code" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="status_startdatetime" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="status_enddatetime" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wlv" table="sz_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="processstatusgroupname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="userreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_processstatuschange_user" implied="false" onDeleteCascade="true" schema="wlv" table="sz_user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="workingdaysinstatus" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_processstatuschange_refid" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
+      <table name="sz_relation" remarks="Associative table implementing the many-to-many relation between Agreement and Counterparty" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="true" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlv" table="sz_agreement"/>
+            <parent column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="counterpartyreferenceid" nullable="false" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlv" table="sz_counterparty"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="borrowerrelationtype" nullable="true" remarks="Type of borrower relation (Main borrower or Borrower)" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="referenceid" nullable="false" remarks="Unique identifier of this table." size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_relation" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_user" remarks="" schema="wlv" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="mainadministrator" foreignKey="FK_mainadministrator_user" implied="false" onDeleteCascade="true" schema="wlv" table="sz_process"/>
+            <child column="userreferenceid" foreignKey="FK_processstatuschange_user" implied="false" onDeleteCascade="true" schema="wlv" table="sz_processstatuschange"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="username" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="active" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_userreferenceid" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
+   </tables>
+</database>
