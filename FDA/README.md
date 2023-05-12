@@ -11,10 +11,12 @@ Below the documentation of the versions of the ‘data export StandardZone’. F
 * Data export StandardZone version 2023.1 
   * [Documentation version 2023.1](DataExport_StandardZone_version2023.1.pdf) 
   * [Changelog from 2022.4 to 2023.1](changelog_2022.4_2023.1.md)
+  * [DDL StandardZone (PostgreSQL) 2023.1](DDL_DataExportStandardZone_2023.1.sql)
 
 * Data export StandardZone version 2022.4
   * [Documentation version 2022.4](DataExport_StandardZone_version2022.4.pdf) 
   * [Changelog from 2022.3 to 2022.4](changelog_2022.3_2022.4.md)
+  * [DDL StandardZone (PostgreSQL) 2022.4](DDL_DataExportStandardZone_2022.4.sql)
 
 * Data export StandardZone version 2022.3
   * [Documentation version 2022.3](DataExport_StandardZone_version2022.3.pdf) 
