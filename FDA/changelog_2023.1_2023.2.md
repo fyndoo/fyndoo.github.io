@@ -7,3 +7,12 @@ Changed columntype of table sz_facilitiy:
 * interestproductenddate from DateTime to DATE
 * firstrepaymentdate from DateTime to DATE
 
+Changed columntype of table sz_fee_agreement
+* startdate from DateTime to DATE
+
+Changed columntype of table sz_fee_facility
+startdate from DateTime to DATE
+
+Added table sz_facilityreference
+
+Added table sz_periodicstatement
