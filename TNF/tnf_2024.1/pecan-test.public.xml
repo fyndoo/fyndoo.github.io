@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database name="pecan-test" schema="public" type="PostgreSQL - 9.5.16">
    <sequences>
-      <sequence increment="1" name="aanvraag_handmatige_toetsing_id_seq" startValue="1"/>
       <sequence increment="1" name="aanvrager_id_seq" startValue="1"/>
       <sequence increment="1" name="attachment_id_seq" startValue="1"/>
       <sequence increment="1" name="energiecontract_id_seq" startValue="1"/>
@@ -16,23 +15,6 @@
       <sequence increment="1" name="vooraf_ingevulde_aangifte_bd_relaties_id_seq" startValue="1"/>
    </sequences>
    <tables>
-      <table name="aanvraag_handmatige_toetsing" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="true" defaultValue="nextval('aanvraag_handmatige_toetsing_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_aanvraag_handmatige_toetsing_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing"/>
-         </column>
-         <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="created_at" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="contactpersoon_telefoon" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="reden_voor_aanvraag_handmatige_toetsing" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="contactpersoon_keuze" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <index name="pk_aanvraag_handmatige_toetsing" unique="true">
-            <column ascending="true" name="id"/>
-         </index>
-         <index name="uk_aanvraag_handmatige_toetsing_toetsing" unique="true">
-            <column ascending="true" name="toetsing"/>
-         </index>
-      </table>
       <table name="aanvrager" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('aanvrager_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
             <child column="aanvrager" foreignKey="fk_inkomensverklaring_bd_verzamelinkomens_aanvrager" implied="false" onDeleteCascade="false" schema="public" table="inkomensverklaring_bd_verzamelinkomens"/>
@@ -130,8 +112,8 @@
       <table name="toekenningen_naar_rato" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('toekenningen_naar_rato_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="toetsing_output" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_toekenningen_naar_rato_toetsing_output" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output"/>
             <parent column="id" foreignKey="Defined in XML" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output_current"/>
+            <parent column="id" foreignKey="fk_toekenningen_naar_rato_toetsing_output" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="energiemaatschappij_identificatiecode" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="energiemaatschappij_naam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
@@ -145,7 +127,6 @@
       </table>
       <table name="toetsing" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('toetsing_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
-            <child column="toetsing" foreignKey="fk_aanvraag_handmatige_toetsing_toetsing" implied="false" onDeleteCascade="false" schema="public" table="aanvraag_handmatige_toetsing"/>
             <child column="toetsing" foreignKey="fk_toetsing_input_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing_input"/>
             <child column="toetsing" foreignKey="fk_toetsing_output_toetsing" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output"/>
             <child column="toetsing" foreignKey="Defined in XML" implied="false" onDeleteCascade="false" schema="public" table="toetsing_output_current"/>

@@ -2,7 +2,6 @@ toetsing
 toetsing_input
 aanvrager
 toetsing_output
-aanvraag_handmatige_toetsing
 attachment
 energiecontract
 inkomensverklaring_bd_verzamelinkomens

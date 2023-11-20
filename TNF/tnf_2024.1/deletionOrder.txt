@@ -7,7 +7,6 @@ naaminconsistentiegegevens
 inkomensverklaring_bd_verzamelinkomens
 energiecontract
 attachment
-aanvraag_handmatige_toetsing
 toetsing_output
 aanvrager
 toetsing_input
