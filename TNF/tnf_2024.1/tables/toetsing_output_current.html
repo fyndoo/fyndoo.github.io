@@ -234,7 +234,41 @@
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="gehanteerd_normbedrag">gehanteerd_normbedrag</span></td>
+                                    <td>numeric</td>
+                                    <td>11,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><span id="berekend_normbedrag">berekend_normbedrag</span></td>
+                                    <td>numeric</td>
+                                    <td>11,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="gehanteerd_normpercentage">gehanteerd_normpercentage</span></td>
                                     <td>numeric</td>
                                     <td>11,2</td>
                                     <td title='nullable'>√</td>
@@ -387,23 +421,6 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="gehanteerd_normbedrag_percentage">gehanteerd_normbedrag_percentage</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
                                     <td><span id="application_version">application_version</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
@@ -528,19 +545,19 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="847,5,1205,152">
-<area shape="rect" id="node2" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,32,803,723">
+<area shape="rect" id="node1" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="832,5,1191,152">
+<area shape="rect" id="node2" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,32,788,752">
 <area shape="rect" id="node3" href="toetsing.html" target="_top" title="toetsing" alt="" coords="5,64,276,211">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/toetsing_output_current.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="847,29,1205,176">
-<area shape="rect" id="node2" href="toetsing_output.html" target="_top" title="toetsing_output" alt="" coords="458,5,665,93">
-<area shape="rect" id="node3" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,111,803,801">
+<area shape="rect" id="node1" href="toekenningen_naar_rato.html" target="_top" title="toekenningen_naar_rato" alt="" coords="832,29,1191,176">
+<area shape="rect" id="node2" href="toetsing_output.html" target="_top" title="toetsing_output" alt="" coords="451,5,657,93">
+<area shape="rect" id="node3" href="toetsing_output_current.html" target="_top" title="toetsing_output_current" alt="" coords="320,111,788,831">
 <area shape="rect" id="node5" href="toetsing.html" target="_top" title="toetsing" alt="" coords="5,143,276,289">
-<area shape="rect" id="node4" href="toetsing_input.html" target="_top" title="toetsing_input" alt="" coords="464,819,659,907">
+<area shape="rect" id="node4" href="toetsing_input.html" target="_top" title="toetsing_input" alt="" coords="457,848,651,936">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/toetsing_output_current.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -558,7 +575,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT tout.id,&#10;    tout.toetsing,&#10;    tout.toetsingsresultaat,&#10;    tout.toelichting_bij_toetsingsresultaat,&#10;    tout.berekend_bruto_huishoudinkomen,&#10;    tout.berekend_inkomensniveau,&#10;    tout.berekend_normbedrag,&#10;    tout.berekend_voorschot,&#10;    tout.energiequote,&#10;    tout.tussentijds_toegekend_bedrag,&#10;    tout.toegekend_bedrag,&#10;    tout.hoogste_leeftijd_van_aanvragers,&#10;    tout.leeftijdsgrens_huishouden,&#10;    tout.aantal_aanvragers,&#10;    tout.gehanteerd_sociaal_minimum,&#10;    tout.gehanteerd_normbedrag_percentage,&#10;    tout.application_version,&#10;    tout.model_version,&#10;    tout.matrix_versions,&#10;    tout.created_at,&#10;    tout.volgnummer,&#10;    tout.kenmerk&#10;   FROM ( SELECT toutput.id,&#10;            toutput.toetsing,&#10;            toutput.toetsingsresultaat,&#10;            toutput.toelichting_bij_toetsingsresultaat,&#10;            toutput.berekend_bruto_huishoudinkomen,&#10;            toutput.berekend_inkomensniveau,&#10;            toutput.berekend_normbedrag,&#10;            toutput.berekend_voorschot,&#10;            toutput.energiequote,&#10;            toutput.tussentijds_toegekend_bedrag,&#10;            toutput.toegekend_bedrag,&#10;            toutput.hoogste_leeftijd_van_aanvragers,&#10;            toutput.leeftijdsgrens_huishouden,&#10;            toutput.aantal_aanvragers,&#10;            toutput.gehanteerd_sociaal_minimum,&#10;            toutput.gehanteerd_normbedrag_percentage,&#10;            toutput.application_version,&#10;            toutput.model_version,&#10;            toutput.matrix_versions,&#10;            toutput.created_at,&#10;            toutput.volgnummer,&#10;            toutput.kenmerk,&#10;            rank() OVER (PARTITION BY toutput.toetsing ORDER BY toutput.volgnummer DESC) AS rank&#10;           FROM toetsing_output toutput) tout&#10;  WHERE (tout.rank &#61; 1);</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT tout.id,&#10;    tout.toetsing,&#10;    tout.toetsingsresultaat,&#10;    tout.toelichting_bij_toetsingsresultaat,&#10;    tout.berekend_bruto_huishoudinkomen,&#10;    tout.berekend_inkomensniveau,&#10;    tout.gehanteerd_normbedrag,&#10;    tout.berekend_normbedrag,&#10;    tout.gehanteerd_normpercentage,&#10;    tout.berekend_voorschot,&#10;    tout.energiequote,&#10;    tout.tussentijds_toegekend_bedrag,&#10;    tout.toegekend_bedrag,&#10;    tout.hoogste_leeftijd_van_aanvragers,&#10;    tout.leeftijdsgrens_huishouden,&#10;    tout.aantal_aanvragers,&#10;    tout.gehanteerd_sociaal_minimum,&#10;    tout.application_version,&#10;    tout.model_version,&#10;    tout.matrix_versions,&#10;    tout.created_at,&#10;    tout.volgnummer,&#10;    tout.kenmerk&#10;   FROM ( SELECT toutput.id,&#10;            toutput.toetsing,&#10;            toutput.toetsingsresultaat,&#10;            toutput.toelichting_bij_toetsingsresultaat,&#10;            toutput.berekend_bruto_huishoudinkomen,&#10;            toutput.berekend_inkomensniveau,&#10;            toutput.gehanteerd_normbedrag,&#10;            toutput.berekend_normbedrag,&#10;            toutput.gehanteerd_normpercentage,&#10;            toutput.berekend_voorschot,&#10;            toutput.energiequote,&#10;            toutput.tussentijds_toegekend_bedrag,&#10;            toutput.toegekend_bedrag,&#10;            toutput.hoogste_leeftijd_van_aanvragers,&#10;            toutput.leeftijdsgrens_huishouden,&#10;            toutput.aantal_aanvragers,&#10;            toutput.gehanteerd_sociaal_minimum,&#10;            toutput.application_version,&#10;            toutput.model_version,&#10;            toutput.matrix_versions,&#10;            toutput.created_at,&#10;            toutput.volgnummer,&#10;            toutput.kenmerk,&#10;            rank() OVER (PARTITION BY toutput.toetsing ORDER BY toutput.volgnummer DESC) AS rank&#10;           FROM toetsing_output toutput) tout&#10;  WHERE (tout.rank &#61; 1);</textarea>
                             <div style="padding-top: 5px;"><hr></div>
                             <div class="box box-solid">
                                 <div class="box-header with-border">
