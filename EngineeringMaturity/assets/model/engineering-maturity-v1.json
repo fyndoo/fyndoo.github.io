@@ -1,0 +1,227 @@
+{
+  "model":{
+    "version": 1.0
+  },
+  "propertiesExplanations": [
+    {
+      "property": "Scope",
+      "code":"scope",
+      "explanation": {
+        "text": "De scope van de werkzaamheden waar de engineer grotendeels in werkt..",
+        "links": [                    
+        ]
+      }
+    },
+    {
+      "property": "Impact en leiderschap",
+      "code":"impactEnLeiderschap",
+      "explanation": {
+        "text": "Beschrijft jouw cirkel van invloed. Vloeit jouw invloed vooral binnen het team? Is dit structureel breder of heb je invloed op de hele organisatie?",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Initiatief",
+            "name": "Initiatief"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Eigenaarschap",
+            "name": "Eigenaarschap"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Organisatiebewustzijn",
+            "name": "Organisatiebewustzijn"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Samenwerken",
+            "name": "Samenwerken"
+          }
+        ]
+      }
+    },
+    {
+      "property": "Software Engineering",
+      "code":"softwareEngineering",
+      "explanation": {
+        "text": "Kennis van Software Engineering: code, stijl, testen, kwaliteit, non functionals en best practices. Kennis van softwareontwerp. Kennis van tooling en frameworks. Kennis van integration en delivery.",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Application+Development",
+            "name": "Application Development"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Component+Integration",
+            "name": "Component Integration"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Testing",
+            "name": "Testing"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Innovating",
+            "name": "Innovating"
+          }
+        ]
+      }
+    },
+    {
+      "property": "Technisch inzicht",
+      "code":"technischInzicht",
+      "explanation": {
+        "text": "Problem solving. Kennis/begrip van architectuur en technische landschap. Business behind the technology.",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Analytisch+Vermogen",
+            "name": "Analytisch Vermogen"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Oplossingsgerichtheid",
+            "name": "Oplossingsgerichtheid"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Architecture+Design",
+            "name": "Architecture Design"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/IT+Business+Strategy+Alignment",
+            "name": "IT Business Strategy Alignment"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Technology+Trend+Monitoring",
+            "name": "Technology Trend Monitoring"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Problem+Management",
+            "name": "Problem Management"
+          }
+        ]
+      }
+    },
+    {
+      "property": "G(et)S(tuff)D(done)",
+      "code":"getStuffDone",
+      "explanation":{
+        "text": "Gedefinieerde taken tot complexe projecten gestructureerd oplossen. Prioriteit en planning. Requirements duidelijk ophalen en uitvoeren. Documenteren en kennis borgen.",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/pages/viewpage.action?pageId=1390478714",
+            "name": "Plannen/Organiseren"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Resultaatgerichtheid",
+            "name": "Resultaatgerichtheid"
+          }
+        ]
+      }
+    },
+    {
+      "property": "Communicatie",
+      "code":"communicatie",
+      "explanation": {
+        "text": "Communicatie met andere collega's (voortgang met team, tot andere stakeholders/teams + helderheid). Inzicht in personen (Feedback geven/ontvangen tot coachen en hulp met aannemen van nieuwe mensen). Zelf hulp vragen vs detecteren en escaleren van gaps/storingen tot Technische behoeftes pitchen. Kennisdelen.",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Mondelinge+Communicatie",
+            "name": "Mondelinge Communicatie"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Overtuigingskracht",
+            "name": "Overtuigingskracht"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Omgevingsbewustzijn",
+            "name": "Omgevingsbewustzijn"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Information+and+Knowledge+Management",
+            "name": "Information and Knowledge Management"
+          }
+        ]
+      }
+    }
+  ],
+  "engineeringLevels": [
+    {
+      "level": "Software Engineer I",
+      "levelIndicator": "SE1",
+      "scope": "Taak",
+      "impactEnLeiderschap": "Je richt je vooral op eigen taken. Daarmee is de scope en impact van je werk binnen je eigen team. Je bent verantwoordelijk voor het afronden van je eigen taken en wordt hierin ondersteund door collega's. Je wordt bij sommige taken ondersteund door ervaren engineers en geholpen bij het goed opstarten van ingewikkelde technische opgaven. Je toont interesse voor technische keuzes die worden gemaakt binnen de projecten waar je aan werkt. Je leert bij de verschillende ontwerpbeslissingen begrijpen hoe je hiermee kan werken en waarom ze zijn gemaakt.",
+      "softwareEngineering": "Je leert de coding best practices kennen en beseft het belang van kwaliteit. Je leert best practices m.b.t. automatisch testen. Je bouwt een basisbeeld op van concepten als security, schaalbaarheid en performance en begint te leren welke concrete zaken hierop van invloed zijn. Je leert structuren in applicatieopzet herkennen en je doet kennis op over de onderbouwingen achter deze keuzes. Je leert middels modellen en diagrammen inzicht te krijgen in de wijzigingen die je moet maken in de software. Je ontwikkelt je productiviteit door te leren om te gaan met alle tooling die er gebruikt wordt; build systemen, source control, IDE's etc. Je leert hoe integration en delivery zijn ingevuld voor de componenten waar jij vaak aan werkt. Hoe werkt de bouwstraat, wat gebeurt er allemaal automatisch, hoe wordt er geleverd, etc.",
+      "technischInzicht": "Je leert hoe je de software waar je aan werkt moet debuggen. Je leert de juiste loginformatie te vinden en en hierdoor achterliggende problemen te identificeren en te analyseren. Je leert het technische landschap van componenten kennen en begint hier een begrip van op te bouwen. Je leert hoe functionele features passen binnen de context van je project en domein. Je stelt tijdens refinements inhoudelijke vragen en toon je nieuwsgierigheid om de domeinkennis op te doen. Dit zorgt ervoor dat je de \"functionele waarom\" beter begrijpt.",
+      "getStuffDone": "Je bent in staat om goed gedefinieerde taken op te pakken en af te ronden en hebt een duidelijk beeld van je eigen voortgang en hebt een idee waar dit past binnen de doelen van je team. Je overlegt proactief met je team wat een goede volgende taak is om op te pakken en bepaalt samen de volgorde van je werk. Je vraagt naar requirements van een taak voor je begint. Soms krijg je hulp van collega's om te bepalen wanneer de uitwerking van de taak goed genoeg is. Je leert te begrijpen welke informatie relevant is om te documenteren om de kennis over je taak te borgen.",
+      "communicatie": "Je leert duidelijk met je team te communiceren over wat je doet en waar je staat in je werk. Ook oefen je met tijdig hulp vragen wanneer je vast zit. Je hebt een open houding. Hierdoor leer je feedback te ontvangen en leert van alles wat je doet. Ook denk je actief mee hoe je samen beter kan worden. Je geeft problemen en bugs die je tegenkomt helder aan in je team. Je bent nieuwsgierig en zoekt proactief kennisdelingsmomenten op om verder te groeien.",
+      "persoonSpecifiekeSpecialismes": ""
+    }
+    ,
+    {
+      "level": "Software Engineer II",
+      "levelIndicator": "SE2",
+      "scope": "Feature",
+      "impactEnLeiderschap": "Je werkt mee aan projecten binnen het team en soms aan projecten hierbuiten. De scope en impact van je werk is nog voornamelijk binnen het team. Je neemt verantwoordelijkheid op je eigen taken en coördineert soms delen van grotere onderwerpen. Je maakt stabiele voortgang zonder continu begeleiding of sturing nodig te hebben van meer ervaren engineers. Je discussieert actief mee tijdens het bedenken van oplossingsrichtingen en andere technische keuzes die gemaakt moeten in de software waar je aan werkt. Je begrijpt ontwerpbeslissingen die worden gemaakt en kan de impact herkennen in de code.",
+      "softwareEngineering": "Je schrijft nette en correcte code en volgt consistent best practices op. Je herkent gebruikte design patterns en weet deze ook zelf effectief toe te passen. Je denkt tijdens ontwerp en refinements kritisch na over non-functionals en houdt hier tijdens je developmentwerk zo veel mogelijk rekening mee. Je kent de applicatieopzet binnen jouw aandachtsgebied en weet deze effectief te gebruiken. Wanneer dit nodig is weet je modellen en diagrammen op te stellen voor de implementatie van complexe functionaliteit. Je kent de door ons gebruikte systemen en tooling inmiddels en weet deze effectief in te zetten waardoor je flexibeler inzetbaar bent op meerdere plekken. Je weet goed de weg binnen de integration en delivery processen van de software binnen jouw aandachtsgebied. Je helpt hier ook wijzigingen of verbeteringen aan door te voeren.",
+      "technischInzicht": "Je weet door opgebouwde kennis en ervaring de meeste problemen binnen de software waar jij aan werkt snel en goed te doorgronden en kunt binnen een redelijke tijd een goede oplossing te bedenken, af te stemmen en door te voeren. Je hebt een hoogover beeld van het landschap waarin de componenten opereren en begrijpt interactiepatronen tussen de componenten. Je hebt een goed hoogover beeld van het productdomein en voelt je thuis in het deel van het productdomein waarbinnen je werkt. Je kunt discussies met analisten goed volgen en hebt door wanneer een technisch probleem misschien functionele impact kan hebben.",
+      "getStuffDone": "Je maakt constante voortgang in wat complexere taken en weet wanneer je om hulp moet vragen om te voorkomen dat je vast blijft zitten. Je kunt heldere prioriteiten stellen binnen je eigen werk. Je wordt steeds beter in het voorspellen van hoe lang iets duurt. Je helpt proactief met het helder krijgen van requirements voor stories binnen het team om rework te voorkomen. Je weet goed in te schatten wanneer je uitgevoerde werk goed genoeg is. Je weet goed welke kennis belangrijk is om te borgen en schrijft duidelijk begrijpelijke documentatie.",
+      "communicatie": "Je communiceert proactief over aannames die je doet. Ook weet je al redelijk goed de juiste mensen buiten je team te vinden als ze nodig zijn. Je blijft leren door zelfreflectie en door feedback van anderen te vragen. Ook geef je soms uit jezelf constructieve feedback (of complimenten) aan collega's en tijdens retro's. Je helpt met het identificeren van problemen en de impact te bepalen. Je zoekt actief de kennisdelingsmomenten op en ontvangt hier kennis en deelt je eigen kennis waar mogelijk.",
+      "persoonSpecifiekeSpecialismes": ""
+    }
+    ,
+    {
+      "level": "Sr. Software Engineer",
+      "levelIndicator": "SSE",
+      "scope": "Feature en project",
+      "impactEnLeiderschap": "Je werkt mee aan projecten binnen en buiten het team (bijv. d.m.v. code reviews en meedenken met projectopzet). De scope en impact van je werk is binnen en vaak ook buiten je team. Je bent van voor tot eind verantwoordelijk voor grote technische trajecten en draagt daar zelf ook direct aan bij. Je opereert zelfstandig op grote complexe stukken werk met minimale sturing en begeleiding. Verder begeleid je andere collega's bij het oplossen van lastige technische problemen, bij het opstarten van ingewikkelde stories en met het maken van een technisch ontwerp. Je begrijpt en maakt goed onderbouwde beslissingen op technisch vlak in de context waarbinnen je werkt. Hierin weet jij alternatieve oplossingen goed af te wegen. Je denkt mee en adviseert over architecturale vraagstukken die betrekking hebben op het gehele landschap. Je onderzoekt nieuwe technologieën creëert hier implementatievoorstellen voor.",
+      "softwareEngineering": "Jouw basis kennis van software engineering is zeer mature. Je begint je te ontwikkelen als generalist die met haar of zijn brede software engineering kennis makkelijk op meerdere plekken inzetbaar is of als specialist, die over bepaalde technische onderwerpen diepgaande kennis bezit. Jij begrijpt de richtlijnen mbt non-functionals waar wij verwachten dat onze software aan moet voldoen en identificeert het werk wat daarvoor nodig is binnen jouw aandachtsgebied. Je ontwerpt en implementeert tooling en plannen voor kwaliteit en performance van de software. Jij hebt goede kennis softwareontwerp en bent hierdoor bent in staat om binnen jouw team en projecten de richting te bedenken over het applicatieontwerp, technieken en communicatiepatronen. Je hebt goede kennis van gebruikte tooling en snapt de achterliggende concepten van de gebruikte frameworks. Je houdt de gebruikte frameworks up to date en zet de kennis en ervaring ook in om proactief nieuwe tooling of frameworks te testen en te implementeren. Je kent de integration en delivery processen van de software binnen jouw aandachtsgebied goed en weet hier structureel uitbreidingen en optimalisaties in te definiëren en door te voeren.",
+      "technischInzicht": "Jij weet de oorzaak achter zowel grote als kleine problemen snel te achterhalen en weet goed meerdere oplossingen tegen elkaar af te wegen. Jij kent alle debug trucjes voor jouw software en assisteert teamleden met het vinden en oplossen van fouten. Jij verzint creatieve oplossingen wanneer er in de ontwerpfase zaken over het hoofd zijn gezien en weet hier de implementatie op bij te sturen. Je denkt met architecten en analisten mee over grotere architectuurvraagstukken en ontwerpt en plant de wijzigingen die nodig zijn om de software waar jij aan werkt op te lijnen met de lange termijn architectuur. Je snapt hoe het technische landschap in elkaar zit en identificeert proactief tekortkomingen en verbeteringsmogelijkheden. Je kan goed schakelen tussen de technische en functionele kant van het product. Hierdoor kan je (onafhankelijk van de context) snel functionele detailkennis opnemen om mee te denken met analisten/architecten over de technische impact van functionele eisen en deze te challengen met een alternatief.",
+      "getStuffDone": "Je bent volhardend en consistent in het aanpakken van complexe technische problemen en weet deze op een efficiënte en proactieve manier weg te werken. Je weet hoe je je eigen taken en taken binnen grotere projecten moet prioriteren en plannen. Je zorgt voor kwalitatieve en voorspelbare leveringen en weet met het team complexe, grote taken te voorzien van kloppende inschatting en planning. Je borgt proactief dat de requirements voor iedereen helder zijn voor er wordt gestart met een project. Hier help je het team om te borgen wanneer iets goed genoeg is. Je weet technische beslissingen goed vast te leggen in design docs en overige documentatie. Je weet dit ook goed uit te dragen in tech reviews en andere communicatiekanalen.",
+      "communicatie": "Je betrekt proactief andere collega's (zoals analisten en architecten) buiten je team met een project wanneer dat verstandig is en communiceert makkelijk. Je weet op team en projectniveau te reflecteren en constructief feedback te geven over de processen tijdens retro's. Je toont je betrokken en geeft regelmatig constructieve feedback en complimenten aan collega's. Jij deelt regelmatig je kennis aan anderen. Dit kan zijn door middel te helpen met problemen of projecten en hier anderen te leren hoe jij dat oplost. Of door te spreken of schrijven over de onderwerpen waar jij veel over weet.",
+      "persoonSpecifiekeSpecialismes": ""
+    }
+    ,
+    {
+      "level": "Staff Engineer: Architect",
+      "levelIndicator": "STAFF",
+      "scope": "Organisatie",
+      "impactEnLeiderschap": "Jij bepaalt technische richting en bedenkt daarbij passende architectuur. Jij zoekt en vindt draagvlak voor deze ideeën en bepaalt organisatie brede implementatieplannen. Jij hebt verantwoordelijkheid over de architectuur van (een onderdeel binnen) het technische landschap. Jij wordt vanuit de hele organisatie benaderd voor technische begeleiding bij tactische en strategische vraagstukken. Jij bepaalt op een hoog niveau technische visie en richting, aansluitend bij de business vraagstukken en draagt dit uit. Hier borg je dat de technische richting en architectuur meerdere potentiële toekomsten mogelijk maakt zonder te weten wat de toekomst precies is.",
+      "softwareEngineering": "Jij hebt parate kennis over actuele ontwikkelingen op het gebied van techniek en architectuur en weet deze te plaatsen binnen de visie van het bedrijf. Jij borgt het overzicht van het landschap, dat het landschap goed draait en dat de verschillende systemen goed samenwerken. Jij maakt samen met andere technische seniors beslissingen over tooling en frameworks die voor het hele landschap gelden. Je weet hoe integration en delivery bijdragen aan de realisatie van organisatiebrede technische veranderingen en hoe deze kunnen worden geïntegreerd in de algehele architectuur van het systeem.",
+      "technischInzicht": "Als Architect speelt probleemoplossing een cruciale rol in het identificeren en oplossen van complexe technische problemen op organisatieniveau. Jij zorgt dat de lange termijn ontwikkelingen in het technische landschap aansluiten op de lange termijn business plannen die voortkomen uit Missie/visie/strategie en domein trends. Jij injecteert technisch context in de business visie. Jij bedenkt de technische visie en richting op hoog niveau en weet deze uit te dragen binnen de organisatie. Hiervoor heb jij een diepgaand begrip nodig van het domein waarbinnen we opereren.",
+      "getStuffDone": "Jij bent in staat om de door jouw opgestelde architectuur binnen lange termijnplanningen te passen en zorgt er ook voor dat dit wordt uitgedragen en uitgevoerd. Jij delegeert en assisteert de teams bij het realiseren van gemaakte architecturele keuzes.",
+      "communicatie": "Jij bent de champion van de technische visie. Jij weet business en techniek te overtuigen van de te volgen technische richting. Technisch strategische onderwerpen draag jij uit, binnen en buiten de organisatie. Jij deelt regelmatig je kennis over hoe je tot een visie komt en hoe de technische onderdelen werken. Hiermee probeer je collega's te helpen om te groeien (d.m.v. spreken of schrijven).",
+      "persoonSpecifiekeSpecialismes": ""
+    }
+    ,
+    {
+      "level": "Staff Engineer: Tech Lead",
+      "levelIndicator": "STAFF",
+      "scope": "Organisatie",
+      "impactEnLeiderschap": "Jij geeft technische sturing aan een of meerdere development team(s). Jij bent verantwoordelijk voor het development proces en alles wat daarbij komt kijken voor jou team(s). Je bedenkt en implementeert verbeteringen om dit effectiever en efficiënter te maken. Jij maakt indirect impact doormiddel van leiden, onderwijzen, ontwerpen, mentoring, adviseren of assisteren op brede schaal. Jij identificeert, ontwerpt en implementeert organisatie brede engineering processen strevend naar een efficiënte en gestroomlijnde engineering organisatie.",
+      "softwareEngineering": "Jij levert consequent grote of gecombineerde functionaliteit met hoge kwaliteit waar een of meer teams betrokken zijn in de ontwikkeling. Jij waakt over de kwaliteit wat je team(s) opleveren door het uitdragen en borgen van regels, richtlijnen en handvaten. Jij bezit brede kennis van tooling en frameworks en weet hierdoor snel mogelijke technische oplossingen te plaatsen binnen grote, complexe planningen. De Tech Lead moet in staat zijn om de technische vereisten van het project te begrijpen en deze te vertalen naar een effectieve integratie- en leveringsstrategie.",
+      "technischInzicht": "Als Tech Lead is problem solving een essentiële vaardigheid. Je moet complexe problemen kunnen analyseren en oplossen om technische uitdagingen in projecten het hoofd te bieden. Je moet ook een grondige kennis hebben van de architectuur en het landschap van de systemen waarin je werkt. Als Tech Lead ben je verantwoordelijk voor de technische aanpak en de uitvoer van één of meerdere teams, dus je moet weten hoe de verschillende componenten van het systeem samenwerken en hoe je deze componenten kunt optimaliseren om de beste resultaten te behalen. Functionele domeinkennis is belangrijk voor Tech Leads om effectief te kunnen samenwerken met product owners en feature owners. Je moet inzicht hebben in de doelstellingen van het bedrijf en de gebruikersbehoeften om ervoor te zorgen dat de technische oplossingen die je team bouwt, aan deze doelstellingen voldoen.",
+      "getStuffDone": "Jij weet grote en complexe vraagstukken op te knippen, te voorzien van technische kaders en dit in begrijpbare en behapbare vorm uit te dragen naar de teams. Jij begeleidt en assisteert teams bij de realisatie van deze items en houdt overzicht over de voortgang van het geheel.",
+      "communicatie": "Jij weet helder en bondig te communiceren over de technische aspecten van grote en complexe onderwerpen. Jij weet hele teams hierin mee te nemen. Jij bent een voorbeeld voor de engineers binnen de organisatie en mentoring van anderen en het sponsoren van hun initiatieven is iets waar jij graag energie in steekt. Jij deelt regelmatig je kennis over technische onderwerpen die spelen, binnen en buiten het bedrijf. (d.m.v. spreken of schrijven)",
+      "persoonSpecifiekeSpecialismes": ""
+    }
+    ,
+    {
+      "level": "Staff Engineer: Tech Domain Expert",
+      "levelIndicator": "STAFF",
+      "scope": "Organisatie",
+      "impactEnLeiderschap": "Jij beweegt je over teams heen om kennis en actieve ondersteuning te bieden omtrent problemen of werkzaamheden rondom jouw codebase. Jij bent verantwoordelijk voor de kwaliteit en de ontwikkelkeuzes van jouw onderdeel van de codebase. Jij begeleidt en coacht mensen die aan het werk zijn binnen jouw deel van de codebase, zodat zij hier beter in kunnen werken en de juiste technische keuzes maken. Jij wordt vroeg betrokken bij de beslissingen op technisch ontwerp binnen jouw codebase en borgt dat deze worden nageleefd.",
+      "softwareEngineering": "Jij bent eigenaar en expert van bepaalde grote gebieden van de codebase. Hierbinnen zorg jij voor het continu en structureel doorvoeren van verbeteringen op belangrijke gebieden als performance, security, stabiliteit en schaalbaarheid en weet hier assistentie en advies over te geven binnen de hele organisatie. Jij hebt diepgaande kennis van de binnen jouw domein gebruikte technieken en frameworks en werkt nauw samen met architecten om er voor te zorgen dat strategie en technische visie binnen jouw domein op een zo goed mogelijke manier worden geïmplementeerd. Je hebt kennis van de verschillende deployment methoden en hoe deze kunnen worden toegepast binnen jouw domein. Verder ben je in staat om de integratie- en deliveryprocessen binnen jouw domein te optimaliseren en te automatiseren om de efficiëntie en betrouwbaarheid te verbeteren en risico's te verminderen.",
+      "technischInzicht": "Als Tech Domain Expert blink jij uit in probleemoplossing op jouw specifieke domein. Je moet in staat zijn om de harigste problemen op te splitsen in kleinere stukken en oplossingen te bedenken om deze op te lossen en weet anderen hierin mee te nemen en te coachen. Je denkt met architecten en analisten mee over grotere architectuurvraagstukken en ontwerpt en plant de wijzigingen die nodig zijn om de software waar jij aan werkt op te lijnen met de lange termijn architectuur. Je snapt hoe het technische landschap in elkaar zit en identificeert proactief tekortkomingen en verbeteringsmogelijkheden. Jij kent op jouw gebied de achterliggende functionele vraagstukken en de lange termijn plannen goed. Benodigde wijzigingen en productiebevindingen weet jij goed in context te plaatsen om zo tot de beste oplossing/uitwerking te komen.",
+      "getStuffDone": "Jij weet consequent de complexiteit van onze softwareoplossingen omlaag te krijgen zodat we meer gedaan krijgen met minder moeite.",
+      "communicatie": "Jij bent het technisch boegbeeld van jouw aandachtsgebied. Jij kunt knopen doorhakken bij complexe technische vraagstukken binnen jouw applicaties en weet dit goed aan technische en niet technische mensen uit te leggen. Jij kunt complexe problemen binnen jouw applicaties helder toelichten en oplossingsrichtingen onderbouwen. Jij deelt regelmatig je kennis over het domein en hoe je goede technische keuzes kunt. Hiermee probeer je collega's te helpen om zelfstandig goed te werken binnen het domein.",
+      "persoonSpecifiekeSpecialismes": ""
+    }
+    ,
+    {
+      "level": "Staff Engineer: Specialist",
+      "levelIndicator": "STAFF",
+      "scope": "Organisatie",
+      "impactEnLeiderschap": "Jij wordt default betrokken bij grote of meerjarige technische besluiten op jouw gebied die impact kunnen hebben op grote delen van het technisch landschap. Jij staat binnen de organisatie bekend als evangelist op jouw expertisebied en zorgt proactief dat we op dit gebied vooroplopen en aan de hoogste eisen voldoen.",
+      "softwareEngineering": "Jij bent go-to expert op een bepaalde technische deelgebied en weet daar binnen de hele organisatie assistentie en advies te geven (databases, cloud, security etc.). Jij bent continu op de hoogte van wat er speelt op jouw expertisegebied in de organisatie en de wereld. Je weet hierdoor tijdig in te springen op trends en zaken te identificeren die goed stromen met de technische visie van het bedrijf. Jij hebt een reputatie van het continu en structureel doorvoeren van verbeteringen op jouw expertisegebied en weet hier assistentie en advies over te geven binnen de hele organisatie of daarbuiten. Mogelijk is integration en delivery het nichegebied waar jij je in specialiseert. In dat geval neem jij het voortouw om de organisatie verder te helpen op dit gebied en help je anderen die voortgang te bereiken. Zo niet, dan ben je in staat om je kennis van je expertisegebied te integreren in deze methoden om oplossingen te bedenken die zowel de technische behoeften als de bedrijfsbehoeften ondersteunen.",
+      "technischInzicht": "Als specialist moet je in staat zijn om complexe problemen op jouw nichegebied aan te pakken. Je moet een goed inzicht hebben in de uitdagingen die specifiek zijn voor hun niche en de vaardigheden hebben om creatieve en effectieve oplossingen te bedenken. Dit vereist vaak een diepgaande technische kennis en een goed begrip van de onderliggende architectuur en technologieën. Je hebt een goed begrip van de softwarearchitectuur en het technische landschap van de organisatie. Dit omvat kennis van de verschillende componenten en systemen die binnen de organisatie worden gebruikt en hoe deze op elkaar zijn afgestemd. Je begrijpt hoe jouw nichegebied past in het grotere geheel en hoe je kunt bijdragen aan de algehele technische visie en roadmap van de organisatie. Je moet ook inzicht hebben in het functionele domein waarin jouw nichegebied van toepassing is. Dit omvat kennis van de bedrijfsprocessen en -vereisten en hoe deze van invloed zijn op de technische oplossingen die worden ontwikkeld. Door jouw diepgaande technische kennis te combineren met een goed begrip van het functionele domein, kun je beter samenwerken met andere afdelingen binnen de organisatie en technische oplossingen bieden die echt aansluiten bij de behoeften van de organisatie.",
+      "getStuffDone": "Jij delegeert en assisteert teams bij het aanpakken van grote en complexe uitdagingen op jouw expertisegebied en weet hierbij mensen mee te nemen en op te coachen.",
+      "communicatie": "Jij bent een van de technische stemmen van de organisatie. Een van de engineering eindbazen binnen het bedrijf. Jij weet helder te communiceren over jouw expertisegebied en zo belangrijke zaken en complexe onderwerpen duidelijk te maken bij zowel technische als niet technische mensen. Als er iets bepaald of uitgedragen moet worden over jouw onderwerp, dan weet iedereen jou te vinden. Jij deelt zeer regelmatig je kennis over je specialisatie. Hiermee probeer je collega's verder te brengen in jouw vakgebied.",
+      "persoonSpecifiekeSpecialismes": ""
+    }
+  
+  ]
+}
