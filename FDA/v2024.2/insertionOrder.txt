@@ -11,11 +11,13 @@ sz_collateral_object
 sz_businessrules
 sz_facility
 sz_annualaccounts
-sz_custommodels
+sz_calcmodel_customerbased
+sz_calcmodel_processbased
 sz_sli
 sz_annualaccountsdetails
+sz_calcmodel_customerbaseddetails
+sz_calcmodel_processbaseddetails
 sz_contactperson
-sz_custommodelsdetails
 sz_otherproperties
 sz_periodicstatement
 sz_processevents

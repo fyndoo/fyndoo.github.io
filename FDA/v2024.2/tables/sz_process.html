@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_process - data-analytics.wlv</title>
+        <title>sz_process - data-analytics.wlr</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -46,7 +46,7 @@
                 <nav class="navbar navbar-static-top">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="../index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlv</span>
+                            <a href="../index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlr</span>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
                         </div>
 
@@ -133,14 +133,14 @@
                                                 <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
+                                                <td title="sz_calcmodel_processbased.processnumber references sz_process.processnumber via FK_calcmodel_processbased_proces"><a href='sz_calcmodel_processbased.html'>sz_calcmodel_processbased</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_calcmodel_processbased_proces</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="sz_contactperson.processnumber references sz_process.processnumber via FK_process_contactperson"><a href='sz_contactperson.html'>sz_contactperson</a><span class='relatedKey'>.processnumber</span></td>
                                                 <td class="constraint detail">FK_process_contactperson</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_custommodels.processnumber references sz_process.processnumber via FK_sz_custommodels_proces"><a href='sz_custommodels.html'>sz_custommodels</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_sz_custommodels_proces</td>
-                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
                                                 <td title="sz_otherproperties.processnumber references sz_process.processnumber via FK_sz_otherproperties_process"><a href='sz_otherproperties.html'>sz_otherproperties</a><span class='relatedKey'>.processnumber</span></td>
@@ -158,8 +158,8 @@
                                                 <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_sli.processnumber references sz_process.processnumber via FK_sz_sli_proces"><a href='sz_sli.html'>sz_sli</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_sz_sli_proces</td>
+                                                <td title="sz_sli.processnumber references sz_process.processnumber via FK_sli_process"><a href='sz_sli.html'>sz_sli</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_sli_process</td>
                                                 <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
@@ -168,7 +168,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Unique identifier of an process</p></td>
+                                    <td><p>Unique identifier of a process</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="processname">processname</span></td>
@@ -574,43 +574,43 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="722,5,1021,181">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="726,5,1025,181">
 <area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="211,617,655,1303">
 <area shape="rect" id="node8" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,1229,167,1347">
-<area shape="rect" id="node3" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="763,235,979,381">
-<area shape="rect" id="node4" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1088,153,1351,329">
-<area shape="rect" id="node5" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="745,399,998,545">
-<area shape="rect" id="node6" href="sz_custommodels.html" target="_top" title="sz_custommodels" alt="" coords="745,563,998,739">
-<area shape="rect" id="node7" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="733,756,1009,873">
-<area shape="rect" id="node9" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="699,891,1044,1008">
-<area shape="rect" id="node10" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="711,1220,1031,1396">
-<area shape="rect" id="node11" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="771,1025,971,1201">
+<area shape="rect" id="node3" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="767,235,983,381">
+<area shape="rect" id="node4" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1096,153,1359,329">
+<area shape="rect" id="node5" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="699,399,1052,575">
+<area shape="rect" id="node6" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="749,592,1002,739">
+<area shape="rect" id="node7" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="737,756,1013,873">
+<area shape="rect" id="node9" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="703,891,1048,1008">
+<area shape="rect" id="node10" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="715,1220,1035,1396">
+<area shape="rect" id="node11" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="775,1025,975,1201">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_process.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="717,184,1015,360">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="721,184,1019,360">
 <area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="307,136,547,224">
 <area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="205,559,649,1244">
 <area shape="rect" id="node16" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,781,161,869">
-<area shape="rect" id="node4" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="767,532,965,620">
-<area shape="rect" id="node5" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1119,532,1366,620">
-<area shape="rect" id="node6" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="1447,529,1816,617">
-<area shape="rect" id="node7" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1141,321,1345,409">
-<area shape="rect" id="node8" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="739,637,993,784">
-<area shape="rect" id="node9" href="sz_custommodels.html" target="_top" title="sz_custommodels" alt="" coords="739,1264,993,1440">
-<area shape="rect" id="node10" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="324,1279,531,1367">
-<area shape="rect" id="node11" href="sz_custommodelsdetails.html" target="_top" title="sz_custommodelsdetails" alt="" coords="1083,1267,1403,1355">
-<area shape="rect" id="node12" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1153,427,1332,515">
-<area shape="rect" id="node13" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1113,111,1372,199">
-<area shape="rect" id="node14" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1120,216,1365,304">
-<area shape="rect" id="node15" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="728,801,1004,919">
-<area shape="rect" id="node17" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="693,936,1039,1053">
-<area shape="rect" id="node18" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="706,391,1026,479">
-<area shape="rect" id="node19" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1148,5,1337,93">
-<area shape="rect" id="node20" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="766,1071,966,1247">
-<area shape="rect" id="node21" href="sz_slidetails.html" target="_top" title="sz_slidetails" alt="" coords="1142,1073,1343,1161">
+<area shape="rect" id="node4" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="771,532,969,620">
+<area shape="rect" id="node5" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1177,532,1424,620">
+<area shape="rect" id="node6" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="1555,529,1924,617">
+<area shape="rect" id="node7" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="693,1264,1047,1440">
+<area shape="rect" id="node8" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="324,1279,531,1367">
+<area shape="rect" id="node9" href="sz_calcmodel_processbaseddetails.html" target="_top" title="sz_calcmodel_processbaseddetails" alt="" coords="1091,1267,1511,1355">
+<area shape="rect" id="node10" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1199,321,1403,409">
+<area shape="rect" id="node11" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="743,637,997,784">
+<area shape="rect" id="node12" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1211,427,1390,515">
+<area shape="rect" id="node13" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1171,111,1430,199">
+<area shape="rect" id="node14" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1178,216,1423,304">
+<area shape="rect" id="node15" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="732,801,1008,919">
+<area shape="rect" id="node17" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="697,936,1043,1053">
+<area shape="rect" id="node18" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="710,391,1030,479">
+<area shape="rect" id="node19" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1206,5,1395,93">
+<area shape="rect" id="node20" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="770,1071,970,1247">
+<area shape="rect" id="node21" href="sz_slidetails.html" target="_top" title="sz_slidetails" alt="" coords="1200,1073,1401,1161">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_process.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

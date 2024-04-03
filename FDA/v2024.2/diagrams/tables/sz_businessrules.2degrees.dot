@@ -7,8 +7,8 @@ digraph "twoDegreesRelationshipsDiagram" {
   "sz_businessrules_parameters":"businessrulereferenceid":w -> "sz_businessrules":"referenceid.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_businessrules_parameters":"fiatreferenceid":w -> "sz_businessrules":"fiatreferenceid.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_businessrules_parameters":"processnumber":w -> "sz_businessrules":"processnumber.type":e [arrowhead=none dir=back arrowtail=crowodot];
+  "sz_calcmodel_processbased":"elipses":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_contactperson":"elipses":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
-  "sz_custommodels":"elipses":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_otherproperties":"elipses":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=teeodot];
   "sz_process":"mainadministrator":w -> "sz_user":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_processevents":"elipses":w -> "sz_process":"processnumber":e [arrowhead=none dir=back arrowtail=teeodot];
@@ -72,6 +72,17 @@ digraph "twoDegreesRelationshipsDiagram" {
     target="_top"
     tooltip="sz_businessrules_parameters"
   ];
+  "sz_calcmodel_processbased" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="202" HEIGHT="16"><B>sz_calcmodel_processbased</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" CELLPADDING="0" BGCOLOR="#ffffff" COLSPAN="3" ><TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><VR/><TD ALIGN="CENTER" BGCOLOR="#ffffff">  </TD><VR/><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR></TABLE></TD></TR>
+    </TABLE>>
+    URL="sz_calcmodel_processbased.html"
+    target="_top"
+    tooltip="sz_calcmodel_processbased"
+  ];
   "sz_contactperson" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -82,17 +93,6 @@ digraph "twoDegreesRelationshipsDiagram" {
     URL="sz_contactperson.html"
     target="_top"
     tooltip="sz_contactperson"
-  ];
-  "sz_custommodels" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="127" HEIGHT="16"><B>sz_custommodels</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" CELLPADDING="0" BGCOLOR="#ffffff" COLSPAN="3" ><TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><VR/><TD ALIGN="CENTER" BGCOLOR="#ffffff">  </TD><VR/><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR></TABLE></TD></TR>
-    </TABLE>>
-    URL="sz_custommodels.html"
-    target="_top"
-    tooltip="sz_custommodels"
   ];
   "sz_otherproperties" [
    label=<

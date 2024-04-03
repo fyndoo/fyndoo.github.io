@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_financials - data-analytics.wlv</title>
+        <title>sz_financials - data-analytics.wlr</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -46,7 +46,7 @@
                 <nav class="navbar navbar-static-top">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="../index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlv</span>
+                            <a href="../index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlr</span>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
                         </div>
 
@@ -136,18 +136,23 @@
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
+                                                <td title="sz_calcmodel_customerbased.financialsid references sz_financials.financialsid via FK_calcmodel_customerbased_financials"><a href='sz_calcmodel_customerbased.html'>sz_calcmodel_customerbased</a><span class='relatedKey'>.financialsid</span></td>
+                                                <td class="constraint detail">FK_calcmodel_customerbased_financials</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_calcmodel_processbased.financialsid references sz_financials.financialsid via FK_calcmodel_processbased_financials"><a href='sz_calcmodel_processbased.html'>sz_calcmodel_processbased</a><span class='relatedKey'>.financialsid</span></td>
+                                                <td class="constraint detail">FK_calcmodel_processbased_financials</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="sz_counterparty_financials.financialsid references sz_financials.financialsid via FK_sz_annualaccounts_cp1"><a href='sz_counterparty_financials.html'>sz_counterparty_financials</a><span class='relatedKey'>.financialsid</span></td>
                                                 <td class="constraint detail">FK_sz_annualaccounts_cp1</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_custommodels.financialsid references sz_financials.financialsid via FK_sz_financials3"><a href='sz_custommodels.html'>sz_custommodels</a><span class='relatedKey'>.financialsid</span></td>
-                                                <td class="constraint detail">FK_sz_financials3</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_sli.financialsid references sz_financials.financialsid via FK_sz_financials2"><a href='sz_sli.html'>sz_sli</a><span class='relatedKey'>.financialsid</span></td>
-                                                <td class="constraint detail">FK_sz_financials2</td>
+                                                <td title="sz_sli.financialsid references sz_financials.financialsid via FK_sli_financials"><a href='sz_sli.html'>sz_sli</a><span class='relatedKey'>.financialsid</span></td>
+                                                <td class="constraint detail">FK_sli_financials</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
@@ -217,26 +222,29 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="369,5,635,152">
-<area shape="rect" id="node2" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,267,287,365">
-<area shape="rect" id="node3" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="331,169,673,292">
-<area shape="rect" id="node4" href="sz_custommodels.html" target="_top" title="sz_custommodels" alt="" coords="375,309,629,485">
-<area shape="rect" id="node5" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="402,503,602,679">
+<area shape="rect" id="node1" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="382,5,649,152">
+<area shape="rect" id="node2" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,360,287,459">
+<area shape="rect" id="node3" href="sz_calcmodel_customerbased.html" target="_top" title="sz_calcmodel_customerbased" alt="" coords="331,169,700,316">
+<area shape="rect" id="node4" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="339,333,692,509">
+<area shape="rect" id="node5" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="344,527,687,649">
+<area shape="rect" id="node6" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="415,667,615,843">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_financials.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="369,5,635,152">
-<area shape="rect" id="node2" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,267,287,365">
-<area shape="rect" id="node3" href="sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="717,8,1049,96">
-<area shape="rect" id="node4" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="763,172,1003,260">
-<area shape="rect" id="node5" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="331,169,673,292">
-<area shape="rect" id="node6" href="sz_custommodels.html" target="_top" title="sz_custommodels" alt="" coords="375,309,629,485">
-<area shape="rect" id="node7" href="sz_process.html" target="_top" title="sz_process" alt="" coords="52,473,240,561">
-<area shape="rect" id="node8" href="sz_custommodelsdetails.html" target="_top" title="sz_custommodelsdetails" alt="" coords="723,312,1043,400">
-<area shape="rect" id="node9" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="402,503,602,679">
-<area shape="rect" id="node10" href="sz_slidetails.html" target="_top" title="sz_slidetails" alt="" coords="783,505,984,593">
+<area shape="rect" id="node1" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="382,5,649,152">
+<area shape="rect" id="node2" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,360,287,459">
+<area shape="rect" id="node3" href="sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="796,8,1128,96">
+<area shape="rect" id="node4" href="sz_calcmodel_customerbased.html" target="_top" title="sz_calcmodel_customerbased" alt="" coords="331,169,700,316">
+<area shape="rect" id="node5" href="sz_calcmodel_customerbaseddetails.html" target="_top" title="sz_calcmodel_customerbaseddetails" alt="" coords="744,172,1180,260">
+<area shape="rect" id="node6" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="339,473,692,649">
+<area shape="rect" id="node7" href="sz_process.html" target="_top" title="sz_process" alt="" coords="52,632,240,720">
+<area shape="rect" id="node8" href="sz_calcmodel_processbaseddetails.html" target="_top" title="sz_calcmodel_processbaseddetails" alt="" coords="752,476,1172,564">
+<area shape="rect" id="node9" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="842,336,1082,424">
+<area shape="rect" id="node10" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="344,333,687,456">
+<area shape="rect" id="node11" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="415,667,615,843">
+<area shape="rect" id="node12" href="sz_slidetails.html" target="_top" title="sz_slidetails" alt="" coords="861,669,1063,757">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_financials.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

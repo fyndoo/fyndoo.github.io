@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>data-analytics.wlv</title>
+        <title>data-analytics.wlr</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
@@ -46,7 +46,7 @@
                 <nav class="navbar navbar-static-top">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlv</span>
+                            <a href="index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlr</span>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
                         </div>
 
@@ -136,7 +136,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_agreement",
@@ -794,7 +794,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_approval",
@@ -878,7 +878,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_businessrules",
@@ -1032,7 +1032,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_businessrules_parameters",
@@ -1133,6 +1133,328 @@
         "comments": ""
     },
     {
+        "tableName": "sz_calcmodel_customerbased",
+        "tableFileName": "sz_calcmodel_customerbased",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>documentid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Internal identifier of the document (eg. document of type history)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbased",
+        "tableFileName": "sz_calcmodel_customerbased",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>financialsid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Identifier of a group of documents regarding the same counterparty</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbased",
+        "tableFileName": "sz_calcmodel_customerbased",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "documenttype",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Documenttype of underlying data (eg. history)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbaseddetails",
+        "tableFileName": "sz_calcmodel_customerbaseddetails",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>documentid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Internal indentifier of the document of the history application</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbaseddetails",
+        "tableFileName": "sz_calcmodel_customerbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>columnenddate",
+        "type": "date",
+        "length": 13,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Enddate of the column in case of a variable which is time dependent</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbaseddetails",
+        "tableFileName": "sz_calcmodel_customerbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>variablename",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Name of the variable in the calculation model.</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbaseddetails",
+        "tableFileName": "sz_calcmodel_customerbaseddetails",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "stringvalue",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>In case of alfa-numeric value this column is filled.</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbaseddetails",
+        "tableFileName": "sz_calcmodel_customerbaseddetails",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "numericvalue",
+        "type": "float8",
+        "length": 17,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": ""
+    },
+    {
+        "tableName": "sz_calcmodel_customerbaseddetails",
+        "tableFileName": "sz_calcmodel_customerbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>t1",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>tuple Instance first level (zero-based)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbaseddetails",
+        "tableFileName": "sz_calcmodel_customerbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>t2",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>tuple Instance second level (zero-based)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_customerbaseddetails",
+        "tableFileName": "sz_calcmodel_customerbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>t3",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>tuple Instance  level (zero-based)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbased",
+        "tableFileName": "sz_calcmodel_processbased",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>documentid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Internal identifier of the document (eg. document of type history)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbased",
+        "tableFileName": "sz_calcmodel_processbased",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>financialsid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Identifier of a group of documents regarding the same counterparty</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbased",
+        "tableFileName": "sz_calcmodel_processbased",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>processnumber",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of a process</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbased",
+        "tableFileName": "sz_calcmodel_processbased",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "documenttype",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Documenttype of underlying data (eg. history)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbaseddetails",
+        "tableFileName": "sz_calcmodel_processbaseddetails",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>documentid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Internal indentifier of the document of the history application</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbaseddetails",
+        "tableFileName": "sz_calcmodel_processbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>columnenddate",
+        "type": "date",
+        "length": 13,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Enddate of the column in case of a variable which is time dependent</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbaseddetails",
+        "tableFileName": "sz_calcmodel_processbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>variablename",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Name of the variable in the calculation model.</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbaseddetails",
+        "tableFileName": "sz_calcmodel_processbaseddetails",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "stringvalue",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>In case of alfa-numeric value this column is filled.</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbaseddetails",
+        "tableFileName": "sz_calcmodel_processbaseddetails",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "numericvalue",
+        "type": "float8",
+        "length": 17,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>In case of numeric value this column is filled.</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbaseddetails",
+        "tableFileName": "sz_calcmodel_processbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>t1",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>tuple Instance first level (zero-based)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbaseddetails",
+        "tableFileName": "sz_calcmodel_processbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>t2",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>tuple Instance second level (zero-based)</p>"
+    },
+    {
+        "tableName": "sz_calcmodel_processbaseddetails",
+        "tableFileName": "sz_calcmodel_processbaseddetails",
+        "tableType": "Table",
+        "keyClass": "indexedColumn",
+        "keyTitle": "Indexed",
+        "name": "<i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>t3",
+        "type": "int8",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>tuple Instance  level (zero-based)</p>"
+    },
+    {
         "tableName": "sz_collateral",
         "tableFileName": "sz_collateral",
         "tableType": "Table",
@@ -1186,7 +1508,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_collateral",
@@ -1326,7 +1648,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_collateral_object",
@@ -1648,7 +1970,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_collateral_object_rental",
@@ -1816,7 +2138,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_collateral_object_taxation",
@@ -1942,7 +2264,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_contactperson",
@@ -2026,7 +2348,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_counterparty",
@@ -2334,7 +2656,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_counterpartyrating",
@@ -2393,174 +2715,6 @@
         "comments": ""
     },
     {
-        "tableName": "sz_custommodels",
-        "tableFileName": "sz_custommodels",
-        "tableType": "Table",
-        "keyClass": "primaryKey",
-        "keyTitle": "Primary Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>documentid",
-        "type": "varchar",
-        "length": 128,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>Internal identifier of the document (eg. document of type history)</p>"
-    },
-    {
-        "tableName": "sz_custommodels",
-        "tableFileName": "sz_custommodels",
-        "tableType": "Table",
-        "keyClass": "foreignKey",
-        "keyTitle": "Foreign Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>financialsid",
-        "type": "varchar",
-        "length": 128,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>Identifier of a group of documents regarding the same counterparty</p>"
-    },
-    {
-        "tableName": "sz_custommodels",
-        "tableFileName": "sz_custommodels",
-        "tableType": "Table",
-        "keyClass": "foreignKey",
-        "keyTitle": "Foreign Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>processnumber",
-        "type": "int8",
-        "length": 19,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
-    },
-    {
-        "tableName": "sz_custommodels",
-        "tableFileName": "sz_custommodels",
-        "tableType": "Table",
-        "keyClass": "",
-        "keyTitle": "",
-        "name": "documenttype",
-        "type": "varchar",
-        "length": 128,
-        "nullable": "√",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>Documenttype of underlying data (eg. history)</p>"
-    },
-    {
-        "tableName": "sz_custommodelsdetails",
-        "tableFileName": "sz_custommodelsdetails",
-        "tableType": "Table",
-        "keyClass": "primaryKey",
-        "keyTitle": "Primary Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>documentid",
-        "type": "varchar",
-        "length": 128,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>Internal indentifier of the document of the history application</p>"
-    },
-    {
-        "tableName": "sz_custommodelsdetails",
-        "tableFileName": "sz_custommodelsdetails",
-        "tableType": "Table",
-        "keyClass": "primaryKey",
-        "keyTitle": "Primary Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>columnenddate",
-        "type": "date",
-        "length": 13,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>Enddate of the column</p>"
-    },
-    {
-        "tableName": "sz_custommodelsdetails",
-        "tableFileName": "sz_custommodelsdetails",
-        "tableType": "Table",
-        "keyClass": "primaryKey",
-        "keyTitle": "Primary Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>variablename",
-        "type": "varchar",
-        "length": 128,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": ""
-    },
-    {
-        "tableName": "sz_custommodelsdetails",
-        "tableFileName": "sz_custommodelsdetails",
-        "tableType": "Table",
-        "keyClass": "",
-        "keyTitle": "",
-        "name": "stringvalue",
-        "type": "varchar",
-        "length": 128,
-        "nullable": "√",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": ""
-    },
-    {
-        "tableName": "sz_custommodelsdetails",
-        "tableFileName": "sz_custommodelsdetails",
-        "tableType": "Table",
-        "keyClass": "",
-        "keyTitle": "",
-        "name": "numericvalue",
-        "type": "float8",
-        "length": 17,
-        "nullable": "√",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": ""
-    },
-    {
-        "tableName": "sz_custommodelsdetails",
-        "tableFileName": "sz_custommodelsdetails",
-        "tableType": "Table",
-        "keyClass": "primaryKey",
-        "keyTitle": "Primary Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>t1",
-        "type": "int8",
-        "length": 19,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>tuple Instance first level (zero-based)</p>"
-    },
-    {
-        "tableName": "sz_custommodelsdetails",
-        "tableFileName": "sz_custommodelsdetails",
-        "tableType": "Table",
-        "keyClass": "primaryKey",
-        "keyTitle": "Primary Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>t2",
-        "type": "int8",
-        "length": 19,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>tuple Instance second level (zero-based)</p>"
-    },
-    {
-        "tableName": "sz_custommodelsdetails",
-        "tableFileName": "sz_custommodelsdetails",
-        "tableType": "Table",
-        "keyClass": "primaryKey",
-        "keyTitle": "Primary Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>t3",
-        "type": "int8",
-        "length": 19,
-        "nullable": "",
-        "autoUpdated": "",
-        "defaultValue": "null",
-        "comments": "<p>tuple Instance  level (zero-based)</p>"
-    },
-    {
         "tableName": "sz_facility",
         "tableFileName": "sz_facility",
         "tableType": "Table",
@@ -2614,7 +2768,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_facility",
@@ -3300,7 +3454,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_fee_agreement",
@@ -3454,7 +3608,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_fee_facility",
@@ -3636,7 +3790,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_financinggoal",
@@ -3902,7 +4056,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_process",
@@ -4392,7 +4546,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_processstatuschange",
@@ -4462,7 +4616,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_relation",
@@ -4546,7 +4700,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of an process</p>"
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_sli",

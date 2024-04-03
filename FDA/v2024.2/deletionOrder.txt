@@ -11,11 +11,13 @@ sz_slidetails
 sz_processevents
 sz_periodicstatement
 sz_otherproperties
-sz_custommodelsdetails
 sz_contactperson
+sz_calcmodel_processbaseddetails
+sz_calcmodel_customerbaseddetails
 sz_annualaccountsdetails
 sz_sli
-sz_custommodels
+sz_calcmodel_processbased
+sz_calcmodel_customerbased
 sz_annualaccounts
 sz_facility
 sz_businessrules
