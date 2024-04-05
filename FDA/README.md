@@ -9,7 +9,7 @@ Below the documentation of the versions of the ‘data export StandardZone’. F
 
 
 ***Data export StandardZone versions***
-* Data export StandardZone version 2024.2 (CONCEPT)
+* Data export StandardZone version 2024.2 
   * [Graphical overview](v2024.2/relationships.html)  
   * [Documentation version 2024.2](DataExport_StandardZone_version2024.2.pdf) 
   * [Changelog from 2024.1 to 2024.2](changelog_2024.1_2024.2.md)
