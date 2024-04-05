@@ -9,7 +9,7 @@
             <child column="agreementreferenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_financinggoal"/>
             <child column="agreementreferenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
             <child column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
             <child column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_agreement"/>
@@ -40,7 +40,7 @@
             <child column="annualaccountsid" foreignKey="FK_annualaccounts_details" implied="false" onDeleteCascade="true" schema="wla" table="sz_annualaccountsdetails"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="financialsid" foreignKey="FK_financials1" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
+            <parent column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="documenttype" nullable="true" remarks="Documenttype of underlying data (eg. history)" size="128" type="varchar" typeCode="12"/>
          <primaryKey column="annualaccountsid" sequenceNumberInPK="1"/>
@@ -49,42 +49,45 @@
          </index>
       </table>
       <table name="sz_annualaccountsdetails" remarks="" schema="wla" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="annualaccountsid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="currency" nullable="true" remarks="Currency code" size="3" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="annualaccountsid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
             <parent column="annualaccountsid" foreignKey="FK_annualaccounts_details" implied="false" onDeleteCascade="true" schema="wla" table="sz_annualaccounts"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="columnenddate" nullable="false" remarks="End date of the column in the history application" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="CashAndEquivalents" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="CurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="ebitda" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="FinancialExpenses" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="FinancialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="IntangibleFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="Inventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="MaterialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="10" name="MinorityInterests" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="11" name="NetSales" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="12" name="NetWorth" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="13" name="NonCurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="14" name="OperatingIncome" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="15" name="OtherShortTermDebt" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="16" name="OverdraftCurrentAccount" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="17" name="ProfitAfterTax" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="18" name="Provisions" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="19" name="Receivables" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="20" name="SubordinatedDebts" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="21" name="TotalAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="TotalNumberOfEmployees" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="23" name="TradePayablesTotal" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="24" name="dscr" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="25" name="ValCheck" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="26" name="QuickRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="27" name="CurrentRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="28" name="SolvencyRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="29" name="InterestCoverageRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="30" name="ChangeInInventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="31" name="DepreciationOfAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="32" name="ShareResultMinorityInterest" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="33" name="CurrentAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="columnenddate" nullable="false" remarks="End date of the column in the history application" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="CashAndEquivalents" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="CurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="ebitda" nullable="true" remarks="Earnings Before Interest, Taxes, Depreciation and Amortisation" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="FinancialExpenses" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="FinancialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="IntangibleFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="Inventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="10" name="MaterialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="11" name="MinorityInterests" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="12" name="NetSales" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="13" name="NetWorth" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="14" name="NonCurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="15" name="OperatingIncome" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="16" name="OtherShortTermDebt" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="17" name="OverdraftCurrentAccount" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="18" name="ProfitAfterTax" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="19" name="Provisions" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="20" name="Receivables" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="21" name="SubordinatedDebts" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="TotalAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="23" name="TotalNumberOfEmployees" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="24" name="TradePayablesTotal" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="25" name="dscr" nullable="true" remarks="Debt Service Coverage Ratio" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="26" name="ValCheck" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="27" name="QuickRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="28" name="CurrentRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="29" name="SolvencyRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="30" name="InterestCoverageRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="31" name="ChangeInInventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="32" name="DepreciationOfAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="33" name="ShareResultMinorityInterest" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="34" name="CurrentAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="35" name="TotalEquityAndLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="36" name="STPartOfLTDebts" nullable="true" remarks="Short Term Part of the Long Term Debts" size="17" type="float8" typeCode="8"/>
          <primaryKey column="annualaccountsid" sequenceNumberInPK="1"/>
          <primaryKey column="columnenddate" sequenceNumberInPK="2"/>
          <index name="PK_sz_annualaccountsdetails" unique="true">
@@ -96,7 +99,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
             <child column="fiatreferenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="approvaldate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
@@ -112,7 +115,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="UUID" size="128" type="varchar" typeCode="12">
             <child column="businessrulereferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules_parameters"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules_parameters"/>
             <parent column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
@@ -141,7 +144,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="businessrulereferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fiatreferenceid" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
@@ -177,9 +180,9 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="documentid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
             <parent column="documentid" foreignKey="FK_calcmodel_customerbaseddetails" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_customerbased"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="columnenddate" nullable="true" remarks="Enddate of the column" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="variablename" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="stringvalue" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="columnenddate" nullable="true" remarks="Enddate of the column in case of a variable which is time dependent" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="variablename" nullable="true" remarks="Name of the variable in the calculation model." size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="stringvalue" nullable="true" remarks="In case of alfa-numeric value this column is filled." size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="numericvalue" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="t1" nullable="true" remarks="tuple Instance first level (zero-based)" size="19" type="int8" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="t2" nullable="true" remarks="tuple Instance second level (zero-based)" size="19" type="int8" typeCode="-5"/>
@@ -200,7 +203,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="false" remarks="Identifier of a group of documents regarding the same counterparty" size="128" type="varchar" typeCode="12">
             <parent column="financialsid" foreignKey="FK_calcmodel_processbased_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_calcmodel_processbased_proces" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="documenttype" nullable="true" remarks="Documenttype of underlying data (eg. history)" size="128" type="varchar" typeCode="12"/>
@@ -213,10 +216,10 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="documentid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
             <parent column="documentid" foreignKey="FK_calcmodel_processbaseddetails" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_processbased"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="columnenddate" nullable="true" remarks="Enddate of the column" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="variablename" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="stringvalue" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="numericvalue" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="columnenddate" nullable="true" remarks="Enddate of the column in case of a variable which is time dependent" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="variablename" nullable="true" remarks="Name of the variable in the calculation model." size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="stringvalue" nullable="true" remarks="In case of alfa-numeric value this column is filled." size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="numericvalue" nullable="true" remarks="In case of numeric value this column is filled." size="17" type="float8" typeCode="8"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="t1" nullable="true" remarks="tuple Instance first level (zero-based)" size="19" type="int8" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="t2" nullable="true" remarks="tuple Instance second level (zero-based)" size="19" type="int8" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="t3" nullable="true" remarks="tuple Instance  level (zero-based)" size="19" type="int8" typeCode="-5"/>
@@ -238,7 +241,7 @@
             <child column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
             <parent column="referenceid" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
             <parent column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
@@ -270,7 +273,7 @@
             <child column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_taxation"/>
             <parent column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_rental"/>
             <child column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_taxation"/>
             <parent column="processnumber" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
@@ -311,7 +314,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
             <parent column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="regulatedproperty" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
@@ -337,7 +340,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
             <parent column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="valuationdate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
@@ -354,7 +357,7 @@
       </table>
       <table name="sz_contactperson" remarks="" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_process_contactperson" implied="false" onDeleteCascade="true" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="organisationname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
@@ -371,9 +374,9 @@
             <child column="mainborrowerreferenceid" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
             <child column="counterpartyreferenceid" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterpartyrating"/>
             <child column="counterpartyreferenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
-            <parent column="counterpartyreferenceid" foreignKey="FK_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty_financials"/>
+            <parent column="counterpartyreferenceid" foreignKey="FK_sz_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty_financials"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
             <child column="processnumber" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterpartyrating"/>
             <child column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
@@ -405,10 +408,10 @@
       </table>
       <table name="sz_counterparty_financials" remarks="" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="counterpartyreferenceid" nullable="false" remarks="Identifier of a counterparty" size="128" type="varchar" typeCode="12">
-            <child column="referenceid" foreignKey="FK_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
+            <child column="referenceid" foreignKey="FK_sz_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="true" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="financialsid" foreignKey="FK_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
+            <parent column="financialsid" foreignKey="FK_sz_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
          <primaryKey column="counterpartyreferenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_annualaccounts_cp" unique="true">
@@ -417,7 +420,7 @@
       </table>
       <table name="sz_counterpartyrating" remarks="" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="counterpartyreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
@@ -442,7 +445,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_facility"/>
             <parent column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
@@ -511,7 +514,7 @@
       </table>
       <table name="sz_fee_agreement" remarks="" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
@@ -534,7 +537,7 @@
       </table>
       <table name="sz_fee_facility" remarks="" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="facilityreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
@@ -557,10 +560,10 @@
       </table>
       <table name="sz_financials" remarks="Table is used as Many-To-Many relation" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <child column="financialsid" foreignKey="FK_financials1" implied="false" onDeleteCascade="true" schema="wla" table="sz_annualaccounts"/>
+            <child column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wla" table="sz_annualaccounts"/>
             <child column="financialsid" foreignKey="FK_calcmodel_customerbased_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_customerbased"/>
             <child column="financialsid" foreignKey="FK_calcmodel_processbased_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_processbased"/>
-            <child column="financialsid" foreignKey="FK_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty_financials"/>
+            <child column="financialsid" foreignKey="FK_sz_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty_financials"/>
             <child column="financialsid" foreignKey="FK_sli_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_sli"/>
          </column>
          <primaryKey column="financialsid" sequenceNumberInPK="1"/>
@@ -573,7 +576,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definitioncode" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
@@ -622,7 +625,7 @@
          </index>
       </table>
       <table name="sz_process" remarks="" schema="wla" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
             <child column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wla" table="sz_approval"/>
             <child column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
@@ -683,7 +686,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="status_startdatetime" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="status_enddatetime" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="processstatusgroupname" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
@@ -700,7 +703,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="true" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
             <parent column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
@@ -723,7 +726,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
             <parent column="financialsid" foreignKey="FK_sli_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of an process" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_sli_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="documenttype" nullable="true" remarks="Documenttype of underlying data (eg. history)" size="128" type="varchar" typeCode="12"/>
@@ -733,42 +736,45 @@
          </index>
       </table>
       <table name="sz_slidetails" remarks="" schema="wla" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="sliid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="currency" nullable="true" remarks="Currency code" size="3" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="sliid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
             <parent column="sliid" foreignKey="FK_sli_details" implied="false" onDeleteCascade="true" schema="wla" table="sz_sli"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="columnenddate" nullable="false" remarks="End date of the column in the history application" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="CashAndEquivalents" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="CurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="ebitda" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="FinancialExpenses" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="FinancialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="IntangibleFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="Inventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="MaterialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="10" name="MinorityInterests" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="11" name="NetSales" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="12" name="NetWorth" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="13" name="NonCurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="14" name="OperatingIncome" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="15" name="OtherShortTermDebt" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="16" name="OverdraftCurrentAccount" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="17" name="ProfitAfterTax" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="18" name="Provisions" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="19" name="Receivables" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="20" name="SubordinatedDebts" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="21" name="TotalAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="TotalNumberOfEmployees" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="23" name="TradePayablesTotal" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="24" name="dscr" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="25" name="ValCheck" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="26" name="QuickRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="27" name="CurrentRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="28" name="SolvencyRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="29" name="InterestCoverageRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="30" name="ChangeInInventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="31" name="DepreciationOfAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="32" name="ShareResultMinorityInterest" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="33" name="CurrentAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="columnenddate" nullable="false" remarks="End date of the column in the history application" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="CashAndEquivalents" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="CurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="ebitda" nullable="true" remarks="Earnings Before Interest, Taxes, Depreciation and Amortisation" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="FinancialExpenses" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="FinancialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="IntangibleFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="Inventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="10" name="MaterialFixedAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="11" name="MinorityInterests" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="12" name="NetSales" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="13" name="NetWorth" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="14" name="NonCurrentLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="15" name="OperatingIncome" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="16" name="OtherShortTermDebt" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="17" name="OverdraftCurrentAccount" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="18" name="ProfitAfterTax" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="19" name="Provisions" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="20" name="Receivables" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="21" name="SubordinatedDebts" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="22" name="TotalAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="23" name="TotalNumberOfEmployees" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="24" name="TradePayablesTotal" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="25" name="dscr" nullable="true" remarks="Debt Service Coverage Ratio" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="26" name="ValCheck" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="27" name="QuickRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="28" name="CurrentRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="29" name="SolvencyRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="30" name="InterestCoverageRatio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="31" name="ChangeInInventories" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="32" name="DepreciationOfAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="33" name="ShareResultMinorityInterest" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="34" name="CurrentAssets" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="35" name="TotalEquityAndLiabilities" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="36" name="STPartOfLTDebts" nullable="true" remarks="Short Term Part of the Long Term Debts" size="17" type="float8" typeCode="8"/>
          <primaryKey column="sliid" sequenceNumberInPK="1"/>
          <primaryKey column="columnenddate" sequenceNumberInPK="2"/>
          <index name="PK_sz_slidetails" unique="true">

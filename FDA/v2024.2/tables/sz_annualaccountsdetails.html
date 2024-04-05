@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_annualaccountsdetails - data-analytics.wlr</title>
+        <title>sz_annualaccountsdetails - data-analytics.wla</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -46,7 +46,7 @@
                 <nav class="navbar navbar-static-top">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="../index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlr</span>
+                            <a href="../index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wla</span>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
                         </div>
 
@@ -108,6 +108,23 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <tr>
+                                    <td><span id="currency">currency</span></td>
+                                    <td>varchar</td>
+                                    <td>3</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Currency code</p></td>
+                                </tr>
                                 <tr>
                                     <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="annualaccountsid">annualaccountsid</span></td>
                                     <td>varchar</td>
@@ -196,7 +213,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Earnings Before Interest, Taxes, Depreciation and Amortisation</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="FinancialExpenses">FinancialExpenses</span></td>
@@ -536,7 +553,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
+                                    <td><p>Debt Service Coverage Ratio</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="ValCheck">ValCheck</span></td>
@@ -691,6 +708,40 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="TotalEquityAndLiabilities">TotalEquityAndLiabilities</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="STPartOfLTDebts">STPartOfLTDebts</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Short Term Part of the Long Term Debts</p></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -750,16 +801,16 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="316,5,752,1072">
-<area shape="rect" id="node2" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="5,8,272,155">
+<area shape="rect" id="node1" href="sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="316,5,752,1160">
+<area shape="rect" id="node2" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="5,37,272,184">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_annualaccountsdetails.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="256,8,523,155">
-<area shape="rect" id="node2" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,40,212,128">
-<area shape="rect" id="node3" href="sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="567,5,1003,1072">
+<area shape="rect" id="node1" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="256,37,523,184">
+<area shape="rect" id="node2" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,69,212,157">
+<area shape="rect" id="node3" href="sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="567,5,1003,1160">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_annualaccountsdetails.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

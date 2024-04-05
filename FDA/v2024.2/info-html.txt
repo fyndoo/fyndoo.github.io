@@ -1,4 +1,4 @@
-date=2024-04-03 14:17:39+0000
+date=2024-04-05 08:31:40+0000
 os=Linux 5.15.133.1-microsoft-standard-WSL2
 schemaspy-version=7.0.0-SNAPSHOT
 schemaspy-revision=5c9efac25eba78839dff088c4d61a7496cfdc135
