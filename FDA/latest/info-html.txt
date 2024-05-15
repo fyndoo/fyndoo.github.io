@@ -1,0 +1,5 @@
+date=2024-05-15 09:48:16+0000
+os=Linux 5.15.133.1-microsoft-standard-WSL2
+schemaspy-version=7.0.0-SNAPSHOT
+schemaspy-revision=c583cf66f155ff71d7cedd054098dfde889e514e
+renderer=Graphviz dot 2.43.0 
