@@ -1,6 +1,8 @@
 ## FDA uses different zones
 Below a description of the different zones.
 
+![Overview FDA](assets/Fyndoo%20Data%20Analytics%20(Overview).png)
+
 ### Landing zone ingestion 
  
 Characteristics: 
