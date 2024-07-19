@@ -526,7 +526,24 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Actual status CODE . This CODE is a customer specific Fyndoo configuration</p></td>
+                                    <td><p>Actual status CODE. This CODE is a customer specific Fyndoo configuration.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="currentstatusgroupname">currentstatusgroupname</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Actual status statusgroupname. This is a Fyndoo default configuration.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -588,15 +605,15 @@
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="726,5,1025,181">
-<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="211,617,655,1303">
-<area shape="rect" id="node8" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,1229,167,1347">
+<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="211,609,655,1324">
+<area shape="rect" id="node8" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,1236,167,1353">
 <area shape="rect" id="node3" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="767,235,983,381">
 <area shape="rect" id="node4" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1096,153,1359,329">
 <area shape="rect" id="node5" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="699,399,1052,575">
 <area shape="rect" id="node6" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="749,592,1002,739">
 <area shape="rect" id="node7" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="737,756,1013,873">
 <area shape="rect" id="node9" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="703,891,1048,1008">
-<area shape="rect" id="node10" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="715,1220,1035,1396">
+<area shape="rect" id="node10" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="715,1235,1035,1440">
 <area shape="rect" id="node11" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="775,1025,975,1201">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_process.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
@@ -605,25 +622,26 @@
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="721,184,1019,360">
 <area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="307,136,547,224">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="205,559,649,1244">
-<area shape="rect" id="node16" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,781,161,869">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="205,564,649,1279">
+<area shape="rect" id="node16" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,759,161,847">
 <area shape="rect" id="node4" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="771,532,969,620">
 <area shape="rect" id="node5" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1177,532,1424,620">
 <area shape="rect" id="node6" href="sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="1555,529,1924,617">
 <area shape="rect" id="node7" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="693,1264,1047,1440">
-<area shape="rect" id="node8" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="324,1279,531,1367">
+<area shape="rect" id="node8" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="324,1296,531,1384">
 <area shape="rect" id="node9" href="sz_calcmodel_processbaseddetails.html" target="_top" title="sz_calcmodel_processbaseddetails" alt="" coords="1091,1267,1511,1355">
-<area shape="rect" id="node10" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1199,321,1403,409">
+<area shape="rect" id="node10" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1199,111,1403,199">
 <area shape="rect" id="node11" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="743,637,997,784">
-<area shape="rect" id="node12" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1211,427,1390,515">
-<area shape="rect" id="node13" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1171,111,1430,199">
-<area shape="rect" id="node14" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1178,216,1423,304">
+<area shape="rect" id="node12" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1211,216,1390,304">
+<area shape="rect" id="node13" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1171,321,1430,409">
+<area shape="rect" id="node14" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1178,427,1423,515">
 <area shape="rect" id="node15" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="732,801,1008,919">
 <area shape="rect" id="node17" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="697,936,1043,1053">
 <area shape="rect" id="node18" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="710,391,1030,479">
-<area shape="rect" id="node19" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1206,5,1395,93">
-<area shape="rect" id="node20" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="770,1071,970,1247">
-<area shape="rect" id="node21" href="sz_slidetails.html" target="_top" title="sz_slidetails" alt="" coords="1200,1073,1401,1161">
+<area shape="rect" id="node19" href="sz_statuschangedefinition.html" target="_top" title="sz_statuschangedefinition" alt="" coords="258,459,597,547">
+<area shape="rect" id="node20" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1206,5,1395,93">
+<area shape="rect" id="node21" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="770,1071,970,1247">
+<area shape="rect" id="node22" href="sz_slidetails.html" target="_top" title="sz_slidetails" alt="" coords="1200,1073,1401,1161">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_process.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <database name="data-analytics" schema="wla" type="PostgreSQL - 15.2 (Debian 15.2-1.pgdg110+1)">
    <tables>
-      <table name="periodicstatement_last" numRows="0" remarks="" schema="wla" type="VIEW" viewSql=" SELECT aa.facilityreferenceid,&#10;    aa.reportreference,&#10;    aa.reportcreationdate,&#10;    aa.periodtype,&#10;    aa.periodstartdate,&#10;    aa.periodenddate,&#10;    aa.balanceatstart,&#10;    aa.balanceatend,&#10;    aa.totalinterestpaid,&#10;    aa.totalinterestchargepaid,&#10;    aa.totalfeespaid,&#10;    aa.totalothercostspaid,&#10;    aa.totaldebit,&#10;    aa.totalcredit,&#10;    aa.volgnr,&#10;    fac.referenceid&#10;   FROM (( SELECT sz_periodicstatement.facilityreferenceid,&#10;            sz_periodicstatement.reportreference,&#10;            sz_periodicstatement.reportcreationdate,&#10;            sz_periodicstatement.periodtype,&#10;            sz_periodicstatement.periodstartdate,&#10;            sz_periodicstatement.periodenddate,&#10;            sz_periodicstatement.balanceatstart,&#10;            sz_periodicstatement.balanceatend,&#10;            sz_periodicstatement.totalinterestpaid,&#10;            sz_periodicstatement.totalinterestchargepaid,&#10;            sz_periodicstatement.totalfeespaid,&#10;            sz_periodicstatement.totalothercostspaid,&#10;            sz_periodicstatement.totaldebit,&#10;            sz_periodicstatement.totalcredit,&#10;            rank() OVER (PARTITION BY sz_periodicstatement.facilityreferenceid ORDER BY sz_periodicstatement.periodenddate DESC, sz_periodicstatement.reportcreationdate DESC) AS volgnr&#10;           FROM wla.sz_periodicstatement&#10;          WHERE ((sz_periodicstatement.periodtype)::text = 'MONTH'::text)&#10;          ORDER BY sz_periodicstatement.facilityreferenceid, sz_periodicstatement.periodenddate) aa&#10;     JOIN ( SELECT DISTINCT sz_facility.referenceid&#10;           FROM wla.sz_facility) fac ON (((fac.referenceid)::text = (aa.facilityreferenceid)::text)))&#10;  WHERE (aa.volgnr = 1);">
+      <table name="periodicstatement_last" numRows="0" remarks="" schema="wla" type="VIEW" viewSql=" SELECT aa.facilityreferenceid,&#10;    aa.reportreference,&#10;    aa.reportcreationdate,&#10;    aa.periodtype,&#10;    aa.periodstartdate,&#10;    aa.periodenddate,&#10;    aa.balanceatstart,&#10;    aa.balanceatend,&#10;    aa.totalinterestpaid,&#10;    aa.totalinterestchargepaid,&#10;    aa.totalfeespaid,&#10;    aa.totalothercostspaid,&#10;    aa.totaldebit,&#10;    aa.totalcredit,&#10;    aa.volgnr,&#10;    fac.referenceid&#10;   FROM (( SELECT sz_periodicstatement.facilityreferenceid,&#10;            sz_periodicstatement.reportreference,&#10;            sz_periodicstatement.reportcreationdate,&#10;            sz_periodicstatement.periodtype,&#10;            sz_periodicstatement.periodstartdate,&#10;            sz_periodicstatement.periodenddate,&#10;            sz_periodicstatement.balanceatstart,&#10;            sz_periodicstatement.balanceatend,&#10;            sz_periodicstatement.totalinterestpaid,&#10;            sz_periodicstatement.totalinterestchargepaid,&#10;            sz_periodicstatement.totalfeespaid,&#10;            sz_periodicstatement.totalothercostspaid,&#10;            sz_periodicstatement.totaldebit,&#10;            sz_periodicstatement.totalcredit,&#10;            rank() OVER (PARTITION BY sz_periodicstatement.facilityreferenceid ORDER BY sz_periodicstatement.periodenddate DESC, sz_periodicstatement.reportcreationdate DESC) AS volgnr&#10;           FROM wla.sz_periodicstatement&#10;          WHERE ((sz_periodicstatement.periodtype)::text = 'MONTH'::text)&#10;          ORDER BY sz_periodicstatement.facilityreferenceid, sz_periodicstatement.periodenddate) aa&#10;     JOIN ( SELECT DISTINCT sz_facility.referenceid&#10;           FROM wla.sz_facility) fac ON (((fac.referenceid)::text = (aa.facilityreferenceid)::text)))&#10;  WHERE (aa.volgnr = 1); SELECT aa.facilityreferenceid,&#10;    aa.reportreference,&#10;    aa.reportcreationdate,&#10;    aa.periodtype,&#10;    aa.periodstartdate,&#10;    aa.periodenddate,&#10;    aa.balanceatstart,&#10;    aa.balanceatend,&#10;    aa.totalinterestpaid,&#10;    aa.totalinterestchargepaid,&#10;    aa.totalfeespaid,&#10;    aa.totalothercostspaid,&#10;    aa.totaldebit,&#10;    aa.totalcredit,&#10;    aa.volgnr,&#10;    fac.referenceid&#10;   FROM (( SELECT sz_periodicstatement.facilityreferenceid,&#10;            sz_periodicstatement.reportreference,&#10;            sz_periodicstatement.reportcreationdate,&#10;            sz_periodicstatement.periodtype,&#10;            sz_periodicstatement.periodstartdate,&#10;            sz_periodicstatement.periodenddate,&#10;            sz_periodicstatement.balanceatstart,&#10;            sz_periodicstatement.balanceatend,&#10;            sz_periodicstatement.totalinterestpaid,&#10;            sz_periodicstatement.totalinterestchargepaid,&#10;            sz_periodicstatement.totalfeespaid,&#10;            sz_periodicstatement.totalothercostspaid,&#10;            sz_periodicstatement.totaldebit,&#10;            sz_periodicstatement.totalcredit,&#10;            rank() OVER (PARTITION BY sz_periodicstatement.facilityreferenceid ORDER BY sz_periodicstatement.periodenddate DESC, sz_periodicstatement.reportcreationdate DESC) AS volgnr&#10;           FROM wlr.sz_periodicstatement&#10;          WHERE ((sz_periodicstatement.periodtype)::text = 'MONTH'::text)&#10;          ORDER BY sz_periodicstatement.facilityreferenceid, sz_periodicstatement.periodenddate) aa&#10;     JOIN ( SELECT DISTINCT sz_facility.referenceid&#10;           FROM wlr.sz_facility) fac ON (((fac.referenceid)::text = (aa.facilityreferenceid)::text)))&#10;  WHERE (aa.volgnr = 1);">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="reportreference" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="reportcreationdate" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
@@ -269,6 +269,11 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="valuationcurrency" nullable="true" remarks="The currency code for identification of the currency" size="10" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="valuationamount" nullable="true" remarks="Value of the collateral" size="11" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="amortizationfrequency" nullable="true" remarks="Amortization Frequency" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="firstreductiondatestrategy" nullable="true" remarks="First reduction date strategy" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="amortizationtype" nullable="true" remarks="Amortization type" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="numberofperiods" nullable="true" remarks="Number of periods (months)" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="firstreductiondate" nullable="true" remarks="First reduction date" size="13" type="date" typeCode="91"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="2"/>
          <primaryKey column="processnumber" sequenceNumberInPK="3"/>
@@ -680,7 +685,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="mainadministrator" nullable="true" remarks="User which is the main administrator of the process. This name is a customer specific Fyndoo configuration." size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_mainadministrator_user" implied="false" onDeleteCascade="true" schema="wla" table="sz_user"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="currentstatuscode" nullable="true" remarks="Actual status CODE . This CODE is a customer specific Fyndoo configuration" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="currentstatuscode" nullable="true" remarks="Actual status CODE. This CODE is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="currentstatusgroupname" nullable="true" remarks="Actual status statusgroupname. This is a Fyndoo default configuration." size="255" type="varchar" typeCode="12"/>
          <primaryKey column="processnumber" sequenceNumberInPK="1"/>
          <index name="PK_processnumber" unique="true">
             <column ascending="true" name="processnumber"/>
@@ -698,6 +704,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="offersent" nullable="true" remarks="Indication (boolean) if an offer is sent." size="1" type="bool" typeCode="-7"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="finishedsuccessful" nullable="true" remarks="True if the process has reached a successful status" size="1" type="bool" typeCode="-7"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="finishedsuccessfuldate" nullable="true" remarks="Date and time of when the process has reached a successful status" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="readyforfiling" nullable="true" remarks="True if the process has a transition with the property IsProcessReadyForFiling" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="readyforfilingdate" nullable="true" remarks="Date and time of when the process has transition with the property IsProcessReadyForFiling" size="29" type="timestamp" typeCode="93"/>
          <primaryKey column="processnumber" sequenceNumberInPK="1"/>
          <index name="PK_sz_processevents" unique="true">
             <column ascending="true" name="processnumber"/>
@@ -712,11 +720,14 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="processstatusgroupname" nullable="true" remarks="Groupname of the statuschange code." size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="userreferenceid" nullable="true" remarks="User reference id of the person who initiate the statuschange" size="128" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="userreferenceid" nullable="true" remarks="User reference id of the person who initiate the statuschange" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_processstatuschange_user" implied="false" onDeleteCascade="true" schema="wla" table="sz_user"/>
          </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="statusgroupname" nullable="true" remarks="Groupname of the status definition (to)." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="workingdaysinstatus" nullable="true" remarks="Number of workingdays of this statuschange" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="statuschangereferenceid" nullable="true" remarks="Unique identifier of processstatus change" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_statuschangedefinition" implied="false" onDeleteCascade="true" schema="wla" table="sz_statuschangedefinition"/>
+         </column>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <index name="PK_processstatuschange_refid" unique="true">
             <column ascending="true" name="referenceid"/>
@@ -805,6 +816,28 @@
             <column ascending="true" name="columnenddate"/>
          </index>
       </table>
+      <table name="sz_statuschangedefinition" remarks="Details of statuschangedefinition of a process" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of statuschangedefinition" size="128" type="varchar" typeCode="12">
+            <child column="statuschangereferenceid" foreignKey="FK_statuschangedefinition" implied="false" onDeleteCascade="true" schema="wla" table="sz_processstatuschange"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="workflowprocessreferenceid" nullable="false" remarks="Unique identifier of workflowprocess" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_workflowprocessreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_workflowprocessdefinition"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fromreferenceid" nullable="true" remarks="ReferenceId of the status definition (from)" size="255" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_statuschangefromreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_workflowstatusdefinition"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="toreferenceid" nullable="true" remarks="ReferenceId of the status definition (to)" size="255" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_statuschangetoreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_workflowstatusdefinition"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="tostatuscode" nullable="true" remarks="Code of the status definition (to)" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tostatusname" nullable="true" remarks="Name of the status definition (to)" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="statusgroupname" nullable="true" remarks="Groupname of the status definition (to)." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="automaticstatuschange" nullable="true" remarks="Is the statuschange automatically" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_statuschangedefinition_refid" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
       <table name="sz_user" remarks="User details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a user" size="128" type="varchar" typeCode="12">
             <child column="mainadministrator" foreignKey="FK_mainadministrator_user" implied="false" onDeleteCascade="true" schema="wla" table="sz_process"/>
@@ -814,6 +847,35 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="active" nullable="false" remarks="Is user account active" size="1" type="bool" typeCode="-7"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <index name="PK_userreferenceid" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
+      <table name="sz_workflowprocessdefinition" remarks="Details of workflowprocessdefinition of a process" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of workflowprocessdefinition" size="128" type="varchar" typeCode="12">
+            <child column="workflowprocessreferenceid" foreignKey="FK_workflowprocessreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_statuschangedefinition"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="whitelabel" nullable="true" remarks="Name of the whitelabel" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processname" nullable="true" remarks="Name of the workflow process" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processtype" nullable="true" remarks="Groupname of the status definition (to)." size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_workflowprocessdefinition_refid" unique="true">
+            <column ascending="true" name="referenceid"/>
+         </index>
+      </table>
+      <table name="sz_workflowstatusdefinition" remarks="Details of workflowstatusdefinition of a process" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of statuschangedefinition" size="128" type="varchar" typeCode="12">
+            <child column="fromreferenceid" foreignKey="FK_statuschangefromreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_statuschangedefinition"/>
+            <child column="toreferenceid" foreignKey="FK_statuschangetoreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_statuschangedefinition"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="workflowprocessreferenceid" nullable="false" remarks="Unique identifier of workflowprocess" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="statuscode" nullable="true" remarks="Code of the status definition (from)" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="statusname" nullable="true" remarks="Name of the status definition (from)" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="statusgroupname" nullable="true" remarks="Groupname of the status definition (to)." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="endstatus" nullable="true" remarks="This is an end status of a process." size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="isprocessreadyforfilling" nullable="true" remarks="In this status the process is ready for filling." size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="isterminationsuccessful" nullable="true" remarks="In this status the process is terminated successful." size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <index name="PK_statusdefinition_refid" unique="true">
             <column ascending="true" name="referenceid"/>
          </index>
       </table>

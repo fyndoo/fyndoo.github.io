@@ -1,8 +1,8 @@
 sz_relation
+sz_processstatuschange
 sz_collateral_object_taxation
 sz_collateral_object_rental
 sz_businessrules_parameters
-sz_processstatuschange
 sz_financinggoal
 sz_fee_facility
 sz_fee_agreement
@@ -15,6 +15,7 @@ sz_contactperson
 sz_calcmodel_processbaseddetails
 sz_calcmodel_customerbaseddetails
 sz_annualaccountsdetails
+sz_statuschangedefinition
 sz_sli
 sz_calcmodel_processbased
 sz_calcmodel_customerbased
@@ -28,6 +29,8 @@ sz_agreement
 sz_counterparty
 sz_counterparty_financials
 sz_process
+sz_workflowprocessdefinition
+sz_workflowstatusdefinition
 sz_user
 sz_facilityreference
 sz_financials

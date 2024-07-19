@@ -316,6 +316,91 @@
                                     </td>
                                     <td><p>Unique external reference identifier of an collateral</p></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="amortizationfrequency">amortizationfrequency</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Amortization Frequency</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="firstreductiondatestrategy">firstreductiondatestrategy</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>First reduction date strategy</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="amortizationtype">amortizationtype</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Amortization type</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="numberofperiods">numberofperiods</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Number of periods (months)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="firstreductiondate">firstreductiondate</span></td>
+                                    <td>date</td>
+                                    <td>13</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>First reduction date</p></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -375,25 +460,25 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="348,5,733,368">
+<area shape="rect" id="node1" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="348,5,775,515">
 <area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,67,304,243">
-<area shape="rect" id="node3" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="777,8,1053,213">
+<area shape="rect" id="node3" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="819,8,1095,213">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_collateral.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="289,501,588,677">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,664,245,752">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="31,533,219,621">
-<area shape="rect" id="node4" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="632,111,1017,473">
-<area shape="rect" id="node5" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="1061,113,1337,319">
-<area shape="rect" id="node6" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="1393,107,1734,195">
-<area shape="rect" id="node7" href="sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="1381,212,1745,300">
-<area shape="rect" id="node8" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="735,491,914,579">
-<area shape="rect" id="node9" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="695,596,954,684">
-<area shape="rect" id="node10" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="702,5,947,93">
-<area shape="rect" id="node11" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="730,701,919,789">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="289,648,588,824">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,811,245,899">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="31,680,219,768">
+<area shape="rect" id="node4" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="632,111,1059,620">
+<area shape="rect" id="node5" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="1103,113,1379,319">
+<area shape="rect" id="node6" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="1434,107,1775,195">
+<area shape="rect" id="node7" href="sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="1423,212,1787,300">
+<area shape="rect" id="node8" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="756,637,935,725">
+<area shape="rect" id="node9" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="716,743,975,831">
+<area shape="rect" id="node10" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="723,5,968,93">
+<area shape="rect" id="node11" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="751,848,940,936">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_collateral.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

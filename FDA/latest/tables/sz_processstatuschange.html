@@ -229,23 +229,6 @@
                                     <td><p>Unique identifier of a process</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="processstatusgroupname">processstatusgroupname</span></td>
-                                    <td>varchar</td>
-                                    <td>255</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Groupname of the statuschange code.</p></td>
-                                </tr>
-                                <tr>
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="userreferenceid">userreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
@@ -268,6 +251,23 @@
                                     <td><p>User reference id of the person who initiate the statuschange</p></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="statusgroupname">statusgroupname</span></td>
+                                    <td>varchar</td>
+                                    <td>255</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Groupname of the status definition (to).</p></td>
+                                </tr>
+                                <tr>
                                     <td><span id="workingdaysinstatus">workingdaysinstatus</span></td>
                                     <td>float8</td>
                                     <td>17,17</td>
@@ -283,6 +283,28 @@
                                         </table>
                                     </td>
                                     <td><p>Number of workingdays of this statuschange</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="statuschangereferenceid">statuschangereferenceid</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_processstatuschange.statuschangereferenceid references sz_statuschangedefinition.referenceid via FK_statuschangedefinition"><a href='sz_statuschangedefinition.html'>sz_statuschangedefinition</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_statuschangedefinition</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Unique identifier of processstatus change</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -343,25 +365,29 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_process.html" target="_top" title="sz_process" alt="" coords="211,121,517,268">
-<area shape="rect" id="node2" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,199,167,316">
-<area shape="rect" id="node3" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="561,5,996,339">
+<area shape="rect" id="node1" href="sz_process.html" target="_top" title="sz_process" alt="" coords="227,67,533,213">
+<area shape="rect" id="node2" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,144,167,261">
+<area shape="rect" id="node3" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="593,5,1024,368">
+<area shape="rect" id="node4" href="sz_statuschangedefinition.html" target="_top" title="sz_statuschangedefinition" alt="" coords="211,272,549,477">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_processstatuschange.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="545,5,764,93">
-<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="205,413,393,501">
-<area shape="rect" id="node8" href="sz_user.html" target="_top" title="sz_user" alt="" coords="5,572,161,660">
-<area shape="rect" id="node3" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="555,111,754,199">
-<area shape="rect" id="node4" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="916,145,1163,233">
-<area shape="rect" id="node5" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="478,252,831,340">
-<area shape="rect" id="node6" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="528,357,781,445">
-<area shape="rect" id="node7" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="521,463,788,551">
-<area shape="rect" id="node9" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="528,568,781,656">
-<area shape="rect" id="node10" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="437,779,872,1112">
-<area shape="rect" id="node11" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="587,673,722,761">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="910,5,1129,93">
+<area shape="rect" id="node2" href="sz_process.html" target="_top" title="sz_process" alt="" coords="497,413,685,501">
+<area shape="rect" id="node8" href="sz_user.html" target="_top" title="sz_user" alt="" coords="113,669,269,757">
+<area shape="rect" id="node3" href="sz_approval.html" target="_top" title="sz_approval" alt="" coords="920,111,1119,199">
+<area shape="rect" id="node4" href="sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1279,145,1525,233">
+<area shape="rect" id="node5" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="843,252,1196,340">
+<area shape="rect" id="node6" href="sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="893,357,1146,445">
+<area shape="rect" id="node7" href="sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="886,463,1153,551">
+<area shape="rect" id="node9" href="sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="893,568,1146,656">
+<area shape="rect" id="node10" href="sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="804,779,1235,1141">
+<area shape="rect" id="node11" href="sz_statuschangedefinition.html" target="_top" title="sz_statuschangedefinition" alt="" coords="421,1045,760,1251">
+<area shape="rect" id="node13" href="sz_workflowstatusdefinition.html" target="_top" title="sz_workflowstatusdefinition" alt="" coords="13,1136,370,1224">
+<area shape="rect" id="node14" href="sz_workflowprocessdefinition.html" target="_top" title="sz_workflowprocessdefinition" alt="" coords="5,1031,377,1119">
+<area shape="rect" id="node12" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="952,673,1087,761">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_processstatuschange.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

@@ -25,6 +25,7 @@ digraph "twoDegreesRelationshipsDiagram" {
   "sz_process":"mainadministrator":w -> "sz_user":"referenceid":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_processevents":"processnumber":w -> "sz_process":"processnumber.type":e [arrowhead=none dir=back arrowtail=teeodot];
   "sz_processstatuschange":"processnumber":w -> "sz_process":"processnumber.type":e [arrowhead=none dir=back arrowtail=crowodot];
+  "sz_processstatuschange":"statuschangereferenceid":w -> "sz_statuschangedefinition":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_processstatuschange":"userreferenceid":w -> "sz_user":"referenceid":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_relation":"elipses":w -> "sz_agreement":"referenceid":e [arrowhead=none dir=back arrowtail=crowodot];
   "sz_relation":"elipses":w -> "sz_counterparty":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
@@ -221,6 +222,7 @@ digraph "twoDegreesRelationshipsDiagram" {
       <TR><TD PORT="processtype" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="193" HEIGHT="16">processtype</TD></TR></TABLE></TD><TD PORT="processtype.type" ALIGN="LEFT">varchar[255]</TD></TR>
       <TR><TD PORT="mainadministrator" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="193" HEIGHT="16">mainadministrator</TD></TR></TABLE></TD><TD PORT="mainadministrator.type" ALIGN="LEFT">varchar[128]</TD></TR>
       <TR><TD PORT="currentstatuscode" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="193" HEIGHT="16">currentstatuscode</TD></TR></TABLE></TD><TD PORT="currentstatuscode.type" ALIGN="LEFT">varchar[255]</TD></TR>
+      <TR><TD PORT="currentstatusgroupname" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="193" HEIGHT="16">currentstatusgroupname</TD></TR></TABLE></TD><TD PORT="currentstatusgroupname.type" ALIGN="LEFT">varchar[255]</TD></TR>
       <TR><TD ALIGN="LEFT" CELLPADDING="0" BGCOLOR="#ffffff" COLSPAN="4" ><TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><VR/><TD ALIGN="CENTER" BGCOLOR="#ffffff">  </TD><VR/><TD ALIGN="RIGHT" BGCOLOR="#ffffff">9 &gt;</TD></TR></TABLE></TD></TR>
     </TABLE>>
     URL="sz_process.html"
@@ -244,7 +246,7 @@ digraph "twoDegreesRelationshipsDiagram" {
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
       <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="177" HEIGHT="16"><B>sz_processstatuschange</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" CELLPADDING="0" BGCOLOR="#ffffff" COLSPAN="3" ><TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><VR/><TD ALIGN="CENTER" BGCOLOR="#ffffff">  </TD><VR/><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR></TABLE></TD></TR>
+      <TR><TD ALIGN="LEFT" CELLPADDING="0" BGCOLOR="#ffffff" COLSPAN="3" ><TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 3</TD><VR/><TD ALIGN="CENTER" BGCOLOR="#ffffff">  </TD><VR/><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR></TABLE></TD></TR>
     </TABLE>>
     URL="sz_processstatuschange.html"
     target="_top"
@@ -285,6 +287,17 @@ digraph "twoDegreesRelationshipsDiagram" {
     URL="sz_slidetails.html"
     target="_top"
     tooltip="sz_slidetails"
+  ];
+  "sz_statuschangedefinition" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="191" HEIGHT="16"><B>sz_statuschangedefinition</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" CELLPADDING="0" BGCOLOR="#ffffff" COLSPAN="3" ><TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 3</TD><VR/><TD ALIGN="CENTER" BGCOLOR="#ffffff">  </TD><VR/><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR></TABLE></TD></TR>
+    </TABLE>>
+    URL="sz_statuschangedefinition.html"
+    target="_top"
+    tooltip="sz_statuschangedefinition"
   ];
   "sz_user" [
    label=<

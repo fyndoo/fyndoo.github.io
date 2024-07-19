@@ -1,0 +1,8 @@
+rz_processstatuschange
+rz_collateral_object
+rz_facility
+rz_statuschangedefinition
+rz_collateral
+rz_workflowprocessdefinition
+rz_workflowstatusdefinition
+rz_process
