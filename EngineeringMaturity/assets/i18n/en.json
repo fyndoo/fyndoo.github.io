@@ -1,0 +1,63 @@
+{
+  "HEADER": {
+    "TITLE": "Engineering Maturity Model",
+    "NAV_LEESWIJZER": "Guide",
+    "NAV_MODEL_OVERVIEW": "Model overview",
+    "NAV_ENGINEERING_MODEL": "Engineering Model: IC",
+    "NAV_INFO": "Info"
+  },
+  "LEESWIJZER": {
+    "MAIN_TITLE": "Guide",
+    "TITLE": "Guide",
+    "SUBTITLE": "Guide Engineering levels",
+    "PARAGRAPH1": "Not a predefined path, but guidelines for development!",
+    "PARAGRAPH2": "Although 'engineering levels' may suggest a strictly defined career path with a clear end goal like becoming a Partner at a law firm, careers today are often much more flexible in nature. So don't see these levels as a long-term path. It is tempting to focus too much on the top of the ladder, but the next step is much more important. These levels are mainly a tool to set goals and expectations for the coming years. Also realize that, especially with a little more experience, more career paths are possible than just engineer.",
+    "PARAGRAPH3": "Why do we have levels?",
+    "PARAGRAPH4": "'Aren't we a flat organization?' Recognizing engineering levels can be very helpful for both the organization and the employee. The levels help coaches and managers to have objective and focused discussions during coaching sessions. It is clear what is expected of you at this moment, and what the expectations are if you want to take the next step. This can be very enlightening for the employee who is looking for ways to further develop themselves. It is also clear to the organization where everyone stands, and where everyone can be most effectively deployed.",
+    "PARAGRAPH5": "How should I look at it content-wise?",
+    "PARAGRAPH6": "Coaching and guiding people in their development is never a completely objective pre-determined process. You are working with people, it will never fit 100% with someone and it will always be somewhat subjective and 'fuzzy'. Therefore, try to use the items from the levels as inspiration and match the picture that is sketched to the role and ambitions of the employee.",
+    "MORE_INFO": "More info?",
+    "AUTHOR_NAME": "Marco van de Haar",
+    "AUTHOR_TITLE": "Fyndoo Tech Lead"
+  },
+  "LEGENDA": {
+    "TITLE": "Legenda",
+    "SUBTITLE": "Legenda Engineering levels",
+    "ENGINEERING_LEVELS_TITLE": "Legenda Engineering Levels",
+    "LEVEL": "Level",
+    "LEVEL_DESCRIPTION": "Identification of the level.",
+    "SCOPE": "Scope",
+    "SCOPE_DESCRIPTION": "The scope of the work where the engineer mainly operates.",
+    "IMPACT_LEADERSHIP": "Impact and leadership",
+    "IMPACT_LEADERSHIP_DESCRIPTION": "Describes your circle of influence. Does your influence mainly flow within the team? Is this structurally broader or do you have influence on the entire organization?",
+    "SOFTWARE_ENGINEERING": "Software engineering",
+    "SOFTWARE_ENGINEERING_DESCRIPTION": "Knowledge of Software Engineering: code, style, testing, quality, non-functionals, but also software design, used tooling and frameworks, and ops.",
+    "TECHNICAL_INSIGHT": "Technical insight",
+    "TECHNICAL_INSIGHT_DESCRIPTION": "Insight with a technical view. How well can you solve problems? How good is your overview of the landscape and architecture? Do you have insight into what functionality lies behind the technology?",
+    "GET_STUFF_DONE": "G(et)S(tuff)D(one)",
+    "GET_STUFF_DONE_DESCRIPTION": "How do you do your work? How do you get things done?",
+    "COMMUNICATION_LEADERSHIP": "Communication and leadership",
+    "COMMUNICATION_LEADERSHIP_DESCRIPTION": "This describes how proficient you are in soft skills and how this is expressed."
+  },
+  "TABLE_HEADERS": {
+    "LEVEL": "Level",
+    "SCOPE": "Scope",
+    "IMPACT_LEADERSHIP": "Impact and leadership",
+    "SOFTWARE_ENGINEERING": "Software engineering",
+    "TECHNICAL_INSIGHT": "Technical insight",
+    "GET_STUFF_DONE": "G(et)S(tuff)D(one)",
+    "COMMUNICATION_LEADERSHIP": "Communication and leadership"
+  },
+  "INFORMATION": {
+    "TITLE": "Information",
+    "SUBTITLE": "Background information and links",
+    "CATEGORY1_TITLE": "Software engineering career ladders",
+    "CATEGORY2_TITLE": "Staff Engineering",
+    "CATEGORY3_TITLE": "Books",
+    "INTRO_TEXT": "Interested in software engineering career paths? Or would you like to know where we based this model on? Check out some sources below!"
+  },
+  "DIALOG": {
+    "SKILL_INFO": "Skill information",
+    "DEV_COMPASS": "Development compass:"
+  }
+}
