@@ -1,0 +1,219 @@
+{
+  "model": {
+    "version": 1.0
+  },
+  "propertiesExplanations": [
+    {
+      "property": "Scope",
+      "code": "scope",
+      "explanation": {
+        "text": "The scope of activities in which the engineer primarily works.",
+        "links": []
+      }
+    },
+    {
+      "property": "Impact and leadership",
+      "code": "impactEnLeiderschap",
+      "explanation": {
+        "text": "Describes your circle of influence. Does your influence primarily flow within the team? Is it structurally broader or do you influence the entire organization?",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Initiatief",
+            "name": "Initiatief"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Eigenaarschap",
+            "name": "Eigenaarschap"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Organisatiebewustzijn",
+            "name": "Organisatiebewustzijn"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Samenwerken",
+            "name": "Samenwerken"
+          }
+        ]
+      }
+    },
+    {
+      "property": "Software Engineering",
+      "code": "softwareEngineering",
+      "explanation": {
+        "text": "Knowledge of Software Engineering: code, style, testing, quality, non-functionals and best practices. Knowledge of software design. Knowledge of tooling and frameworks. Knowledge of integration and delivery.",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Application+Development",
+            "name": "Application Development"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Component+Integration",
+            "name": "Component Integration"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Testing",
+            "name": "Testing"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Innovating",
+            "name": "Innovating"
+          }
+        ]
+      }
+    },
+    {
+      "property": "Technical insight",
+      "code": "technischInzicht",
+      "explanation": {
+        "text": "Problem solving. Knowledge/understanding of architecture and technical landscape. Business behind the technology.",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Analytisch+Vermogen",
+            "name": "Analytisch Vermogen"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Oplossingsgerichtheid",
+            "name": "Oplossingsgerichtheid"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Architecture+Design",
+            "name": "Architecture Design"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/IT+Business+Strategy+Alignment",
+            "name": "IT Business Strategy Alignment"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Technology+Trend+Monitoring",
+            "name": "Technology Trend Monitoring"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Problem+Management",
+            "name": "Problem Management"
+          }
+        ]
+      }
+    },
+    {
+      "property": "G(et)S(tuff)D(done)",
+      "code": "getStuffDone",
+      "explanation": {
+        "text": "Solving defined tasks to complex projects in a structured way. Priority and planning. Clearly gathering and executing requirements. Documenting and securing knowledge.",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/pages/viewpage.action?pageId=1390478714",
+            "name": "Plannen/Organiseren"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Resultaatgerichtheid",
+            "name": "Resultaatgerichtheid"
+          }
+        ]
+      }
+    },
+    {
+      "property": "Communication",
+      "code": "communicatie",
+      "explanation": {
+        "text": "Communication with other colleagues (progress with team, to other stakeholders/teams + clarity). Understanding people (Giving/receiving feedback to coaching and help with hiring new people). Asking for help yourself vs detecting and escalating gaps/disruptions to pitching technical needs. Knowledge sharing.",
+        "links": [
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Mondelinge+Communicatie",
+            "name": "Mondelinge Communicatie"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Overtuigingskracht",
+            "name": "Overtuigingskracht"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Omgevingsbewustzijn",
+            "name": "Omgevingsbewustzijn"
+          },
+          {
+            "url": "https://confluence.topicus.nl/display/TOK/Information+and+Knowledge+Management",
+            "name": "Information and Knowledge Management"
+          }
+        ]
+      }
+    }
+  ],
+  "engineeringLevels": [
+    {
+      "level": "Software Engineer I",
+      "levelIndicator": "SE1",
+      "scope": "Task",
+      "impactEnLeiderschap": "You focus mainly on your own tasks. As such, the scope and impact of your work is within your own team. You are responsible for completing your own tasks and are supported by colleagues in this. You are supported by experienced engineers for some tasks and helped to start complex technical tasks properly. You show interest in technical choices being made within the projects you work on. You learn to understand how to work with different design decisions and why they were made.",
+      "softwareEngineering": "You learn about coding best practices and realize the importance of quality. You learn best practices regarding automated testing. You build a basic understanding of concepts like security, scalability, and performance and start to learn which specific things affect these. You learn to recognize structures in application design and gain knowledge about the reasoning behind these choices. You learn to gain insight into the changes you need to make in the software through models and diagrams. You develop your productivity by learning to work with all the tooling that is used; build systems, source control, IDEs, etc. You learn how integration and delivery are implemented for the components you often work on. How the build pipeline works, what happens automatically, how delivery is done, etc.",
+      "technischInzicht": "You learn how to debug the software you're working on. You learn to find the right login information and identify and analyze underlying problems. You learn the technical landscape of components and begin to build an understanding of it. You learn how functional features fit within the context of your project and domain. You ask substantive questions during refinements and show your curiosity to gain domain knowledge. This helps you better understand the \"functional why\".",
+      "getStuffDone": "You are able to pick up and complete well-defined tasks and have a clear picture of your own progress and have an idea of where this fits within the goals of your team. You proactively discuss with your team what a good next task is to pick up and determine the order of your work together. You ask about the requirements of a task before you start. Sometimes you get help from colleagues to determine when the implementation of the task is good enough. You learn to understand what information is relevant to document to secure knowledge about your task.",
+      "communicatie": "You learn to communicate clearly with your team about what you're doing and where you stand in your work. You also practice asking for help in a timely manner when you get stuck. You have an open attitude. This allows you to receive feedback and learn from everything you do. You also actively think about how you can improve together. You clearly indicate problems and bugs you encounter to your team. You are curious and proactively seek out knowledge-sharing moments to grow further.",
+      "persoonSpecifiekeSpecialismes": ""
+    },
+    {
+      "level": "Software Engineer II",
+      "levelIndicator": "SE2",
+      "scope": "Feature",
+      "impactEnLeiderschap": "You work on projects within the team and sometimes on projects outside of it. The scope and impact of your work is still primarily within the team. You take responsibility for your own tasks and sometimes coordinate parts of larger topics. You make steady progress without needing continuous guidance or direction from more experienced engineers. You actively participate in discussions about solution directions and other technical choices that need to be made in the software you work on. You understand design decisions being made and can recognize their impact in the code.",
+      "softwareEngineering": "You write clean and correct code and consistently follow best practices. You recognize used design patterns and know how to apply them effectively yourself. You think critically about non-functionals during design and refinements and take these into account as much as possible during your development work. You know the application setup within your area of focus and know how to use it effectively. When necessary, you know how to create models and diagrams for the implementation of complex functionality. You are now familiar with the systems and tooling we use and know how to deploy them effectively, making you more flexibly deployable in multiple places. You know your way around the integration and delivery processes of the software within your area of focus. You also help implement changes or improvements to these.",
+      "technischInzicht": "Through built-up knowledge and experience, you know how to quickly and effectively understand most problems within the software you work on and can devise, align, and implement a good solution within a reasonable time. You have a high-level overview of the landscape in which the components operate and understand interaction patterns between the components. You have a good high-level overview of the product domain and feel at home in the part of the product domain you work in. You can follow discussions with analysts well and recognize when a technical problem might have functional impact.",
+      "getStuffDone": "You make constant progress on more complex tasks and know when to ask for help to avoid getting stuck. You can set clear priorities within your own work. You are becoming better at predicting how long something will take. You proactively help with clarifying requirements for stories within the team to prevent rework. You know how to judge when your completed work is good enough. You know well what knowledge is important to secure and write clearly understandable documentation.",
+      "communicatie": "You proactively communicate about assumptions you make. You also know reasonably well how to find the right people outside your team when they are needed. You continue to learn through self-reflection and by asking for feedback from others. You sometimes spontaneously give constructive feedback (or compliments) to colleagues and during retrospectives. You help identify problems and determine their impact. You actively seek out knowledge-sharing moments and receive knowledge there and share your own knowledge where possible.",
+      "persoonSpecifiekeSpecialismes": ""
+    },
+    {
+      "level": "Sr. Software Engineer",
+      "levelIndicator": "SSE",
+      "scope": "Feature and project",
+      "impactEnLeiderschap": "You work on projects within and outside the team (e.g., through code reviews and thinking about project setup). The scope and impact of your work is within and often outside your team. You are responsible from start to finish for large technical projects and contribute directly to them yourself. You operate independently on large complex pieces of work with minimal guidance and supervision. Furthermore, you guide other colleagues in solving difficult technical problems, starting complex stories, and creating technical designs. You understand and make well-founded decisions on technical matters in the context you work in. In this, you know how to weigh alternative solutions well. You think along and advise on architectural issues that relate to the entire landscape. You research new technologies and create implementation proposals for them.",
+      "softwareEngineering": "Your basic knowledge of software engineering is very mature. You are beginning to develop as a generalist who can easily be deployed in multiple places with your broad software engineering knowledge, or as a specialist who possesses in-depth knowledge about certain technical subjects. You understand the guidelines regarding non-functionals that we expect our software to meet and identify the work needed for this within your area of focus. You design and implement tooling and plans for quality and performance of the software. You have good knowledge of software design and are therefore able to devise the direction regarding application design, techniques, and communication patterns within your team and projects. You have good knowledge of the tools used and understand the underlying concepts of the frameworks used. You keep the used frameworks up to date and also use the knowledge and experience to proactively test and implement new tooling or frameworks. You know the integration and delivery processes of the software within your area of focus well and know how to define and implement structural extensions and optimizations in them.",
+      "technischInzicht": "You know how to quickly identify the cause behind both large and small problems and know how to weigh multiple solutions against each other well. You know all debugging tricks for your software and assist team members in finding and solving errors. You devise creative solutions when things were overlooked in the design phase and know how to adjust the implementation accordingly. You think with architects and analysts about larger architectural issues and design and plan the changes needed to align the software you work on with the long-term architecture. You understand how the technical landscape fits together and proactively identify shortcomings and improvement opportunities. You can switch well between the technical and functional aspects of the product. This allows you to quickly absorb functional detail knowledge (regardless of the context) to think along with analysts/architects about the technical impact of functional requirements and challenge these with alternatives.",
+      "getStuffDone": "You are persistent and consistent in tackling complex technical problems and know how to work through them in an efficient and proactive manner. You know how to prioritize and plan your own tasks and tasks within larger projects. You ensure quality and predictable deliveries and know how to provide accurate estimates and planning for complex, large tasks with the team. You proactively ensure that the requirements are clear for everyone before starting a project. Here you help the team to ensure when something is good enough. You know how to document technical decisions well in design docs and other documentation. You also know how to communicate this well in tech reviews and other communication channels.",
+      "communicatie": "You proactively involve other colleagues (such as analysts and architects) outside your team with a project when that is sensible and communicate easily. You know how to reflect at team and project level and give constructive feedback about processes during retrospectives. You show your commitment and regularly give constructive feedback and compliments to colleagues. You regularly share your knowledge with others. This can be by helping with problems or projects and teaching others how you solve them. Or by speaking or writing about topics you know a lot about.",
+      "persoonSpecifiekeSpecialismes": ""
+    },
+    {
+      "level": "Staff Engineer: Architect",
+      "levelIndicator": "STAFF",
+      "scope": "Organization",
+      "impactEnLeiderschap": "You determine technical direction and devise appropriate architecture. You seek and find support for these ideas and determine organization-wide implementation plans. You have responsibility for the architecture of (a component within) the technical landscape. You are approached from throughout the organization for technical guidance on tactical and strategic issues. You determine technical vision and direction at a high level, aligning with business issues, and communicate this. Here you ensure that the technical direction and architecture enables multiple potential futures without knowing exactly what the future holds.",
+      "softwareEngineering": "You have ready knowledge about current developments in the field of technology and architecture and know how to place these within the company's vision. You maintain an overview of the landscape, ensure the landscape runs well, and that the different systems work well together. Together with other technical seniors, you make decisions about tooling and frameworks that apply to the entire landscape. You know how integration and delivery contribute to the realization of organization-wide technical changes and how these can be integrated into the overall architecture of the system.",
+      "technischInzicht": "As an Architect, problem-solving plays a crucial role in identifying and solving complex technical problems at the organizational level. You ensure that long-term developments in the technical landscape align with the long-term business plans that come from Mission/vision/strategy and domain trends. You inject technical context into the business vision. You devise the technical vision and direction at a high level and know how to communicate this within the organization. For this, you need a deep understanding of the domain we operate in.",
+      "getStuffDone": "You are able to fit the architecture you design into long-term planning and also ensure that this is communicated and executed. You delegate and assist teams in realizing the architectural choices made.",
+      "communicatie": "You are the champion of the technical vision. You know how to convince business and technology of the technical direction to follow. You communicate technical strategic topics, within and outside the organization. You regularly share your knowledge about how to arrive at a vision and how the technical components work. With this, you try to help colleagues grow (through speaking or writing).",
+      "persoonSpecifiekeSpecialismes": ""
+    },
+    {
+      "level": "Staff Engineer: Tech Lead",
+      "levelIndicator": "STAFF",
+      "scope": "Organization",
+      "impactEnLeiderschap": "You provide technical guidance to one or more development team(s). You are responsible for the development process and everything that comes with it for your team(s). You devise and implement improvements to make this more effective and efficient. You make indirect impact through leading, teaching, designing, mentoring, advising, or assisting on a broad scale. You identify, design, and implement organization-wide engineering processes striving for an efficient and streamlined engineering organization.",
+      "softwareEngineering": "You consistently deliver large or combined functionality with high quality where one or more teams are involved in the development. You guard the quality of what your team(s) deliver by communicating and safeguarding rules, guidelines, and handles. You possess broad knowledge of tooling and frameworks and therefore know how to quickly place possible technical solutions within large, complex plans. The Tech Lead must be able to understand the technical requirements of the project and translate them into an effective integration and delivery strategy.",
+      "technischInzicht": "As a Tech Lead, problem solving is an essential skill. You must be able to analyze and solve complex problems to address technical challenges in projects. You must also have a thorough knowledge of the architecture and landscape of the systems you work in. As a Tech Lead, you are responsible for the technical approach and execution of one or more teams, so you need to know how the different components of the system work together and how you can optimize these components to achieve the best results. Functional domain knowledge is important for Tech Leads to effectively collaborate with product owners and feature owners. You need insight into the company's objectives and user needs to ensure that the technical solutions your team builds meet these objectives.",
+      "getStuffDone": "You know how to break down large and complex issues, provide them with technical frameworks, and communicate this in understandable and manageable form to the teams. You guide and assist teams in the realization of these items and maintain an overview of the progress of the whole.",
+      "communicatie": "You know how to communicate clearly and concisely about the technical aspects of large and complex topics. You know how to take entire teams along in this. You are an example for engineers within the organization, and mentoring others and sponsoring their initiatives is something you gladly put energy into. You regularly share your knowledge about technical topics that are relevant, within and outside the company. (through speaking or writing)",
+      "persoonSpecifiekeSpecialismes": ""
+    },
+    {
+      "level": "Staff Engineer: Tech Domain Expert",
+      "levelIndicator": "STAFF",
+      "scope": "Organization",
+      "impactEnLeiderschap": "You move across teams to provide knowledge and active support regarding problems or work around your codebase. You are responsible for the quality and development choices of your part of the codebase. You guide and coach people working within your part of the codebase, so they can work better in it and make the right technical choices. You are involved early in decisions on technical design within your codebase and ensure that these are adhered to.",
+      "softwareEngineering": "You are the owner and expert of certain large areas of the codebase. Within these, you ensure continuous and structural improvements in important areas such as performance, security, stability, and scalability, and know how to provide assistance and advice on these throughout the organization. You have in-depth knowledge of the techniques and frameworks used within your domain and work closely with architects to ensure that strategy and technical vision within your domain are implemented in the best possible way. You have knowledge of the different deployment methods and how these can be applied within your domain. Furthermore, you are able to optimize and automate the integration and delivery processes within your domain to improve efficiency and reliability and reduce risks.",
+      "technischInzicht": "As a Tech Domain Expert, you excel in problem-solving in your specific domain. You must be able to break down the hairiest problems into smaller pieces and devise solutions to solve them, and know how to take others along and coach them in this. You think with architects and analysts about larger architectural issues and design and plan the changes needed to align the software you work on with the long-term architecture. You understand how the technical landscape fits together and proactively identify shortcomings and improvement opportunities. In your area, you know the underlying functional issues and long-term plans well. You know how to place necessary changes and production findings in context to arrive at the best solution/implementation.",
+      "getStuffDone": "You consistently know how to reduce the complexity of our software solutions so we can get more done with less effort.",
+      "communicatie": "You are the technical figurehead of your area of focus. You can make decisions on complex technical issues within your applications and know how to explain this well to technical and non-technical people. You can clearly explain complex problems within your applications and support solution directions. You regularly share your knowledge about the domain and how to make good technical choices. With this, you try to help colleagues work independently and well within the domain.",
+      "persoonSpecifiekeSpecialismes": ""
+    },
+    {
+      "level": "Staff Engineer: Specialist",
+      "levelIndicator": "STAFF",
+      "scope": "Organization",
+      "impactEnLeiderschap": "You are by default involved in large or multi-year technical decisions in your area that can impact large parts of the technical landscape. You are known within the organization as an evangelist in your area of expertise and proactively ensure that we are at the forefront in this area and meet the highest standards.",
+      "softwareEngineering": "You are the go-to expert in a specific technical sub-area and know how to provide assistance and advice throughout the organization (databases, cloud, security, etc.). You are continuously aware of what is happening in your area of expertise in the organization and the world. This allows you to timely jump on trends and identify things that flow well with the company's technical vision. You have a reputation for continuously and structurally implementing improvements in your area of expertise and know how to provide assistance and advice on this within the entire organization or beyond. Possibly, integration and delivery is the niche area in which you specialize. In that case, you take the lead in helping the organization progress further in this area and help others achieve that progress. If not, you are able to integrate your knowledge of your area of expertise into these methods to devise solutions that support both technical needs and business needs.",
+      "technischInzicht": "As a specialist, you must be able to tackle complex problems in your niche area. You need to have a good understanding of the challenges specific to your niche and the skills to devise creative and effective solutions. This often requires in-depth technical knowledge and a good understanding of the underlying architecture and technologies. You have a good understanding of the software architecture and technical landscape of the organization. This includes knowledge of the different components and systems used within the organization and how they align with each other. You understand how your niche area fits into the bigger picture and how you can contribute to the overall technical vision and roadmap of the organization. You must also have insight into the functional domain in which your niche area applies. This includes knowledge of business processes and requirements and how these affect the technical solutions being developed. By combining your in-depth technical knowledge with a good understanding of the functional domain, you can better collaborate with other departments within the organization and provide technical solutions that truly meet the organization's needs.",
+      "getStuffDone": "You delegate and assist teams in tackling large and complex challenges in your area of expertise and know how to take people along and coach them in this.",
+      "communicatie": "You are one of the technical voices of the organization. One of the engineering top bosses within the company. You know how to communicate clearly about your area of expertise and thus make important issues and complex topics clear to both technical and non-technical people. If something needs to be determined or communicated about your subject, everyone knows where to find you. You share your knowledge about your specialization very regularly. With this, you try to advance colleagues in your field.",
+      "persoonSpecifiekeSpecialismes": ""
+    }
+  ]
+}

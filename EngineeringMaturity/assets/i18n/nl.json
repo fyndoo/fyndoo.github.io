@@ -1,0 +1,63 @@
+{
+  "HEADER": {
+    "TITLE": "Engineering Maturity Model",
+    "NAV_LEESWIJZER": "Leeswijzer",
+    "NAV_MODEL_OVERVIEW": "Modeloverzicht",
+    "NAV_ENGINEERING_MODEL": "Engineering Model: IC",
+    "NAV_INFO": "Info"
+  },
+  "LEESWIJZER": {
+    "MAIN_TITLE": "Leeswijzer",
+    "TITLE": "Leeswijzer",
+    "SUBTITLE": "Leeswijzer Engineering levels",
+    "PARAGRAPH1": "Niet een uitgestippeld pad, maar handvaten voor ontwikkeling!",
+    "PARAGRAPH2": "Hoewel 'engineering levels' misschien het idee schetsen van een strak voor gedefinieerd carrierepad met een helder einddoel zoals Partner worden bij een advocatenkantoor, zijn carrières tegenwoordig vaak veel flexibeler van aard. Zie deze levels dus niet als langetermijnpad. Het is verleidelijk om te veel te focussen op de bovenkant van de ladder maar de volgende stap is veel belangrijker. Deze levels zijn vooral een tool om doelen en verwachtingen te zetten voor de komende jaren. Besef je ook goed dat er, vooral met wat meer ervaring, meer carrière paden mogelijk zijn dan engineer.",
+    "PARAGRAPH3": "Waarom hebben we levels?",
+    "PARAGRAPH4": "'We zijn toch een platte organisatie?' Het erkennen van engineering levels kan zowel de organisatie als de medewerker erg helpen. Zo helpen de levels coaches en leidinggevenden om objectieve en gerichte discussies te voeren tijdens coaching gesprekken. Het is helder wat er op dit moment van je verwacht wordt, en wat de verwachtingen zijn als je de volgende stap wilt maken. Wat weer enorm verhelderend kan werken voor de medewerker die zoekt hoe hij/zij zichzelf verder kan ontwikkelen. Tevens is het voor de organisatie nu helder waar iedereen staat, en waar iedereen het effectiefst ingezet kan worden.",
+    "PARAGRAPH5": "Hoe moet ik er inhoudelijk naar kijken?",
+    "PARAGRAPH6": "Het coachen en begeleiden van mensen in hun ontwikkeling is nooit een volledig objectief vooraf vastgesteld proces. Je werkt met mensen, het zal nooit allemaal 100% passen bij iemand en het zal altijd enigszins subjectief en 'fuzzy' zijn. Probeer daarom de zaken uit de levels als inspiratie te gebruiken en het plaatje dat geschetst wordt te matchen aan de rol en de ambities van de medewerker.",
+    "MORE_INFO": "Meer weten?",
+    "AUTHOR_NAME": "Marco van de Haar",
+    "AUTHOR_TITLE": "Fyndoo Tech Lead"
+  },
+  "LEGENDA": {
+    "TITLE": "Legenda",
+    "SUBTITLE": "Legenda Engineering levels",
+    "ENGINEERING_LEVELS_TITLE": "Legenda Engineering Levels",
+    "LEVEL": "Level",
+    "LEVEL_DESCRIPTION": "Identificatie van het niveau.",
+    "SCOPE": "Scope",
+    "SCOPE_DESCRIPTION": "De scope van de werkzaamheden waar de engineer grotendeels in werkt.",
+    "IMPACT_LEADERSHIP": "Impact en leiderschap",
+    "IMPACT_LEADERSHIP_DESCRIPTION": "Beschrijft jouw cirkel van invloed. Vloeit jouw invloed vooral binnen het team? Is dit structureel breder of heb je invloed op de hele organisatie?",
+    "SOFTWARE_ENGINEERING": "Software engineering",
+    "SOFTWARE_ENGINEERING_DESCRIPTION": "Kennis van Software Engineering: code, stijl, testen, kwaliteit, non-functionals, maar ook softwareontwerp, gebruikte tooling en frameworks, en ops.",
+    "TECHNICAL_INSIGHT": "Technisch inzicht",
+    "TECHNICAL_INSIGHT_DESCRIPTION": "Inzicht met een technisch blik. Hoe goed kun jij problemen oplossen? Hoe goed is jouw overzicht van het landschap en de architectuur? Heb jij inzicht in welke functionaliteit erachter de techniek zit?",
+    "GET_STUFF_DONE": "G(et)S(tuff)D(one)",
+    "GET_STUFF_DONE_DESCRIPTION": "Hoe doe jij je werk? Op welke manier krijg jij het voor elkaar?",
+    "COMMUNICATION_LEADERSHIP": "Communicatie en leiderschap",
+    "COMMUNICATION_LEADERSHIP_DESCRIPTION": "Dit beschrijft hoe bedreven jij bent in soft skills en hoe dit tot uiting komt."
+  },
+  "TABLE_HEADERS": {
+    "LEVEL": "Level",
+    "SCOPE": "Scope",
+    "IMPACT_LEADERSHIP": "Impact en leiderschap",
+    "SOFTWARE_ENGINEERING": "Software Engineering",
+    "TECHNICAL_INSIGHT": "Technisch inzicht",
+    "GET_STUFF_DONE": "G(et)S(tuff)D(one)",
+    "COMMUNICATION_LEADERSHIP": "Communicatie en leiderschap"
+  },
+  "INFORMATION": {
+    "TITLE": "Informatie",
+    "SUBTITLE": "Achtergrondinformatie en links",
+    "CATEGORY1_TITLE": "Software engineering carrière ladders",
+    "CATEGORY2_TITLE": "Staff Engineering",
+    "CATEGORY3_TITLE": "Boeken",
+    "INTRO_TEXT": "Interesse in software engineering carrierepaden? Of wil je graag weten weten waar we dit model op hebben gebaseerd? Check dan enkele bronnen hieronder!"
+  },
+  "DIALOG": {
+    "SKILL_INFO": "Skill informatie",
+    "DEV_COMPASS": "Ontwikkelcompas Competenties:"
+  }
+}
