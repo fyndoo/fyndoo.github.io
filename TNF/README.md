@@ -3,7 +3,7 @@ Data model 'tijdelijke noodfonds energie':
 Below the documentation of the versions of the ‘data model 'tijdelijke noodfonds energie':
 
 Data export TNF version 2025.2
-* [Graphical overview 2025.1](tnf_2025.2/relationships.html)
+* [Graphical overview 2025.2](tnf_2025.2/relationships.html)
 * No change log (restarted with empty database)
 
 Data export TNF version 2025.1
