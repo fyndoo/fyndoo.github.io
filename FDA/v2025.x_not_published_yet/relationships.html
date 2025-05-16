@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>data-analytics.wla</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wla</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>All Relationships</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Diagrams</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom">
+                                <!-- Tabs within a box -->
+                                <h5>By default only columns that are primary keys, foreign keys or indexes are shown.</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#compactDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact</a></li>
+                                    <li class=""><a href="#largeDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="compactDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactRelationshipsDiagram" name="compactRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/sz_pnc_financialstate.html" target="_top" title="sz_pnc_financialstate" alt="" coords="2027,660,2537,777">
+<area shape="rect" id="node38" href="tables/sz_pnc_facilityreference.html" target="_top" title="sz_pnc_facilityreference" alt="" coords="1569,727,1886,849">
+<area shape="rect" id="node2" href="tables/sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="603,904,923,1080">
+<area shape="rect" id="node35" href="tables/sz_process.html" target="_top" title="sz_process" alt="" coords="211,1345,535,1492">
+<area shape="rect" id="node39" href="tables/sz_user.html" target="_top" title="sz_user" alt="" coords="5,1245,167,1363">
+<area shape="rect" id="node3" href="tables/sz_financials.html" target="_top" title="sz_financials" alt="" coords="269,2183,476,2276">
+<area shape="rect" id="node4" href="tables/sz_pnc_periodicstatement_agreementlevel.html" target="_top" title="sz_pnc_periodicstatement_agreementlevel" alt="" coords="1478,867,1977,1043">
+<area shape="rect" id="node41" href="tables/sz_pnc_agreementreference.html" target="_top" title="sz_pnc_agreementreference" alt="" coords="1031,964,1389,1057">
+<area shape="rect" id="node5" href="tables/sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="2589,1380,2865,1585">
+<area shape="rect" id="node12" href="tables/sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="2127,1409,2437,1585">
+<area shape="rect" id="node6" href="tables/sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="591,1468,936,1585">
+<area shape="rect" id="node7" href="tables/sz_counterparty_fiscal_info.html" target="_top" title="sz_counterparty_fiscal_info" alt="" coords="1554,2124,1901,2271">
+<area shape="rect" id="node34" href="tables/sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="1048,2288,1372,2435">
+<area shape="rect" id="node8" href="tables/sz_workflowstatusdefinition.html" target="_top" title="sz_workflowstatusdefinition" alt="" coords="218,140,575,257">
+<area shape="rect" id="node9" href="tables/sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="587,1767,940,1943">
+<area shape="rect" id="node10" href="tables/sz_calcmodel_customerbased.html" target="_top" title="sz_calcmodel_customerbased" alt="" coords="579,2457,948,2604">
+<area shape="rect" id="node11" href="tables/sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="637,1603,890,1749">
+<area shape="rect" id="node15" href="tables/sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="1565,1632,1889,1808">
+<area shape="rect" id="node13" href="tables/sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="630,2153,897,2300">
+<area shape="rect" id="node14" href="tables/sz_workflowprocessdefinition.html" target="_top" title="sz_workflowprocessdefinition" alt="" coords="211,5,583,123">
+<area shape="rect" id="node16" href="tables/sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="2927,1476,3269,1681">
+<area shape="rect" id="node17" href="tables/sz_pnc_financialstate_agreementlevel.html" target="_top" title="sz_pnc_financialstate_agreementlevel" alt="" coords="1472,1060,1983,1177">
+<area shape="rect" id="node18" href="tables/sz_facility.html" target="_top" title="sz_facility" alt="" coords="2087,1216,2477,1392">
+<area shape="rect" id="node19" href="tables/sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="2581,1172,2872,1348">
+<area shape="rect" id="node20" href="tables/sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="625,1097,901,1215">
+<area shape="rect" id="node21" href="tables/sz_calcmodel_processbaseddetails.html" target="_top" title="sz_calcmodel_processbaseddetails" alt="" coords="1000,1679,1420,1943">
+<area shape="rect" id="node22" href="tables/sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="2137,1796,2427,1972">
+<area shape="rect" id="node23" href="tables/sz_slidetails.html" target="_top" title="sz_slidetails" alt="" coords="1047,1960,1373,2107">
+<area shape="rect" id="node40" href="tables/sz_sli.html" target="_top" title="sz_sli" alt="" coords="663,1960,863,2136">
+<area shape="rect" id="node24" href="tables/sz_relation.html" target="_top" title="sz_relation" alt="" coords="2137,1989,2427,2195">
+<area shape="rect" id="node25" href="tables/sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="2916,1253,3280,1459">
+<area shape="rect" id="node26" href="tables/sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="1578,2288,1877,2464">
+<area shape="rect" id="node27" href="tables/sz_calcmodel_customerbaseddetails.html" target="_top" title="sz_calcmodel_customerbaseddetails" alt="" coords="992,2457,1428,2721">
+<area shape="rect" id="node28" href="tables/sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1079,1224,1341,1400">
+<area shape="rect" id="node37" href="tables/sz_approval.html" target="_top" title="sz_approval" alt="" coords="655,1268,871,1415">
+<area shape="rect" id="node29" href="tables/sz_statuschangedefinition.html" target="_top" title="sz_statuschangedefinition" alt="" coords="627,81,965,257">
+<area shape="rect" id="node30" href="tables/sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="592,2317,935,2440">
+<area shape="rect" id="node31" href="tables/sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="1044,2124,1376,2271">
+<area shape="rect" id="node32" href="tables/sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="2148,1603,2416,1779">
+<area shape="rect" id="node33" href="tables/sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="1534,1195,1921,1400">
+<area shape="rect" id="node36" href="tables/sz_pnc_periodicstatement.html" target="_top" title="sz_pnc_periodicstatement" alt="" coords="2114,795,2450,971">
+</map>
+                                        <a name='diagram'><img id="compactDegreeImg" src="diagrams/summary/relationships.real.compact.png" usemap="#compactRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeRelationshipsDiagram" name="largeRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/sz_pnc_financialstate.html" target="_top" title="sz_pnc_financialstate" alt="" coords="2027,5,2537,539">
+<area shape="rect" id="node38" href="tables/sz_pnc_facilityreference.html" target="_top" title="sz_pnc_facilityreference" alt="" coords="1569,280,1886,403">
+<area shape="rect" id="node2" href="tables/sz_processstatuschange.html" target="_top" title="sz_processstatuschange" alt="" coords="603,1029,923,1416">
+<area shape="rect" id="node35" href="tables/sz_process.html" target="_top" title="sz_process" alt="" coords="211,1733,535,2501">
+<area shape="rect" id="node39" href="tables/sz_user.html" target="_top" title="sz_user" alt="" coords="5,1861,167,2013">
+<area shape="rect" id="node3" href="tables/sz_financials.html" target="_top" title="sz_financials" alt="" coords="269,3444,476,3537">
+<area shape="rect" id="node4" href="tables/sz_pnc_periodicstatement_agreementlevel.html" target="_top" title="sz_pnc_periodicstatement_agreementlevel" alt="" coords="1478,420,1977,895">
+<area shape="rect" id="node41" href="tables/sz_pnc_agreementreference.html" target="_top" title="sz_pnc_agreementreference" alt="" coords="1031,667,1389,760">
+<area shape="rect" id="node5" href="tables/sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="2589,3257,2865,4084">
+<area shape="rect" id="node12" href="tables/sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="2127,3257,2437,3761">
+<area shape="rect" id="node6" href="tables/sz_processevents.html" target="_top" title="sz_processevents" alt="" coords="591,1903,936,2289">
+<area shape="rect" id="node7" href="tables/sz_counterparty_fiscal_info.html" target="_top" title="sz_counterparty_fiscal_info" alt="" coords="1554,4552,1901,4733">
+<area shape="rect" id="node34" href="tables/sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="1048,4552,1372,5379">
+<area shape="rect" id="node8" href="tables/sz_workflowstatusdefinition.html" target="_top" title="sz_workflowstatusdefinition" alt="" coords="3723,673,4081,972">
+<area shape="rect" id="node9" href="tables/sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="587,2564,940,2745">
+<area shape="rect" id="node10" href="tables/sz_calcmodel_customerbased.html" target="_top" title="sz_calcmodel_customerbased" alt="" coords="579,5044,948,5196">
+<area shape="rect" id="node11" href="tables/sz_contactperson.html" target="_top" title="sz_contactperson" alt="" coords="637,2307,890,2547">
+<area shape="rect" id="node15" href="tables/sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="1565,3808,1889,4195">
+<area shape="rect" id="node13" href="tables/sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="630,3415,897,3567">
+<area shape="rect" id="node14" href="tables/sz_workflowprocessdefinition.html" target="_top" title="sz_workflowprocessdefinition" alt="" coords="3716,445,4088,656">
+<area shape="rect" id="node16" href="tables/sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="2927,3025,3269,3441">
+<area shape="rect" id="node17" href="tables/sz_pnc_financialstate_agreementlevel.html" target="_top" title="sz_pnc_financialstate_agreementlevel" alt="" coords="1472,912,1983,1445">
+<area shape="rect" id="node18" href="tables/sz_facility.html" target="_top" title="sz_facility" alt="" coords="2087,1680,2477,3240">
+<area shape="rect" id="node19" href="tables/sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="2581,1680,2872,2067">
+<area shape="rect" id="node20" href="tables/sz_otherproperties.html" target="_top" title="sz_otherproperties" alt="" coords="625,1433,901,1556">
+<area shape="rect" id="node21" href="tables/sz_calcmodel_processbaseddetails.html" target="_top" title="sz_calcmodel_processbaseddetails" alt="" coords="1000,1903,1420,2201">
+<area shape="rect" id="node22" href="tables/sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="2137,4007,2427,4393">
+<area shape="rect" id="node23" href="tables/sz_slidetails.html" target="_top" title="sz_slidetails" alt="" coords="1047,2219,1373,3368">
+<area shape="rect" id="node40" href="tables/sz_sli.html" target="_top" title="sz_sli" alt="" coords="663,2763,863,2944">
+<area shape="rect" id="node24" href="tables/sz_relation.html" target="_top" title="sz_relation" alt="" coords="2137,4411,2427,4621">
+<area shape="rect" id="node25" href="tables/sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="2916,3459,3280,3904">
+<area shape="rect" id="node26" href="tables/sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="1578,4751,1877,4991">
+<area shape="rect" id="node27" href="tables/sz_calcmodel_customerbaseddetails.html" target="_top" title="sz_calcmodel_customerbaseddetails" alt="" coords="992,5396,1428,5695">
+<area shape="rect" id="node28" href="tables/sz_businessrules.html" target="_top" title="sz_businessrules" alt="" coords="1079,1492,1341,1849">
+<area shape="rect" id="node37" href="tables/sz_approval.html" target="_top" title="sz_approval" alt="" coords="655,1609,871,1849">
+<area shape="rect" id="node29" href="tables/sz_statuschangedefinition.html" target="_top" title="sz_statuschangedefinition" alt="" coords="4132,615,4471,884">
+<area shape="rect" id="node30" href="tables/sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="592,4068,935,4191">
+<area shape="rect" id="node31" href="tables/sz_annualaccountsdetails.html" target="_top" title="sz_annualaccountsdetails" alt="" coords="1044,3385,1376,4535">
+<area shape="rect" id="node32" href="tables/sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="2148,3779,2416,3989">
+<area shape="rect" id="node33" href="tables/sz_businessrules_parameters.html" target="_top" title="sz_businessrules_parameters" alt="" coords="1534,1463,1921,1820">
+<area shape="rect" id="node36" href="tables/sz_pnc_periodicstatement.html" target="_top" title="sz_pnc_periodicstatement" alt="" coords="2114,556,2450,1031">
+</map>
+                                        <a name='diagram'><img id="largeDegreeImg" src="diagrams/summary/relationships.real.large.png" usemap="#largeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.0-SNAPSHOT</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="relationships.js"></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>
