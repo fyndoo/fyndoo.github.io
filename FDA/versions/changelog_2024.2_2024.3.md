@@ -1,4 +1,4 @@
-Changelog FDA Standard Zone version from 2024.2 to 2024.3 (OHW):
+Changelog FDA Standard Zone version from 2024.2 to 2024.3:
 
 * Added table sz_statuschangedefinition 
 * Added table sz_workflowprocessdefinition 
