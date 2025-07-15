@@ -1,4 +1,4 @@
-date=2025-07-15 11:47:14+0000
+date=2025-07-15 14:17:37+0000
 os=Linux 6.6.87.1-microsoft-standard-WSL2
 schemaspy-version=7.0.0-SNAPSHOT
 schemaspy-revision=755488da71f06575f403b6002780609f1c074e0d

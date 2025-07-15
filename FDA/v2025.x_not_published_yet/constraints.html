@@ -104,24 +104,6 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>FK_sz_pnc_facilityreference_fs</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_pnc_financialstate.html'>sz_pnc_financialstate</a><span>.facilityreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_pnc_facilityreference.html'>sz_pnc_facilityreference</a><span>.facilityreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
-                                    </tr>
-                                    <tr>
                                         <td>FK_processstatuschange_process</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
@@ -152,24 +134,6 @@
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_user.html'>sz_user</a><span>.referenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>FK_sz_pnc_agreement_ps</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_pnc_periodicstatement_agreementlevel.html'>sz_pnc_periodicstatement_agreementlevel</a><span>.agreementreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_pnc_agreementreference.html'>sz_pnc_agreementreference</a><span>.agreementreferenceid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -362,6 +326,24 @@
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
+                                        <td>FK_sz_agreementreferenceid</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreementreference.html'>sz_agreementreference</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
                                         <td>FK_agreement_process</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
@@ -404,24 +386,6 @@
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_sz_pnc_agreementreferenceid</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.referenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_pnc_agreementreference.html'>sz_pnc_agreementreference</a><span>.agreementreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
-                                    </tr>
-                                    <tr>
                                         <td>FK_collateral_object_rental</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
@@ -452,18 +416,36 @@
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_sz_pnc_agreementreference_fs</td>
+                                        <td>FK_sz_facilityreference_fs</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_pnc_financialstate_agreementlevel.html'>sz_pnc_financialstate_agreementlevel</a><span>.agreementreferenceid</span></td>
+                                                    <td><a href='tables/sz_financialstate.html'>sz_financialstate</a><span>.facilityreferenceid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_pnc_agreementreference.html'>sz_pnc_agreementreference</a><span>.agreementreferenceid</span></td>
+                                                    <td><a href='tables/sz_facilityreference.html'>sz_facilityreference</a><span>.facilityreferenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FK_sz_facilityreference</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_facility.html'>sz_facility</a><span>.referenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_facilityreference.html'>sz_facilityreference</a><span>.facilityreferenceid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -494,18 +476,18 @@
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_sz_pnc_facilityreference</td>
+                                        <td>FK_sz_agreement_ps</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_facility.html'>sz_facility</a><span>.referenceid</span></td>
+                                                    <td><a href='tables/sz_periodicstatement_agreementlevel.html'>sz_periodicstatement_agreementlevel</a><span>.agreementreferenceid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_pnc_facilityreference.html'>sz_pnc_facilityreference</a><span>.facilityreferenceid</span></td>
+                                                    <td><a href='tables/sz_agreementreference.html'>sz_agreementreference</a><span>.agreementreferenceid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -590,6 +572,24 @@
                                                 </tr>
                                                 <tr>
                                                     <td><a href='tables/sz_agreement.html'>sz_agreement</a><span>.processnumber</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FK_sz_agreementreference_fs</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_financialstate_agreementlevel.html'>sz_financialstate_agreementlevel</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreementreference.html'>sz_agreementreference</a><span>.agreementreferenceid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -860,6 +860,24 @@
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
+                                        <td>FK_sz_agreementreferenceid_ps</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_facilityreference.html'>sz_facilityreference</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_agreementreference.html'>sz_agreementreference</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
                                         <td>FK_financinggoal_agreement</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
@@ -950,18 +968,18 @@
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_sz_pnc_facilityreference_ps</td>
+                                        <td>FK_sz_facilityreference_ps</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_pnc_periodicstatement.html'>sz_pnc_periodicstatement</a><span>.facilityreferenceid</span></td>
+                                                    <td><a href='tables/sz_periodicstatement.html'>sz_periodicstatement</a><span>.facilityreferenceid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
-                                                    <td><a href='tables/sz_pnc_facilityreference.html'>sz_pnc_facilityreference</a><span>.facilityreferenceid</span></td>
+                                                    <td><a href='tables/sz_facilityreference.html'>sz_facilityreference</a><span>.facilityreferenceid</span></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -984,24 +1002,6 @@
                                             </table>
                                         </td>
                                         <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>FK_sz_pnc_agreementreferenceid_ps</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_pnc_facilityreference.html'>sz_pnc_facilityreference</a><span>.agreementreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_pnc_agreementreference.html'>sz_pnc_agreementreference</a><span>.agreementreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
                                         <td>FK_sli_process</td>

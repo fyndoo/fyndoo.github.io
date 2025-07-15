@@ -78,7 +78,7 @@
                         <div class="col-md-12">
                             <div class="callout callout-info">
                                 <h4>SchemaSpy Analysis of data-analytics.wla</h4>
-                                <p>Generated on Tue Jul 15 11:47 UTC 2025</p>
+                                <p>Generated on Tue Jul 15 14:17 UTC 2025</p>
                             </div>
                         </div>
                     </div>
@@ -205,14 +205,6 @@
                                 </thead>
                                 <tbody>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_pnc_financialstate.html">sz_pnc_financialstate</a></td>
-                                        <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">16</td>
-                                        <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"><p>Table with financial_state on facility level</p></td>
-                                    </tr>
-                                    <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_processstatuschange.html">sz_processstatuschange</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">2</td>
@@ -227,14 +219,6 @@
                                         <td class="detail" align="right">1</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"><p>Table is used as Many-To-Many relation</p></td>
-                                    </tr>
-                                    <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_pnc_periodicstatement_agreementlevel.html">sz_pnc_periodicstatement_agreementlevel</a></td>
-                                        <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">14</td>
-                                        <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"><p>Table with periodic_statements on agreement level</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_collateral_object.html">sz_collateral_object</a></td>
@@ -333,12 +317,12 @@
                                         <td class="comment detail" style="display: table-cell;"><p>Rental details of a collateral object</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_pnc_financialstate_agreementlevel.html">sz_pnc_financialstate_agreementlevel</a></td>
+                                        <td class="detail"><a href="tables/sz_financialstate.html">sz_financialstate</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">1</td>
                                         <td class="detail" align="right">16</td>
                                         <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"><p>Table with financial_state on agreement level</p></td>
+                                        <td class="comment detail" style="display: table-cell;"><p>Table with financial_state on facility level</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_facility.html">sz_facility</a></td>
@@ -349,12 +333,28 @@
                                         <td class="comment detail" style="display: table-cell;"><p>Facility details</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_periodicstatement_agreementlevel.html">sz_periodicstatement_agreementlevel</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">1</td>
+                                        <td class="detail" align="right">14</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"><p>Table with periodic_statements on agreement level</p></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_fee_facility.html">sz_fee_facility</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">2</td>
                                         <td class="detail" align="right">11</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"><p>Details of the fee related to a facility</p></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_agreementreference.html">sz_agreementreference</a></td>
+                                        <td class="detail" align="right">4</td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">1</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"><p>Linking table between periodic_statements and agreements</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_otherproperties.html">sz_otherproperties</a></td>
@@ -379,6 +379,14 @@
                                         <td class="detail" align="right">11</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"><p>Details of the fee related to a agreement</p></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_financialstate_agreementlevel.html">sz_financialstate_agreementlevel</a></td>
+                                        <td class="detail" align="right">0</td>
+                                        <td class="detail" align="right">1</td>
+                                        <td class="detail" align="right">16</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"><p>Table with financial_state on agreement level</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_slidetails.html">sz_slidetails</a></td>
@@ -453,6 +461,14 @@
                                         <td class="comment detail" style="display: table-cell;"><p>Details of annual accounts (every period is one record)</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
+                                        <td class="detail"><a href="tables/sz_facilityreference.html">sz_facilityreference</a></td>
+                                        <td class="detail" align="right">3</td>
+                                        <td class="detail" align="right">1</td>
+                                        <td class="detail" align="right">2</td>
+                                        <td class="detail" align="right">Table</td>
+                                        <td class="comment detail" style="display: table-cell;"><p>Linking table between periodic_statements and facilities</p></td>
+                                    </tr>
+                                    <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_financinggoal.html">sz_financinggoal</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">2</td>
@@ -485,7 +501,7 @@
                                         <td class="comment detail" style="display: table-cell;"><p>Details of a process</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_pnc_periodicstatement.html">sz_pnc_periodicstatement</a></td>
+                                        <td class="detail"><a href="tables/sz_periodicstatement.html">sz_periodicstatement</a></td>
                                         <td class="detail" align="right">0</td>
                                         <td class="detail" align="right">1</td>
                                         <td class="detail" align="right">14</td>
@@ -499,14 +515,6 @@
                                         <td class="detail" align="right">6</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"><p>Details of an approval (combination of businessrules)</p></td>
-                                    </tr>
-                                    <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_pnc_facilityreference.html">sz_pnc_facilityreference</a></td>
-                                        <td class="detail" align="right">3</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">2</td>
-                                        <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"><p>Linking table between periodic_statements and facilities</p></td>
                                     </tr>
                                     <tr class="tbl even" valign="top">
                                         <td class="detail"><a href="tables/sz_user.html">sz_user</a></td>
@@ -523,14 +531,6 @@
                                         <td class="detail" align="right">4</td>
                                         <td class="detail" align="right">Table</td>
                                         <td class="comment detail" style="display: table-cell;"><p>SLI =  Statement after Loan Issuing</p></td>
-                                    </tr>
-                                    <tr class="tbl even" valign="top">
-                                        <td class="detail"><a href="tables/sz_pnc_agreementreference.html">sz_pnc_agreementreference</a></td>
-                                        <td class="detail" align="right">4</td>
-                                        <td class="detail" align="right">0</td>
-                                        <td class="detail" align="right">1</td>
-                                        <td class="detail" align="right">Table</td>
-                                        <td class="comment detail" style="display: table-cell;"><p>Linking table between periodic_statements and agreements</p></td>
                                     </tr>
                             </table>
                         </div>

@@ -8,7 +8,7 @@
             <child column="agreementreferenceid" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_agreement"/>
             <child column="agreementreferenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_financinggoal"/>
             <child column="agreementreferenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
-            <parent column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_agreementreference"/>
+            <parent column="agreementreferenceid" foreignKey="FK_sz_agreementreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreementreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <child column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
@@ -16,8 +16,8 @@
             <child column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_agreement"/>
             <child column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_financinggoal"/>
             <child column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
-            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wla" table="sz_process"/>
             <parent column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel" nullable="false" remarks="White label name" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="mainborrowerreferenceid" nullable="true" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
@@ -35,6 +35,18 @@
          <index name="PK_sz_agreement" unique="true">
             <column ascending="true" name="referenceid"/>
             <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_agreementreference" remarks="Linking table between periodic_statements and agreements" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="referenceid" foreignKey="FK_sz_agreementreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
+            <child column="agreementreferenceid" foreignKey="FK_sz_agreementreferenceid_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_facilityreference"/>
+            <child column="agreementreferenceid" foreignKey="FK_sz_agreementreference_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_financialstate_agreementlevel"/>
+            <child column="agreementreferenceid" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_periodicstatement_agreementlevel"/>
+         </column>
+         <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_agreementreferenceid" unique="true">
+            <column ascending="true" name="agreementreferenceid"/>
          </index>
       </table>
       <table name="sz_annualaccounts" remarks="Annual accounts of a company" schema="wla" type="TABLE">
@@ -475,7 +487,7 @@
       <table name="sz_facility" remarks="Facility details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of the facility" size="128" type="varchar" typeCode="12">
             <child column="facilityreferenceid" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_facility"/>
-            <parent column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_facilityreference"/>
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facilityreference" implied="false" onDeleteCascade="true" schema="wla" table="sz_facilityreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="mainfacilityreferenceid" nullable="true" remarks="Unique identifier of the main facility" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
@@ -539,6 +551,20 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
+      <table name="sz_facilityreference" remarks="Linking table between periodic_statements and facilities" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="referenceid" foreignKey="FK_sz_facilityreference" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
+            <child column="facilityreferenceid" foreignKey="FK_sz_facilityreference_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_financialstate"/>
+            <child column="facilityreferenceid" foreignKey="FK_sz_facilityreference_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_periodicstatement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
+            <parent column="agreementreferenceid" foreignKey="FK_sz_agreementreferenceid_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreementreference"/>
+         </column>
+         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_facilityreferenceid" unique="true">
+            <column ascending="true" name="facilityreferenceid"/>
+         </index>
+      </table>
       <table name="sz_fee_agreement" remarks="Details of the fee related to a agreement" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of an fee agreement" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
@@ -598,6 +624,54 @@
             <column ascending="true" name="financialsid"/>
          </index>
       </table>
+      <table name="sz_financialstate" remarks="Table with financial_state on facility level" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="Unique identifier for a facility" size="128" type="varchar" typeCode="12">
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facilityreference_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_facilityreference"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="timestampfinancialstate" nullable="true" remarks="Timestamp of the creation of financial_state" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="arrearsamount" nullable="true" remarks="Arrears amount" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="arrearcode" nullable="true" remarks="Arrearcode, 0 - No arrears / 1 - In arrears (payments overdue) /2 - 30 days overdue /3 - 60 days overdue / 4 - 90 days overdue" size="1" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="isactive" nullable="true" remarks="Is the facility active" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="overduepaymentobligationamount" nullable="true" remarks="The amount of payment obligations whose due date has passed." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="outstandingamountafterscheduledtransactions" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="installmentamount" nullable="true" remarks="Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment)." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="surplusamount" nullable="true" remarks="Advance. How many installments did you pay in advance? For mortgages not relevant." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="initialamount" nullable="true" remarks="Initial balance. So the balance when the product is created." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="nextinstallmentinterestamount" nullable="true" remarks="Next interest amount. How much interest is in the next installment amount." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="nextinstallmentpayoffamount" nullable="true" remarks="Next repayment amount. How much repayment is in the next installment amount." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_financialstate" unique="true">
+            <column ascending="true" name="facilityreferenceid"/>
+         </index>
+      </table>
+      <table name="sz_financialstate_agreementlevel" remarks="Table with financial_state on agreement level" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
+            <parent column="agreementreferenceid" foreignKey="FK_sz_agreementreference_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreementreference"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="timestampfinancialstate" nullable="true" remarks="Timestamp of the creation of financial_state" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="arrearsamount" nullable="true" remarks="Arrears amount" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="arrearcode" nullable="true" remarks="Arrearcode, 0 - No arrears / 1 - In arrears (payments overdue) /2 - 30 days overdue /3 - 60 days overdue / 4 - 90 days overdue" size="1" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="isactive" nullable="true" remarks="Is the agreement active" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="overduepaymentobligationamount" nullable="true" remarks="The amount of payment obligations whose due date has passed." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="outstandingamountafterscheduledtransactions" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="installmentamount" nullable="true" remarks="Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment)." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="surplusamount" nullable="true" remarks="Advance. How many installments did you pay in advance? For mortgages not relevant." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="initialamount" nullable="true" remarks="Initial balance. So the balance when the product is created." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="nextinstallmentinterestamount" nullable="true" remarks="Next interest amount. How much interest is in the next installment amount." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="nextinstallmentpayoffamount" nullable="true" remarks="Next repayment amount. How much repayment is in the next installment amount." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_financialstate_agreementlevel" unique="true">
+            <column ascending="true" name="agreementreferenceid"/>
+         </index>
+      </table>
       <table name="sz_financinggoal" remarks="Financing goals details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a financing goal." size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement." size="128" type="varchar" typeCode="12">
@@ -625,83 +699,9 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_pnc_agreementreference" remarks="Linking table between periodic_statements and agreements" schema="wla" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <child column="referenceid" foreignKey="FK_sz_pnc_agreementreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
-            <child column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreferenceid_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_facilityreference"/>
-            <child column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreference_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_financialstate_agreementlevel"/>
-            <child column="agreementreferenceid" foreignKey="FK_sz_pnc_agreement_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_periodicstatement_agreementlevel"/>
-         </column>
-         <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
-         <index name="PK_agreementreferenceid" unique="true">
-            <column ascending="true" name="agreementreferenceid"/>
-         </index>
-      </table>
-      <table name="sz_pnc_facilityreference" remarks="Linking table between periodic_statements and facilities" schema="wla" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <child column="referenceid" foreignKey="FK_sz_pnc_facilityreference" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
-            <child column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_financialstate"/>
-            <child column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_periodicstatement"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreferenceid_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_agreementreference"/>
-         </column>
-         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
-         <index name="PK_facilityreferenceid" unique="true">
-            <column ascending="true" name="facilityreferenceid"/>
-         </index>
-      </table>
-      <table name="sz_pnc_financialstate" remarks="Table with financial_state on facility level" schema="wla" type="TABLE">
+      <table name="sz_periodicstatement" remarks="Table with periodic_statements on facility level" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="Unique identifier for a facility" size="128" type="varchar" typeCode="12">
-            <parent column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_facilityreference"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="timestampfinancialstate" nullable="true" remarks="Timestamp of the creation of financial_state" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="arrearsamount" nullable="true" remarks="Arrears amount" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="arrearcode" nullable="true" remarks="Arrearcode, 0 - No arrears / 1 - In arrears (payments overdue) /2 - 30 days overdue /3 - 60 days overdue / 4 - 90 days overdue" size="1" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="isactive" nullable="true" remarks="Is the facility active" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="overduepaymentobligationamount" nullable="true" remarks="The amount of payment obligations whose due date has passed." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="outstandingamountafterscheduledtransactions" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="installmentamount" nullable="true" remarks="Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment)." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="surplusamount" nullable="true" remarks="Advance. How many installments did you pay in advance? For mortgages not relevant." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="initialamount" nullable="true" remarks="Initial balance. So the balance when the product is created." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="nextinstallmentinterestamount" nullable="true" remarks="Next interest amount. How much interest is in the next installment amount." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="nextinstallmentpayoffamount" nullable="true" remarks="Next repayment amount. How much repayment is in the next installment amount." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
-         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
-         <index name="PK_sz_pnc_financialstate" unique="true">
-            <column ascending="true" name="facilityreferenceid"/>
-         </index>
-      </table>
-      <table name="sz_pnc_financialstate_agreementlevel" remarks="Table with financial_state on agreement level" schema="wla" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreference_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_agreementreference"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="timestampfinancialstate" nullable="true" remarks="Timestamp of the creation of financial_state" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="arrearsamount" nullable="true" remarks="Arrears amount" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="arrearcode" nullable="true" remarks="Arrearcode, 0 - No arrears / 1 - In arrears (payments overdue) /2 - 30 days overdue /3 - 60 days overdue / 4 - 90 days overdue" size="1" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="isactive" nullable="true" remarks="Is the agreement active" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="overduepaymentobligationamount" nullable="true" remarks="The amount of payment obligations whose due date has passed." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="outstandingamountafterscheduledtransactions" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="installmentamount" nullable="true" remarks="Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment)." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="surplusamount" nullable="true" remarks="Advance. How many installments did you pay in advance? For mortgages not relevant." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="initialamount" nullable="true" remarks="Initial balance. So the balance when the product is created." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="nextinstallmentinterestamount" nullable="true" remarks="Next interest amount. How much interest is in the next installment amount." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="nextinstallmentpayoffamount" nullable="true" remarks="Next repayment amount. How much repayment is in the next installment amount." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
-         <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
-         <index name="PK_sz_pnc_financialstate_agreementlevel" unique="true">
-            <column ascending="true" name="agreementreferenceid"/>
-         </index>
-      </table>
-      <table name="sz_pnc_periodicstatement" remarks="Table with periodic_statements on facility level" schema="wla" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="Unique identifier for a facility" size="128" type="varchar" typeCode="12">
-            <parent column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_facilityreference"/>
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facilityreference_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_facilityreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="reportreference" nullable="false" remarks="Unique identifier for the periodic statement" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="reportcreationdate" nullable="true" remarks="Creation datetime of the report" size="29" type="timestamp" typeCode="93"/>
@@ -719,15 +719,15 @@
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="periodtype" sequenceNumberInPK="2"/>
          <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
-         <index name="PK_sz_pnc_periodicstatement" unique="true">
+         <index name="PK_sz_periodicstatement" unique="true">
             <column ascending="true" name="facilityreferenceid"/>
             <column ascending="true" name="periodtype"/>
             <column ascending="true" name="periodenddate"/>
          </index>
       </table>
-      <table name="sz_pnc_periodicstatement_agreementlevel" remarks="Table with periodic_statements on agreement level" schema="wla" type="TABLE">
+      <table name="sz_periodicstatement_agreementlevel" remarks="Table with periodic_statements on agreement level" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_sz_pnc_agreement_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_pnc_agreementreference"/>
+            <parent column="agreementreferenceid" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreementreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="reportreference" nullable="false" remarks="Unique identifier for the periodic statement" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="reportcreationdate" nullable="true" remarks="Creation datetime of the report" size="29" type="timestamp" typeCode="93"/>
@@ -745,7 +745,7 @@
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="periodtype" sequenceNumberInPK="2"/>
          <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
-         <index name="PK_sz_pnc_periodicstatementagreement" unique="true">
+         <index name="PK_sz_periodicstatementagreement" unique="true">
             <column ascending="true" name="agreementreferenceid"/>
             <column ascending="true" name="periodtype"/>
             <column ascending="true" name="periodenddate"/>
@@ -838,8 +838,8 @@
             <parent column="referenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
             <parent column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="counterpartyreferenceid" nullable="false" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
