@@ -279,6 +279,34 @@
         "comments": ""
     },
     {
+        "tableName": "sz_agreementreference",
+        "tableFileName": "sz_agreementreference",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "mainborrowerreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of a counterparty</p>"
+    },
+    {
+        "tableName": "sz_agreementreference",
+        "tableFileName": "sz_agreementreference",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>processnumber_last_successful",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of a process</p>"
+    },
+    {
         "tableName": "sz_annualaccounts",
         "tableFileName": "sz_annualaccounts",
         "tableType": "Table",
@@ -2897,6 +2925,20 @@
         "comments": "<p>Unique external reference identifier of an collateral_object</p>"
     },
     {
+        "tableName": "sz_counterparty",
+        "tableFileName": "sz_counterparty",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "gender",
+        "type": "varchar",
+        "length": 20,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Gender of counterparty (e.g. Male/Female/Unknown&rsquo;</p>"
+    },
+    {
         "tableName": "sz_counterparty_financials",
         "tableFileName": "sz_counterparty_financials",
         "tableType": "Table",
@@ -3796,15 +3838,29 @@
         "tableName": "sz_facilityreference",
         "tableFileName": "sz_facilityreference",
         "tableType": "Table",
-        "keyClass": "foreignKey",
-        "keyTitle": "Foreign Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>agreementreferenceid",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "agreementreferenceid",
         "type": "varchar",
         "length": 128,
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
         "comments": "<p>Unique identifier for a agreement</p>"
+    },
+    {
+        "tableName": "sz_facilityreference",
+        "tableFileName": "sz_facilityreference",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>processnumber_last_successful",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of a process</p>"
     },
     {
         "tableName": "sz_fee_agreement",

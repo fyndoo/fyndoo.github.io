@@ -131,16 +131,6 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_agreement.referenceid references sz_agreementreference.agreementreferenceid via FK_sz_agreementreferenceid"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.referenceid</span></td>
-                                                <td class="constraint detail">FK_sz_agreementreferenceid</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_facilityreference.agreementreferenceid references sz_agreementreference.agreementreferenceid via FK_sz_agreementreferenceid_ps"><a href='sz_facilityreference.html'>sz_facilityreference</a><span class='relatedKey'>.agreementreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_agreementreferenceid_ps</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="sz_financialstate_agreementlevel.agreementreferenceid references sz_agreementreference.agreementreferenceid via FK_sz_agreementreference_fs"><a href='sz_financialstate_agreementlevel.html'>sz_financialstate_agreementlevel</a><span class='relatedKey'>.agreementreferenceid</span></td>
                                                 <td class="constraint detail">FK_sz_agreementreference_fs</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
@@ -154,9 +144,53 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_agreementreference.[agreementreferenceid, processnumber_last_successful] references sz_agreement.[referenceid, processnumber] via FK_agreementreferenceid"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_agreementreferenceid</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="mainborrowerreferenceid">mainborrowerreferenceid</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Unique identifier of a counterparty</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber_last_successful">processnumber_last_successful</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_agreementreference.[agreementreferenceid, processnumber_last_successful] references sz_agreement.[referenceid, processnumber] via FK_agreementreferenceid"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_agreementreferenceid</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Unique identifier of a process</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -217,30 +251,26 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="531,5,855,181">
-<area shape="rect" id="node2" href="sz_agreementreference.html" target="_top" title="sz_agreementreference" alt="" coords="5,281,393,380">
-<area shape="rect" id="node3" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="556,199,829,321">
-<area shape="rect" id="node4" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="437,339,948,456">
-<area shape="rect" id="node5" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="465,473,920,649">
+<area shape="rect" id="node1" href="sz_agreementreference.html" target="_top" title="sz_agreementreference" alt="" coords="373,71,837,228">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,88,329,264">
+<area shape="rect" id="node3" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="881,5,1392,123">
+<area shape="rect" id="node4" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="909,140,1364,316">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_agreementreference.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="531,184,855,360">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="79,83,319,171">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="105,216,293,304">
-<area shape="rect" id="node4" href="sz_agreementreference.html" target="_top" title="sz_agreementreference" alt="" coords="5,557,393,656">
-<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1036,216,1240,304">
-<area shape="rect" id="node6" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1049,427,1227,515">
-<area shape="rect" id="node7" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="556,476,829,599">
-<area shape="rect" id="node8" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1009,321,1267,409">
-<area shape="rect" id="node9" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="1015,637,1261,725">
-<area shape="rect" id="node10" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="437,616,948,733">
-<area shape="rect" id="node11" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1015,111,1261,199">
-<area shape="rect" id="node12" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="992,532,1284,620">
-<area shape="rect" id="node13" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="465,751,920,927">
-<area shape="rect" id="node14" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1043,5,1233,93">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="289,304,613,480">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,484,245,572">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="31,336,219,424">
+<area shape="rect" id="node4" href="sz_agreementreference.html" target="_top" title="sz_agreementreference" alt="" coords="657,427,1121,584">
+<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="787,5,991,93">
+<area shape="rect" id="node6" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="800,111,979,199">
+<area shape="rect" id="node7" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="760,216,1019,304">
+<area shape="rect" id="node8" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="1165,363,1676,480">
+<area shape="rect" id="node9" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="767,321,1012,409">
+<area shape="rect" id="node10" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="1193,497,1648,673">
+<area shape="rect" id="node11" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="795,601,984,689">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_agreementreference.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
