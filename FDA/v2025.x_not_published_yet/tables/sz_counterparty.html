@@ -337,7 +337,7 @@
                                     <td><p>The city of the counterparty</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="country">country</span></td>
+                                    <td><span id="countryofaddress">countryofaddress</span></td>
                                     <td>varchar</td>
                                     <td>255</td>
                                     <td title='nullable'>√</td>
@@ -351,7 +351,24 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>The country name of the counterparty (address)</p></td>
+                                    <td><p>The country name of the counterparty address</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="countrycodeofaddress">countrycodeofaddress</span></td>
+                                    <td>varchar</td>
+                                    <td>25</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>The country code (ISO2) of the counterparty address</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="isholding">isholding</span></td>
@@ -685,7 +702,7 @@
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="889,5,1213,181">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="392,232,833,1093">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="392,232,833,1123">
 <area shape="rect" id="node3" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="5,235,348,357">
 <area shape="rect" id="node4" href="sz_counterparty_fiscal_info.html" target="_top" title="sz_counterparty_fiscal_info" alt="" coords="877,235,1224,381">
 <area shape="rect" id="node5" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="901,399,1200,575">
@@ -696,18 +713,18 @@
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="1192,271,1411,359">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="643,409,1084,1271">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="643,409,1084,1300">
 <area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="769,268,957,356">
 <area shape="rect" id="node6" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="256,412,599,535">
-<area shape="rect" id="node4" href="sz_agreementreference.html" target="_top" title="sz_agreementreference" alt="" coords="1519,5,1832,93">
-<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1573,111,1777,199">
+<area shape="rect" id="node4" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="1519,5,1927,93">
+<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1621,111,1825,199">
 <area shape="rect" id="node7" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,444,212,532">
 <area shape="rect" id="node8" href="sz_counterparty_fiscal_info.html" target="_top" title="sz_counterparty_fiscal_info" alt="" coords="1128,412,1475,559">
 <area shape="rect" id="node9" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="1152,576,1451,752">
-<area shape="rect" id="node10" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1586,216,1765,304">
-<area shape="rect" id="node11" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1546,321,1805,409">
-<area shape="rect" id="node12" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1553,427,1798,515">
-<area shape="rect" id="node13" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1581,532,1770,620">
+<area shape="rect" id="node10" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1633,216,1812,304">
+<area shape="rect" id="node11" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1593,321,1852,409">
+<area shape="rect" id="node12" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1600,427,1845,515">
+<area shape="rect" id="node13" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1628,532,1817,620">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_counterparty.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -729,7 +746,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.0-SNAPSHOT</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.3-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

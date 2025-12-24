@@ -135,8 +135,13 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_periodicstatement.facilityreferenceid references sz_facilityreference.facilityreferenceid via FK_sz_facilityreference_ps"><a href='sz_facilityreference.html'>sz_facilityreference</a><span class='relatedKey'>.facilityreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_facilityreference_ps</td>
+                                                <td title="sz_periodicstatement.facilityreferenceid references sz_facility_periodicstatement.facilityreferenceid via FK_sz_facility_periodicstatement_ps"><a href='sz_facility_periodicstatement.html'>sz_facility_periodicstatement</a><span class='relatedKey'>.facilityreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_facility_periodicstatement_ps</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_periodicstatement.facilityreferenceid references sz_facilityreference.facilityreferenceid via FK_sz_facilityreference"><a href='sz_facilityreference.html'>sz_facilityreference</a><span class='relatedKey'>.facilityreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_facilityreference</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
@@ -423,17 +428,19 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="404,5,823,485">
-<area shape="rect" id="node2" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="5,8,360,155">
+<area shape="rect" id="node1" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="417,84,836,564">
+<area shape="rect" id="node2" href="sz_facility_periodicstatement.html" target="_top" title="sz_facility_periodicstatement" alt="" coords="5,5,373,152">
+<area shape="rect" id="node3" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="53,169,326,263">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_periodicstatement.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="228,59,583,205">
-<area shape="rect" id="node2" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="5,76,184,164">
-<area shape="rect" id="node3" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="713,5,959,93">
-<area shape="rect" id="node4" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="627,111,1045,591">
+<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="323,59,501,147">
+<area shape="rect" id="node2" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="5,56,279,149">
+<area shape="rect" id="node3" href="sz_facility_periodicstatement.html" target="_top" title="sz_facility_periodicstatement" alt="" coords="545,41,913,188">
+<area shape="rect" id="node4" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="1043,5,1290,93">
+<area shape="rect" id="node5" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="957,136,1376,616">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_periodicstatement.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -455,7 +462,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.0-SNAPSHOT</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.3-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

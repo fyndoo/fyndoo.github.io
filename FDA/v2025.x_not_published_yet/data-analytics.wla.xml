@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<database name="data-analytics" schema="wlc" type="PostgreSQL - 15.2 (Debian 15.2-1.pgdg110+1)">
+<database name="data-analytics" schema="wla" type="PostgreSQL - 15.2 (Debian 15.2-1.pgdg110+1)">
    <tables>
-      <table name="sz_agreement" remarks="Agreemnt details" schema="wlc" type="TABLE">
+      <table name="sz_agreement" remarks="Agreemnt details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
-            <child column="agreementreferenceid" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral"/>
-            <child column="agreementreferenceid" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_facility"/>
-            <child column="agreementreferenceid" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fee_agreement"/>
-            <child column="agreementreferenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financinggoal"/>
-            <child column="agreementreferenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_relation"/>
-            <parent column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreferenceid" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_agreementreference"/>
+            <child column="agreementreferenceid" foreignKey="FK_agreementreferenceid" implied="false" onDeleteCascade="false" schema="wla" table="sz_agreement_periodicstatement"/>
+            <child column="agreementreferenceid" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
+            <child column="agreementreferenceid" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
+            <child column="agreementreferenceid" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_agreement"/>
+            <child column="agreementreferenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_financinggoal"/>
+            <child column="agreementreferenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <child column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral"/>
-            <child column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_facility"/>
-            <child column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fee_agreement"/>
-            <child column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financinggoal"/>
-            <child column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_relation"/>
-            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
-            <parent column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <child column="processnumber_last_successful" foreignKey="FK_agreementreferenceid" implied="false" onDeleteCascade="false" schema="wla" table="sz_agreement_periodicstatement"/>
+            <child column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
+            <child column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
+            <child column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_agreement"/>
+            <child column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_financinggoal"/>
+            <child column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
+            <parent column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel" nullable="false" remarks="White label name" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="mainborrowerreferenceid" nullable="true" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="referenceid" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="startdate" nullable="false" remarks="The start date of this agreement" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="enddate" nullable="true" remarks="The end date of the agreement" size="13" type="date" typeCode="91"/>
@@ -37,12 +38,27 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_annualaccounts" remarks="Annual accounts of a company" schema="wlc" type="TABLE">
+      <table name="sz_agreement_periodicstatement" remarks="Linking table between periodic_statements and agreements" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="agreementreferenceid" foreignKey="FK_sz_agreement_periodicstatement_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_financialstate_agreementlevel"/>
+            <child column="agreementreferenceid" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_periodicstatement_agreementlevel"/>
+            <parent column="referenceid" foreignKey="FK_agreementreferenceid" implied="false" onDeleteCascade="false" schema="wla" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="mainborrowerreferenceid" nullable="true" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber_last_successful" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_agreementreferenceid" implied="false" onDeleteCascade="false" schema="wla" table="sz_agreement"/>
+         </column>
+         <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_agreementreferenceid" unique="true">
+            <column ascending="true" name="agreementreferenceid"/>
+         </index>
+      </table>
+      <table name="sz_annualaccounts" remarks="Annual accounts of a company" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="annualaccountsid" nullable="false" remarks="Internal identifier of the document (eg. document of type history)" size="128" type="varchar" typeCode="12">
-            <child column="annualaccountsid" foreignKey="FK_annualaccounts_details" implied="false" onDeleteCascade="true" schema="wlc" table="sz_annualaccountsdetails"/>
+            <child column="annualaccountsid" foreignKey="FK_annualaccounts_details" implied="false" onDeleteCascade="true" schema="wla" table="sz_annualaccountsdetails"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financials"/>
+            <parent column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="documenttype" nullable="true" remarks="Documenttype of underlying data (eg. history)" size="128" type="varchar" typeCode="12"/>
          <primaryKey column="annualaccountsid" sequenceNumberInPK="1"/>
@@ -50,10 +66,10 @@
             <column ascending="true" name="annualaccountsid"/>
          </index>
       </table>
-      <table name="sz_annualaccountsdetails" remarks="Details of annual accounts (every period is one record)" schema="wlc" type="TABLE">
+      <table name="sz_annualaccountsdetails" remarks="Details of annual accounts (every period is one record)" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="currency" nullable="true" remarks="Currency code" size="3" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="annualaccountsid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
-            <parent column="annualaccountsid" foreignKey="FK_annualaccounts_details" implied="false" onDeleteCascade="true" schema="wlc" table="sz_annualaccounts"/>
+            <parent column="annualaccountsid" foreignKey="FK_annualaccounts_details" implied="false" onDeleteCascade="true" schema="wla" table="sz_annualaccounts"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="columnenddate" nullable="false" remarks="End date of the column in the history application" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="CashAndEquivalents" nullable="true" remarks="Balancesheet: Cash And Equivalents" size="17" type="float8" typeCode="8"/>
@@ -97,12 +113,12 @@
             <column ascending="true" name="columnenddate"/>
          </index>
       </table>
-      <table name="sz_approval" remarks="Details of an approval (combination of businessrules)" schema="wlc" type="TABLE">
+      <table name="sz_approval" remarks="Details of an approval (combination of businessrules)" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Referenceid  of the approval (group of businessrules). This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12">
-            <child column="fiatreferenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules"/>
+            <child column="fiatreferenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
+            <parent column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="approvaldate" nullable="true" remarks="Date of approval" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="name of the approval (group of businessrules). This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
@@ -113,17 +129,17 @@
             <column ascending="true" name="referenceid"/>
          </index>
       </table>
-      <table name="sz_businessrules" remarks="Businessrules details" schema="wlc" type="TABLE">
+      <table name="sz_businessrules" remarks="Businessrules details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="UUID Unique identifier of this table." size="128" type="varchar" typeCode="12">
-            <child column="businessrulereferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules_parameters"/>
+            <child column="businessrulereferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules_parameters"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <child column="processnumber" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules_parameters"/>
-            <parent column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
+            <child column="processnumber" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules_parameters"/>
+            <parent column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fiatreferenceid" nullable="false" remarks="Unique identifier of fiat." size="255" type="varchar" typeCode="12">
-            <child column="fiatreferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules_parameters"/>
-            <parent column="referenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wlc" table="sz_approval"/>
+            <child column="fiatreferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules_parameters"/>
+            <parent column="referenceid" foreignKey="FK_sz_approval" implied="false" onDeleteCascade="false" schema="wla" table="sz_approval"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="true" remarks="Name of the business rule. This name is a customer specific Fyndoo configuration." size="1000" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="initial_result" nullable="true" remarks="Initial result of the business rule determined by the application." size="255" type="varchar" typeCode="12"/>
@@ -141,16 +157,16 @@
             <column ascending="true" name="fiatreferenceid"/>
          </index>
       </table>
-      <table name="sz_businessrules_parameters" remarks="Details of businessrules parameters" schema="wlc" type="TABLE">
+      <table name="sz_businessrules_parameters" remarks="Details of businessrules parameters" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of this table." size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="businessrulereferenceid" nullable="false" remarks="Unique identifier of the businessrule" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules"/>
+            <parent column="referenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules"/>
+            <parent column="processnumber" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fiatreferenceid" nullable="false" remarks="Unique identifier of a fiat/approval." size="255" type="varchar" typeCode="12">
-            <parent column="fiatreferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules"/>
+            <parent column="fiatreferenceid" foreignKey="FK_sz_businessrules_parameters" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parametername" nullable="true" remarks="Unique identifier name of a parameter" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="5" id="5" name="numericvalue" nullable="true" remarks="Numeric value of the parameter" size="19" type="numeric" typeCode="2"/>
@@ -165,12 +181,12 @@
             <column ascending="true" name="businessrulereferenceid"/>
          </index>
       </table>
-      <table name="sz_calcmodel_customerbased" remarks="This are all models which are related to a customer   - All models except models which are annualaccounts related, this info is available in other tables (e.g. sz_annnualaccounts)   - only documents which are *not* marked as deleted)" schema="wlc" type="TABLE">
+      <table name="sz_calcmodel_customerbased" remarks="This are all models which are related to a customer   - All models except models which are annualaccounts related, this info is available in other tables (e.g. sz_annnualaccounts)   - only documents which are *not* marked as deleted)" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="documentid" nullable="false" remarks="Internal identifier of the document (eg. document of type history)" size="128" type="varchar" typeCode="12">
-            <child column="documentid" foreignKey="FK_calcmodel_customerbaseddetails" implied="false" onDeleteCascade="true" schema="wlc" table="sz_calcmodel_customerbaseddetails"/>
+            <child column="documentid" foreignKey="FK_calcmodel_customerbaseddetails" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_customerbaseddetails"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="false" remarks="Identifier of a group of documents regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="financialsid" foreignKey="FK_calcmodel_customerbased_financials" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financials"/>
+            <parent column="financialsid" foreignKey="FK_calcmodel_customerbased_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="documenttype" nullable="true" remarks="Documenttype of underlying data (eg. history)" size="128" type="varchar" typeCode="12"/>
          <primaryKey column="documentid" sequenceNumberInPK="1"/>
@@ -178,9 +194,9 @@
             <column ascending="true" name="documentid"/>
          </index>
       </table>
-      <table name="sz_calcmodel_customerbaseddetails" remarks="Details of a customer based model" schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="documentid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
-            <parent column="documentid" foreignKey="FK_calcmodel_customerbaseddetails" implied="false" onDeleteCascade="true" schema="wlc" table="sz_calcmodel_customerbased"/>
+      <table name="sz_calcmodel_customerbaseddetails" remarks="Details of a customer based model" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="documentid" nullable="true" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
+            <parent column="documentid" foreignKey="FK_calcmodel_customerbaseddetails" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_customerbased"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="columnenddate" nullable="true" remarks="Enddate of the column in case of a variable which is time dependent" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="variablename" nullable="true" remarks="Name of the variable in the calculation model." size="128" type="varchar" typeCode="12"/>
@@ -189,7 +205,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="t1" nullable="true" remarks="tuple Instance first level (zero-based)" size="19" type="int8" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="t2" nullable="true" remarks="tuple Instance second level (zero-based)" size="19" type="int8" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="t3" nullable="true" remarks="tuple Instance  level (zero-based)" size="19" type="int8" typeCode="-5"/>
-         <index name="PK_sz_calcmodel_customerbaseddetails" unique="true">
+         <index name="UK_sz_calcmodel_customerbaseddetails" unique="true">
             <column ascending="true" name="documentid"/>
             <column ascending="true" name="columnenddate"/>
             <column ascending="true" name="variablename"/>
@@ -198,15 +214,15 @@
             <column ascending="true" name="t3"/>
          </index>
       </table>
-      <table name="sz_calcmodel_processbased" remarks="This are all models which are related to a process   - All models except models which are annualaccounts related, this info is available in other tables (e.g. sz_annnualaccounts)   - only documents which are *not* marked as deleted)" schema="wlc" type="TABLE">
+      <table name="sz_calcmodel_processbased" remarks="This are all models which are related to a process   - All models except models which are annualaccounts related, this info is available in other tables (e.g. sz_annnualaccounts)   - only documents which are *not* marked as deleted)" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="documentid" nullable="false" remarks="Internal identifier of the document (eg. document of type history)" size="128" type="varchar" typeCode="12">
-            <child column="documentid" foreignKey="FK_calcmodel_processbaseddetails" implied="false" onDeleteCascade="true" schema="wlc" table="sz_calcmodel_processbaseddetails"/>
+            <child column="documentid" foreignKey="FK_calcmodel_processbaseddetails" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_processbaseddetails"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="false" remarks="Identifier of a group of documents regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="financialsid" foreignKey="FK_calcmodel_processbased_financials" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financials"/>
+            <parent column="financialsid" foreignKey="FK_calcmodel_processbased_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_calcmodel_processbased_proces" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
+            <parent column="processnumber" foreignKey="FK_calcmodel_processbased_proces" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="documenttype" nullable="true" remarks="Documenttype of underlying data (eg. history)" size="128" type="varchar" typeCode="12"/>
          <primaryKey column="documentid" sequenceNumberInPK="1"/>
@@ -214,9 +230,9 @@
             <column ascending="true" name="documentid"/>
          </index>
       </table>
-      <table name="sz_calcmodel_processbaseddetails" remarks="Details of a process based model" schema="wlc" type="TABLE">
+      <table name="sz_calcmodel_processbaseddetails" remarks="Details of a process based model" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="documentid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
-            <parent column="documentid" foreignKey="FK_calcmodel_processbaseddetails" implied="false" onDeleteCascade="true" schema="wlc" table="sz_calcmodel_processbased"/>
+            <parent column="documentid" foreignKey="FK_calcmodel_processbaseddetails" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_processbased"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="columnenddate" nullable="true" remarks="Enddate of the column in case of a variable which is time dependent" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="variablename" nullable="true" remarks="Name of the variable in the calculation model." size="128" type="varchar" typeCode="12"/>
@@ -234,18 +250,18 @@
             <column ascending="true" name="t3"/>
          </index>
       </table>
-      <table name="sz_collateral" remarks="Collateral details" schema="wlc" type="TABLE">
+      <table name="sz_collateral" remarks="Collateral details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a collateral" size="128" type="varchar" typeCode="12">
-            <child column="collateralreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
+            <child column="collateralreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateraltype" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
-            <child column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
-            <parent column="referenceid" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <child column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
+            <parent column="referenceid" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <child column="processnumber" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
-            <parent column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <child column="processnumber" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
+            <parent column="processnumber" foreignKey="FK_collateral_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="definitioncode" nullable="true" remarks="This name is a customer specific fyndoo configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="description" nullable="true" remarks="This name is a customer specific fyndoo configuration" size="255" type="varchar" typeCode="12"/>
@@ -267,23 +283,23 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_collateral_object" remarks="Collateral object details" schema="wlc" type="TABLE">
+      <table name="sz_collateral_object" remarks="Collateral object details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <child column="collateral_objectreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object_rental"/>
-            <child column="collateral_objectreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object_taxation"/>
+            <child column="collateral_objectreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_rental"/>
+            <child column="collateral_objectreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_taxation"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateralreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral"/>
+            <parent column="referenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <child column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object_rental"/>
-            <child column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object_taxation"/>
-            <parent column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral"/>
+            <child column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_rental"/>
+            <child column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_taxation"/>
+            <parent column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <child column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object_rental"/>
-            <child column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object_taxation"/>
-            <parent column="processnumber" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral"/>
+            <child column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_rental"/>
+            <child column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object_taxation"/>
+            <parent column="processnumber" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="postalcode" nullable="true" remarks="Postalcode" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="place" nullable="true" remarks="Name of the place" size="255" type="varchar" typeCode="12"/>
@@ -316,16 +332,16 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_collateral_object_rental" remarks="Rental details of a collateral object" schema="wlc" type="TABLE">
+      <table name="sz_collateral_object_rental" remarks="Rental details of a collateral object" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_objectreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
+            <parent column="referenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
+            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
+            <parent column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="regulatedproperty" nullable="true" remarks="Regulated property (1= Yes / 0 =No" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="5" id="5" name="pointscoreforregulatedrent" nullable="true" remarks="Points score for regulated rent" size="9" type="numeric" typeCode="2"/>
@@ -342,16 +358,16 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_collateral_object_taxation" remarks="Taxation of collateral object details" schema="wlc" type="TABLE">
+      <table name="sz_collateral_object_taxation" remarks="Taxation of collateral object details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_objectreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
+            <parent column="referenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
+            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlc" table="sz_collateral_object"/>
+            <parent column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wla" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="valuationdate" nullable="true" remarks="Date of valuation" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="valuationmethod" nullable="true" remarks="Method of valuation (e.g. 'Full expert', 'Desktop expert', 'Internal', 'Volgens balans', 'External', 'WOZ', 'Indexation')" size="255" type="varchar" typeCode="12"/>
@@ -367,10 +383,10 @@
             <column ascending="true" name="referenceid"/>
          </index>
       </table>
-      <table name="sz_contactperson" remarks="Contactperson of a process" schema="wlc" type="TABLE">
+      <table name="sz_contactperson" remarks="Contactperson of a process" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a contactperson" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_process_contactperson" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
+            <parent column="processnumber" foreignKey="FK_process_contactperson" implied="false" onDeleteCascade="true" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="organisationname" nullable="true" remarks="Name of the organisation" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="emailaddress" nullable="true" remarks="Email address of person" size="255" type="varchar" typeCode="12"/>
@@ -381,19 +397,19 @@
             <column ascending="true" name="referenceid"/>
          </index>
       </table>
-      <table name="sz_counterparty" remarks="Counterparty information. In combination with table sz_relation the relation of the counterparty can be determined." schema="wlc" type="TABLE">
+      <table name="sz_counterparty" remarks="Counterparty information. In combination with table sz_relation the relation of the counterparty can be determined." schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
-            <child column="mainborrowerreferenceid" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
-            <child column="counterpartyreferenceid" foreignKey="FK_sz_counterparty_fiscal_info" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty_fiscal_info"/>
-            <child column="counterpartyreferenceid" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterpartyrating"/>
-            <child column="counterpartyreferenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_relation"/>
-            <parent column="counterpartyreferenceid" foreignKey="FK_sz_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty_financials"/>
+            <child column="mainborrowerreferenceid" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
+            <child column="counterpartyreferenceid" foreignKey="FK_sz_counterparty_fiscal_info" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty_fiscal_info"/>
+            <child column="counterpartyreferenceid" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterpartyrating"/>
+            <child column="counterpartyreferenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
+            <parent column="counterpartyreferenceid" foreignKey="FK_sz_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty_financials"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <child column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
-            <child column="processnumber" foreignKey="FK_sz_counterparty_fiscal_info" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty_fiscal_info"/>
-            <child column="processnumber" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterpartyrating"/>
-            <child column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_relation"/>
+            <child column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
+            <child column="processnumber" foreignKey="FK_sz_counterparty_fiscal_info" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty_fiscal_info"/>
+            <child column="processnumber" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterpartyrating"/>
+            <child column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_relation"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="legalentity" nullable="false" remarks="Organisation (1) Personal (0)" size="1" type="bool" typeCode="-7"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="datelastchanged" nullable="false" remarks="Date of last change" size="13" type="date" typeCode="91"/>
@@ -403,22 +419,24 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="housenumberaddition" nullable="true" remarks="The housenumberaddition of the counterparty" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="postalcode" nullable="true" remarks="Free formatted postalcode, no specific country restrictions" size="10" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="city" nullable="true" remarks="The city of the counterparty" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="country" nullable="true" remarks="The country name of the counterparty (address)" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="isholding" nullable="true" remarks="Derived information and indicaties if the counterparty is a Holding company" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="counterpartysegmentcode" nullable="true" remarks="The segment code of this counterparty." size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="counterpartycategorycode" nullable="true" remarks="The counterparty category this counterparty belongs to." size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="foundationdate" nullable="true" remarks="The foundation date of the organisation" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="organisationname" nullable="true" remarks="Name of the organisation" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="numberofemployees" nullable="true" remarks="The number of employees of the organisation" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="cocnumber" nullable="true" remarks="Chamber of commerce code" size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="legalform" nullable="true" remarks="The legal form of a counterparty. Example values (nl): BV, NV, VOF. The values should correspond with the configured values in Force Business Lending." size="100" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="countrycode" nullable="true" remarks="Country of birth (person) or country of incorporation (company). (ISO 3166 country code)" size="25" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="annualincome" nullable="true" remarks="Annual income of the counterparty" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="employmentstatus" nullable="true" remarks="Employment status (e.g. 'Employed', 'Unemployed', 'SelfEmployed', 'Retired'" size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="sectorcodestandard" nullable="true" remarks="The standard sectorcode which is configured in Fyndoo" size="100" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="sectorcodecustom" nullable="true" remarks="The custom sectorcode which is configured in Fyndoo" size="100" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="tenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Fyndoo, but tenant formatted of the counterparty" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral_object" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="countryofaddress" nullable="true" remarks="The country name of the counterparty address" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="countrycodeofaddress" nullable="true" remarks="The country code (ISO2) of the counterparty address" size="25" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="isholding" nullable="true" remarks="Derived information and indicaties if the counterparty is a Holding company" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="counterpartysegmentcode" nullable="true" remarks="The segment code of this counterparty." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="counterpartycategorycode" nullable="true" remarks="The counterparty category this counterparty belongs to." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="foundationdate" nullable="true" remarks="The foundation date of the organisation" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="organisationname" nullable="true" remarks="Name of the organisation" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="numberofemployees" nullable="true" remarks="The number of employees of the organisation" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="cocnumber" nullable="true" remarks="Chamber of commerce code" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="legalform" nullable="true" remarks="The legal form of a counterparty. Example values (nl): BV, NV, VOF. The values should correspond with the configured values in Force Business Lending." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="countrycode" nullable="true" remarks="Country of birth (person) or country of incorporation (company). (ISO 3166 country code)" size="25" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="annualincome" nullable="true" remarks="Annual income of the counterparty" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="employmentstatus" nullable="true" remarks="Employment status (e.g. 'Employed', 'Unemployed', 'SelfEmployed', 'Retired'" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="sectorcodestandard" nullable="true" remarks="The standard sectorcode which is configured in Fyndoo" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="sectorcodecustom" nullable="true" remarks="The custom sectorcode which is configured in Fyndoo" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="tenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Fyndoo, but tenant formatted of the counterparty" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral_object" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="gender" nullable="true" remarks="Gender of counterparty (e.g. Male/Female/Unknown'" size="20" type="varchar" typeCode="12"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <index name="PK_sz_counterparty" unique="true">
@@ -426,24 +444,24 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_counterparty_financials" remarks="Linking table to connect a counterparty to the financial figures of a company" schema="wlc" type="TABLE">
+      <table name="sz_counterparty_financials" remarks="Linking table to connect a counterparty to the financial figures of a company" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="counterpartyreferenceid" nullable="false" remarks="Identifier of a counterparty" size="128" type="varchar" typeCode="12">
-            <child column="referenceid" foreignKey="FK_sz_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <child column="referenceid" foreignKey="FK_sz_annualaccounts_cp2" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="true" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="financialsid" foreignKey="FK_sz_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financials"/>
+            <parent column="financialsid" foreignKey="FK_sz_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
          <primaryKey column="counterpartyreferenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_annualaccounts_cp" unique="true">
             <column ascending="true" name="counterpartyreferenceid"/>
          </index>
       </table>
-      <table name="sz_counterparty_fiscal_info" remarks="Fiscal counterparty information." schema="wlc" type="TABLE">
+      <table name="sz_counterparty_fiscal_info" remarks="Fiscal counterparty information." schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="counterpartyreferenceid" nullable="false" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_sz_counterparty_fiscal_info" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="referenceid" foreignKey="FK_sz_counterparty_fiscal_info" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_sz_counterparty_fiscal_info" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_sz_counterparty_fiscal_info" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="birthdate" nullable="true" remarks="The birthdate of the counterparty (person)." size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="socialsecuritynumber" nullable="true" remarks="Social security number of a person." size="255" type="varchar" typeCode="12"/>
@@ -454,13 +472,13 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_counterpartyrating" remarks="Details of a counterparty rating" schema="wlc" type="TABLE">
+      <table name="sz_counterpartyrating" remarks="Details of a counterparty rating" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="counterpartyreferenceid" nullable="false" remarks="Unique identifier of a counterpartyreference" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="referenceid" foreignKey="FK_cprating_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="RatingType" nullable="true" remarks="Rating type. This name is a customer specific Fyndoo configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="RatingValue" nullable="true" remarks="Rating value. This name is a customer specific Fyndoo configuration" size="255" type="varchar" typeCode="12"/>
@@ -472,18 +490,20 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_facility" remarks="Facility details" schema="wlc" type="TABLE">
+      <table name="sz_facility" remarks="Facility details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of the facility" size="128" type="varchar" typeCode="12">
-            <child column="facilityreferenceid" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fee_facility"/>
-            <parent column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_facilityreference"/>
+            <child column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement" implied="false" onDeleteCascade="false" schema="wla" table="sz_facility_periodicstatement"/>
+            <child column="facilityreferenceid" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_facility"/>
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facilityreference2" implied="false" onDeleteCascade="true" schema="wla" table="sz_facilityreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="mainfacilityreferenceid" nullable="true" remarks="Unique identifier of the main facility" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <parent column="referenceid" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <child column="processnumber" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fee_facility"/>
-            <parent column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <child column="processnumber_last_successful" foreignKey="FK_sz_facility_periodicstatement" implied="false" onDeleteCascade="false" schema="wla" table="sz_facility_periodicstatement"/>
+            <child column="processnumber" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wla" table="sz_fee_facility"/>
+            <parent column="processnumber" foreignKey="FK_facility_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="productname" nullable="true" remarks="Name of the product configured in Fyndoo" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="productdefinitioncode" nullable="true" remarks="Definitioncode of product configured in Fyndoo" size="255" type="varchar" typeCode="12"/>
@@ -513,25 +533,24 @@
          <column autoUpdated="false" defaultValue="null" digits="17" id="29" name="interestcoverageratiobroad" nullable="true" remarks="ICR broad (interest coverage ratio broad) for this process" size="17" type="float8" typeCode="8"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="30" name="debtservicecoverageratio" nullable="true" remarks="DSCR (Debt Service Coverage Ratio)" size="17" type="float8" typeCode="8"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="31" name="reversionmargininterestrate" nullable="true" remarks="Reversion Margin Interest rate" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="32" name="borrowerfee" nullable="true" remarks="Borrower fee" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="interestreferencedate" nullable="true" remarks="Interest reference date" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="interestproductstartdate" nullable="true" remarks="Start date of interest fixedrate period" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="firstinterestpaymentdate" nullable="true" remarks="Date of the first interest payment" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="interestproductenddate" nullable="true" remarks="End date of interest fixedrate period" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="firstrepaymentdate" nullable="true" remarks="Date of the first repayment" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="repaymentfrequency" nullable="true" remarks="Frequency of repayment (e.g. 'Monthly', 'Two monthly', 'Quarterly', 'Yearly', 'Half yearly'" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="39" name="discountrate" nullable="true" remarks="discount rate" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="discounttype" nullable="true" remarks="Type of discount, possible options are: 'Commercial', 'Lender', 'Other'" size="20" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="41" name="nominalratebeforediscount" nullable="true" remarks="Nominal rate before discount" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="interestratename" nullable="true" remarks="Interest productname e.g. '3 month Euribor + opslag'. This name is a customer specific fyndoo configuration" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="interestratecode" nullable="true" remarks="Interest productcode  e.g. 'EU.IR.000003' This name is a customer specific fyndoo configuration" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="interesttype" nullable="true" remarks="Interest type e.g. 'Fixed' or 'Variable'" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="tenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Fyndoo, but tenant formatted" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="externalreferenceid" nullable="true" remarks="ReferenceId received from an external application" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="parenttenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Fyndoo, but tenant formatted of the parent facility" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="parentexternalreferenceid" nullable="true" remarks="ReferenceId received from an external application of the parent facility" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="discounttypecomment" nullable="true" remarks="Comment of user for discounttype" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="50" name="mutationtype" nullable="true" remarks="Type of mutation of the facility. E.g. 'New', 'Unchanged', 'changed, etc" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="interestreferencedate" nullable="true" remarks="Interest reference date" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="interestproductstartdate" nullable="true" remarks="Start date of interest fixedrate period" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="firstinterestpaymentdate" nullable="true" remarks="Date of the first interest payment" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="interestproductenddate" nullable="true" remarks="End date of interest fixedrate period" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="firstrepaymentdate" nullable="true" remarks="Date of the first repayment" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="repaymentfrequency" nullable="true" remarks="Frequency of repayment (e.g. 'Monthly', 'Two monthly', 'Quarterly', 'Yearly', 'Half yearly'" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="38" name="discountrate" nullable="true" remarks="discount rate" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="discounttype" nullable="true" remarks="Type of discount, possible options are: 'Commercial', 'Lender', 'Other'" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="40" name="nominalratebeforediscount" nullable="true" remarks="Nominal rate before discount" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="interestratename" nullable="true" remarks="Interest productname e.g. '3 month Euribor + opslag'. This name is a customer specific fyndoo configuration" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="interestratecode" nullable="true" remarks="Interest productcode  e.g. 'EU.IR.000003' This name is a customer specific fyndoo configuration" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="interesttype" nullable="true" remarks="Interest type e.g. 'Fixed' or 'Variable'" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="tenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Fyndoo, but tenant formatted" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="externalreferenceid" nullable="true" remarks="ReferenceId received from an external application" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="parenttenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Fyndoo, but tenant formatted of the parent facility" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="parentexternalreferenceid" nullable="true" remarks="ReferenceId received from an external application of the parent facility" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="discounttypecomment" nullable="true" remarks="Comment of user for discounttype" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="mutationtype" nullable="true" remarks="Type of mutation of the facility. E.g. 'New', 'Unchanged', 'changed, etc" size="255" type="varchar" typeCode="12"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <index name="PK_sz_facility" unique="true">
@@ -539,13 +558,39 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_fee_agreement" remarks="Details of the fee related to a agreement" schema="wlc" type="TABLE">
+      <table name="sz_facility_periodicstatement" remarks="Linking table between periodic_statements and facilities" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_financialstate"/>
+            <child column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_periodicstatement"/>
+            <parent column="referenceid" foreignKey="FK_sz_facility_periodicstatement" implied="false" onDeleteCascade="false" schema="wla" table="sz_facility"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber_last_successful" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_sz_facility_periodicstatement" implied="false" onDeleteCascade="false" schema="wla" table="sz_facility"/>
+         </column>
+         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_facilityreferenceid" unique="true">
+            <column ascending="true" name="facilityreferenceid"/>
+         </index>
+      </table>
+      <table name="sz_facilityreference" remarks="Linking table between facility and periodicstatement" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="Unique identifier of the facility" size="128" type="varchar" typeCode="12">
+            <child column="referenceid" foreignKey="FK_sz_facilityreference2" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
+            <child column="facilityreferenceid" foreignKey="FK_sz_facilityreference3" implied="false" onDeleteCascade="true" schema="wla" table="sz_financialstate"/>
+            <child column="facilityreferenceid" foreignKey="FK_sz_facilityreference" implied="false" onDeleteCascade="true" schema="wla" table="sz_periodicstatement"/>
+         </column>
+         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_facilityreference" unique="true">
+            <column ascending="true" name="facilityreferenceid"/>
+         </index>
+      </table>
+      <table name="sz_fee_agreement" remarks="Details of the fee related to a agreement" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of an fee agreement" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <parent column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <parent column="referenceid" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="Unique identifier name of a fee. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="startdate" nullable="true" remarks="Start date of the fee" size="13" type="date" typeCode="91"/>
@@ -562,13 +607,13 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_fee_facility" remarks="Details of the fee related to a facility" schema="wlc" type="TABLE">
+      <table name="sz_fee_facility" remarks="Details of the fee related to a facility" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a fee facility" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlc" table="sz_facility"/>
+            <parent column="processnumber" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="facilityreferenceid" nullable="false" remarks="Unique identifier of a facility" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlc" table="sz_facility"/>
+            <parent column="referenceid" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="Unique identifier name of a fee. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="startdate" nullable="true" remarks="Start date of the fee" size="13" type="date" typeCode="91"/>
@@ -585,75 +630,23 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_financials" remarks="Table is used as Many-To-Many relation" schema="wlc" type="TABLE">
+      <table name="sz_financials" remarks="Table is used as Many-To-Many relation" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <child column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wlc" table="sz_annualaccounts"/>
-            <child column="financialsid" foreignKey="FK_calcmodel_customerbased_financials" implied="false" onDeleteCascade="true" schema="wlc" table="sz_calcmodel_customerbased"/>
-            <child column="financialsid" foreignKey="FK_calcmodel_processbased_financials" implied="false" onDeleteCascade="true" schema="wlc" table="sz_calcmodel_processbased"/>
-            <child column="financialsid" foreignKey="FK_sz_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty_financials"/>
-            <child column="financialsid" foreignKey="FK_sli_financials" implied="false" onDeleteCascade="true" schema="wlc" table="sz_sli"/>
+            <child column="financialsid" foreignKey="FK_sz_financials1" implied="false" onDeleteCascade="true" schema="wla" table="sz_annualaccounts"/>
+            <child column="financialsid" foreignKey="FK_calcmodel_customerbased_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_customerbased"/>
+            <child column="financialsid" foreignKey="FK_calcmodel_processbased_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_calcmodel_processbased"/>
+            <child column="financialsid" foreignKey="FK_sz_annualaccounts_cp1" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty_financials"/>
+            <child column="financialsid" foreignKey="FK_sli_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_sli"/>
          </column>
          <primaryKey column="financialsid" sequenceNumberInPK="1"/>
          <index name="PK_financialsid" unique="true">
             <column ascending="true" name="financialsid"/>
          </index>
       </table>
-      <table name="sz_financinggoal" remarks="Financing goals details" schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a financing goal." size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement." size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definitioncode" nullable="true" remarks="Code of financinggoal. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="Description of financinggoal. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
-         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
-         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
-         <index name="PK_sz_financinggoal" unique="true">
-            <column ascending="true" name="referenceid"/>
-            <column ascending="true" name="processnumber"/>
-         </index>
-      </table>
-      <table name="sz_otherproperties" remarks="Details fo other properties of a process" schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="1" name="additionalrentalincome" nullable="true" remarks="Additional rental income" size="11" type="numeric" typeCode="2"/>
-         <primaryKey column="processnumber" sequenceNumberInPK="1"/>
-         <index name="PK_sz_otherproperties" unique="true">
-            <column ascending="true" name="processnumber"/>
-         </index>
-      </table>
-      <table name="sz_pnc_agreementreference" remarks="Linking table between periodic_statements and agreements" schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <child column="referenceid" foreignKey="FK_sz_pnc_agreementreferenceid" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
-            <child column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreferenceid_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_facilityreference"/>
-            <child column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreference_fs" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_financialstate_agreementlevel"/>
-            <child column="agreementreferenceid" foreignKey="FK_sz_pnc_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_periodicstatement_agreementlevel"/>
-         </column>
-         <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
-         <index name="PK_agreementreferenceid" unique="true">
-            <column ascending="true" name="agreementreferenceid"/>
-         </index>
-      </table>
-      <table name="sz_pnc_facilityreference" remarks="Linking table between periodic_statements and facilities" schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <child column="referenceid" foreignKey="FK_sz_pnc_facilityreference" implied="false" onDeleteCascade="true" schema="wlc" table="sz_facility"/>
-            <child column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference_fs" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_financialstate"/>
-            <child column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_periodicstatement"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreferenceid_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_agreementreference"/>
-         </column>
-         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
-         <index name="PK_facilityreferenceid" unique="true">
-            <column ascending="true" name="facilityreferenceid"/>
-         </index>
-      </table>
-      <table name="sz_pnc_financialstate" remarks="Table with financial_state on facility level" schema="wlc" type="TABLE">
+      <table name="sz_financialstate" remarks="Table with financial_state on facility level" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="Unique identifier for a facility" size="128" type="varchar" typeCode="12">
-            <parent column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference_fs" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_facilityreference"/>
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility_periodicstatement"/>
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facilityreference3" implied="false" onDeleteCascade="true" schema="wla" table="sz_facilityreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="timestampfinancialstate" nullable="true" remarks="Timestamp of the creation of financial_state" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="11" type="numeric" typeCode="2"/>
@@ -671,13 +664,13 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
-         <index name="PK_sz_pnc_financialstate" unique="true">
+         <index name="PK_sz_financialstate" unique="true">
             <column ascending="true" name="facilityreferenceid"/>
          </index>
       </table>
-      <table name="sz_pnc_financialstate_agreementlevel" remarks="Table with financial_state on agreement level" schema="wlc" type="TABLE">
+      <table name="sz_financialstate_agreementlevel" remarks="Table with financial_state on agreement level" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_sz_pnc_agreementreference_fs" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_agreementreference"/>
+            <parent column="agreementreferenceid" foreignKey="FK_sz_agreement_periodicstatement_fs" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement_periodicstatement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="timestampfinancialstate" nullable="true" remarks="Timestamp of the creation of financial_state" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="11" type="numeric" typeCode="2"/>
@@ -695,13 +688,41 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
-         <index name="PK_sz_pnc_financialstate_agreementlevel" unique="true">
+         <index name="PK_sz_financialstate_agreementlevel" unique="true">
             <column ascending="true" name="agreementreferenceid"/>
          </index>
       </table>
-      <table name="sz_pnc_periodicstatement" remarks="Table with periodic_statements on facility level" schema="wlc" type="TABLE">
+      <table name="sz_financinggoal" remarks="Financing goals details" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a financing goal." size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement." size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definitioncode" nullable="true" remarks="Code of financinggoal. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="Description of financinggoal. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_financinggoal" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_otherproperties" remarks="Details fo other properties of a process" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="1" name="additionalrentalincome" nullable="true" remarks="Additional rental income" size="11" type="numeric" typeCode="2"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="1"/>
+         <index name="PK_sz_otherproperties" unique="true">
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_periodicstatement" remarks="Table with periodic_statements on facility level" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="Unique identifier for a facility" size="128" type="varchar" typeCode="12">
-            <parent column="facilityreferenceid" foreignKey="FK_sz_pnc_facilityreference_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_facilityreference"/>
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_facility_periodicstatement"/>
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facilityreference" implied="false" onDeleteCascade="true" schema="wla" table="sz_facilityreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="reportreference" nullable="false" remarks="Unique identifier for the periodic statement" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="reportcreationdate" nullable="true" remarks="Creation datetime of the report" size="29" type="timestamp" typeCode="93"/>
@@ -719,15 +740,15 @@
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="periodtype" sequenceNumberInPK="2"/>
          <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
-         <index name="PK_sz_pnc_periodicstatement" unique="true">
+         <index name="PK_sz_periodicstatement" unique="true">
             <column ascending="true" name="facilityreferenceid"/>
             <column ascending="true" name="periodtype"/>
             <column ascending="true" name="periodenddate"/>
          </index>
       </table>
-      <table name="sz_pnc_periodicstatement_agreementlevel" remarks="Table with periodic_statements on agreement level" schema="wlc" type="TABLE">
+      <table name="sz_periodicstatement_agreementlevel" remarks="Table with periodic_statements on agreement level" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_sz_pnc_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_pnc_agreementreference"/>
+            <parent column="agreementreferenceid" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement_periodicstatement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="reportreference" nullable="false" remarks="Unique identifier for the periodic statement" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="reportcreationdate" nullable="true" remarks="Creation datetime of the report" size="29" type="timestamp" typeCode="93"/>
@@ -745,23 +766,23 @@
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="periodtype" sequenceNumberInPK="2"/>
          <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
-         <index name="PK_sz_pnc_periodicstatementagreement" unique="true">
+         <index name="PK_sz_periodicstatementagreement" unique="true">
             <column ascending="true" name="agreementreferenceid"/>
             <column ascending="true" name="periodtype"/>
             <column ascending="true" name="periodenddate"/>
          </index>
       </table>
-      <table name="sz_process" remarks="Details of a process" schema="wlc" type="TABLE">
+      <table name="sz_process" remarks="Details of a process" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <child column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
-            <child column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wlc" table="sz_approval"/>
-            <child column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_businessrules"/>
-            <child column="processnumber" foreignKey="FK_calcmodel_processbased_proces" implied="false" onDeleteCascade="false" schema="wlc" table="sz_calcmodel_processbased"/>
-            <child column="processnumber" foreignKey="FK_process_contactperson" implied="false" onDeleteCascade="true" schema="wlc" table="sz_contactperson"/>
-            <child column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_otherproperties"/>
-            <child column="processnumber" foreignKey="FK_sz_processevents_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_processevents"/>
-            <child column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_processstatuschange"/>
-            <child column="processnumber" foreignKey="FK_sli_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_sli"/>
+            <child column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
+            <child column="processnumber" foreignKey="FK_sz_approval_proces" implied="false" onDeleteCascade="false" schema="wla" table="sz_approval"/>
+            <child column="processnumber" foreignKey="FK_sz_businessrules_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_businessrules"/>
+            <child column="processnumber" foreignKey="FK_calcmodel_processbased_proces" implied="false" onDeleteCascade="false" schema="wla" table="sz_calcmodel_processbased"/>
+            <child column="processnumber" foreignKey="FK_process_contactperson" implied="false" onDeleteCascade="true" schema="wla" table="sz_contactperson"/>
+            <child column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_otherproperties"/>
+            <child column="processnumber" foreignKey="FK_sz_processevents_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_processevents"/>
+            <child column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_processstatuschange"/>
+            <child column="processnumber" foreignKey="FK_sli_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_sli"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processname" nullable="true" remarks="Description of process. This name is a customer specific Fyndoo configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel" nullable="true" remarks="White label name. This name is a customer specific Fyndoo configuration" size="255" type="varchar" typeCode="12"/>
@@ -782,7 +803,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="channel" nullable="true" remarks="Channel name of the process. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="processtype" nullable="true" remarks="processtype e.g. LoanOrigination, LoanReview, LoanModification, etc." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="mainadministrator" nullable="true" remarks="User which is the main administrator of the process. This name is a customer specific Fyndoo configuration." size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_mainadministrator_user" implied="false" onDeleteCascade="true" schema="wlc" table="sz_user"/>
+            <parent column="referenceid" foreignKey="FK_mainadministrator_user" implied="false" onDeleteCascade="true" schema="wla" table="sz_user"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="currentstatuscode" nullable="true" remarks="Actual status CODE. This CODE is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="currentstatusgroupname" nullable="true" remarks="Actual status statusgroupname. This is a Fyndoo default configuration." size="255" type="varchar" typeCode="12"/>
@@ -793,9 +814,9 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_processevents" remarks="Details of process events" schema="wlc" type="TABLE">
+      <table name="sz_processevents" remarks="Details of process events" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_sz_processevents_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
+            <parent column="processnumber" foreignKey="FK_sz_processevents_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="conditionalofferdate" nullable="true" remarks="Datetime of conditional offer" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="conditionalofferdate_hours" nullable="true" remarks="Number of hours from start process to date of conditional offer" size="11" type="numeric" typeCode="2"/>
@@ -812,17 +833,17 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_processstatuschange" remarks="Details of all statuschanges of a process" schema="wlc" type="TABLE">
+      <table name="sz_processstatuschange" remarks="Details of all statuschanges of a process" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of processstatus change" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="code" nullable="true" remarks="Process statuschange code. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="true" remarks="Process statuschange name. This name is a customer specific Fyndoo configuration." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="status_startdatetime" nullable="true" remarks="Start datetime of the statuschang" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="status_enddatetime" nullable="true" remarks="End datetime of the statuschange" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
+            <parent column="processnumber" foreignKey="FK_processstatuschange_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="userreferenceid" nullable="true" remarks="User reference id of the person who initiate the statuschange" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_processstatuschange_user" implied="false" onDeleteCascade="true" schema="wlc" table="sz_user"/>
+            <parent column="referenceid" foreignKey="FK_processstatuschange_user" implied="false" onDeleteCascade="true" schema="wla" table="sz_user"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="statusgroupname" nullable="true" remarks="Groupname of the status definition (to)." size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="workingdaysinstatus" nullable="true" remarks="Number of workingdays of this statuschange" size="17" type="float8" typeCode="8"/>
@@ -833,16 +854,16 @@
             <column ascending="true" name="referenceid"/>
          </index>
       </table>
-      <table name="sz_relation" remarks="Associative table implementing the many-to-many relation between Agreement and Counterparty" schema="wlc" type="TABLE">
+      <table name="sz_relation" remarks="Associative table implementing the many-to-many relation between Agreement and Counterparty" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="true" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <parent column="referenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
-            <parent column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wla" table="sz_agreement"/>
+            <parent column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="counterpartyreferenceid" nullable="false" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="referenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wla" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="borrowerrelationtype" nullable="true" remarks="Type of borrower relation (Main borrower or Borrower)" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="referenceid" nullable="false" remarks="Unique identifier of this table." size="128" type="varchar" typeCode="12"/>
@@ -853,15 +874,15 @@
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
-      <table name="sz_sli" remarks="SLI =  Statement after Loan Issuing" schema="wlc" type="TABLE">
+      <table name="sz_sli" remarks="SLI =  Statement after Loan Issuing" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="sliid" nullable="false" remarks="Internal identifier of the document (eg. document of type history)" size="128" type="varchar" typeCode="12">
-            <child column="sliid" foreignKey="FK_sli_details" implied="false" onDeleteCascade="true" schema="wlc" table="sz_slidetails"/>
+            <child column="sliid" foreignKey="FK_sli_details" implied="false" onDeleteCascade="true" schema="wla" table="sz_slidetails"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financialsid" nullable="false" remarks="Identifier of a group of documents (History/SLI/Prognoses) regarding the same counterparty" size="128" type="varchar" typeCode="12">
-            <parent column="financialsid" foreignKey="FK_sli_financials" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financials"/>
+            <parent column="financialsid" foreignKey="FK_sli_financials" implied="false" onDeleteCascade="true" schema="wla" table="sz_financials"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_sli_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
+            <parent column="processnumber" foreignKey="FK_sli_process" implied="false" onDeleteCascade="false" schema="wla" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="documenttype" nullable="true" remarks="Documenttype of underlying data (eg. history)" size="128" type="varchar" typeCode="12"/>
          <primaryKey column="sliid" sequenceNumberInPK="1"/>
@@ -869,10 +890,10 @@
             <column ascending="true" name="sliid"/>
          </index>
       </table>
-      <table name="sz_slidetails" remarks="Details of SLI = Statement after Loan Issuing" schema="wlc" type="TABLE">
+      <table name="sz_slidetails" remarks="Details of SLI = Statement after Loan Issuing" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="currency" nullable="true" remarks="Currency code" size="3" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="sliid" nullable="false" remarks="Internal indentifier of the document of the history application" size="128" type="varchar" typeCode="12">
-            <parent column="sliid" foreignKey="FK_sli_details" implied="false" onDeleteCascade="true" schema="wlc" table="sz_sli"/>
+            <parent column="sliid" foreignKey="FK_sli_details" implied="false" onDeleteCascade="true" schema="wla" table="sz_sli"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="columnenddate" nullable="false" remarks="End date of the column in the history application" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="CashAndEquivalents" nullable="true" remarks="Balancesheet: Cash And Equivalents" size="17" type="float8" typeCode="8"/>
@@ -916,15 +937,37 @@
             <column ascending="true" name="columnenddate"/>
          </index>
       </table>
-      <table name="sz_statuschangedefinition" remarks="Details of statuschangedefinition of a process" schema="wlc" type="TABLE">
+      <table name="sz_staging_facility_pricing" remarks="Temporary table for Facility details" schema="wla" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processid" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="facilityid" nullable="false" remarks="Unique identifier of the facility" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="InterestProduct" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="Floor" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="IndicativeBaseRate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="IndicativeInterestMargin" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="LiquiditySpread" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="OfferBaseRate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="OfferInterestMargin" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="OfferInterestCorrection" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="pricingdataid" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="11" name="loantovalue" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="12" name="annualinterestrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="13" name="annualannuity" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="14" name="redemptionatstartmonth" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="15" name="annualrentalincomesurplus" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="16" name="interestcoveragerationarrow" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="17" name="interestcoverageratiobroad" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="18" name="debtservicecoverageratio" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="19" name="reversionmargininterestrate" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+      </table>
+      <table name="sz_statuschangedefinition" remarks="Details of statuschangedefinition of a process" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="workflowprocessreferenceid" nullable="false" remarks="Unique identifier of workflowprocess" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_workflowprocessreferenceid" implied="false" onDeleteCascade="true" schema="wlc" table="sz_workflowprocessdefinition"/>
+            <parent column="referenceid" foreignKey="FK_workflowprocessreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_workflowprocessdefinition"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fromreferenceid" nullable="false" remarks="ReferenceId of the status definition (from)" size="255" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_statuschangefromreferenceid" implied="false" onDeleteCascade="true" schema="wlc" table="sz_workflowstatusdefinition"/>
+            <parent column="referenceid" foreignKey="FK_statuschangefromreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_workflowstatusdefinition"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="toreferenceid" nullable="false" remarks="ReferenceId of the status definition (to)" size="255" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_statuschangetoreferenceid" implied="false" onDeleteCascade="true" schema="wlc" table="sz_workflowstatusdefinition"/>
+            <parent column="referenceid" foreignKey="FK_statuschangetoreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_workflowstatusdefinition"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="tostatuscode" nullable="true" remarks="Code of the status definition (to)" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="tostatusname" nullable="true" remarks="Name of the status definition (to)" size="255" type="varchar" typeCode="12"/>
@@ -937,10 +980,10 @@
             <column ascending="true" name="toreferenceid"/>
          </index>
       </table>
-      <table name="sz_user" remarks="User details" schema="wlc" type="TABLE">
+      <table name="sz_user" remarks="User details" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a user" size="128" type="varchar" typeCode="12">
-            <child column="mainadministrator" foreignKey="FK_mainadministrator_user" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
-            <child column="userreferenceid" foreignKey="FK_processstatuschange_user" implied="false" onDeleteCascade="true" schema="wlc" table="sz_processstatuschange"/>
+            <child column="mainadministrator" foreignKey="FK_mainadministrator_user" implied="false" onDeleteCascade="true" schema="wla" table="sz_process"/>
+            <child column="userreferenceid" foreignKey="FK_processstatuschange_user" implied="false" onDeleteCascade="true" schema="wla" table="sz_processstatuschange"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="username" nullable="false" remarks="Username of the user" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="active" nullable="false" remarks="Is user account active" size="1" type="bool" typeCode="-7"/>
@@ -949,9 +992,9 @@
             <column ascending="true" name="referenceid"/>
          </index>
       </table>
-      <table name="sz_workflowprocessdefinition" remarks="Details of workflowprocessdefinition of a process" schema="wlc" type="TABLE">
+      <table name="sz_workflowprocessdefinition" remarks="Details of workflowprocessdefinition of a process" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of workflowprocessdefinition" size="128" type="varchar" typeCode="12">
-            <child column="workflowprocessreferenceid" foreignKey="FK_workflowprocessreferenceid" implied="false" onDeleteCascade="true" schema="wlc" table="sz_statuschangedefinition"/>
+            <child column="workflowprocessreferenceid" foreignKey="FK_workflowprocessreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_statuschangedefinition"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="whitelabel" nullable="true" remarks="Name of the whitelabel" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processname" nullable="true" remarks="Name of the workflow process" size="255" type="varchar" typeCode="12"/>
@@ -962,10 +1005,10 @@
             <column ascending="true" name="referenceid"/>
          </index>
       </table>
-      <table name="sz_workflowstatusdefinition" remarks="Details of workflowstatusdefinition of a process" schema="wlc" type="TABLE">
+      <table name="sz_workflowstatusdefinition" remarks="Details of workflowstatusdefinition of a process" schema="wla" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of statuschangedefinition" size="128" type="varchar" typeCode="12">
-            <child column="fromreferenceid" foreignKey="FK_statuschangefromreferenceid" implied="false" onDeleteCascade="true" schema="wlc" table="sz_statuschangedefinition"/>
-            <child column="toreferenceid" foreignKey="FK_statuschangetoreferenceid" implied="false" onDeleteCascade="true" schema="wlc" table="sz_statuschangedefinition"/>
+            <child column="fromreferenceid" foreignKey="FK_statuschangefromreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_statuschangedefinition"/>
+            <child column="toreferenceid" foreignKey="FK_statuschangetoreferenceid" implied="false" onDeleteCascade="true" schema="wla" table="sz_statuschangedefinition"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="workflowprocessreferenceid" nullable="false" remarks="Unique identifier of workflowprocess" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="statuscode" nullable="true" remarks="Code of the status definition (from)" size="255" type="varchar" typeCode="12"/>

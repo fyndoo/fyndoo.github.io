@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_pnc_financialstate - data-analytics.wla</title>
+        <title>sz_agreement_periodicstatement - data-analytics.wla</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>sz_pnc_financialstate</h1><br />
+                    <h1>sz_agreement_periodicstatement</h1><br />
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="fa fa-file-text-o"></i>
@@ -84,7 +84,7 @@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body clearfix">
-                            <p>Table with financial_state on facility level</p>
+                            <p>Linking table between periodic_statements and agreements</p>
                         </div><!-- /.box-body -->
                     </div>
                 </section>
@@ -122,9 +122,58 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="facilityreferenceid">facilityreferenceid</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="agreementreferenceid">agreementreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_financialstate_agreementlevel.agreementreferenceid references sz_agreement_periodicstatement.agreementreferenceid via FK_sz_agreement_periodicstatement_fs"><a href='sz_financialstate_agreementlevel.html'>sz_financialstate_agreementlevel</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_agreement_periodicstatement_fs</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_periodicstatement_agreementlevel.agreementreferenceid references sz_agreement_periodicstatement.agreementreferenceid via FK_sz_agreement_ps"><a href='sz_periodicstatement_agreementlevel.html'>sz_periodicstatement_agreementlevel</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_agreement_ps</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_agreement_periodicstatement.[agreementreferenceid, processnumber_last_successful] references sz_agreement.[referenceid, processnumber] via FK_agreementreferenceid"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_agreementreferenceid</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="mainborrowerreferenceid">mainborrowerreferenceid</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Unique identifier of a counterparty</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber_last_successful">processnumber_last_successful</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -135,268 +184,13 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_pnc_financialstate.facilityreferenceid references sz_pnc_facilityreference.facilityreferenceid via FK_sz_pnc_facilityreference_fs"><a href='sz_pnc_facilityreference.html'>sz_pnc_facilityreference</a><span class='relatedKey'>.facilityreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_pnc_facilityreference_fs</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                                <td title="sz_agreement_periodicstatement.[agreementreferenceid, processnumber_last_successful] references sz_agreement.[referenceid, processnumber] via FK_agreementreferenceid"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_agreementreferenceid</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
-                                    <td><p>Unique identifier for a facility</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="timestampfinancialstate">timestampfinancialstate</span></td>
-                                    <td>timestamp</td>
-                                    <td>29,6</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Timestamp of the creation of financial_state</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="currentoutstanding">currentoutstanding</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Current outstanding</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="arrearsamount">arrearsamount</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Arrears amount</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="arrearcode">arrearcode</span></td>
-                                    <td>numeric</td>
-                                    <td>1</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Arrearcode, 0 - No arrears / 1 - In arrears (payments overdue) /2 - 30 days overdue /3 - 60 days overdue / 4 - 90 days overdue</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="isactive">isactive</span></td>
-                                    <td>bool</td>
-                                    <td>1</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Is the facility active</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="overduepaymentobligationamount">overduepaymentobligationamount</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>The amount of payment obligations whose due date has passed.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="outstandingamountafterscheduledtransactions">outstandingamountafterscheduledtransactions</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Current balance sheet minus all scheduled payments plus all redemption payment obligations.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="installmentamount">installmentamount</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment).</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="surplusamount">surplusamount</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Advance. How many installments did you pay in advance? For mortgages not relevant.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="initialamount">initialamount</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Initial balance. So the balance when the product is created.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="nextinstallmentinterestamount">nextinstallmentinterestamount</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Next interest amount. How much interest is in the next installment amount.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="nextinstallmentpayoffamount">nextinstallmentpayoffamount</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Next repayment amount. How much repayment is in the next installment amount.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="brokenperiodinterestamount">brokenperiodinterestamount</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Broken period interest rate. To be determined at product creation; basically does not change.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="outstandingpayoff">outstandingpayoff</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Current balance sheet minus all scheduled payments plus all redemption payment obligations.</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="outstandingdebt">outstandingdebt</span></td>
-                                    <td>numeric</td>
-                                    <td>11,2</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Current balance minus all scheduled payments plus all payment obligations.</p></td>
+                                    <td><p>Unique identifier of a process</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -429,10 +223,10 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_pnc_financialstate</td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_agreementreferenceid</td>
                                     <td>Primary key</td>
                                     <td><span title='Ascending'>Asc</span></td>
-                                    <td>facilityreferenceid</td>
+                                    <td>agreementreferenceid</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -457,20 +251,28 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_pnc_financialstate.html" target="_top" title="sz_pnc_financialstate" alt="" coords="367,5,1015,544">
-<area shape="rect" id="node2" href="sz_pnc_facilityreference.html" target="_top" title="sz_pnc_facilityreference" alt="" coords="5,8,323,131">
+<area shape="rect" id="node1" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="373,71,856,228">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,88,329,264">
+<area shape="rect" id="node3" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="900,5,1411,123">
+<area shape="rect" id="node4" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="928,140,1383,316">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_pnc_financialstate.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_agreement_periodicstatement.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1003,5,1181,93">
-<area shape="rect" id="node2" href="sz_pnc_facilityreference.html" target="_top" title="sz_pnc_facilityreference" alt="" coords="407,113,724,236">
-<area shape="rect" id="node3" href="sz_pnc_agreementreference.html" target="_top" title="sz_pnc_agreementreference" alt="" coords="5,145,363,233">
-<area shape="rect" id="node4" href="sz_pnc_financialstate.html" target="_top" title="sz_pnc_financialstate" alt="" coords="768,111,1416,649">
-<area shape="rect" id="node5" href="sz_pnc_periodicstatement.html" target="_top" title="sz_pnc_periodicstatement" alt="" coords="924,667,1260,755">
+<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="289,304,613,480">
+<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,484,245,572">
+<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="31,336,219,424">
+<area shape="rect" id="node4" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="657,427,1140,584">
+<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="797,5,1001,93">
+<area shape="rect" id="node6" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="809,111,988,199">
+<area shape="rect" id="node7" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="769,216,1028,304">
+<area shape="rect" id="node8" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="1184,363,1695,480">
+<area shape="rect" id="node9" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="776,321,1021,409">
+<area shape="rect" id="node10" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="1212,497,1667,673">
+<area shape="rect" id="node11" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="804,601,993,689">
 </map>
-                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_pnc_financialstate.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_agreement_periodicstatement.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>
@@ -490,7 +292,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.0-SNAPSHOT</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.3-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

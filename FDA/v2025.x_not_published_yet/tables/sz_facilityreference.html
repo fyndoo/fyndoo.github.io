@@ -84,7 +84,7 @@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body clearfix">
-                            <p>Linking table between periodic_statements and facilities</p>
+                            <p>Linking table between facility and periodicstatement</p>
                         </div><!-- /.box-body -->
                     </div>
                 </section>
@@ -131,66 +131,27 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_financialstate.facilityreferenceid references sz_facilityreference.facilityreferenceid via FK_sz_facilityreference_fs"><a href='sz_financialstate.html'>sz_financialstate</a><span class='relatedKey'>.facilityreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_facilityreference_fs</td>
+                                                <td title="sz_facility.referenceid references sz_facilityreference.facilityreferenceid via FK_sz_facilityreference2"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_sz_facilityreference2</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_periodicstatement.facilityreferenceid references sz_facilityreference.facilityreferenceid via FK_sz_facilityreference_ps"><a href='sz_periodicstatement.html'>sz_periodicstatement</a><span class='relatedKey'>.facilityreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_facilityreference_ps</td>
+                                                <td title="sz_financialstate.facilityreferenceid references sz_facilityreference.facilityreferenceid via FK_sz_facilityreference3"><a href='sz_financialstate.html'>sz_financialstate</a><span class='relatedKey'>.facilityreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_facilityreference3</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_periodicstatement.facilityreferenceid references sz_facilityreference.facilityreferenceid via FK_sz_facilityreference"><a href='sz_periodicstatement.html'>sz_periodicstatement</a><span class='relatedKey'>.facilityreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_facilityreference</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_facilityreference.[facilityreferenceid, processnumber_last_successful] references sz_facility.[referenceid, processnumber] via FK_sz_facilityreference"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.referenceid</span></td>
-                                                <td class="constraint detail">FK_sz_facilityreference</td>
-                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
                                         </table>
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="agreementreferenceid">agreementreferenceid</span></td>
-                                    <td>varchar</td>
-                                    <td>128</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Unique identifier for a agreement</p></td>
-                                </tr>
-                                <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber_last_successful">processnumber_last_successful</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_facilityreference.[facilityreferenceid, processnumber_last_successful] references sz_facility.[referenceid, processnumber] via FK_sz_facilityreference"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_sz_facilityreference</td>
-                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td><p>Unique identifier of a process</p></td>
+                                    <td><p>Unique identifier of the facility</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -223,7 +184,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_facilityreferenceid</td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_facilityreference</td>
                                     <td>Primary key</td>
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>facilityreferenceid</td>
@@ -251,21 +212,22 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="439,71,903,228">
-<area shape="rect" id="node2" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="5,73,395,249">
-<area shape="rect" id="node3" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="947,5,1457,123">
-<area shape="rect" id="node4" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="1056,140,1348,316">
+<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="458,5,847,181">
+<area shape="rect" id="node2" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="5,196,353,295">
+<area shape="rect" id="node3" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="397,199,908,316">
+<area shape="rect" id="node4" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="507,333,799,509">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_facilityreference.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="268,128,657,304">
-<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,175,224,263">
-<area shape="rect" id="node3" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="701,69,1165,227">
-<area shape="rect" id="node4" href="sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="824,244,1043,332">
-<area shape="rect" id="node5" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="1209,5,1720,123">
-<area shape="rect" id="node6" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="1319,140,1611,316">
+<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="397,179,787,355">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="70,228,289,316">
+<area shape="rect" id="node3" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="5,100,353,199">
+<area shape="rect" id="node4" href="sz_facility_periodicstatement.html" target="_top" title="sz_facility_periodicstatement" alt="" coords="831,180,1199,268">
+<area shape="rect" id="node5" href="sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="905,285,1124,373">
+<area shape="rect" id="node6" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="1243,199,1753,316">
+<area shape="rect" id="node7" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="1352,5,1644,181">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_facilityreference.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -287,7 +249,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.0-SNAPSHOT</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.3-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

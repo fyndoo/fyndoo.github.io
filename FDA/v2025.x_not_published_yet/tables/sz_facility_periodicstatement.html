@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_pnc_facilityreference - data-analytics.wla</title>
+        <title>sz_facility_periodicstatement - data-analytics.wla</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>sz_pnc_facilityreference</h1><br />
+                    <h1>sz_facility_periodicstatement</h1><br />
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="fa fa-file-text-o"></i>
@@ -131,30 +131,30 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_facility.referenceid references sz_pnc_facilityreference.facilityreferenceid via FK_sz_pnc_facilityreference"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.referenceid</span></td>
-                                                <td class="constraint detail">FK_sz_pnc_facilityreference</td>
+                                                <td title="sz_financialstate.facilityreferenceid references sz_facility_periodicstatement.facilityreferenceid via FK_sz_facility_periodicstatement_fs"><a href='sz_financialstate.html'>sz_financialstate</a><span class='relatedKey'>.facilityreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_facility_periodicstatement_fs</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="sz_pnc_financialstate.facilityreferenceid references sz_pnc_facilityreference.facilityreferenceid via FK_sz_pnc_facilityreference_fs"><a href='sz_pnc_financialstate.html'>sz_pnc_financialstate</a><span class='relatedKey'>.facilityreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_pnc_facilityreference_fs</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_pnc_periodicstatement.facilityreferenceid references sz_pnc_facilityreference.facilityreferenceid via FK_sz_pnc_facilityreference_ps"><a href='sz_pnc_periodicstatement.html'>sz_pnc_periodicstatement</a><span class='relatedKey'>.facilityreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_pnc_facilityreference_ps</td>
+                                                <td title="sz_periodicstatement.facilityreferenceid references sz_facility_periodicstatement.facilityreferenceid via FK_sz_facility_periodicstatement_ps"><a href='sz_periodicstatement.html'>sz_periodicstatement</a><span class='relatedKey'>.facilityreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_facility_periodicstatement_ps</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_facility_periodicstatement.[facilityreferenceid, processnumber_last_successful] references sz_facility.[referenceid, processnumber] via FK_sz_facility_periodicstatement"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_sz_facility_periodicstatement</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="agreementreferenceid">agreementreferenceid</span></td>
+                                    <td><span id="agreementreferenceid">agreementreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title=''></td>
@@ -166,14 +166,31 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_pnc_facilityreference.agreementreferenceid references sz_pnc_agreementreference.agreementreferenceid via FK_sz_pnc_agreementreferenceid_ps"><a href='sz_pnc_agreementreference.html'>sz_pnc_agreementreference</a><span class='relatedKey'>.agreementreferenceid</span></td>
-                                                <td class="constraint detail">FK_sz_pnc_agreementreferenceid_ps</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td><p>Unique identifier for a agreement</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber_last_successful">processnumber_last_successful</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_facility_periodicstatement.[facilityreferenceid, processnumber_last_successful] references sz_facility.[referenceid, processnumber] via FK_sz_facility_periodicstatement"><a href='sz_facility.html'>sz_facility</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_sz_facility_periodicstatement</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Unique identifier of a process</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -234,27 +251,24 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="903,5,1293,181">
-<area shape="rect" id="node2" href="sz_pnc_facilityreference.html" target="_top" title="sz_pnc_facilityreference" alt="" coords="407,196,799,324">
-<area shape="rect" id="node3" href="sz_pnc_agreementreference.html" target="_top" title="sz_pnc_agreementreference" alt="" coords="5,228,363,321">
-<area shape="rect" id="node4" href="sz_pnc_financialstate.html" target="_top" title="sz_pnc_financialstate" alt="" coords="843,199,1353,316">
-<area shape="rect" id="node5" href="sz_pnc_periodicstatement.html" target="_top" title="sz_pnc_periodicstatement" alt="" coords="930,333,1266,509">
+<area shape="rect" id="node1" href="sz_facility_periodicstatement.html" target="_top" title="sz_facility_periodicstatement" alt="" coords="439,71,903,228">
+<area shape="rect" id="node2" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="5,73,395,249">
+<area shape="rect" id="node3" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="947,5,1457,123">
+<area shape="rect" id="node4" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="1056,140,1348,316">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_pnc_facilityreference.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_facility_periodicstatement.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="547,67,765,155">
-<area shape="rect" id="node2" href="sz_pnc_agreementreference.html" target="_top" title="sz_pnc_agreementreference" alt="" coords="5,272,363,365">
-<area shape="rect" id="node3" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1010,5,1399,181">
-<area shape="rect" id="node4" href="sz_pnc_facilityreference.html" target="_top" title="sz_pnc_facilityreference" alt="" coords="460,184,852,312">
-<area shape="rect" id="node5" href="sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="1504,37,1723,125">
-<area shape="rect" id="node6" href="sz_pnc_financialstate.html" target="_top" title="sz_pnc_financialstate" alt="" coords="949,392,1460,509">
-<area shape="rect" id="node7" href="sz_pnc_financialstate_agreementlevel.html" target="_top" title="sz_pnc_financialstate_agreementlevel" alt="" coords="430,329,882,417">
-<area shape="rect" id="node8" href="sz_pnc_periodicstatement.html" target="_top" title="sz_pnc_periodicstatement" alt="" coords="1037,199,1373,375">
-<area shape="rect" id="node9" href="sz_pnc_periodicstatement_agreementlevel.html" target="_top" title="sz_pnc_periodicstatement_agreementlevel" alt="" coords="407,435,905,523">
+<area shape="rect" id="node1" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="323,179,712,355">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="33,225,251,313">
+<area shape="rect" id="node3" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="5,103,279,191">
+<area shape="rect" id="node4" href="sz_facility_periodicstatement.html" target="_top" title="sz_facility_periodicstatement" alt="" coords="756,176,1220,333">
+<area shape="rect" id="node5" href="sz_fee_facility.html" target="_top" title="sz_fee_facility" alt="" coords="879,351,1097,439">
+<area shape="rect" id="node6" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="1264,199,1775,316">
+<area shape="rect" id="node7" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="1373,5,1665,181">
 </map>
-                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_pnc_facilityreference.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_facility_periodicstatement.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>
@@ -274,7 +288,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.0-SNAPSHOT</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 7.0.3-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>
