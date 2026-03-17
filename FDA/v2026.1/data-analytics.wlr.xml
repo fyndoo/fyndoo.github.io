@@ -289,13 +289,13 @@
             <child column="collateral_objectreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object_rental"/>
             <child column="collateral_objectreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object_taxation"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateralreferenceid" nullable="true" remarks="" size="128" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateralreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <child column="collateralreferenceid" foreignKey="FK_collateral_object_monumentregistration" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object_monumentregistration"/>
+            <child column="collateralreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object_rental"/>
+            <child column="collateralreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object_taxation"/>
             <parent column="referenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <child column="agreementreferenceid" foreignKey="FK_collateral_object_monumentregistration" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object_monumentregistration"/>
-            <child column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object_rental"/>
-            <child column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object_taxation"/>
             <parent column="agreementreferenceid" foreignKey="FK_collateral_object" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
@@ -331,10 +331,17 @@
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="2"/>
          <primaryKey column="processnumber" sequenceNumberInPK="3"/>
+         <primaryKey column="collateralreferenceid" sequenceNumberInPK="4"/>
          <index name="PK_sz_collateral_object" unique="true">
             <column ascending="true" name="referenceid"/>
             <column ascending="true" name="agreementreferenceid"/>
             <column ascending="true" name="processnumber"/>
+            <column ascending="true" name="collateralreferenceid"/>
+         </index>
+         <index name="UK_sz_collateral_object" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+            <column ascending="true" name="collateralreferenceid"/>
          </index>
       </table>
       <table name="sz_collateral_object_monumentregistration" remarks="monumentregistration of collateral object details" schema="wlr" type="TABLE">
@@ -342,8 +349,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_objectreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_collateral_object_monumentregistration" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_monumentregistration" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="collateralreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="collateralreferenceid" foreignKey="FK_collateral_object_monumentregistration" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_collateral_object_monumentregistration" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
@@ -351,10 +358,15 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="registrationnumber" nullable="true" remarks="Registration number of the monument" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="registrationname" nullable="true" remarks="Registration name of the monument" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="registrationdate" nullable="true" remarks="Date of registration" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="agreementreferenceid" nullable="true" remarks="Obsolete only used in exports before 2026.1" size="128" type="varchar" typeCode="12"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
-         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <primaryKey column="collateralreferenceid" sequenceNumberInPK="2"/>
+         <primaryKey column="collateral_objectreferenceid" sequenceNumberInPK="3"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="4"/>
          <index name="PK_sz_collateral_object_monumentregistration" unique="true">
             <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="collateralreferenceid"/>
+            <column ascending="true" name="collateral_objectreferenceid"/>
             <column ascending="true" name="processnumber"/>
          </index>
       </table>
@@ -363,8 +375,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_objectreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="collateralreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="collateralreferenceid" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_collateral_object_rental" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
@@ -376,7 +388,8 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="marketbasedrent" nullable="true" remarks="Market based rent" size="11" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalrentpermonth" nullable="true" remarks="Total rent per month" size="11" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalrentperyear" nullable="true" remarks="Total rent per year" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="sequenceid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="agreementreferenceid" nullable="true" remarks="Obsolete only used in exports before 2026.1" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="sequenceid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <index name="PK_sz_collateral_object_rental" unique="true">
@@ -389,8 +402,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="collateral_objectreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
-            <parent column="agreementreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="collateralreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
+            <parent column="collateralreferenceid" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_collateral_object_taxation" implied="false" onDeleteCascade="true" schema="wlr" table="sz_collateral_object"/>
@@ -403,7 +416,8 @@
          <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="correctionpercentage" nullable="true" remarks="Market value correction percentage. eg: 0.9 is 90%" size="17" type="float8" typeCode="8"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="valuercompany" nullable="true" remarks="Company name of the valuer" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="valuername" nullable="true" remarks="Lastname of the valuer" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="sequenceid" nullable="true" remarks="Obsolete will be removed" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="agreementreferenceid" nullable="true" remarks="Obsolete only used in exports before 2026.1" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="sequenceid" nullable="true" remarks="Obsolete will be removed" size="10" type="int4" typeCode="4"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_collateral_object_val" unique="true">
             <column ascending="true" name="referenceid"/>
@@ -464,7 +478,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral_object" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="gender" nullable="true" remarks="Gender of counterparty (e.g. Male/Female/Unknown'" size="20" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="islatestapprovedversion" nullable="true" remarks="If TRUE this is the 'master' version." size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="preferredname" nullable="true" remarks="Prefered name" size="55" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="preferredname" nullable="true" remarks="Preferred name" size="55" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="dateofbankruptcy" nullable="true" remarks="The bankruptcy date of the organisation" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="dateofdeath" nullable="true" remarks="The date of the death of the natural person" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="province" nullable="true" remarks="Province" size="255" type="varchar" typeCode="12"/>
@@ -708,7 +722,7 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="11" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="16" name="expecteddateofnextinstallment" nullable="true" remarks="Expected date of next installment" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="16" name="expecteddateofnextinstallment" nullable="true" remarks="Expected date of next installment." size="29" type="timestamp" typeCode="93"/>
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_financialstate_agreementlevel" unique="true">
             <column ascending="true" name="agreementreferenceid"/>

@@ -30,3 +30,11 @@ Columns
 * Added columns in table sz_facility:
   * blockingamount
   * blockingamountmotivation
+* Added columns in table sz_collateral_object_rental:
+  * collateralreferenceid
+    and changed relation between sz_collateral_object_rental and sz_collateral_object 
+    (agreementreferenceid removed and collateralreferenceid added to foreignkey)
+* Added columns in table sz_collateral_object_taxation:
+  * collateralreferenceid
+    and changed relation between sz_collateral_object_rental and sz_collateral_object
+      (agreementreferenceid removed and collateralreferenceid added to foreignkey)

@@ -1780,12 +1780,12 @@
         "tableName": "sz_collateral_object",
         "tableFileName": "sz_collateral_object",
         "tableType": "Table",
-        "keyClass": "foreignKey",
-        "keyTitle": "Foreign Key",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
         "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>collateralreferenceid",
         "type": "varchar",
         "length": 128,
-        "nullable": "√",
+        "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
         "comments": ""
@@ -2172,8 +2172,8 @@
         "tableName": "sz_collateral_object_monumentregistration",
         "tableFileName": "sz_collateral_object_monumentre_9f0d49d0",
         "tableType": "Table",
-        "keyClass": "foreignKey",
-        "keyTitle": "Foreign Key",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
         "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>collateral_objectreferenceid",
         "type": "varchar",
         "length": 128,
@@ -2186,9 +2186,9 @@
         "tableName": "sz_collateral_object_monumentregistration",
         "tableFileName": "sz_collateral_object_monumentre_9f0d49d0",
         "tableType": "Table",
-        "keyClass": "foreignKey",
-        "keyTitle": "Foreign Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>agreementreferenceid",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>collateralreferenceid",
         "type": "varchar",
         "length": 128,
         "nullable": "",
@@ -2253,6 +2253,20 @@
         "comments": "<p>Date of registration</p>"
     },
     {
+        "tableName": "sz_collateral_object_monumentregistration",
+        "tableFileName": "sz_collateral_object_monumentre_9f0d49d0",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "agreementreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Obsolete only used in exports before 2026.1</p>"
+    },
+    {
         "tableName": "sz_collateral_object_rental",
         "tableFileName": "sz_collateral_object_rental",
         "tableType": "Table",
@@ -2286,7 +2300,7 @@
         "tableType": "Table",
         "keyClass": "foreignKey",
         "keyTitle": "Foreign Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>agreementreferenceid",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>collateralreferenceid",
         "type": "varchar",
         "length": 128,
         "nullable": "",
@@ -2412,6 +2426,20 @@
         "tableType": "Table",
         "keyClass": "",
         "keyTitle": "",
+        "name": "agreementreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Obsolete only used in exports before 2026.1</p>"
+    },
+    {
+        "tableName": "sz_collateral_object_rental",
+        "tableFileName": "sz_collateral_object_rental",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
         "name": "sequenceid",
         "type": "int4",
         "length": 10,
@@ -2454,7 +2482,7 @@
         "tableType": "Table",
         "keyClass": "foreignKey",
         "keyTitle": "Foreign Key",
-        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>agreementreferenceid",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>collateralreferenceid",
         "type": "varchar",
         "length": 128,
         "nullable": "",
@@ -2587,6 +2615,20 @@
         "autoUpdated": "",
         "defaultValue": "null",
         "comments": "<p>Lastname of the valuer</p>"
+    },
+    {
+        "tableName": "sz_collateral_object_taxation",
+        "tableFileName": "sz_collateral_object_taxation",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "agreementreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Obsolete only used in exports before 2026.1</p>"
     },
     {
         "tableName": "sz_collateral_object_taxation",
@@ -3104,7 +3146,7 @@
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Prefered name</p>"
+        "comments": "<p>Preferred name</p>"
     },
     {
         "tableName": "sz_counterparty",
@@ -4882,7 +4924,7 @@
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Expected date of next installment</p>"
+        "comments": "<p>Expected date of next installment.</p>"
     },
     {
         "tableName": "sz_financinggoal",

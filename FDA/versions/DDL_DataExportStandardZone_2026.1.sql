@@ -764,7 +764,7 @@ CREATE TABLE sz_collateral (
 
 CREATE TABLE sz_collateral_object (
 	referenceid varchar(128) NOT NULL,
-	collateralreferenceid varchar(128) NULL,
+	collateralreferenceid varchar(128) NOT NULL,
 	agreementreferenceid varchar(128) NOT NULL,
 	processnumber int8 NOT NULL,
 	postalcode varchar(255) NULL,
@@ -791,7 +791,8 @@ CREATE TABLE sz_collateral_object (
 	colllateraltypecategory varchar(255) NULL,
 	monumenttype varchar(255) NULL,
 	province varchar(255) NULL,
-	CONSTRAINT "PK_sz_collateral_object" PRIMARY KEY (referenceid, agreementreferenceid, processnumber),
+	CONSTRAINT "PK_sz_collateral_object" PRIMARY KEY (referenceid, agreementreferenceid, processnumber, collateralreferenceid),
+	CONSTRAINT "UK_sz_collateral_object" UNIQUE (referenceid, processnumber, collateralreferenceid),
 	CONSTRAINT "FK_collateral_object" FOREIGN KEY (collateralreferenceid,agreementreferenceid,processnumber) REFERENCES sz_collateral(referenceid,agreementreferenceid,processnumber) ON DELETE CASCADE
 );
 
@@ -805,13 +806,14 @@ CREATE TABLE sz_collateral_object (
 CREATE TABLE sz_collateral_object_monumentregistration (
 	referenceid varchar(128) NOT NULL,
 	collateral_objectreferenceid varchar(128) NOT NULL,
-	agreementreferenceid varchar(128) NOT NULL,
+	collateralreferenceid varchar(128) NOT NULL,
 	processnumber int8 NOT NULL,
 	registrationnumber varchar(255) NULL,
 	registrationname varchar(255) NULL,
 	registrationdate date NULL,
-	CONSTRAINT "PK_sz_collateral_object_monumentregistration" PRIMARY KEY (referenceid, processnumber),
-	CONSTRAINT "FK_collateral_object_monumentregistration" FOREIGN KEY (collateral_objectreferenceid,agreementreferenceid,processnumber) REFERENCES sz_collateral_object(referenceid,agreementreferenceid,processnumber) ON DELETE CASCADE
+	agreementreferenceid varchar(128) NULL,
+	CONSTRAINT "PK_sz_collateral_object_monumentregistration" PRIMARY KEY (referenceid, collateralreferenceid, collateral_objectreferenceid, processnumber),
+	CONSTRAINT "FK_collateral_object_monumentregistration" FOREIGN KEY (collateral_objectreferenceid,collateralreferenceid,processnumber) REFERENCES <?>() ON DELETE CASCADE
 );
 
 
@@ -824,7 +826,7 @@ CREATE TABLE sz_collateral_object_monumentregistration (
 CREATE TABLE sz_collateral_object_rental (
 	referenceid varchar(128) NOT NULL,
 	collateral_objectreferenceid varchar(128) NOT NULL,
-	agreementreferenceid varchar(128) NOT NULL,
+	collateralreferenceid varchar(128) NOT NULL,
 	processnumber int8 NOT NULL,
 	regulatedproperty int4 NULL,
 	pointscoreforregulatedrent numeric(9, 5) NULL,
@@ -833,9 +835,10 @@ CREATE TABLE sz_collateral_object_rental (
 	marketbasedrent numeric(11, 2) NULL,
 	totalrentpermonth numeric(11, 2) NULL,
 	totalrentperyear numeric(11, 2) NULL,
+	agreementreferenceid varchar(128) NULL,
 	sequenceid int4 NULL,
 	CONSTRAINT "PK_sz_collateral_object_rental" PRIMARY KEY (referenceid, processnumber),
-	CONSTRAINT "FK_collateral_object_rental" FOREIGN KEY (collateral_objectreferenceid,agreementreferenceid,processnumber) REFERENCES sz_collateral_object(referenceid,agreementreferenceid,processnumber) ON DELETE CASCADE
+	CONSTRAINT "FK_collateral_object_rental" FOREIGN KEY (collateral_objectreferenceid,collateralreferenceid,processnumber) REFERENCES <?>() ON DELETE CASCADE
 );
 
 
@@ -848,7 +851,7 @@ CREATE TABLE sz_collateral_object_rental (
 CREATE TABLE sz_collateral_object_taxation (
 	referenceid varchar(128) NOT NULL,
 	collateral_objectreferenceid varchar(128) NOT NULL,
-	agreementreferenceid varchar(128) NOT NULL,
+	collateralreferenceid varchar(128) NOT NULL,
 	processnumber int8 NOT NULL,
 	valuationdate date NULL,
 	valuationmethod varchar(255) NULL,
@@ -858,9 +861,10 @@ CREATE TABLE sz_collateral_object_taxation (
 	correctionpercentage float8 NULL,
 	valuercompany varchar(255) NULL,
 	valuername varchar(255) NULL,
+	agreementreferenceid varchar(128) NULL,
 	sequenceid int4 NULL,
 	CONSTRAINT "PK_sz_collateral_object_val" PRIMARY KEY (referenceid),
-	CONSTRAINT "FK_collateral_object_taxation" FOREIGN KEY (collateral_objectreferenceid,agreementreferenceid,processnumber) REFERENCES sz_collateral_object(referenceid,agreementreferenceid,processnumber) ON DELETE CASCADE
+	CONSTRAINT "FK_collateral_object_taxation" FOREIGN KEY (collateral_objectreferenceid,collateralreferenceid,processnumber) REFERENCES <?>() ON DELETE CASCADE
 );
 
 

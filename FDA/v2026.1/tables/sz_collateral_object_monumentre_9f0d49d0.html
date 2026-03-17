@@ -139,7 +139,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="collateral_objectreferenceid">collateral_objectreferenceid</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="collateral_objectreferenceid">collateral_objectreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title=''></td>
@@ -152,7 +152,7 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_collateral_object_monumentregistration.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_monumentregistration"><a href='sz_collateral_object.html'>sz_collateral_object</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td title="sz_collateral_object_monumentregistration.[collateral_objectreferenceid, collateralreferenceid, processnumber] references sz_collateral_object.[referenceid, collateralreferenceid, processnumber] via FK_collateral_object_monumentregistration"><a href='sz_collateral_object.html'>sz_collateral_object</a><span class='relatedKey'>.referenceid</span></td>
                                                 <td class="constraint detail">FK_collateral_object_monumentregistration</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
@@ -161,7 +161,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="agreementreferenceid">agreementreferenceid</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="collateralreferenceid">collateralreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title=''></td>
@@ -174,7 +174,7 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_collateral_object_monumentregistration.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_monumentregistration"><a href='sz_collateral_object.html'>sz_collateral_object</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td title="sz_collateral_object_monumentregistration.[collateral_objectreferenceid, collateralreferenceid, processnumber] references sz_collateral_object.[referenceid, collateralreferenceid, processnumber] via FK_collateral_object_monumentregistration"><a href='sz_collateral_object.html'>sz_collateral_object</a><span class='relatedKey'>.collateralreferenceid</span></td>
                                                 <td class="constraint detail">FK_collateral_object_monumentregistration</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
@@ -196,7 +196,7 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_collateral_object_monumentregistration.[collateral_objectreferenceid, agreementreferenceid, processnumber] references sz_collateral_object.[referenceid, agreementreferenceid, processnumber] via FK_collateral_object_monumentregistration"><a href='sz_collateral_object.html'>sz_collateral_object</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td title="sz_collateral_object_monumentregistration.[collateral_objectreferenceid, collateralreferenceid, processnumber] references sz_collateral_object.[referenceid, collateralreferenceid, processnumber] via FK_collateral_object_monumentregistration"><a href='sz_collateral_object.html'>sz_collateral_object</a><span class='relatedKey'>.processnumber</span></td>
                                                 <td class="constraint detail">FK_collateral_object_monumentregistration</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
@@ -255,6 +255,23 @@
                                     </td>
                                     <td><p>Date of registration</p></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="agreementreferenceid">agreementreferenceid</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Obsolete only used in exports before 2026.1</p></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -288,8 +305,8 @@
                                 <tr>
                                     <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_collateral_object_monumentregistration</td>
                                     <td>Primary key</td>
-                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
-                                    <td>referenceid + processnumber</td>
+                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
+                                    <td>referenceid + collateralreferenceid + collateral_objectreferenceid + processnumber</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -314,18 +331,18 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_collateral_object_monumentre_9f0d49d0.html" target="_top" title="sz_collateral_object_monumentregistration" alt="" coords="368,5,947,280">
-<area shape="rect" id="node2" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="5,8,324,213">
+<area shape="rect" id="node1" href="sz_collateral_object_monumentre_9f0d49d0.html" target="_top" title="sz_collateral_object_monumentregistration" alt="" coords="368,5,947,309">
+<area shape="rect" id="node2" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="5,37,324,243">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_collateral_object_monumentre_9f0d49d0.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="253,236,572,441">
-<area shape="rect" id="node2" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="5,297,209,385">
-<area shape="rect" id="node3" href="sz_collateral_object_monumentre_9f0d49d0.html" target="_top" title="sz_collateral_object_monumentregistration" alt="" coords="616,5,1195,280">
-<area shape="rect" id="node4" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="735,297,1076,385">
-<area shape="rect" id="node5" href="sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="723,403,1087,491">
+<area shape="rect" id="node1" href="sz_collateral_object.html" target="_top" title="sz_collateral_object" alt="" coords="253,295,572,500">
+<area shape="rect" id="node2" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="5,356,209,444">
+<area shape="rect" id="node3" href="sz_collateral_object_monumentre_9f0d49d0.html" target="_top" title="sz_collateral_object_monumentregistration" alt="" coords="616,5,1195,309">
+<area shape="rect" id="node4" href="sz_collateral_object_rental.html" target="_top" title="sz_collateral_object_rental" alt="" coords="735,327,1076,415">
+<area shape="rect" id="node5" href="sz_collateral_object_taxation.html" target="_top" title="sz_collateral_object_taxation" alt="" coords="723,432,1087,520">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_collateral_object_monumentre_9f0d49d0.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
