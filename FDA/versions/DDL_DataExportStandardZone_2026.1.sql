@@ -145,6 +145,7 @@ CREATE TABLE sz_annualaccountsdetails (
 	"CurrentAssets" float8 NULL,
 	"TotalEquityAndLiabilities" float8 NULL,
 	"STPartOfLTDebts" float8 NULL,
+	"DebtToEBITDA" float8 NULL,
 	CONSTRAINT "PK_sz_annualaccountsdetails" PRIMARY KEY (annualaccountsid, columnenddate),
 	CONSTRAINT "FK_annualaccounts_details" FOREIGN KEY (annualaccountsid) REFERENCES sz_annualaccounts(annualaccountsid) ON DELETE CASCADE
 );
@@ -453,6 +454,7 @@ CREATE TABLE sz_slidetails (
 	"CurrentAssets" float8 NULL,
 	"TotalEquityAndLiabilities" float8 NULL,
 	"STPartOfLTDebts" float8 NULL,
+	"DebtToEBITDA" float8 NULL,
 	CONSTRAINT "PK_sz_slidetails" PRIMARY KEY (sliid, columnenddate),
 	CONSTRAINT "FK_sli_details" FOREIGN KEY (sliid) REFERENCES sz_sli(sliid) ON DELETE CASCADE
 );

@@ -38,3 +38,5 @@ Columns
   * collateralreferenceid
     and changed relation between sz_collateral_object_rental and sz_collateral_object
       (agreementreferenceid removed and collateralreferenceid added to foreignkey)
+* Added column DebtToEBITDA to table sz_slidetails 
+* Added column DebtToEBITDA to table sz_annualaccountsdetails 
