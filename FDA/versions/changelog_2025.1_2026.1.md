@@ -40,3 +40,7 @@ Columns
       (agreementreferenceid removed and collateralreferenceid added to foreignkey)
 * Added column DebtToEBITDA to table sz_slidetails 
 * Added column DebtToEBITDA to table sz_annualaccountsdetails 
+
+* Removed 'agreementreferenceid' from PK_sz_collateral_object
+* Removed UK_sz_collateral_object (is now the same as PK_sz_collateral_object)
+* All currency fields are now numeric(19, 2) this was (11, 2)

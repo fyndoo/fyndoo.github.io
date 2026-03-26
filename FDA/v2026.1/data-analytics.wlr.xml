@@ -268,7 +268,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="description" nullable="true" remarks="This name is a customer specific fyndoo configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="valuationdate" nullable="true" remarks="Date of valuation of collateral" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="valuationcurrency" nullable="true" remarks="The currency code for identification of the currency" size="10" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="valuationamount" nullable="true" remarks="Value of the collateral" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="valuationamount" nullable="true" remarks="Value of the collateral" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="amortizationfrequency" nullable="true" remarks="Amortization Frequency" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="firstreductiondatestrategy" nullable="true" remarks="First reduction date strategy" size="128" type="varchar" typeCode="12"/>
@@ -307,9 +307,9 @@
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="postalcode" nullable="true" remarks="Postalcode" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="place" nullable="true" remarks="Name of the place" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="marketvalue" nullable="true" remarks="Market value" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="purchasevalue" nullable="true" remarks="Purchase value" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="executionvalue" nullable="true" remarks="Execution value" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="marketvalue" nullable="true" remarks="Market value" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="purchasevalue" nullable="true" remarks="Purchase value" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="executionvalue" nullable="true" remarks="Execution value" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="energylabel" nullable="true" remarks="Current Energy label (e.g.'A','B',..)" size="25" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="energylabelafterrenovation" nullable="true" remarks="Energy label after renovation (e.g.'A','B',..)" size="25" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="externalreferenceid" nullable="true" remarks="Unique external reference identifier of an collateral_object" size="128" type="varchar" typeCode="12"/>
@@ -318,28 +318,21 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="constructionyear" nullable="true" remarks="Year of construction" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="leasehold" nullable="true" remarks="Lease hold (1=yes / 0=no)" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="leaseholdenddate" nullable="true" remarks="End date of lease hold" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="17" name="propertysurface" nullable="true" remarks="Property surface in m2" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="officespacesurface" nullable="true" remarks="Office surface in m2" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="17" name="propertysurface" nullable="true" remarks="Property surface in m2" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="officespacesurface" nullable="true" remarks="Office surface in m2" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="street" nullable="true" remarks="Street name" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="country" nullable="true" remarks="ISO code of the country" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="rank" nullable="true" remarks="Rank/order of the mortages" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="prioramount" nullable="true" remarks="Prior amount in case rank of mortage &gt; 1" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="prioramount" nullable="true" remarks="Prior amount in case rank of mortage &gt; 1" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="colllateraltype" nullable="true" remarks="Description of collateraltype. This name is a customer specific fyndoo configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="colllateraltypecode" nullable="true" remarks="Referencecode of collateraltype. This name is a customer specific fyndoo configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="colllateraltypecategory" nullable="true" remarks="E.g.: Apartment, RealEstate, CommercialRealEstate, AgriculturalLand, Airplane, Ship, RealEstateWithOfficeSpace, OfficeSpace, Other" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="monumenttype" nullable="true" remarks="Type monumuent (e.g. 'National', 'Municipal'" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="province" nullable="true" remarks="Province" size="255" type="varchar" typeCode="12"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
-         <primaryKey column="agreementreferenceid" sequenceNumberInPK="2"/>
-         <primaryKey column="processnumber" sequenceNumberInPK="3"/>
-         <primaryKey column="collateralreferenceid" sequenceNumberInPK="4"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <primaryKey column="collateralreferenceid" sequenceNumberInPK="3"/>
          <index name="PK_sz_collateral_object" unique="true">
-            <column ascending="true" name="referenceid"/>
-            <column ascending="true" name="agreementreferenceid"/>
-            <column ascending="true" name="processnumber"/>
-            <column ascending="true" name="collateralreferenceid"/>
-         </index>
-         <index name="UK_sz_collateral_object" unique="true">
             <column ascending="true" name="referenceid"/>
             <column ascending="true" name="processnumber"/>
             <column ascending="true" name="collateralreferenceid"/>
@@ -384,11 +377,11 @@
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="regulatedproperty" nullable="true" remarks="Regulated property (1= Yes / 0 =No" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="5" id="5" name="pointscoreforregulatedrent" nullable="true" remarks="Points score for regulated rent" size="9" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="admissiblemonthlyrent" nullable="true" remarks="Admissible monthly rent" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="coldrentpermonth" nullable="true" remarks="Cold rent per month" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="marketbasedrent" nullable="true" remarks="Market based rent" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalrentpermonth" nullable="true" remarks="Total rent per month" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalrentperyear" nullable="true" remarks="Total rent per year" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="admissiblemonthlyrent" nullable="true" remarks="Admissible monthly rent" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="coldrentpermonth" nullable="true" remarks="Cold rent per month" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="marketbasedrent" nullable="true" remarks="Market based rent" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalrentpermonth" nullable="true" remarks="Total rent per month" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalrentperyear" nullable="true" remarks="Total rent per year" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="agreementreferenceid" nullable="true" remarks="Obsolete only used in exports before 2026.1" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="sequenceid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
@@ -412,8 +405,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="valuationdate" nullable="true" remarks="Date of valuation" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="valuationmethod" nullable="true" remarks="Method of valuation (e.g. 'Full expert', 'Desktop expert', 'Internal', 'Volgens balans', 'External', 'WOZ', 'Indexation')" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="valuationvaluetype" nullable="true" remarks="Valuation value type (e.g. 'MarketValueCurrentState', 'MarketValueAfterRenovation', 'MarketValueRented', 'PurchaseValue')" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="valuationvalue" nullable="true" remarks="This is called 'marktwaarde' in the application. Correction is already applied on this value." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="marketvaluecurrentstate" nullable="true" remarks="Market value current state" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="valuationvalue" nullable="true" remarks="This is called 'marktwaarde' in the application. Correction is already applied on this value." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="marketvaluecurrentstate" nullable="true" remarks="Market value current state" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="9" name="correctionpercentage" nullable="true" remarks="Market value correction percentage. eg: 0.9 is 90%" size="17" type="float8" typeCode="8"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="valuercompany" nullable="true" remarks="Company name of the valuer" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="valuername" nullable="true" remarks="Lastname of the valuer" size="255" type="varchar" typeCode="12"/>
@@ -471,7 +464,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="cocnumber" nullable="true" remarks="Chamber of commerce code" size="20" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="legalform" nullable="true" remarks="The legal form of a counterparty. Example values (nl): BV, NV, VOF. The values should correspond with the configured values in Force Business Lending." size="100" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="countrycode" nullable="true" remarks="Country of birth (person) or country of incorporation (company). (ISO 3166 country code)" size="25" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="annualincome" nullable="true" remarks="Annual income of the counterparty" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="annualincome" nullable="true" remarks="Annual income of the counterparty" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="employmentstatus" nullable="true" remarks="Employment status (e.g. 'Employed', 'Unemployed', 'SelfEmployed', 'Retired'" size="20" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="sectorcodestandard" nullable="true" remarks="The standard sectorcode which is configured in Fyndoo" size="100" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="sectorcodecustom" nullable="true" remarks="The custom sectorcode which is configured in Fyndoo" size="100" type="varchar" typeCode="12"/>
@@ -553,9 +546,9 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="productname" nullable="true" remarks="Name of the product configured in Fyndoo" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="productdefinitioncode" nullable="true" remarks="Definitioncode of product configured in Fyndoo" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="repaymenttype" nullable="true" remarks="Repayment type (e.g. 'Annuity', 'Linear', 'Bullet', 'Schedule', 'Revolving'" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="agreedlimitamount" nullable="true" remarks="The agreed or contractual limit on top-facility level." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="agreedlimitamount" nullable="true" remarks="The agreed or contractual limit on top-facility level." size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="agreedlimitcurrency" nullable="true" remarks="The currency code for identification of the currency" size="10" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="limitamount" nullable="true" remarks="The amount of the limit" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="limitamount" nullable="true" remarks="The amount of the limit" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="limitcurrency" nullable="true" remarks="The currency code for identification of the currency" size="10" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="facilitystartdate" nullable="true" remarks="The start date of the facility" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="facilityduration" nullable="true" remarks="The duration of the facility in months" size="10" type="int4" typeCode="4"/>
@@ -596,7 +589,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="parentexternalreferenceid" nullable="true" remarks="ReferenceId received from an external application of the parent facility" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="discounttypecomment" nullable="true" remarks="Comment of user for discounttype" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="mutationtype" nullable="true" remarks="Type of mutation of the facility. E.g. 'New', 'Unchanged', 'changed, etc" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="50" name="blockingamount" nullable="true" remarks="The amount of the limit which is blocked" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="50" name="blockingamount" nullable="true" remarks="The amount of the limit which is blocked" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="51" name="blockingamountmotivation" nullable="true" remarks="Motivation of blockingamount (max. 255 chars)" size="255" type="varchar" typeCode="12"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
@@ -684,21 +677,21 @@
             <parent column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement_fs" implied="false" onDeleteCascade="true" schema="wlr" table="sz_facility_periodicstatement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="timestampfinancialstate" nullable="true" remarks="Timestamp of the creation of financial_state" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="arrearsamount" nullable="true" remarks="Arrears amount" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="arrearsamount" nullable="true" remarks="Arrears amount" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="arrearcode" nullable="true" remarks="Arrearcode, 0 - No arrears / 1 - In arrears (payments overdue) /2 - 30 days overdue /3 - 60 days overdue / 4 - 90 days overdue" size="1" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="isactive" nullable="true" remarks="Is the facility active" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="overduepaymentobligationamount" nullable="true" remarks="The amount of payment obligations whose due date has passed." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="outstandingamountafterscheduledtransactions" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="installmentamount" nullable="true" remarks="Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment)." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="surplusamount" nullable="true" remarks="Advance. How many installments did you pay in advance? For mortgages not relevant." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="initialamount" nullable="true" remarks="Initial balance. So the balance when the product is created." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="nextinstallmentinterestamount" nullable="true" remarks="Next interest amount. How much interest is in the next installment amount." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="nextinstallmentpayoffamount" nullable="true" remarks="Next repayment amount. How much repayment is in the next installment amount." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="prepaidAmountInCurrentYear" nullable="true" remarks="Prepaid Amount In Current Year." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="overduepaymentobligationamount" nullable="true" remarks="The amount of payment obligations whose due date has passed." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="outstandingamountafterscheduledtransactions" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="installmentamount" nullable="true" remarks="Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment)." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="surplusamount" nullable="true" remarks="Advance. How many installments did you pay in advance? For mortgages not relevant." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="initialamount" nullable="true" remarks="Initial balance. So the balance when the product is created." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="nextinstallmentinterestamount" nullable="true" remarks="Next interest amount. How much interest is in the next installment amount." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="nextinstallmentpayoffamount" nullable="true" remarks="Next repayment amount. How much repayment is in the next installment amount." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="prepaidAmountInCurrentYear" nullable="true" remarks="Prepaid Amount In Current Year." size="19" type="numeric" typeCode="2"/>
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_financialstate" unique="true">
             <column ascending="true" name="facilityreferenceid"/>
@@ -709,20 +702,20 @@
             <parent column="agreementreferenceid" foreignKey="FK_sz_agreement_periodicstatement_fs" implied="false" onDeleteCascade="true" schema="wlr" table="sz_agreement_periodicstatement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="timestampfinancialstate" nullable="true" remarks="Timestamp of the creation of financial_state" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="arrearsamount" nullable="true" remarks="Arrears amount" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="currentoutstanding" nullable="true" remarks="Current outstanding" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="arrearsamount" nullable="true" remarks="Arrears amount" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="arrearcode" nullable="true" remarks="Arrearcode, 0 - No arrears / 1 - In arrears (payments overdue) /2 - 30 days overdue /3 - 60 days overdue / 4 - 90 days overdue" size="1" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="isactive" nullable="true" remarks="Is the agreement active" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="overduepaymentobligationamount" nullable="true" remarks="The amount of payment obligations whose due date has passed." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="outstandingamountafterscheduledtransactions" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="installmentamount" nullable="true" remarks="Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment)." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="surplusamount" nullable="true" remarks="Advance. How many installments did you pay in advance? For mortgages not relevant." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="initialamount" nullable="true" remarks="Initial balance. So the balance when the product is created." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="nextinstallmentinterestamount" nullable="true" remarks="Next interest amount. How much interest is in the next installment amount." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="nextinstallmentpayoffamount" nullable="true" remarks="Next repayment amount. How much repayment is in the next installment amount." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="overduepaymentobligationamount" nullable="true" remarks="The amount of payment obligations whose due date has passed." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="outstandingamountafterscheduledtransactions" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="installmentamount" nullable="true" remarks="Current installment amount. (So current amount you pay for that product each term. With annuities, will only change after things like an additional repayment)." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="surplusamount" nullable="true" remarks="Advance. How many installments did you pay in advance? For mortgages not relevant." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="initialamount" nullable="true" remarks="Initial balance. So the balance when the product is created." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="nextinstallmentinterestamount" nullable="true" remarks="Next interest amount. How much interest is in the next installment amount." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="nextinstallmentpayoffamount" nullable="true" remarks="Next repayment amount. How much repayment is in the next installment amount." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="brokenperiodinterestamount" nullable="true" remarks="Broken period interest rate. To be determined at product creation; basically does not change." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="outstandingpayoff" nullable="true" remarks="Current balance sheet minus all scheduled payments plus all redemption payment obligations." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="outstandingdebt" nullable="true" remarks="Current balance minus all scheduled payments plus all payment obligations." size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="16" name="expecteddateofnextinstallment" nullable="true" remarks="Expected date of next installment." size="29" type="timestamp" typeCode="93"/>
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_financialstate_agreementlevel" unique="true">
@@ -750,7 +743,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wlr" table="sz_process"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="1" name="additionalrentalincome" nullable="true" remarks="Additional rental income" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="1" name="additionalrentalincome" nullable="true" remarks="Additional rental income" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="processnumber" sequenceNumberInPK="1"/>
          <index name="PK_sz_otherproperties" unique="true">
             <column ascending="true" name="processnumber"/>
@@ -765,14 +758,14 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="periodtype" nullable="false" remarks="Type of period (E.g. 'MONTH', 'YEAR')" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="periodstartdate" nullable="false" remarks="Start date of the period" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="periodenddate" nullable="false" remarks="End date of the period" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="balanceatstart" nullable="true" remarks="Outstanding amount at startdate of period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balanceatend" nullable="true" remarks="Outstanding amount at enddate of period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="totalinterestpaid" nullable="true" remarks="Total interest paid in period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalinterestchargepaid" nullable="true" remarks="Total interest charges paid in period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalothercostspaid" nullable="true" remarks="Total other costs (not fees or interest charges) paid in period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="totaldebit" nullable="true" remarks="Regular repayment (planned)" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (f greater than totaldebit then it is an additional repayment" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="balanceatstart" nullable="true" remarks="Outstanding amount at startdate of period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balanceatend" nullable="true" remarks="Outstanding amount at enddate of period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="totalinterestpaid" nullable="true" remarks="Total interest paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalinterestchargepaid" nullable="true" remarks="Total interest charges paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalothercostspaid" nullable="true" remarks="Total other costs (not fees or interest charges) paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="totaldebit" nullable="true" remarks="Regular repayment (planned)" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (f greater than totaldebit then it is an additional repayment" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="periodtype" sequenceNumberInPK="2"/>
          <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
@@ -791,14 +784,14 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="periodtype" nullable="false" remarks="Type of period (E.g. 'MONTH', 'YEAR')" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="periodstartdate" nullable="false" remarks="Start date of the period" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="periodenddate" nullable="false" remarks="End date of the period" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="balanceatstart" nullable="true" remarks="Outstanding amount at startdate of period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balanceatend" nullable="true" remarks="Outstanding amount at enddate of period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="totalinterestpaid" nullable="true" remarks="Total interest paid in period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalinterestchargepaid" nullable="true" remarks="Total interest charges paid in period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalothercostspaid" nullable="true" remarks="Total other costs (not fees or interest charges) paid in period" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="totaldebit" nullable="true" remarks="Regular repayment (planned)" size="11" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (f greater than totaldebit then it is an additional repayment" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="balanceatstart" nullable="true" remarks="Outstanding amount at startdate of period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balanceatend" nullable="true" remarks="Outstanding amount at enddate of period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="totalinterestpaid" nullable="true" remarks="Total interest paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalinterestchargepaid" nullable="true" remarks="Total interest charges paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalothercostspaid" nullable="true" remarks="Total other costs (not fees or interest charges) paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="totaldebit" nullable="true" remarks="Regular repayment (planned)" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (f greater than totaldebit then it is an additional repayment" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="periodtype" sequenceNumberInPK="2"/>
          <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
@@ -828,7 +821,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="processstatus" nullable="true" remarks="Status of the process (0 = in progress / 1 = closed)" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="7" name="startdatetime" nullable="true" remarks="Start date of the process" size="29" type="timestamp" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="enddatetime" nullable="true" remarks="End date of the process (processtatus=1)" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="durationtimehours" nullable="true" remarks="Duration of the process based on begin and startdate" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="durationtimehours" nullable="true" remarks="Duration of the process based on begin and startdate" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="currentstatus" nullable="true" remarks="Actual status name. This name is a customer specific Fyndoo configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="loanpassingdate" nullable="true" remarks="Date of passing date of a loan (optional, not applicable for all processtypes" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="latestexecutiondate" nullable="true" remarks="Last possible loan passingdate" size="13" type="date" typeCode="91"/>
@@ -855,9 +848,9 @@
             <parent column="processnumber" foreignKey="FK_sz_processevents_process" implied="false" onDeleteCascade="false" schema="wlr" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="conditionalofferdate" nullable="true" remarks="Datetime of conditional offer" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="conditionalofferdate_hours" nullable="true" remarks="Number of hours from start process to date of conditional offer" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="conditionalofferdate_hours" nullable="true" remarks="Number of hours from start process to date of conditional offer" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="bindingofferdate" nullable="true" remarks="Datetime of binding offer" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="bindingofferdate_hours" nullable="true" remarks="Number of hours from start process to date of binding offer" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="bindingofferdate_hours" nullable="true" remarks="Number of hours from start process to date of binding offer" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="processedfinancialfiguresauto" nullable="true" remarks="Indication (boolean) if the financial figures are automatically processed by the application" size="1" type="bool" typeCode="-7"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="offersent" nullable="true" remarks="Indication (boolean) if an offer is sent." size="1" type="bool" typeCode="-7"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="finishedsuccessful" nullable="true" remarks="True if the process has reached a successful status" size="1" type="bool" typeCode="-7"/>
