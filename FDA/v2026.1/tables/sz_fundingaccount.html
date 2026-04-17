@@ -131,7 +131,7 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_fundingaccount_periodicstatement.sz_fundingaccountreferenceid references sz_fundingaccount.referenceid via FK_sz_fundingaccount_periodicstatement"><a href='sz_fundingaccount_periodicstatement.html'>sz_fundingaccount_periodicstatement</a><span class='relatedKey'>.sz_fundingaccountreferenceid</span></td>
+                                                <td title="sz_fundingaccount_periodicstatement.fundingaccountreferenceid references sz_fundingaccount.referenceid via FK_sz_fundingaccount_periodicstatement"><a href='sz_fundingaccount_periodicstatement.html'>sz_fundingaccount_periodicstatement</a><span class='relatedKey'>.fundingaccountreferenceid</span></td>
                                                 <td class="constraint detail">FK_sz_fundingaccount_periodicstatement</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
@@ -181,6 +181,40 @@
                                         </table>
                                     </td>
                                     <td><p>Tenantformatted reference of fundingaccount</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="productname">productname</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Productname of fundingaccount</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="productdefinitioncode">productdefinitioncode</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>productdefinitioncode of fundingaccount</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -240,7 +274,7 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_fundingaccount.html" target="_top" title="sz_fundingaccount" alt="" coords="373,5,807,163">
+<area shape="rect" id="node1" href="sz_fundingaccount.html" target="_top" title="sz_fundingaccount" alt="" coords="373,5,807,221">
 <area shape="rect" id="node2" href="sz_funder.html" target="_top" title="sz_funder" alt="" coords="5,37,329,155">
 <area shape="rect" id="node3" href="sz_fundingaccount_periodicstatement.html" target="_top" title="sz_fundingaccount_periodicstatement" alt="" coords="851,8,1304,184">
 </map>

@@ -7,6 +7,9 @@ Tables
 * Added table sz_periodicstatement_agreementlevel
 * Added table sz_agreement_periodicstatement
 * Added table sz_collateral_object_monumentregistration
+* Added table sz_funder
+* Added table sz_fundingaccount
+* Added table sz_fundingaccount_periodicstatement
 
 Columns
 * Added column prepaidAmountInCurrentYear in table sz_financialstate

@@ -1,6 +1,7 @@
 sz_financials
 sz_user
 sz_workflowstatusdefinition
+sz_funder
 sz_workflowprocessdefinition
 sz_process
 sz_counterparty_financials
@@ -15,6 +16,7 @@ sz_agreement_periodicstatement
 sz_facility_periodicstatement
 sz_annualaccounts
 sz_calcmodel_customerbased
+sz_fundingaccount
 sz_calcmodel_processbased
 sz_sli
 sz_annualaccountsdetails
@@ -23,6 +25,7 @@ sz_calcmodel_processbaseddetails
 sz_contactperson
 sz_financialstate
 sz_financialstate_agreementlevel
+sz_fundingaccount_periodicstatement
 sz_otherproperties
 sz_periodicstatement
 sz_periodicstatement_agreementlevel
