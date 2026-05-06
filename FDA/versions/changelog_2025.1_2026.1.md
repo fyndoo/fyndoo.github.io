@@ -1,6 +1,6 @@
 Changelog FDA Standard Zone version from 2025.1 to 2026.1:
 
-Tables
+# Tables:
 * removed table sz_facilityreference (is replaced by sz_facility_periodicstatement)
 * Added table sz_facility_periodicstatement
 * Added table sz_financialstate_agreementlevel
@@ -11,19 +11,19 @@ Tables
 * Added table sz_fundingaccount
 * Added table sz_fundingaccount_periodicstatement
 
-Columns
+# Columns:
 * Added column prepaidAmountInCurrentYear in table sz_financialstate
 * Removed column sz_statuschangedefinition in table sz_statuschangedefinition
   Primairy key now is PRIMARY KEY (fromreferenceid, toreferenceid)
 * Renamed column country in table sz_counterparty to countryofaddress
 * Added columns in table sz_counterparty:
-  * countrycodeofaddress 
-  * gender 
+  * countrycodeofaddress
+  * gender
 	* islatestapprovedversion
-	* preferredname 
-	* dateofbankruptcy 
-	* dateofdeath 
-	* province 
+	* preferredname
+	* dateofbankruptcy
+	* dateofdeath
+	* province
 * Removed column sequenceid in table sz_collateral_object
 * Added columns in table sz_collateral_object
   * energylabelafterrenovation
@@ -47,3 +47,12 @@ Columns
 * Removed 'agreementreferenceid' from PK_sz_collateral_object
 * Removed UK_sz_collateral_object (is now the same as PK_sz_collateral_object)
 * All currency fields are now numeric(19, 2) this was (11, 2)
+
+# Content:
+* The referenceid of the businessrules will change from a numeric value to a UUID (for the complete dataset)
+  So for the following columns, the content will change:  
+  * sz_businessrules.referenceid
+  * sz_businessrules_parameters.businessrulereferenceid
+  Note: in the export 2025.1 and before the numeric field will be used.
+  This numeric field is not consistent; it is determined by DataAnalytics itself and depends on the order.
+  Starting with DataExport Standardzone version 2026.1, the lending reference ID is used. This is a UUID
