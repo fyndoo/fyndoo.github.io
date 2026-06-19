@@ -1,5 +1,5 @@
-date=2025-10-01 08:49:05+0000
-os=Linux 6.6.87.1-microsoft-standard-WSL2
+date=2026-06-19 13:04:44+0000
+os=Linux 6.6.87.2-microsoft-standard-WSL2
 schemaspy-version=7.0.3-SNAPSHOT
-schemaspy-revision=1d027367d386e5a5a2093a339e7061c0ed498095
+schemaspy-revision=408e05b7dfdfb8958061b07f101b8f57b451ea44
 renderer=Graphviz dot 2.43.0 

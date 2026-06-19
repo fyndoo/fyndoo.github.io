@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<database name="fundzie" schema="tenant_alfa" type="PostgreSQL - 16.4">
+<database name="fundzie" schema="tenant_alfa" type="PostgreSQL - 18.1">
    <sequences>
       <sequence increment="50" name="id" startValue="1"/>
    </sequences>
    <tables>
+      <table name="base_interest_type" remarks="" schema="tenant_alfa" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <child column="base_interest_type_id" foreignKey="fk_interest_rate_base_interest_type_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="interest_rate"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="duration" nullable="false" remarks="" size="32" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="base_interest_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="base_interest_type_name" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+         <index name="base_interest_type_uuid" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+      </table>
       <table name="fund" remarks="" schema="tenant_alfa" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <child column="fund_id" foreignKey="fk_fund_funder_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_funder"/>
+            <child column="fund_id" foreignKey="fk_fund_asset_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_asset"/>
+            <child column="fund_id" foreignKey="fk_fund_participation_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_participation"/>
             <child column="fund_id" foreignKey="fk_product_definition_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="product_definition"/>
-            <child column="fund_id" foreignKey="fk_reservation_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="reservation"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
@@ -19,6 +37,10 @@
          <index name="fund_pkey" unique="true">
             <column ascending="true" name="id"/>
          </index>
+         <index name="fund_name_whitelabel_id" unique="true">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="whitelabel_id"/>
+         </index>
          <index name="fund_uuid" unique="true">
             <column ascending="true" name="uuid"/>
          </index>
@@ -26,112 +48,140 @@
             <column ascending="true" name="whitelabel_id"/>
          </index>
       </table>
-      <table name="fund_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_fund_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
+      <table name="fund_asset" remarks="" schema="tenant_alfa" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <child column="fund_asset_id" foreignKey="fk_fund_asset_fund_participation_fund_asset_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_asset_fund_participation"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_fund_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
-         </index>
-      </table>
-      <table name="fund_funder" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_fund_funder_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="process_reference_id" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="agreement_reference_id" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="facility_reference_id" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="state" nullable="false" remarks="" size="9" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_asset_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funder_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_fund_funder_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funder"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="fund_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_asset_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="fund_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_fund_funder_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="funding_account_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_fund_funder_funding_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="repayment_interest_account_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_fund_funder_repayment_interest_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="repayment_payoff_account_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_fund_funder_repayment_payoff_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="distribution_weight" nullable="false" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="committed_amount" nullable="false" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="reserved_amount" nullable="false" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="allocated_amount" nullable="false" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="version" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="created_on" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="last_updated_on" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
-         <index name="fund_funder_pkey" unique="true">
+         <index name="fund_asset_pkey" unique="true">
             <column ascending="true" name="id"/>
          </index>
-         <index name="fund_funder_uuid" unique="true">
+         <index name="fund_asset_facility_reference_id" unique="true">
+            <column ascending="true" name="facility_reference_id"/>
+         </index>
+         <index name="fund_asset_uuid" unique="true">
             <column ascending="true" name="uuid"/>
          </index>
-         <index name="idx_fund_funder_fund_id" unique="false">
-            <column ascending="true" name="fund_id"/>
+      </table>
+      <table name="fund_asset_fund_participation" remarks="" schema="tenant_alfa" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fund_asset_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_asset_fund_participation_fund_asset_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_asset"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fund_participation_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_asset_fund_participation_fund_participation_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_participation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="state" nullable="false" remarks="" size="9" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_asset_fund_participation_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="version" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="fund_asset_fund_participation_pkey" unique="true">
+            <column ascending="true" name="id"/>
          </index>
-         <index name="idx_fund_funder_funder_id" unique="false">
-            <column ascending="true" name="funder_id"/>
-         </index>
-         <index name="idx_fund_funder_funding_account_id" unique="false">
-            <column ascending="true" name="funding_account_id"/>
-         </index>
-         <index name="idx_fund_funder_repayment_interest_account_id" unique="false">
-            <column ascending="true" name="repayment_interest_account_id"/>
-         </index>
-         <index name="idx_fund_funder_repayment_payoff_account_id" unique="false">
-            <column ascending="true" name="repayment_payoff_account_id"/>
-         </index>
-         <index name="idx_fund_funder_whitelabel_id" unique="false">
-            <column ascending="true" name="whitelabel_id"/>
+         <index name="fund_asset_fund_participation_uuid" unique="true">
+            <column ascending="true" name="uuid"/>
          </index>
       </table>
-      <table name="fund_funder_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funder_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="fund_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="funding_account_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="repayment_interest_account_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="repayment_payoff_account_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="distribution_weight" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="committed_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="reserved_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="allocated_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_fund_funder_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
+      <table name="fund_participation" remarks="" schema="tenant_alfa" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <child column="fund_participation_id" foreignKey="fk_fund_asset_fund_participation_fund_participation_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_asset_fund_participation"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_participation_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funder_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_participation_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funder"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="fund_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_participation_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="disbursement_account_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_participation_disbursement_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="interest_account_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_participation_interest_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="repayment_account_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_fund_participation_repayment_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="distribution_weight" nullable="false" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="committed_amount" nullable="false" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="10" name="management_fee" nullable="false" remarks="" size="5" type="numeric" typeCode="2"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_fund_funder_aud" unique="true">
+         <index name="fund_participation_pkey" unique="true">
             <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
+         </index>
+         <index name="fund_participation_uuid" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="fund_participation_whitelabel_fund_funder" unique="true">
+            <column ascending="true" name="whitelabel_id"/>
+            <column ascending="true" name="fund_id"/>
+            <column ascending="true" name="funder_id"/>
+         </index>
+         <index name="idx_fund_participation_disbursement_account_id" unique="false">
+            <column ascending="true" name="disbursement_account_id"/>
+         </index>
+         <index name="idx_fund_participation_fund_id" unique="false">
+            <column ascending="true" name="fund_id"/>
+         </index>
+         <index name="idx_fund_participation_funder_id" unique="false">
+            <column ascending="true" name="funder_id"/>
+         </index>
+         <index name="idx_fund_participation_interest_account_id" unique="false">
+            <column ascending="true" name="interest_account_id"/>
+         </index>
+         <index name="idx_fund_participation_repayment_account_id" unique="false">
+            <column ascending="true" name="repayment_account_id"/>
+         </index>
+         <index name="idx_fund_participation_whitelabel_id" unique="false">
+            <column ascending="true" name="whitelabel_id"/>
          </index>
       </table>
       <table name="funder" remarks="" schema="tenant_alfa" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <child column="funder_id" foreignKey="fk_fund_funder_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_funder"/>
+            <child column="funder_id" foreignKey="fk_fund_participation_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_participation"/>
             <child column="funder_id" foreignKey="fk_funding_account_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
+            <child column="id" foreignKey="fk_organisation_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="organisation"/>
+            <child column="id" foreignKey="fk_person_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="person"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tenant_formatted_reference_id" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
             <parent column="id" foreignKey="fk_funder_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="bank_account_iban" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="bank_account_ascription" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="fiscal_number" nullable="true" remarks="" size="9" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="email_address" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="telephone_number" nullable="true" remarks="" size="12" type="varchar" typeCode="12"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="funder_pkey" unique="true">
             <column ascending="true" name="id"/>
+         </index>
+         <index name="funder_fiscal_number" unique="true">
+            <column ascending="true" name="fiscal_number"/>
+         </index>
+         <index name="funder_tenant_formatted_reference_id" unique="true">
+            <column ascending="true" name="tenant_formatted_reference_id"/>
          </index>
          <index name="funder_uuid" unique="true">
             <column ascending="true" name="uuid"/>
@@ -140,54 +190,61 @@
             <column ascending="true" name="whitelabel_id"/>
          </index>
       </table>
-      <table name="funder_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="bank_account_iban" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="bank_account_ascription" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funder_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_funder_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
-         </index>
-      </table>
       <table name="funding_account" remarks="" schema="tenant_alfa" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <child column="funding_account_id" foreignKey="fk_fund_funder_funding_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_funder"/>
-            <child column="repayment_interest_account_id" foreignKey="fk_fund_funder_repayment_interest_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_funder"/>
-            <child column="repayment_payoff_account_id" foreignKey="fk_fund_funder_repayment_payoff_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_funder"/>
-            <child column="funding_account_id" foreignKey="fk_funding_account_credit_limit_funding_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_credit_limit"/>
-            <child column="funding_account_id" foreignKey="fk_funding_account_interest_funding_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest"/>
+            <child column="disbursement_account_id" foreignKey="fk_fund_participation_disbursement_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_participation"/>
+            <child column="interest_account_id" foreignKey="fk_fund_participation_interest_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_participation"/>
+            <child column="repayment_account_id" foreignKey="fk_fund_participation_repayment_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_participation"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tenant_formatted_reference_id" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
             <parent column="id" foreignKey="fk_funding_account_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funder_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="funder_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
             <parent column="id" foreignKey="fk_funding_account_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funder"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="type_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="type_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
             <parent column="id" foreignKey="fk_funding_account_type_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_type"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="description" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="start_date" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="end_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="inform_tax_office" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="lower_bound_amount" nullable="false" remarks="" size="38" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="upper_bound_amount" nullable="false" remarks="" size="38" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="debit_interest_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_funding_account_debit_interest_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="credit_interest_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_funding_account_credit_interest_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="category_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_funding_account_category_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_category"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="account_number" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="description" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="start_date" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="end_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="inform_tax_office" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="lower_bound_amount" nullable="true" remarks="" size="38" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="upper_bound_amount" nullable="true" remarks="" size="38" type="numeric" typeCode="2"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="funding_account_pkey" unique="true">
             <column ascending="true" name="id"/>
          </index>
+         <index name="funding_account_account_number" unique="true">
+            <column ascending="true" name="account_number"/>
+            <column ascending="true" name="whitelabel_id"/>
+         </index>
+         <index name="funding_account_tenant_formatted_reference_id" unique="true">
+            <column ascending="true" name="tenant_formatted_reference_id"/>
+         </index>
          <index name="funding_account_uuid" unique="true">
             <column ascending="true" name="uuid"/>
+         </index>
+         <index name="idx_funding_account_category_id" unique="false">
+            <column ascending="true" name="category_id"/>
+         </index>
+         <index name="idx_funding_account_credit_interest_id" unique="false">
+            <column ascending="true" name="credit_interest_id"/>
+         </index>
+         <index name="idx_funding_account_debit_interest_id" unique="false">
+            <column ascending="true" name="debit_interest_id"/>
          </index>
          <index name="idx_funding_account_funder_id" unique="false">
             <column ascending="true" name="funder_id"/>
@@ -198,128 +255,45 @@
          <index name="idx_funding_account_whitelabel_id" unique="false">
             <column ascending="true" name="whitelabel_id"/>
          </index>
+         <checkConstraint constraint="type_id IS NOT NULL" name="funding_account_type_id_not_null1"/>
       </table>
-      <table name="funding_account_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funder_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="type_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="description" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="start_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="end_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="inform_tax_office" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="lower_bound_amount" nullable="true" remarks="" size="38" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="upper_bound_amount" nullable="true" remarks="" size="38" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_funding_account_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
-         </index>
-      </table>
-      <table name="funding_account_base_interest_type" remarks="" schema="tenant_alfa" type="TABLE">
+      <table name="funding_account_category" remarks="" schema="tenant_alfa" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <child column="base_interest_type_id" foreignKey="fk_funding_account_interest_base_interest_type_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest"/>
+            <child column="category_id" foreignKey="fk_funding_account_category_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
-         <index name="funding_account_base_interest_type_pkey" unique="true">
+         <index name="funding_account_category_pkey" unique="true">
             <column ascending="true" name="id"/>
          </index>
-         <index name="funding_account_base_interest_type_name" unique="true">
+         <index name="funding_account_category_name" unique="true">
             <column ascending="true" name="name"/>
          </index>
-         <index name="funding_account_base_interest_type_uuid" unique="true">
+         <index name="funding_account_category_uuid" unique="true">
             <column ascending="true" name="uuid"/>
-         </index>
-      </table>
-      <table name="funding_account_base_interest_type_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_base_interest_type_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_funding_account_base_interest_type_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
-         </index>
-      </table>
-      <table name="funding_account_credit_limit" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_credit_limit_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funding_account_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_credit_limit_funding_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="amount" nullable="false" remarks="" size="38" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="surcharge" nullable="false" remarks="" size="5" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="start_date" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="end_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <index name="funding_account_credit_limit_pkey" unique="true">
-            <column ascending="true" name="id"/>
-         </index>
-         <index name="funding_account_credit_limit_uuid" unique="true">
-            <column ascending="true" name="uuid"/>
-         </index>
-         <index name="idx_funding_account_credit_limit_funding_account_id" unique="false">
-            <column ascending="true" name="funding_account_id"/>
-         </index>
-         <index name="idx_funding_account_credit_limit_only_one_active_per_ca" unique="true">
-            <column ascending="true" name="funding_account_id"/>
-         </index>
-         <index name="idx_funding_account_credit_limit_whitelabel_id" unique="false">
-            <column ascending="true" name="whitelabel_id"/>
-         </index>
-      </table>
-      <table name="funding_account_credit_limit_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funding_account_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="amount" nullable="true" remarks="" size="38" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="surcharge" nullable="true" remarks="" size="5" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="start_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="end_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_credit_limit_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_funding_account_credit_limit_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
          </index>
       </table>
       <table name="funding_account_interest" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <child column="credit_interest_id" foreignKey="fk_funding_account_credit_interest_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
+            <child column="debit_interest_id" foreignKey="fk_funding_account_debit_interest_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
+            <child column="previous_interest_id" foreignKey="fk_funding_account_interest_previous_interest_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
             <parent column="id" foreignKey="fk_funding_account_interest_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funding_account_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_interest_funding_account_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="interest_rate_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_funding_account_interest_interest_rate_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="interest_rate"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="base_interest_type_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_interest_base_interest_type_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_base_interest_type"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="previous_interest_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_funding_account_interest_previous_interest_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="is_debit" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="adjustment" nullable="false" remarks="" size="5" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="start_date" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="end_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="5" name="adjustment" nullable="false" remarks="" size="5" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="valid_to" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balance_soft_limit" nullable="true" remarks="" size="38" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="8" name="extra_adjustment_when_over_balance_soft_limit" nullable="true" remarks="" size="5" type="numeric" typeCode="2"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="funding_account_interest_pkey" unique="true">
             <column ascending="true" name="id"/>
@@ -327,40 +301,16 @@
          <index name="funding_account_interest_uuid" unique="true">
             <column ascending="true" name="uuid"/>
          </index>
-         <index name="idx_funding_account_interest_base_interest_type_id" unique="false">
-            <column ascending="true" name="base_interest_type_id"/>
+         <index name="idx_funding_account_interest_interest_rate_id" unique="false">
+            <column ascending="true" name="interest_rate_id"/>
          </index>
-         <index name="idx_funding_account_interest_funding_account_id" unique="false">
-            <column ascending="true" name="funding_account_id"/>
-         </index>
-         <index name="idx_funding_account_interest_only_one_active_per_ca_and_dc" unique="true">
-            <column ascending="true" name="funding_account_id"/>
-            <column ascending="true" name="is_debit"/>
+         <index name="idx_funding_account_interest_previous_interest_id" unique="false">
+            <column ascending="true" name="previous_interest_id"/>
          </index>
          <index name="idx_funding_account_interest_whitelabel_id" unique="false">
             <column ascending="true" name="whitelabel_id"/>
          </index>
-      </table>
-      <table name="funding_account_interest_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="funding_account_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="base_interest_type_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="is_debit" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="adjustment" nullable="true" remarks="" size="5" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="start_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="end_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_interest_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_funding_account_interest_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
-         </index>
+         <checkConstraint constraint="(((balance_soft_limit IS NULL) AND (extra_adjustment_when_over_balance_soft_limit IS NULL)) OR ((balance_soft_limit IS NOT NULL) AND (extra_adjustment_when_over_balance_soft_limit IS NOT NULL)))" name="balance_soft_limit_and_extra_adjustment_when_over_bal_soft_lim"/>
       </table>
       <table name="funding_account_type" remarks="" schema="tenant_alfa" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
@@ -372,23 +322,53 @@
          <index name="funding_account_type_pkey" unique="true">
             <column ascending="true" name="id"/>
          </index>
+         <index name="funding_account_type_name" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
          <index name="funding_account_type_uuid" unique="true">
             <column ascending="true" name="uuid"/>
          </index>
       </table>
-      <table name="funding_account_type_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_funding_account_type_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
+      <table name="interest_rate" remarks="" schema="tenant_alfa" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <child column="interest_rate_id" foreignKey="fk_funding_account_interest_interest_rate_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="base_interest_type_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_interest_rate_base_interest_type_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="base_interest_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="3" name="rate" nullable="false" remarks="" size="5" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="valid_from" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_funding_account_type_aud" unique="true">
+         <index name="interest_rate_pkey" unique="true">
             <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
+         </index>
+         <index name="interest_rate_type_valid_from" unique="true">
+            <column ascending="true" name="base_interest_type_id"/>
+            <column ascending="true" name="valid_from"/>
+         </index>
+         <index name="interest_rate_uuid" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+      </table>
+      <table name="organisation" remarks="" schema="tenant_alfa" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_organisation_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funder"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="coc_number" nullable="false" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="contact_person_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="organisation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="person" remarks="" schema="tenant_alfa" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="fk_person_funder_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funder"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="person_pkey" unique="true">
+            <column ascending="true" name="id"/>
          </index>
       </table>
       <table name="product_definition" remarks="" schema="tenant_alfa" type="TABLE">
@@ -410,93 +390,9 @@
          <index name="product_definition_uuid" unique="true">
             <column ascending="true" name="uuid"/>
          </index>
-      </table>
-      <table name="product_definition_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fund_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="product_definition_reference_id" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="created_on" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="deleted_on" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_product_definition_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_product_definition_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
-         </index>
-      </table>
-      <table name="reservation" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="process_reference_id" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="agreement_reference_id" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="state" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="whitelabel_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_reservation_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="fund_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_reservation_fund_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="version" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="created_on" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="last_updated_on" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <index name="reservation_pkey" unique="true">
-            <column ascending="true" name="id"/>
-         </index>
-         <index name="reservation_uuid" unique="true">
-            <column ascending="true" name="uuid"/>
-         </index>
-      </table>
-      <table name="reservation_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fund_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="process_reference_id" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="agreement_reference_id" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="state" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="version" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="created_on" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="last_updated_on" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_reservation_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_reservation_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
-         </index>
-      </table>
-      <table name="revinfo" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <child column="rev" foreignKey="fk_fund_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_aud"/>
-            <child column="rev" foreignKey="fk_fund_funder_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_funder_aud"/>
-            <child column="rev" foreignKey="fk_funder_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funder_aud"/>
-            <child column="rev" foreignKey="fk_funding_account_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_aud"/>
-            <child column="rev" foreignKey="fk_funding_account_base_interest_type_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_base_interest_type_aud"/>
-            <child column="rev" foreignKey="fk_funding_account_credit_limit_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_credit_limit_aud"/>
-            <child column="rev" foreignKey="fk_funding_account_interest_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest_aud"/>
-            <child column="rev" foreignKey="fk_funding_account_type_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_type_aud"/>
-            <child column="rev" foreignKey="fk_product_definition_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="product_definition_aud"/>
-            <child column="rev" foreignKey="fk_reservation_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="reservation_aud"/>
-            <child column="rev" foreignKey="fk_setting_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="setting_aud"/>
-            <child column="rev" foreignKey="fk_whitelabel_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="whitelabel_aud"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="timestamp" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="clientid" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <index name="pk_revinfo" unique="true">
-            <column ascending="true" name="id"/>
+         <index name="product_definition_whitelabel_reference_unique" unique="true">
+            <column ascending="true" name="whitelabel_id"/>
+            <column ascending="true" name="product_definition_reference_id"/>
          </index>
       </table>
       <table name="setting" remarks="" schema="tenant_alfa" type="TABLE">
@@ -516,33 +412,16 @@
             <column ascending="true" name="uuid"/>
          </index>
       </table>
-      <table name="setting_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="regex" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="value" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_setting_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_setting_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
-         </index>
-      </table>
       <table name="whitelabel" remarks="" schema="tenant_alfa" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
             <child column="whitelabel_id" foreignKey="fk_fund_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund"/>
-            <child column="whitelabel_id" foreignKey="fk_fund_funder_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_funder"/>
+            <child column="whitelabel_id" foreignKey="fk_fund_asset_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_asset"/>
+            <child column="whitelabel_id" foreignKey="fk_fund_asset_fund_participation_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_asset_fund_participation"/>
+            <child column="whitelabel_id" foreignKey="fk_fund_participation_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="fund_participation"/>
             <child column="whitelabel_id" foreignKey="fk_funder_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funder"/>
             <child column="whitelabel_id" foreignKey="fk_funding_account_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account"/>
-            <child column="whitelabel_id" foreignKey="fk_funding_account_credit_limit_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_credit_limit"/>
             <child column="whitelabel_id" foreignKey="fk_funding_account_interest_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="funding_account_interest"/>
             <child column="whitelabel_id" foreignKey="fk_product_definition_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="product_definition"/>
-            <child column="whitelabel_id" foreignKey="fk_reservation_whitelabel_id" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="reservation"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
@@ -555,21 +434,6 @@
          </index>
          <index name="whitelabel_uuid" unique="true">
             <column ascending="true" name="uuid"/>
-         </index>
-      </table>
-      <table name="whitelabel_aud" remarks="" schema="tenant_alfa" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="rev" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
-            <parent column="id" foreignKey="fk_whitelabel_aud_rev" implied="false" onDeleteCascade="false" schema="tenant_alfa" table="revinfo"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="revtype" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
-         <primaryKey column="id" sequenceNumberInPK="1"/>
-         <primaryKey column="rev" sequenceNumberInPK="2"/>
-         <index name="pk_whitelabel_aud" unique="true">
-            <column ascending="true" name="id"/>
-            <column ascending="true" name="rev"/>
          </index>
       </table>
    </tables>

@@ -187,7 +187,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="product_definition_reference_id">product_definition_reference_id</span></td>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="product_definition_reference_id">product_definition_reference_id</span></td>
                                     <td>varchar</td>
                                     <td>255</td>
                                     <td title=''></td>
@@ -279,6 +279,12 @@
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>uuid</td>
                                 </tr>
+                                <tr>
+                                    <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> product_definition_whitelabel_reference_unique</td>
+                                    <td>Must be unique</td>
+                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
+                                    <td>whitelabel_id + product_definition_reference_id</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div><!-- /.box-body -->
@@ -302,7 +308,7 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="fund.html" target="_top" title="fund" alt="" coords="235,119,412,295">
+<area shape="rect" id="node1" href="fund.html" target="_top" title="fund" alt="" coords="235,119,412,300">
 <area shape="rect" id="node2" href="whitelabel.html" target="_top" title="whitelabel" alt="" coords="5,111,191,263">
 <area shape="rect" id="node3" href="product_definition.html" target="_top" title="product_definition" alt="" coords="456,5,960,280">
 </map>
@@ -310,15 +316,15 @@
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="fund.html" target="_top" title="fund" alt="" coords="245,354,373,442">
-<area shape="rect" id="node2" href="whitelabel.html" target="_top" title="whitelabel" alt="" coords="5,463,191,551">
-<area shape="rect" id="node3" href="fund_funder.html" target="_top" title="fund_funder" alt="" coords="1055,475,1257,563">
-<area shape="rect" id="node4" href="funder.html" target="_top" title="funder" alt="" coords="235,496,383,584">
-<area shape="rect" id="node5" href="funding_account.html" target="_top" title="funding_account" alt="" coords="557,564,801,652">
-<area shape="rect" id="node6" href="funding_account_credit_limit.html" target="_top" title="funding_account_credit_limit" alt="" coords="975,580,1337,668">
-<area shape="rect" id="node7" href="funding_account_interest.html" target="_top" title="funding_account_interest" alt="" coords="991,686,1321,774">
-<area shape="rect" id="node8" href="product_definition.html" target="_top" title="product_definition" alt="" coords="427,95,931,370">
-<area shape="rect" id="node9" href="reservation.html" target="_top" title="reservation" alt="" coords="581,423,777,511">
+<area shape="rect" id="node1" href="fund.html" target="_top" title="fund" alt="" coords="336,305,464,393">
+<area shape="rect" id="node2" href="whitelabel.html" target="_top" title="whitelabel" alt="" coords="5,353,191,441">
+<area shape="rect" id="node3" href="fund_asset.html" target="_top" title="fund_asset" alt="" coords="767,38,956,126">
+<area shape="rect" id="node4" href="fund_asset_fund_participation.html" target="_top" title="fund_asset_fund_participation" alt="" coords="1464,38,1840,126">
+<area shape="rect" id="node5" href="fund_participation.html" target="_top" title="fund_participation" alt="" coords="1157,470,1420,558">
+<area shape="rect" id="node6" href="funding_account.html" target="_top" title="funding_account" alt="" coords="739,544,983,632">
+<area shape="rect" id="node7" href="funder.html" target="_top" title="funder" alt="" coords="326,470,474,558">
+<area shape="rect" id="node8" href="funding_account_interest.html" target="_top" title="funding_account_interest" alt="" coords="235,612,565,700">
+<area shape="rect" id="node9" href="product_definition.html" target="_top" title="product_definition" alt="" coords="609,144,1113,418">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/product_definition.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
