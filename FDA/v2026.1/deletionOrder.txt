@@ -1,3 +1,4 @@
+sz_metadata
 sz_relation
 sz_statuschangedefinition
 sz_collateral_object_taxation

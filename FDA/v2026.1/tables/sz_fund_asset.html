@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_relation - data-analytics.wlr</title>
+        <title>sz_fund_asset - data-analytics.wlc</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -46,7 +46,7 @@
                 <nav class="navbar navbar-static-top">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="../index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlr</span>
+                            <a href="../index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlc</span>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
                         </div>
 
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>sz_relation</h1><br />
+                    <h1>sz_fund_asset</h1><br />
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="fa fa-file-text-o"></i>
@@ -84,7 +84,7 @@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body clearfix">
-                            <p>Associative table implementing the many-to-many relation between Agreement and Counterparty</p>
+                            <p>Relation between an asset and the fund.</p>
                         </div><!-- /.box-body -->
                     </div>
                 </section>
@@ -122,10 +122,10 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="agreementreferenceid">agreementreferenceid</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fundreferenceid">fundreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
-                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -135,43 +135,33 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_relation.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_relation_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.referenceid</span></td>
-                                                <td class="constraint detail">FK_relation_agreement</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                                <td title="sz_fund_asset.fundreferenceid references sz_fund.referenceid via FK_sz_fund_asset1"><a href='sz_fund.html'>sz_fund</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_sz_fund_asset1</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Unique identifier of a Fund</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="agreementreferenceid">agreementreferenceid</span></td>
+                                    <td>varchar</td>
+                                    <td>128</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
                                     <td><p>Unique identifier of an agreement</p></td>
                                 </tr>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_relation.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_borrower_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_borrower_counterparty</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="sz_relation.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_relation_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_relation_agreement</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td><p>Unique identifier of a process</p></td>
-                                </tr>
-                                <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="counterpartyreferenceid">counterpartyreferenceid</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="facilityreferenceid">facilityreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title=''></td>
@@ -184,87 +174,17 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_relation.[counterpartyreferenceid, processnumber] references sz_counterparty.[referenceid, processnumber] via FK_borrower_counterparty"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.referenceid</span></td>
-                                                <td class="constraint detail">FK_borrower_counterparty</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                                <td title="sz_fund_asset.facilityreferenceid references sz_facility_periodicstatement.facilityreferenceid via FK_sz_fund_asset2"><a href='sz_facility_periodicstatement.html'>sz_facility_periodicstatement</a><span class='relatedKey'>.facilityreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_fund_asset2</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
-                                    <td><p>Unique identifier of a counterparty</p></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="borrowerrelationtype">borrowerrelationtype</span></td>
-                                    <td>varchar</td>
-                                    <td>128</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Type of borrower relation (Main borrower or Borrower)</p></td>
-                                </tr>
-                                <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="referenceid">referenceid</span></td>
-                                    <td>varchar</td>
-                                    <td>128</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td><p>Unique identifier of this table.</p></td>
+                                    <td><p>Unique identifier of an facility</p></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <i class="fa fa-sitemap"></i>
-                            <h3 id="Indexes" class="box-title">Indexes</h3>
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div>
-                        </div>
-                        <div class="box-body">
-                            <table
-                                    id="indexes_table"
-                                    class="table table-bordered table-striped dataTable"
-                                    role="grid"
-                                    data-paging="false"
-                                    data-page-length="10"
-                                    data-length-change="false">
-                                <thead>
-                                <tr>
-                                    <th>Constraint Name</th>
-                                    <th>Type</th>
-                                    <th>Sort</th>
-                                    <th>Column(s)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_relation</td>
-                                    <td>Primary key</td>
-                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
-                                    <td>referenceid + processnumber</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div><!-- /.box-body -->
                     </div>
                     <div class="box box-primary">
                         <div class="box-header with-border">
@@ -285,28 +205,23 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="373,5,697,181">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,97,329,244">
-<area shape="rect" id="node3" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="741,65,1140,281">
+<area shape="rect" id="node1" href="sz_fund_asset.html" target="_top" title="sz_fund_asset" alt="" coords="417,41,795,199">
+<area shape="rect" id="node2" href="sz_facility_periodicstatement.html" target="_top" title="sz_facility_periodicstatement" alt="" coords="5,140,373,287">
+<area shape="rect" id="node3" href="sz_fund.html" target="_top" title="sz_fund" alt="" coords="27,5,351,123">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_relation.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_fund_asset.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="740,284,959,372">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="392,444,632,532">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="418,281,606,369">
-<area shape="rect" id="node6" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="5,441,348,529">
-<area shape="rect" id="node4" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="1067,5,1475,93">
-<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="1169,111,1373,199">
-<area shape="rect" id="node7" href="sz_counterparty_fiscal_info.html" target="_top" title="sz_counterparty_fiscal_info" alt="" coords="676,389,1023,477">
-<area shape="rect" id="node8" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="700,495,999,583">
-<area shape="rect" id="node9" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="1181,216,1360,304">
-<area shape="rect" id="node10" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="1141,321,1400,409">
-<area shape="rect" id="node11" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="1148,427,1393,515">
-<area shape="rect" id="node12" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1071,532,1470,748">
+<area shape="rect" id="node1" href="sz_facility_periodicstatement.html" target="_top" title="sz_facility_periodicstatement" alt="" coords="228,108,596,255">
+<area shape="rect" id="node2" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="5,125,184,213">
+<area shape="rect" id="node3" href="sz_financialstate.html" target="_top" title="sz_financialstate" alt="" coords="705,5,952,93">
+<area shape="rect" id="node4" href="sz_fund_asset.html" target="_top" title="sz_fund_asset" alt="" coords="640,216,1017,373">
+<area shape="rect" id="node5" href="sz_fund.html" target="_top" title="sz_fund" alt="" coords="250,331,574,448">
+<area shape="rect" id="node6" href="sz_fund_funder.html" target="_top" title="sz_fund_funder" alt="" coords="713,391,944,479">
+<area shape="rect" id="node7" href="sz_periodicstatement.html" target="_top" title="sz_periodicstatement" alt="" coords="683,111,975,199">
 </map>
-                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_relation.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_fund_asset.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>
