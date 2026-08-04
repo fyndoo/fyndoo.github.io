@@ -10,6 +10,8 @@ Changelog FDA Standard Zone version from 2025.1 to 2026.1:
 * Added table sz_funder
 * Added table sz_fundingaccount
 * Added table sz_fundingaccount_periodicstatement
+* Added table sz_fund
+* Added table sz_fund_facility_participation
 
 # Columns:
 * Added column prepaidAmountInCurrentYear in table sz_financialstate

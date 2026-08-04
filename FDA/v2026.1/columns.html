@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>data-analytics.wlr</title>
+        <title>data-analytics.wlc</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
@@ -46,7 +46,7 @@
                 <nav class="navbar navbar-static-top">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlr</span>
+                            <a href="index.html" class="navbar-brand"><b>data-analytics</b></a><span class="navbar-brand" style="padding-left: 0">.wlc</span>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
                         </div>
 
@@ -4143,6 +4143,20 @@
         "comments": "<p>Unique identifier of a process</p>"
     },
     {
+        "tableName": "sz_facilityreference",
+        "tableFileName": "sz_facilityreference",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>facilityreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of the facility</p>"
+    },
+    {
         "tableName": "sz_fee_agreement",
         "tableFileName": "sz_fee_agreement",
         "tableType": "Table",
@@ -5011,6 +5025,104 @@
         "comments": "<p>Description of financinggoal. This name is a customer specific Akkuro configuration.</p>"
     },
     {
+        "tableName": "sz_fund",
+        "tableFileName": "sz_fund",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>referenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of a Fund</p>"
+    },
+    {
+        "tableName": "sz_fund",
+        "tableFileName": "sz_fund",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "fundname",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>In case a NaturalPerson the fullname and in case a NonNaturalPerson organisationname</p>"
+    },
+    {
+        "tableName": "sz_fund_facility_participation",
+        "tableFileName": "sz_fund_facility_participation",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>facilityreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of an facility</p>"
+    },
+    {
+        "tableName": "sz_fund_facility_participation",
+        "tableFileName": "sz_fund_facility_participation",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>fundreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of a Fund</p>"
+    },
+    {
+        "tableName": "sz_fund_facility_participation",
+        "tableFileName": "sz_fund_facility_participation",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>funderreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of a Funder</p>"
+    },
+    {
+        "tableName": "sz_fund_facility_participation",
+        "tableFileName": "sz_fund_facility_participation",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "participation_amount",
+        "type": "numeric",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>The participation_amount of the funder in this facility</p>"
+    },
+    {
+        "tableName": "sz_fund_facility_participation",
+        "tableFileName": "sz_fund_facility_participation",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "managementfee",
+        "type": "numeric",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>The managementfee of the funder of this facility</p>"
+    },
+    {
         "tableName": "sz_funder",
         "tableFileName": "sz_funder",
         "tableType": "Table",
@@ -5022,7 +5134,7 @@
         "nullable": "",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Unique identifier of a counterparty</p>"
+        "comments": "<p>Unique identifier of a Funder</p>"
     },
     {
         "tableName": "sz_funder",
@@ -5050,7 +5162,7 @@
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>ReferenceId generated by Akkuro, but tenant formatted of the counterparty</p>"
+        "comments": "<p>ReferenceId generated by Akkuro, but tenant formatted of the Funder</p>"
     },
     {
         "tableName": "sz_funder",
@@ -5092,7 +5204,7 @@
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>The birthdate of the counterparty (in case a NaturalPerson).</p>"
+        "comments": "<p>The birthdate of the Funder (in case a NaturalPerson).</p>"
     },
     {
         "tableName": "sz_funder",
@@ -5848,7 +5960,7 @@
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Actual repayment (f greater than totaldebit then it is an additional repayment</p>"
+        "comments": "<p>Actual repayment (if greater than totaldebit then it is an additional repayment)</p>"
     },
     {
         "tableName": "sz_process",

@@ -232,7 +232,11 @@ CREATE TABLE sz_fundingaccount (
 	productdefinitioncode varchar(128) NULL,
 	CONSTRAINT "PK_sz_fundingaccount" PRIMARY KEY (referenceid),
 	CONSTRAINT "FK_sz_fundingaccount" FOREIGN KEY (funderreferenceid) REFERENCES sz_funder(referenceid)
-	
+	);
+
+
+-- sz_fundingaccount_periodicstatement definition
+
 -- Drop table
 
 -- DROP TABLE sz_fundingaccount_periodicstatement;
@@ -244,19 +248,17 @@ CREATE TABLE sz_fundingaccount_periodicstatement (
 	periodtype varchar(255) NOT NULL,
 	periodstartdate date NOT NULL,
 	periodenddate date NOT NULL,
-	balanceatstart numeric(11, 2) NULL,
-	balanceatend numeric(11, 2) NULL,
-	totalinterestpaid numeric(11, 2) NULL,
-	totalinterestchargepaid numeric(11, 2) NULL,
-	totalfeespaid numeric(11, 2) NULL,
-	totalothercostspaid numeric(11, 2) NULL,
-	totaldebit numeric(11, 2) NULL,
-	totalcredit numeric(11, 2) NULL,
+	balanceatstart numeric(19, 2) NULL,
+	balanceatend numeric(19, 2) NULL,
+	totalinterestpaid numeric(19, 2) NULL,
+	totalinterestchargepaid numeric(19, 2) NULL,
+	totalfeespaid numeric(19, 2) NULL,
+	totalothercostspaid numeric(19, 2) NULL,
+	totaldebit numeric(19, 2) NULL,
+	totalcredit numeric(19, 2) NULL,
 	CONSTRAINT "PK_sz_fundingaccount_periodicstatement" PRIMARY KEY (fundingaccountreferenceid, periodtype, periodenddate),
 	CONSTRAINT "FK_sz_fundingaccount_periodicstatement" FOREIGN KEY (fundingaccountreferenceid) REFERENCES sz_fundingaccount(referenceid) ON DELETE CASCADE
-
-	
-
+);
 
 -- sz_financialstate definition
 
@@ -283,9 +285,9 @@ CREATE TABLE sz_financialstate (
 	outstandingdebt numeric(19, 2) NULL,
 	"prepaidAmountInCurrentYear" numeric(19, 2) NULL,
 	CONSTRAINT "PK_sz_financialstate" PRIMARY KEY (facilityreferenceid),
-	CONSTRAINT "FK_sz_facility_periodicstatement_fs" FOREIGN KEY (facilityreferenceid) REFERENCES sz_facility_periodicstatement(facilityreferenceid) ON delete CASCADE,
-	CONSTRAINT "FK_sz_facilityreference3" FOREIGN KEY (facilityreferenceid) REFERENCES sz_facilityreference(facilityreferenceid) ON delete CASCADE
+	CONSTRAINT "FK_sz_facility_periodicstatement_fs" FOREIGN KEY (facilityreferenceid) REFERENCES sz_facility_periodicstatement(facilityreferenceid) ON DELETE CASCADE
 );
+
 
 -- sz_financialstate_agreementlevel definition
 
@@ -312,7 +314,7 @@ CREATE TABLE sz_financialstate_agreementlevel (
 	outstandingdebt numeric(19, 2) NULL,
 	expecteddateofnextinstallment timestamp NULL,
 	CONSTRAINT "PK_sz_financialstate_agreementlevel" PRIMARY KEY (agreementreferenceid),
-	CONSTRAINT "FK_sz_agreement_periodicstatement_fs" FOREIGN KEY (agreementreferenceid) REFERENCES sz_agreement_periodicstatement(agreementreferenceid) ON delete CASCADE
+	CONSTRAINT "FK_sz_agreement_periodicstatement_fs" FOREIGN KEY (agreementreferenceid) REFERENCES sz_agreement_periodicstatement(agreementreferenceid) ON DELETE CASCADE
 );
 
 -- sz_periodicstatement definition
@@ -337,8 +339,7 @@ CREATE TABLE sz_periodicstatement (
 	totaldebit numeric(19, 2) NULL,
 	totalcredit numeric(19, 2) NULL,
 	CONSTRAINT "PK_sz_periodicstatement" PRIMARY KEY (facilityreferenceid, periodtype, periodenddate),
-	CONSTRAINT "FK_sz_facility_periodicstatement_ps" FOREIGN KEY (facilityreferenceid) REFERENCES sz_facility_periodicstatement(facilityreferenceid) ON delete CASCADE,
-	CONSTRAINT "FK_sz_facilityreference" FOREIGN KEY (facilityreferenceid) REFERENCES sz_facilityreference(facilityreferenceid) ON delete CASCADE
+	CONSTRAINT "FK_sz_facility_periodicstatement_ps" FOREIGN KEY (facilityreferenceid) REFERENCES sz_facility_periodicstatement(facilityreferenceid) ON DELETE CASCADE
 );
 
 
@@ -364,7 +365,7 @@ CREATE TABLE sz_periodicstatement_agreementlevel (
 	totaldebit numeric(19, 2) NULL,
 	totalcredit numeric(19, 2) NULL,
 	CONSTRAINT "PK_sz_periodicstatementagreement" PRIMARY KEY (agreementreferenceid, periodtype, periodenddate),
-	CONSTRAINT "FK_sz_agreement_ps" FOREIGN KEY (agreementreferenceid) REFERENCES sz_agreement_periodicstatement(agreementreferenceid) ON delete CASCADE
+	CONSTRAINT "FK_sz_agreement_ps" FOREIGN KEY (agreementreferenceid) REFERENCES sz_agreement_periodicstatement(agreementreferenceid) ON DELETE CASCADE
 );
 
 
@@ -851,8 +852,7 @@ CREATE TABLE sz_collateral_object (
 	colllateraltypecategory varchar(255) NULL,
 	monumenttype varchar(255) NULL,
 	province varchar(255) NULL,
-	CONSTRAINT "PK_sz_collateral_object" PRIMARY KEY (referenceid, agreementreferenceid, processnumber, collateralreferenceid),
-	CONSTRAINT "UK_sz_collateral_object" UNIQUE (referenceid, processnumber, collateralreferenceid),
+	CONSTRAINT "PK_sz_collateral_object" PRIMARY KEY (referenceid, processnumber, collateralreferenceid),
 	CONSTRAINT "FK_collateral_object" FOREIGN KEY (collateralreferenceid,agreementreferenceid,processnumber) REFERENCES sz_collateral(referenceid,agreementreferenceid,processnumber) ON DELETE CASCADE
 );
 
@@ -1067,9 +1067,8 @@ CREATE TABLE sz_financinggoal (
 	definitioncode varchar(255) NULL,
 	description varchar(255) NULL,
 	CONSTRAINT "PK_sz_financinggoal" PRIMARY KEY (referenceid, processnumber),
-	CONSTRAINT "FK_financinggoal_agreement" FOREIGN KEY (agreementreferenceid,processnumber) REFERENCES sz_agreement(referenceid,processnumber) ON delete CASCADE
+	CONSTRAINT "FK_financinggoal_agreement" FOREIGN KEY (agreementreferenceid,processnumber) REFERENCES sz_agreement(referenceid,processnumber) ON DELETE CASCADE
 );
-
 
 -- sz_relation definition
 
@@ -1086,4 +1085,36 @@ CREATE TABLE sz_relation (
 	CONSTRAINT "PK_sz_relation" PRIMARY KEY (referenceid, processnumber),
 	CONSTRAINT "FK_borrower_counterparty" FOREIGN KEY (counterpartyreferenceid,processnumber) REFERENCES sz_counterparty(referenceid,processnumber) ON DELETE CASCADE,
 	CONSTRAINT "FK_relation_agreement" FOREIGN KEY (agreementreferenceid,processnumber) REFERENCES sz_agreement(referenceid,processnumber) ON DELETE CASCADE
+);
+
+-- sz_fund definition
+
+-- Drop table
+
+-- DROP TABLE sz_fund;
+
+CREATE TABLE sz_fund (
+	referenceid varchar(128) NOT NULL,
+	fundname varchar(255) NULL,
+	CONSTRAINT "PK_sz_fund" PRIMARY KEY (referenceid)
+);
+
+
+
+-- sz_fund_facility_participation definition
+
+-- Drop table
+
+-- DROP TABLE sz_fund_facility_participation;
+
+CREATE TABLE sz_fund_facility_participation (
+	facilityreferenceid varchar(128) NOT NULL,
+	fundreferenceid varchar(128) NOT NULL,
+	funderreferenceid varchar(128) NOT NULL,
+	participation_amount numeric(19, 2) NULL,
+	managementfee numeric(19, 2) NULL,
+	CONSTRAINT "PK_sz_fund_facility_participation" PRIMARY KEY (facilityreferenceid, fundreferenceid, funderreferenceid),
+	CONSTRAINT "FK_sz_fund_facility_participation" FOREIGN KEY (facilityreferenceid) REFERENCES sz_facilityreference(facilityreferenceid),
+	CONSTRAINT "FK_sz_fund_facility_participation1" FOREIGN KEY (fundreferenceid) REFERENCES sz_fund(referenceid),
+	CONSTRAINT "FK_sz_fund_facility_participation3" FOREIGN KEY (funderreferenceid) REFERENCES sz_funder(referenceid)
 );

@@ -17,8 +17,8 @@
             <child column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fee_agreement"/>
             <child column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financinggoal"/>
             <child column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_relation"/>
-            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
             <parent column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel" nullable="false" remarks="White label name" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="mainborrowerreferenceid" nullable="true" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
@@ -533,6 +533,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of the facility" size="128" type="varchar" typeCode="12">
             <child column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement" implied="false" onDeleteCascade="false" schema="wlc" table="sz_facility_periodicstatement"/>
             <child column="facilityreferenceid" foreignKey="FK_fee_facility" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fee_facility"/>
+            <parent column="facilityreferenceid" foreignKey="FK_sz_facilityreference2" implied="false" onDeleteCascade="true" schema="wlc" table="sz_facilityreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="mainfacilityreferenceid" nullable="true" remarks="Unique identifier of the main facility" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12">
@@ -601,7 +602,6 @@
       <table name="sz_facility_periodicstatement" remarks="Linking table between periodic_statements and facilities" schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="" size="128" type="varchar" typeCode="12">
             <child column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement_fs" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financialstate"/>
-            <child column="facilityreferenceid" foreignKey="FK_sz_fund_asset2" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_asset"/>
             <child column="facilityreferenceid" foreignKey="FK_sz_facility_periodicstatement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_periodicstatement"/>
             <parent column="referenceid" foreignKey="FK_sz_facility_periodicstatement" implied="false" onDeleteCascade="false" schema="wlc" table="sz_facility"/>
          </column>
@@ -611,6 +611,16 @@
          </column>
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
          <index name="PK_facilityreferenceid" unique="true">
+            <column ascending="true" name="facilityreferenceid"/>
+         </index>
+      </table>
+      <table name="sz_facilityreference" remarks="Linking table between facility and periodicstatement ( OBSOLETE for exports after version 2025.1 !!!!!)" schema="wlc" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="Unique identifier of the facility" size="128" type="varchar" typeCode="12">
+            <child column="referenceid" foreignKey="FK_sz_facilityreference2" implied="false" onDeleteCascade="true" schema="wlc" table="sz_facility"/>
+            <child column="facilityreferenceid" foreignKey="FK_sz_fund_facility_participation" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_facility_participation"/>
+         </column>
+         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
+         <index name="PK_sz_facilityreference" unique="true">
             <column ascending="true" name="facilityreferenceid"/>
          </index>
       </table>
@@ -742,42 +752,38 @@
       </table>
       <table name="sz_fund" remarks="Fund information." schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a Fund" size="128" type="varchar" typeCode="12">
-            <child column="fundreferenceid" foreignKey="FK_sz_fund_asset1" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_asset"/>
-            <child column="fundreferenceid" foreignKey="FK_sz_fund_funder2" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_funder"/>
+            <child column="fundreferenceid" foreignKey="FK_sz_fund_facility_participation1" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_facility_participation"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="tenantformattedreferenceid" nullable="true" remarks="ReferenceId generated by Akkuro, but tenant formatted of the Fund" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fundname" nullable="true" remarks="In case a NaturalPerson the fullname and in case a NonNaturalPerson organisationname" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fundname" nullable="true" remarks="In case a NaturalPerson the fullname and in case a NonNaturalPerson organisationname" size="255" type="varchar" typeCode="12"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_fund" unique="true">
             <column ascending="true" name="referenceid"/>
          </index>
       </table>
-      <table name="sz_fund_asset" remarks="Relation between an asset and the fund." schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="fundreferenceid" nullable="false" remarks="Unique identifier of a Fund" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_sz_fund_asset1" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund"/>
-         </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="facilityreferenceid" nullable="false" remarks="Unique identifier of an facility" size="128" type="varchar" typeCode="12">
-            <parent column="facilityreferenceid" foreignKey="FK_sz_fund_asset2" implied="false" onDeleteCascade="false" schema="wlc" table="sz_facility_periodicstatement"/>
-         </column>
-      </table>
-      <table name="sz_fund_funder" remarks="Which Funder are participating in a Fund." schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="funderreferenceid" nullable="false" remarks="Unique identifier of a Funder" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_sz_fund_funder1" implied="false" onDeleteCascade="false" schema="wlc" table="sz_funder"/>
+      <table name="sz_fund_facility_participation" remarks="Relation between an asset and the fund." schema="wlc" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="facilityreferenceid" nullable="false" remarks="Unique identifier of an facility" size="128" type="varchar" typeCode="12">
+            <parent column="facilityreferenceid" foreignKey="FK_sz_fund_facility_participation" implied="false" onDeleteCascade="false" schema="wlc" table="sz_facilityreference"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fundreferenceid" nullable="false" remarks="Unique identifier of a Fund" size="128" type="varchar" typeCode="12">
-            <parent column="referenceid" foreignKey="FK_sz_fund_funder2" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund"/>
+            <parent column="referenceid" foreignKey="FK_sz_fund_facility_participation1" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund"/>
          </column>
-         <primaryKey column="funderreferenceid" sequenceNumberInPK="1"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="funderreferenceid" nullable="false" remarks="Unique identifier of a Funder" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_sz_fund_facility_participation3" implied="false" onDeleteCascade="false" schema="wlc" table="sz_funder"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="participation_amount" nullable="true" remarks="The participation_amount of the funder in this facility" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="managementfee" nullable="true" remarks="The managementfee of the funder of this facility" size="19" type="numeric" typeCode="2"/>
+         <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="fundreferenceid" sequenceNumberInPK="2"/>
-         <index name="PK_sz_fund_funder" unique="true">
-            <column ascending="true" name="funderreferenceid"/>
+         <primaryKey column="funderreferenceid" sequenceNumberInPK="3"/>
+         <index name="PK_sz_fund_facility_participation" unique="true">
+            <column ascending="true" name="facilityreferenceid"/>
             <column ascending="true" name="fundreferenceid"/>
+            <column ascending="true" name="funderreferenceid"/>
          </index>
       </table>
       <table name="sz_funder" remarks="Funder information." schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a Funder" size="128" type="varchar" typeCode="12">
-            <child column="funderreferenceid" foreignKey="FK_sz_fund_funder1" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_funder"/>
+            <child column="funderreferenceid" foreignKey="FK_sz_fund_facility_participation3" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_facility_participation"/>
             <child column="funderreferenceid" foreignKey="FK_sz_fundingaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fundingaccount"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fundertype" nullable="false" remarks="Type of funder (e.g NonNaturalPerson or NaturalPerson)" size="20" type="varchar" typeCode="12"/>
@@ -832,6 +838,16 @@
             <column ascending="true" name="periodenddate"/>
          </index>
       </table>
+      <table name="sz_metadata" remarks="Table with metadata" schema="wlc" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="key" nullable="false" remarks="Label of the information" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="value" nullable="true" remarks="Value of the information" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="description" nullable="true" remarks="Description of the key, value pair." size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="type" nullable="true" remarks="INFO, FACT, ASSERT" size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="key" sequenceNumberInPK="1"/>
+         <index name="PK_metadata_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
       <table name="sz_otherproperties" remarks="Details fo other properties of a process" schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
             <parent column="processnumber" foreignKey="FK_sz_otherproperties_process" implied="false" onDeleteCascade="false" schema="wlc" table="sz_process"/>
@@ -884,7 +900,7 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalothercostspaid" nullable="true" remarks="Total other costs (not fees or interest charges) paid in period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="totaldebit" nullable="true" remarks="Regular repayment (planned)" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (f greater than totaldebit then it is an additional repayment" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (if greater than totaldebit then it is an additional repayment)" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="periodtype" sequenceNumberInPK="2"/>
          <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
@@ -981,8 +997,8 @@
             <parent column="referenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
             <parent column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="counterpartyreferenceid" nullable="false" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>

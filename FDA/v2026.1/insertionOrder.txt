@@ -1,7 +1,9 @@
 sz_financials
+sz_facilityreference
+sz_funder
 sz_user
 sz_workflowstatusdefinition
-sz_funder
+sz_fund
 sz_workflowprocessdefinition
 sz_process
 sz_counterparty_financials
@@ -41,6 +43,7 @@ sz_businessrules_parameters
 sz_collateral_object_monumentregistration
 sz_collateral_object_rental
 sz_collateral_object_taxation
+sz_fund_facility_participation
 sz_statuschangedefinition
 sz_relation
 sz_metadata
