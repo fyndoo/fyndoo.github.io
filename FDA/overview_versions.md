@@ -3,7 +3,7 @@ Below the documentation of the versions of the ‘data export StandardZone’. F
 ***Data export StandardZone versions***
 * Data export StandardZone version 2026.1 (preview) 
   * [Graphical overview](v2026.1/relationships.html)  
-  * Documentation version 2026.1 (ToDo)
+  * Documentation version 2026.1 ([General info](versions/DataExport_StandardZone_version2026.1_generalinfo.pdf) and  [Datamodel](versions/DataExport_StandardZone_version2026.1_Datamodel.pdf))
   * [Changelog from 2025.1 to 2026.1](versions/changelog_2025.1_2026.1.md)
   * [DDL StandardZone (PostgreSQL) 2026.1](versions/DDL_DataExportStandardZone_2026.1.sql)
 * Data export StandardZone version 2025.1 
