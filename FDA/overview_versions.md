@@ -1,12 +1,13 @@
 Below the documentation of the versions of the ‘data export StandardZone’. For each version there is a description of all tables. In addition there is a changelog file with a summary of the changes compared to the previous version.
 
 
-***Data export StandardZone versions***
+**Data export StandardZone versions - WORK IN PROGRESS**
 * Data export StandardZone version 2026.2 (preview - work in progress) 
   * [Graphical overview](v2026.2/relationships.html)  
   * [Changelog from 2026.1 to 2026.2](versions/changelog_2026.1_2026.2.md)
 
-***Data export StandardZone versions***
+**Data export StandardZone versions - RELEASED VERSION**
+
 * Data export StandardZone version 2026.1 
   * [Graphical overview](v2026.1/relationships.html)  
   * Documentation version 2026.1 ([General info](versions/DataExport_StandardZone_version2026.1_generalinfo.pdf) and  [Datamodel](versions/DataExport_StandardZone_version2026.1_datamodel.pdf))
