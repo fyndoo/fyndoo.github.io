@@ -1,0 +1,5 @@
+date=2026-08-27 13:32:10+0000
+os=Linux 6.6.87.2-microsoft-standard-WSL2
+schemaspy-version=7.0.3-SNAPSHOT
+schemaspy-revision=408e05b7dfdfb8958061b07f101b8f57b451ea44
+renderer=Graphviz dot 2.43.0 
