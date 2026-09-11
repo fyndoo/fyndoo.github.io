@@ -17,8 +17,8 @@
             <child column="processnumber" foreignKey="FK_fee_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fee_agreement"/>
             <child column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financinggoal"/>
             <child column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_relation"/>
-            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
             <parent column="processnumber" foreignKey="FK_agreement_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
+            <parent column="processnumber" foreignKey="FK_agreement_process" implied="false" onDeleteCascade="true" schema="wlc" table="sz_process"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="whitelabel" nullable="false" remarks="White label name" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="mainborrowerreferenceid" nullable="true" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
@@ -329,6 +329,9 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="colllateraltypecategory" nullable="true" remarks="E.g.: Apartment, RealEstate, CommercialRealEstate, AgriculturalLand, Airplane, Ship, RealEstateWithOfficeSpace, OfficeSpace, Other" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="monumenttype" nullable="true" remarks="Type monumuent (e.g. 'National', 'Municipal'" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="province" nullable="true" remarks="Province" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="leaseholdiseverlasting" nullable="true" remarks="Indicates if the leasehold is everlasting (1=yes / 0=no)" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="29" name="canonannualamount" nullable="true" remarks="Annual amount of the canon" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="30" name="percentageforrent" nullable="true" remarks="Percentage of the property used for rent" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <primaryKey column="collateralreferenceid" sequenceNumberInPK="3"/>
@@ -496,6 +499,20 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="dateofbankruptcy" nullable="true" remarks="The bankruptcy date of the organisation" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="dateofdeath" nullable="true" remarks="The date of the death of the natural person" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="province" nullable="true" remarks="Province" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="firstname" nullable="true" remarks="First name of the counterparty" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="initials" nullable="true" remarks="Initials of the counterparty" size="24" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="surnameprefix" nullable="true" remarks="Surname prefix of the counterparty" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="surname" nullable="true" remarks="Surname of the counterparty" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="nationality" nullable="true" remarks="Nationality (ISO2) of the counterparty" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="maritalstatus" nullable="true" remarks="Marital status of the counterparty (e.g. Married, Single, Widowed, Divorced)" size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="divorceddate" nullable="true" remarks="The date of divorce of the counterparty" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="telephoneprivate" nullable="true" remarks="Private telephone number of the counterparty" size="25" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="telephonemobile" nullable="true" remarks="Mobile telephone number of the counterparty" size="25" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="telephonework" nullable="true" remarks="Work telephone number of the counterparty" size="25" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="emailaddress" nullable="true" remarks="Email address of the counterparty" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="identificationtype" nullable="true" remarks="Identification type of the counterparty (e.g. Passport, EuropeanIdentityCard, ResidencePermit)" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="identificationnumber" nullable="true" remarks="Identification number of the counterparty" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="identificationexpirydate" nullable="true" remarks="Identification expiry date of the counterparty" size="13" type="date" typeCode="91"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <index name="PK_sz_counterparty" unique="true">
@@ -542,6 +559,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="RatingType" nullable="true" remarks="Rating type. This name is a customer specific Akkuro configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="RatingValue" nullable="true" remarks="Rating value. This name is a customer specific Akkuro configuration" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="pd" nullable="true" remarks="Probability of default percentage." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="referencedate" nullable="true" remarks="Date of determination of the rating." size="13" type="date" typeCode="91"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <index name="PK_sz_counterpartyrating" unique="true">
@@ -614,6 +632,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="mutationtype" nullable="true" remarks="Type of mutation of the facility. E.g. 'New', 'Unchanged', 'changed, etc" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="50" name="blockingamount" nullable="true" remarks="The amount of the limit which is blocked" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="51" name="blockingamountmotivation" nullable="true" remarks="Motivation of blockingamount (max. 255 chars)" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="52" name="firstmonthlypayment" nullable="true" remarks="Amount of the first monthly payment" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="53" name="netrentalincomedebtyield" nullable="true" remarks="Net rental income debt yield ratio of the facility" size="17" type="float8" typeCode="8"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <index name="PK_sz_facility" unique="true">
@@ -756,11 +776,14 @@
          </index>
       </table>
       <table name="sz_financinggoal" remarks="Financing goals details" schema="wlc" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a financing goal." size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a financing goal." size="128" type="varchar" typeCode="12">
+            <child column="financinggoalreferenceid" foreignKey="FK_financingsubgoal_financinggoal" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financingsubgoal"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agreementreferenceid" nullable="false" remarks="Unique identifier of an agreement." size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
+            <child column="processnumber" foreignKey="FK_financingsubgoal_financinggoal" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financingsubgoal"/>
             <parent column="processnumber" foreignKey="FK_financinggoal_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definitioncode" nullable="true" remarks="Code of financinggoal. This name is a customer specific Akkuro configuration." size="255" type="varchar" typeCode="12"/>
@@ -768,6 +791,24 @@
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <index name="PK_sz_financinggoal" unique="true">
+            <column ascending="true" name="referenceid"/>
+            <column ascending="true" name="processnumber"/>
+         </index>
+      </table>
+      <table name="sz_financingsubgoal" remarks="Financing subgoals details" schema="wlc" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a financing subgoal." size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="financinggoalreferenceid" nullable="false" remarks="Unique identifier of a financing goal." size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_financingsubgoal_financinggoal" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financinggoal"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
+            <parent column="processnumber" foreignKey="FK_financingsubgoal_financinggoal" implied="false" onDeleteCascade="true" schema="wlc" table="sz_financinggoal"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definitioncode" nullable="true" remarks="Code of a financing subgoal. This name is a customer specific Akkuro configuration." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="Description of a financing subgoal. This name is a customer specific Akkuro configuration." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="amount" nullable="true" remarks="Amount of a financing subgoal." size="19" type="numeric" typeCode="2"/>
+         <primaryKey column="referenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="processnumber" sequenceNumberInPK="2"/>
+         <index name="PK_sz_financingsubgoal" unique="true">
             <column ascending="true" name="referenceid"/>
             <column ascending="true" name="processnumber"/>
          </index>

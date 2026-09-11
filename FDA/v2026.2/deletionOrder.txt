@@ -7,7 +7,7 @@ sz_collateral_object_rental
 sz_collateral_object_monumentregistration
 sz_businessrules_parameters
 sz_processstatuschange
-sz_financinggoal
+sz_financingsubgoal
 sz_fee_facility
 sz_fee_agreement
 sz_counterpartyrating
@@ -30,6 +30,7 @@ sz_calcmodel_processbased
 sz_fundingaccount
 sz_calcmodel_customerbased
 sz_annualaccounts
+sz_financinggoal
 sz_facility_periodicstatement
 sz_agreement_periodicstatement
 sz_businessrules

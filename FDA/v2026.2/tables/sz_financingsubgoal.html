@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>sz_financinggoal - data-analytics.wlc</title>
+        <title>sz_financingsubgoal - data-analytics.wlc</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>sz_financinggoal</h1><br />
+                    <h1>sz_financingsubgoal</h1><br />
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="fa fa-file-text-o"></i>
@@ -84,7 +84,7 @@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body clearfix">
-                            <p>Financing goals details</p>
+                            <p>Financing subgoals details</p>
                         </div><!-- /.box-body -->
                     </div>
                 </section>
@@ -130,21 +130,16 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_financingsubgoal.[financinggoalreferenceid, processnumber] references sz_financinggoal.[referenceid, processnumber] via FK_financingsubgoal_financinggoal"><a href='sz_financingsubgoal.html'>sz_financingsubgoal</a><span class='relatedKey'>.financinggoalreferenceid</span></td>
-                                                <td class="constraint detail">FK_financingsubgoal_financinggoal</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Unique identifier of a financing goal.</p></td>
+                                    <td><p>Unique identifier of a financing subgoal.</p></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="agreementreferenceid">agreementreferenceid</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="financinggoalreferenceid">financinggoalreferenceid</span></td>
                                     <td>varchar</td>
                                     <td>128</td>
                                     <td title=''></td>
@@ -157,13 +152,13 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_financinggoal.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_financinggoal_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.referenceid</span></td>
-                                                <td class="constraint detail">FK_financinggoal_agreement</td>
+                                                <td title="sz_financingsubgoal.[financinggoalreferenceid, processnumber] references sz_financinggoal.[referenceid, processnumber] via FK_financingsubgoal_financinggoal"><a href='sz_financinggoal.html'>sz_financinggoal</a><span class='relatedKey'>.referenceid</span></td>
+                                                <td class="constraint detail">FK_financingsubgoal_financinggoal</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
                                     </td>
-                                    <td><p>Unique identifier of an agreement.</p></td>
+                                    <td><p>Unique identifier of a financing goal.</p></td>
                                 </tr>
                                 <tr>
                                     <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="processnumber">processnumber</span></td>
@@ -174,18 +169,13 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_financingsubgoal.[financinggoalreferenceid, processnumber] references sz_financinggoal.[referenceid, processnumber] via FK_financingsubgoal_financinggoal"><a href='sz_financingsubgoal.html'>sz_financingsubgoal</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_financingsubgoal_financinggoal</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_financinggoal.[agreementreferenceid, processnumber] references sz_agreement.[referenceid, processnumber] via FK_financinggoal_agreement"><a href='sz_agreement.html'>sz_agreement</a><span class='relatedKey'>.processnumber</span></td>
-                                                <td class="constraint detail">FK_financinggoal_agreement</td>
+                                                <td title="sz_financingsubgoal.[financinggoalreferenceid, processnumber] references sz_financinggoal.[referenceid, processnumber] via FK_financingsubgoal_financinggoal"><a href='sz_financinggoal.html'>sz_financinggoal</a><span class='relatedKey'>.processnumber</span></td>
+                                                <td class="constraint detail">FK_financingsubgoal_financinggoal</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
@@ -207,7 +197,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Code of financinggoal. This name is a customer specific Akkuro configuration.</p></td>
+                                    <td><p>Code of a financing subgoal. This name is a customer specific Akkuro configuration.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="description">description</span></td>
@@ -224,7 +214,24 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Description of financinggoal. This name is a customer specific Akkuro configuration.</p></td>
+                                    <td><p>Description of a financing subgoal. This name is a customer specific Akkuro configuration.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="amount">amount</span></td>
+                                    <td>numeric</td>
+                                    <td>19,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Amount of a financing subgoal.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -257,7 +264,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_financinggoal</td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PK_sz_financingsubgoal</td>
                                     <td>Primary key</td>
                                     <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
                                     <td>referenceid + processnumber</td>
@@ -285,26 +292,18 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="373,17,751,233">
-<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,49,329,225">
-<area shape="rect" id="node3" href="sz_financingsubgoal.html" target="_top" title="sz_financingsubgoal" alt="" coords="795,5,1089,181">
+<area shape="rect" id="node1" href="sz_financingsubgoal.html" target="_top" title="sz_financingsubgoal" alt="" coords="317,5,729,251">
+<area shape="rect" id="node2" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="5,23,273,199">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_financinggoal.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_financingsubgoal.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="289,353,613,529">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="5,539,245,627">
-<area shape="rect" id="node3" href="sz_process.html" target="_top" title="sz_process" alt="" coords="31,385,219,473">
-<area shape="rect" id="node4" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="657,555,1065,643">
-<area shape="rect" id="node5" href="sz_collateral.html" target="_top" title="sz_collateral" alt="" coords="759,5,963,93">
-<area shape="rect" id="node6" href="sz_facility.html" target="_top" title="sz_facility" alt="" coords="772,111,951,199">
-<area shape="rect" id="node7" href="sz_fee_agreement.html" target="_top" title="sz_fee_agreement" alt="" coords="732,216,991,304">
-<area shape="rect" id="node8" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="673,321,1050,537">
-<area shape="rect" id="node9" href="sz_financingsubgoal.html" target="_top" title="sz_financingsubgoal" alt="" coords="1109,309,1404,485">
-<area shape="rect" id="node10" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="767,660,956,748">
+<area shape="rect" id="node1" href="sz_financinggoal.html" target="_top" title="sz_financinggoal" alt="" coords="268,23,536,199">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,69,224,157">
+<area shape="rect" id="node3" href="sz_financingsubgoal.html" target="_top" title="sz_financingsubgoal" alt="" coords="580,5,992,251">
 </map>
-                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_financinggoal.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_financingsubgoal.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>
