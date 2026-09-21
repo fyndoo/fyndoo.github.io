@@ -80,7 +80,7 @@
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="ion ion-key"></i>
-                            <h3 class="box-title">54 Foreign Key Constraints</h3>
+                            <h3 class="box-title">55 Foreign Key Constraints</h3>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -794,24 +794,6 @@
                                         <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
-                                        <td>FK_sz_fundingaccount_periodicstatement</td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_fundingaccount_periodicstatement.html'>sz_fundingaccount_periodicstatement</a><span>.fundingaccountreferenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            <table border='0' cellspacing='0' cellpadding='0'>
-                                                <tr>
-                                                    <td><a href='tables/sz_fundingaccount.html'>sz_fundingaccount</a><span>.referenceid</span></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
-                                    </tr>
-                                    <tr>
                                         <td>FK_sz_fundingaccount</td>
                                         <td>
                                             <table border='0' cellspacing='0' cellpadding='0'>
@@ -828,6 +810,24 @@
                                             </table>
                                         </td>
                                         <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FK_sz_fundingaccount_periodicstatement</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_fundingaccount_periodicstatement.html'>sz_fundingaccount_periodicstatement</a><span>.fundingaccountreferenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_fundingaccount.html'>sz_fundingaccount</a><span>.referenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
                                     </tr>
                                     <tr>
                                         <td>FK_sz_processevents_process</td>
@@ -1154,6 +1154,36 @@
                                             <table border='0' cellspacing='0' cellpadding='0'>
                                                 <tr>
                                                     <td><a href='tables/sz_facility_periodicstatement.html'>sz_facility_periodicstatement</a><span>.facilityreferenceid</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><span title='Cascade on delete:&#10;Deletion of parent deletes child'>Cascade on delete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FK_sz_agreement_ps</td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_periodicstatement_futureoblig_4da64b0.html'>sz_periodicstatement_futureobligationdepot</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_periodicstatement_futureoblig_4da64b0.html'>sz_periodicstatement_futureobligationdepot</a><span>.periodtype</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_periodicstatement_futureoblig_4da64b0.html'>sz_periodicstatement_futureobligationdepot</a><span>.periodenddate</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border='0' cellspacing='0' cellpadding='0'>
+                                                <tr>
+                                                    <td><a href='tables/sz_periodicstatement_agreementlevel.html'>sz_periodicstatement_agreementlevel</a><span>.agreementreferenceid</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_periodicstatement_agreementlevel.html'>sz_periodicstatement_agreementlevel</a><span>.periodtype</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href='tables/sz_periodicstatement_agreementlevel.html'>sz_periodicstatement_agreementlevel</a><span>.periodenddate</span></td>
                                                 </tr>
                                             </table>
                                         </td>

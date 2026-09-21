@@ -130,6 +130,11 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_periodicstatement_futureobligationdepot.[agreementreferenceid, periodtype, periodenddate] references sz_periodicstatement_agreementlevel.[agreementreferenceid, periodtype, periodenddate] via FK_sz_agreement_ps"><a href='sz_periodicstatement_futureoblig_4da64b0.html'>sz_periodicstatement_futureobligationdepot</a><span class='relatedKey'>.agreementreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_agreement_ps</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -186,6 +191,11 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_periodicstatement_futureobligationdepot.[agreementreferenceid, periodtype, periodenddate] references sz_periodicstatement_agreementlevel.[agreementreferenceid, periodtype, periodenddate] via FK_sz_agreement_ps"><a href='sz_periodicstatement_futureoblig_4da64b0.html'>sz_periodicstatement_futureobligationdepot</a><span class='relatedKey'>.periodtype</span></td>
+                                                <td class="constraint detail">FK_sz_agreement_ps</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -220,6 +230,11 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_periodicstatement_futureobligationdepot.[agreementreferenceid, periodtype, periodenddate] references sz_periodicstatement_agreementlevel.[agreementreferenceid, periodtype, periodenddate] via FK_sz_agreement_ps"><a href='sz_periodicstatement_futureoblig_4da64b0.html'>sz_periodicstatement_futureobligationdepot</a><span class='relatedKey'>.periodenddate</span></td>
+                                                <td class="constraint detail">FK_sz_agreement_ps</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -311,10 +326,10 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Total fees paid in period</p></td>
+                                    <td><p>Total fees paid in period (excl. closing fees and totalinterestchargepaid)</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="totalothercostspaid">totalothercostspaid</span></td>
+                                    <td><span id="totalclosingfee">totalclosingfee</span></td>
                                     <td>numeric</td>
                                     <td>19,2</td>
                                     <td title='nullable'>√</td>
@@ -328,7 +343,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Total other costs (not fees or interest charges) paid in period</p></td>
+                                    <td><p>Closing fee paid/charged in period</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="totaldebit">totaldebit</span></td>
@@ -425,6 +440,7 @@
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
 <area shape="rect" id="node1" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="457,5,1015,485">
 <area shape="rect" id="node2" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="5,8,413,155">
+<area shape="rect" id="node3" href="sz_periodicstatement_futureoblig_4da64b0.html" target="_top" title="sz_periodicstatement_futureobligationdepot" alt="" coords="1059,67,1576,243">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_periodicstatement_agreementlevel.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -434,6 +450,7 @@
 <area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,76,224,164">
 <area shape="rect" id="node3" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="795,5,1203,93">
 <area shape="rect" id="node4" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="720,111,1277,591">
+<area shape="rect" id="node5" href="sz_periodicstatement_futureoblig_4da64b0.html" target="_top" title="sz_periodicstatement_futureobligationdepot" alt="" coords="1321,172,1839,348">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_periodicstatement_agreementlevel.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

@@ -5946,7 +5946,7 @@
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Total fees paid in period</p>"
+        "comments": "<p>Total fees paid in period (excl. closing fees and totalinterestchargepaid)</p>"
     },
     {
         "tableName": "sz_fundingaccount_periodicstatement",
@@ -5954,13 +5954,13 @@
         "tableType": "Table",
         "keyClass": "",
         "keyTitle": "",
-        "name": "totalothercostspaid",
+        "name": "totalclosingfee",
         "type": "numeric",
         "length": 19,
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Total other costs (not fees or interest charges) paid in period</p>"
+        "comments": "<p>Closing fee paid/charged in period</p>"
     },
     {
         "tableName": "sz_fundingaccount_periodicstatement",
@@ -6226,7 +6226,7 @@
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Total fees paid in period</p>"
+        "comments": "<p>Total fees paid in period (excl. closing fees and totalinterestchargepaid)</p>"
     },
     {
         "tableName": "sz_periodicstatement",
@@ -6234,13 +6234,13 @@
         "tableType": "Table",
         "keyClass": "",
         "keyTitle": "",
-        "name": "totalothercostspaid",
+        "name": "totalclosingfee",
         "type": "numeric",
         "length": 19,
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Total other costs (not fees or interest charges) paid in period</p>"
+        "comments": "<p>Closing fee paid/charged in period</p>"
     },
     {
         "tableName": "sz_periodicstatement",
@@ -6422,7 +6422,7 @@
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Total fees paid in period</p>"
+        "comments": "<p>Total fees paid in period (excl. closing fees and totalinterestchargepaid)</p>"
     },
     {
         "tableName": "sz_periodicstatement_agreementlevel",
@@ -6430,13 +6430,13 @@
         "tableType": "Table",
         "keyClass": "",
         "keyTitle": "",
-        "name": "totalothercostspaid",
+        "name": "totalclosingfee",
         "type": "numeric",
         "length": 19,
         "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
-        "comments": "<p>Total other costs (not fees or interest charges) paid in period</p>"
+        "comments": "<p>Closing fee paid/charged in period</p>"
     },
     {
         "tableName": "sz_periodicstatement_agreementlevel",
@@ -6465,6 +6465,132 @@
         "autoUpdated": "",
         "defaultValue": "null",
         "comments": "<p>Actual repayment (if greater than totaldebit then it is an additional repayment)</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>agreementreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier for a agreement</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "reportreference",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier for the periodic statement</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "reportcreationdate",
+        "type": "timestamp",
+        "length": 29,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Creation datetime of the report</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>periodtype",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Type of period (E.g. &lsquo;MONTH&rsquo;, &lsquo;YEAR&rsquo;)</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "periodstartdate",
+        "type": "date",
+        "length": 13,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Start date of the period</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "primaryKey",
+        "keyTitle": "Primary Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>periodenddate",
+        "type": "date",
+        "length": 13,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>End date of the period</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "balanceatstart",
+        "type": "numeric",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Outstanding amount at startdate of period</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "balanceatend",
+        "type": "numeric",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Outstanding amount at enddate of period</p>"
+    },
+    {
+        "tableName": "sz_periodicstatement_futureobligationdepot",
+        "tableFileName": "sz_periodicstatement_futureoblig_4da64b0",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "totalinterestpaid",
+        "type": "numeric",
+        "length": 19,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Total interest paid in period</p>"
     },
     {
         "tableName": "sz_process",

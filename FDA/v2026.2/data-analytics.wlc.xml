@@ -888,8 +888,8 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balanceatend" nullable="true" remarks="Outstanding amount at enddate of period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="totalinterestpaid" nullable="true" remarks="Total interest paid in period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalinterestchargepaid" nullable="true" remarks="Total interest charges paid in period" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalothercostspaid" nullable="true" remarks="Total other costs (not fees or interest charges) paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period (excl. closing fees and totalinterestchargepaid)" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalclosingfee" nullable="true" remarks="Closing fee paid/charged in period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="totaldebit" nullable="true" remarks="Regular repayment (planned)" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (f greater than totaldebit then it is an additional repayment" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="fundingaccountreferenceid" sequenceNumberInPK="1"/>
@@ -934,8 +934,8 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balanceatend" nullable="true" remarks="Outstanding amount at enddate of period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="totalinterestpaid" nullable="true" remarks="Total interest paid in period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalinterestchargepaid" nullable="true" remarks="Total interest charges paid in period" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalothercostspaid" nullable="true" remarks="Total other costs (not fees or interest charges) paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period (excl. closing fees and totalinterestchargepaid)" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalclosingfee" nullable="true" remarks="Closing fee paid/charged in period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="totaldebit" nullable="true" remarks="Regular repayment (planned)" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (f greater than totaldebit then it is an additional repayment" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
@@ -949,25 +949,55 @@
       </table>
       <table name="sz_periodicstatement_agreementlevel" remarks="Table with periodic_statements on agreement level" schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
+            <child column="agreementreferenceid" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_periodicstatement_futureobligationdepot"/>
             <parent column="agreementreferenceid" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement_periodicstatement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="reportreference" nullable="false" remarks="Unique identifier for the periodic statement" size="255" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="reportcreationdate" nullable="true" remarks="Creation datetime of the report" size="29" type="timestamp" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="periodtype" nullable="false" remarks="Type of period (E.g. 'MONTH', 'YEAR')" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="periodtype" nullable="false" remarks="Type of period (E.g. 'MONTH', 'YEAR')" size="255" type="varchar" typeCode="12">
+            <child column="periodtype" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_periodicstatement_futureobligationdepot"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="periodstartdate" nullable="false" remarks="Start date of the period" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="periodenddate" nullable="false" remarks="End date of the period" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="periodenddate" nullable="false" remarks="End date of the period" size="13" type="date" typeCode="91">
+            <child column="periodenddate" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_periodicstatement_futureobligationdepot"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="balanceatstart" nullable="true" remarks="Outstanding amount at startdate of period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balanceatend" nullable="true" remarks="Outstanding amount at enddate of period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="totalinterestpaid" nullable="true" remarks="Total interest paid in period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="totalinterestchargepaid" nullable="true" remarks="Total interest charges paid in period" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period" size="19" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalothercostspaid" nullable="true" remarks="Total other costs (not fees or interest charges) paid in period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="totalfeespaid" nullable="true" remarks="Total fees paid in period (excl. closing fees and totalinterestchargepaid)" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="totalclosingfee" nullable="true" remarks="Closing fee paid/charged in period" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="totaldebit" nullable="true" remarks="Regular repayment (planned)" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="totalcredit" nullable="true" remarks="Actual repayment (if greater than totaldebit then it is an additional repayment)" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="periodtype" sequenceNumberInPK="2"/>
          <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
          <index name="PK_sz_periodicstatementagreement" unique="true">
+            <column ascending="true" name="agreementreferenceid"/>
+            <column ascending="true" name="periodtype"/>
+            <column ascending="true" name="periodenddate"/>
+         </index>
+      </table>
+      <table name="sz_periodicstatement_futureobligationdepot" remarks="Linking table periodicstatement and future obligation depot" schema="wlc" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="agreementreferenceid" nullable="false" remarks="Unique identifier for a agreement" size="128" type="varchar" typeCode="12">
+            <parent column="agreementreferenceid" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_periodicstatement_agreementlevel"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="reportreference" nullable="false" remarks="Unique identifier for the periodic statement" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="reportcreationdate" nullable="true" remarks="Creation datetime of the report" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="periodtype" nullable="false" remarks="Type of period (E.g. 'MONTH', 'YEAR')" size="255" type="varchar" typeCode="12">
+            <parent column="periodtype" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_periodicstatement_agreementlevel"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="periodstartdate" nullable="false" remarks="Start date of the period" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="periodenddate" nullable="false" remarks="End date of the period" size="13" type="date" typeCode="91">
+            <parent column="periodenddate" foreignKey="FK_sz_agreement_ps" implied="false" onDeleteCascade="true" schema="wlc" table="sz_periodicstatement_agreementlevel"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="balanceatstart" nullable="true" remarks="Outstanding amount at startdate of period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="balanceatend" nullable="true" remarks="Outstanding amount at enddate of period" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="totalinterestpaid" nullable="true" remarks="Total interest paid in period" size="19" type="numeric" typeCode="2"/>
+         <primaryKey column="agreementreferenceid" sequenceNumberInPK="1"/>
+         <primaryKey column="periodtype" sequenceNumberInPK="2"/>
+         <primaryKey column="periodenddate" sequenceNumberInPK="3"/>
+         <index name="PK_sz_periodicstatement_futureobligationdepot" unique="true">
             <column ascending="true" name="agreementreferenceid"/>
             <column ascending="true" name="periodtype"/>
             <column ascending="true" name="periodenddate"/>
@@ -1060,8 +1090,8 @@
             <parent column="referenceid" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="processnumber" nullable="false" remarks="Unique identifier of a process" size="19" type="int8" typeCode="-5">
-            <parent column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
             <parent column="processnumber" foreignKey="FK_relation_agreement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_agreement"/>
+            <parent column="processnumber" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="counterpartyreferenceid" nullable="false" remarks="Unique identifier of a counterparty" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_borrower_counterparty" implied="false" onDeleteCascade="true" schema="wlc" table="sz_counterparty"/>

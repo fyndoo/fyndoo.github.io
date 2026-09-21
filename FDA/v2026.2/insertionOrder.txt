@@ -11,10 +11,11 @@ sz_counterparty
 sz_agreement
 sz_facility
 sz_collateral
+sz_agreement_periodicstatement
 sz_approval
 sz_collateral_object
+sz_periodicstatement_agreementlevel
 sz_businessrules
-sz_agreement_periodicstatement
 sz_facility_periodicstatement
 sz_financinggoal
 sz_annualaccounts
@@ -31,7 +32,6 @@ sz_financialstate_agreementlevel
 sz_fundingaccount_periodicstatement
 sz_otherproperties
 sz_periodicstatement
-sz_periodicstatement_agreementlevel
 sz_processevents
 sz_slidetails
 sz_constructionaccount_declaration
@@ -46,6 +46,7 @@ sz_collateral_object_monumentregistration
 sz_collateral_object_rental
 sz_collateral_object_taxation
 sz_fund_facility_participation
+sz_periodicstatement_futureobligationdepot
 sz_statuschangedefinition
 sz_relation
 sz_metadata
