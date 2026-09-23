@@ -47,3 +47,22 @@ Changelog FDA Standard Zone version from 2026.1 to 2026.2:
 * Change in sz_periodicstatement_agreementlevel
   - Added column totalclosingfee
   - Delete column totalothercostspaid
+
+### Columns Added
+* Change in table sz_fundingaccount
+  - accountnumber
+  - description
+  - typereferenceid
+  - typename
+  - category
+  - startdate
+  - enddate
+  - creditbaseinteresttype
+  - creditadjustment
+  - debitbaseinteresttype
+  - debitadjustment
+  - debitlimitamount
+  - debitlimitinterestratesurcharge
+  - informtaxoffice
+  - lowerboundamount
+  - upperboundamount

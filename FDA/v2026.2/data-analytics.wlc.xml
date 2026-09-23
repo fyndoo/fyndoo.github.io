@@ -870,6 +870,22 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tenantformattedreferenceid" nullable="true" remarks="Tenantformatted reference of fundingaccount" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="productname" nullable="true" remarks="Productname of fundingaccount" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="productdefinitioncode" nullable="true" remarks="productdefinitioncode of fundingaccount" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="accountnumber" nullable="true" remarks="Account number of the funding account" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="description" nullable="true" remarks="Description of the funding account" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="typereferenceid" nullable="true" remarks="Type reference ID of the funding account" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="typename" nullable="true" remarks="Type name of the funding account" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="category" nullable="true" remarks="Category of the funding account" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="startdate" nullable="true" remarks="Start date of the funding account" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="enddate" nullable="true" remarks="End date of the funding account" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="creditbaseinteresttype" nullable="true" remarks="Credit base interest type of the funding account" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="creditadjustment" nullable="true" remarks="Credit adjustment of the funding account" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="debitbaseinteresttype" nullable="true" remarks="Debit base interest type of the funding account" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="debitadjustment" nullable="true" remarks="Debit adjustment of the funding account" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="debitlimitamount" nullable="true" remarks="Debit limit amount of the funding account" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="17" name="debitlimitinterestratesurcharge" nullable="true" remarks="Debit limit interest rate surcharge of the funding account" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="informtaxoffice" nullable="true" remarks="Inform tax office flag of the funding account" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="19" name="lowerboundamount" nullable="true" remarks="Lower bound amount of the funding account" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="upperboundamount" nullable="true" remarks="Upper bound amount of the funding account" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_fundingaccount" unique="true">
             <column ascending="true" name="referenceid"/>
