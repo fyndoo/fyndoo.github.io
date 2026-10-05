@@ -1,4 +1,5 @@
 sz_financials
+sz_counterpartyreferenceid
 sz_facilityreference
 sz_funder
 sz_user
@@ -6,7 +7,6 @@ sz_workflowstatusdefinition
 sz_fund
 sz_workflowprocessdefinition
 sz_process
-sz_counterparty_financials
 sz_counterparty
 sz_agreement
 sz_facility
@@ -35,6 +35,7 @@ sz_periodicstatement
 sz_processevents
 sz_slidetails
 sz_constructionaccount_declaration
+sz_counterparty_financials
 sz_counterparty_fiscal_info
 sz_counterpartyrating
 sz_fee_agreement
@@ -47,6 +48,7 @@ sz_collateral_object_rental
 sz_collateral_object_taxation
 sz_fund_facility_participation
 sz_periodicstatement_futureobligationdepot
+sz_periodicstatement_invoice
 sz_statuschangedefinition
 sz_relation
 sz_metadata

@@ -196,8 +196,8 @@
                                 </tr>
                                 <tr>
                                     <td><span id="arrearcode">arrearcode</span></td>
-                                    <td>numeric</td>
-                                    <td>1</td>
+                                    <td>int4</td>
+                                    <td>10</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -260,7 +260,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Current balance sheet minus all scheduled payments plus all redemption payment obligations.</p></td>
+                                    <td><p>Current balance of product including all scheduled transactions including all payment obligations which effect the balance. (a.k.a. ExpectedBalance)</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="installmentamount">installmentamount</span></td>
@@ -379,7 +379,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Current balance sheet minus all scheduled payments plus all redemption payment obligations.</p></td>
+                                    <td><p>Current balance of product, including all scheduled transactions, including all pay off payment obligations.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="outstandingdebt">outstandingdebt</span></td>
@@ -414,6 +414,91 @@
                                         </table>
                                     </td>
                                     <td><p>Expected date of next installment.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="firstarrearsdate">firstarrearsdate</span></td>
+                                    <td>date</td>
+                                    <td>13</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Date on which the facility first went into arrears.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="latestarrearsstartdate">latestarrearsstartdate</span></td>
+                                    <td>date</td>
+                                    <td>13</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Date on which the facility most recently went into arrears.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="arrearssolveddate">arrearssolveddate</span></td>
+                                    <td>date</td>
+                                    <td>13</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Date on which the arrears were resolved. Is only filled in case the facility has been in arrears and subsequently resolved.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="arrearsamount1monthago">arrearsamount1monthago</span></td>
+                                    <td>numeric</td>
+                                    <td>19,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Arrears amount one month ago.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="arrearsamount2monthsago">arrearsamount2monthsago</span></td>
+                                    <td>numeric</td>
+                                    <td>19,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Arrears amount two months ago.</p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -474,17 +559,17 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="457,5,1105,573">
+<area shape="rect" id="node1" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="457,5,1105,720">
 <area shape="rect" id="node2" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="5,8,413,155">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_financialstate_agreementlevel.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="268,299,676,445">
-<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,316,224,404">
-<area shape="rect" id="node3" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="720,5,1368,573">
-<area shape="rect" id="node4" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="817,591,1271,679">
+<area shape="rect" id="node1" href="sz_agreement_periodicstatement.html" target="_top" title="sz_agreement_periodicstatement" alt="" coords="268,372,676,519">
+<area shape="rect" id="node2" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="5,389,224,477">
+<area shape="rect" id="node3" href="sz_financialstate_agreementlevel.html" target="_top" title="sz_financialstate_agreementlevel" alt="" coords="720,5,1368,720">
+<area shape="rect" id="node4" href="sz_periodicstatement_agreementlevel.html" target="_top" title="sz_periodicstatement_agreementlevel" alt="" coords="817,737,1271,825">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_financialstate_agreementlevel.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

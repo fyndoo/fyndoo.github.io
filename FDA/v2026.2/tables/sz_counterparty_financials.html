@@ -130,15 +130,15 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="sz_counterparty.referenceid references sz_counterparty_financials.counterpartyreferenceid via FK_sz_annualaccounts_cp2"><a href='sz_counterparty.html'>sz_counterparty</a><span class='relatedKey'>.referenceid</span></td>
-                                                <td class="constraint detail">FK_sz_annualaccounts_cp2</td>
-                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="sz_counterparty_financials.counterpartyreferenceid references sz_counterpartyreferenceid.counterpartyreferenceid via FK_sz_counterpartyreferenceid"><a href='sz_counterpartyreferenceid.html'>sz_counterpartyreferenceid</a><span class='relatedKey'>.counterpartyreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_counterpartyreferenceid</td>
+                                                <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td><p>Identifier of a counterparty</p></td>
@@ -157,8 +157,8 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="sz_counterparty_financials.financialsid references sz_financials.financialsid via FK_sz_annualaccounts_cp1"><a href='sz_financials.html'>sz_financials</a><span class='relatedKey'>.financialsid</span></td>
-                                                <td class="constraint detail">FK_sz_annualaccounts_cp1</td>
+                                                <td title="sz_counterparty_financials.financialsid references sz_financials.financialsid via FK_sz_annualaccounts_cp"><a href='sz_financials.html'>sz_financials</a><span class='relatedKey'>.financialsid</span></td>
+                                                <td class="constraint detail">FK_sz_annualaccounts_cp</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                         </table>
@@ -224,25 +224,22 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="717,8,1041,155">
-<area shape="rect" id="node2" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="256,5,673,133">
-<area shape="rect" id="node3" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,37,212,131">
+<area shape="rect" id="node1" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="403,56,820,184">
+<area shape="rect" id="node2" href="sz_counterpartyreferenceid.html" target="_top" title="sz_counterpartyreferenceid" alt="" coords="5,5,359,123">
+<area shape="rect" id="node3" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="79,140,285,233">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_counterparty_financials.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_agreement.html" target="_top" title="sz_agreement" alt="" coords="1149,341,1368,429">
-<area shape="rect" id="node2" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="717,324,1041,471">
-<area shape="rect" id="node7" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="256,321,673,449">
-<area shape="rect" id="node3" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="331,5,598,93">
-<area shape="rect" id="node4" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="5,213,212,307">
-<area shape="rect" id="node5" href="sz_calcmodel_customerbased.html" target="_top" title="sz_calcmodel_customerbased" alt="" coords="280,111,649,199">
-<area shape="rect" id="node6" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="288,216,641,304">
-<area shape="rect" id="node8" href="sz_counterparty_fiscal_info.html" target="_top" title="sz_counterparty_fiscal_info" alt="" coords="1085,447,1432,535">
-<area shape="rect" id="node9" href="sz_counterpartyrating.html" target="_top" title="sz_counterpartyrating" alt="" coords="1109,236,1408,324">
-<area shape="rect" id="node10" href="sz_relation.html" target="_top" title="sz_relation" alt="" coords="1476,341,1665,429">
-<area shape="rect" id="node11" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="397,467,532,555">
+<area shape="rect" id="node1" href="sz_annualaccounts.html" target="_top" title="sz_annualaccounts" alt="" coords="478,216,745,304">
+<area shape="rect" id="node2" href="sz_financials.html" target="_top" title="sz_financials" alt="" coords="79,213,285,307">
+<area shape="rect" id="node3" href="sz_calcmodel_customerbased.html" target="_top" title="sz_calcmodel_customerbased" alt="" coords="427,321,796,409">
+<area shape="rect" id="node4" href="sz_calcmodel_processbased.html" target="_top" title="sz_calcmodel_processbased" alt="" coords="435,5,788,93">
+<area shape="rect" id="node5" href="sz_counterparty.html" target="_top" title="sz_counterparty" alt="" coords="491,572,731,660">
+<area shape="rect" id="node6" href="sz_counterpartyreferenceid.html" target="_top" title="sz_counterpartyreferenceid" alt="" coords="5,500,359,617">
+<area shape="rect" id="node7" href="sz_counterparty_financials.html" target="_top" title="sz_counterparty_financials" alt="" coords="403,427,820,555">
+<area shape="rect" id="node8" href="sz_sli.html" target="_top" title="sz_sli" alt="" coords="544,111,679,199">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_counterparty_financials.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

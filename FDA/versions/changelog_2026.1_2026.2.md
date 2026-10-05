@@ -66,3 +66,26 @@ Changelog FDA Standard Zone version from 2026.1 to 2026.2:
   - informtaxoffice
   - lowerboundamount
   - upperboundamount
+
+
+  # Since release Data Analytics 2026.17
+
+### Tables added:
+* Added table sz_counterpartyreferenceid 
+
+### Columns Added/Changed
+* Added columns in table sz_financialstate 
+  - firstarrearsdate
+  - latestarrearsstartdate
+  - arrearssolveddate
+  - arrearsamount1monthago
+  - arrearsamount2monthsago
+* Added columns in table sz_financialstate_agreementlevel 
+  - firstarrearsdate
+  - latestarrearsstartdate
+  - arrearssolveddate
+  - arrearsamount1monthago
+  - arrearsamount2monthsago
+
+
+### Columns Added
