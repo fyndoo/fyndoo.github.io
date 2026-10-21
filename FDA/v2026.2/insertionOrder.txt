@@ -34,6 +34,7 @@ sz_otherproperties
 sz_periodicstatement
 sz_processevents
 sz_slidetails
+sz_agreement_tags
 sz_constructionaccount_declaration
 sz_counterparty_financials
 sz_counterparty_fiscal_info

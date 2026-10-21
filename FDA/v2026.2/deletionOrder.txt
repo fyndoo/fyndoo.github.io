@@ -16,6 +16,7 @@ sz_counterpartyrating
 sz_counterparty_fiscal_info
 sz_counterparty_financials
 sz_constructionaccount_declaration
+sz_agreement_tags
 sz_slidetails
 sz_processevents
 sz_periodicstatement

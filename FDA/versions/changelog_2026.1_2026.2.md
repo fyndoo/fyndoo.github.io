@@ -68,7 +68,7 @@ Changelog FDA Standard Zone version from 2026.1 to 2026.2:
   - upperboundamount
 
 
-  # Since release Data Analytics 2026.17
+# Since release Data Analytics 2026.17
 
 ### Tables added:
 * Added table sz_counterpartyreferenceid 
@@ -88,4 +88,7 @@ Changelog FDA Standard Zone version from 2026.1 to 2026.2:
   - arrearsamount2monthsago
 
 
-### Columns Added
+# Since release Data Analytics 2026.18
+
+### Tables added:
+* Added table sz_agreement_tags 

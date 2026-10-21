@@ -307,6 +307,48 @@
         "comments": "<p>Unique identifier of a process</p>"
     },
     {
+        "tableName": "sz_agreement_tags",
+        "tableFileName": "sz_agreement_tags",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>agreementreferenceid",
+        "type": "varchar",
+        "length": 128,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of an agreement.</p>"
+    },
+    {
+        "tableName": "sz_agreement_tags",
+        "tableFileName": "sz_agreement_tags",
+        "tableType": "Table",
+        "keyClass": "foreignKey",
+        "keyTitle": "Foreign Key",
+        "name": "<i class='icon ion-key iconkey' style='padding-left: 5px;'></i>processnumber",
+        "type": "int8",
+        "length": 19,
+        "nullable": "",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Unique identifier of a process</p>"
+    },
+    {
+        "tableName": "sz_agreement_tags",
+        "tableFileName": "sz_agreement_tags",
+        "tableType": "Table",
+        "keyClass": "",
+        "keyTitle": "",
+        "name": "definitioncode",
+        "type": "varchar",
+        "length": 255,
+        "nullable": "√",
+        "autoUpdated": "",
+        "defaultValue": "null",
+        "comments": "<p>Code of agreement tag. This name is a customer specific Akkuro configuration.</p>"
+    },
+    {
         "tableName": "sz_annualaccounts",
         "tableFileName": "sz_annualaccounts",
         "tableType": "Table",
@@ -5817,7 +5859,7 @@
         "name": "fundertype",
         "type": "varchar",
         "length": 20,
-        "nullable": "",
+        "nullable": "√",
         "autoUpdated": "",
         "defaultValue": "null",
         "comments": "<p>Type of funder (e.g NonNaturalPerson or NaturalPerson)</p>"

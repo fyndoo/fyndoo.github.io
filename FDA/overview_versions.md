@@ -2,7 +2,7 @@ Below the documentation of the versions of the ‘data export StandardZone’. F
 
 
 **Data export StandardZone versions - WORK IN PROGRESS**
-* Data export StandardZone version 2026.2 (preview - work in progress) 
+* Data export StandardZone version 2026.2 (Update 21-OCT-2026 with release DataAnalytics 2026.18) 
   * [Graphical overview](v2026.2/relationships.html)  
   * [Changelog from 2026.1 to 2026.2](versions/changelog_2026.1_2026.2.md)
 
