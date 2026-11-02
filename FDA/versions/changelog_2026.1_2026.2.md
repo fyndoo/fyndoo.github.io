@@ -92,3 +92,8 @@ Changelog FDA Standard Zone version from 2026.1 to 2026.2:
 
 ### Tables added:
 * Added table sz_agreement_tags 
+
+### Columns added
+* Added column mutationtype in table sz_agreement
+* Added column mutationtype in table sz_collateral
+* Added column mutationtype in table sz_collateral_object
