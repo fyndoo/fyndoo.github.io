@@ -131,6 +131,21 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
+                                                <td title="sz_fund_facility_participation.disbursementaccountreferenceid references sz_fundingaccount.referenceid via FK_sz_fund_facility_participation_disbursementaccount"><a href='sz_fund_facility_participation.html'>sz_fund_facility_participation</a><span class='relatedKey'>.disbursementaccountreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_fund_facility_participation_disbursementaccount</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_fund_facility_participation.interestaccountreferenceid references sz_fundingaccount.referenceid via FK_sz_fund_facility_participation_interestaccount"><a href='sz_fund_facility_participation.html'>sz_fund_facility_participation</a><span class='relatedKey'>.interestaccountreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_fund_facility_participation_interestaccount</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sz_fund_facility_participation.repaymentaccountreferenceid references sz_fundingaccount.referenceid via FK_sz_fund_facility_participation_repaymentaccount"><a href='sz_fund_facility_participation.html'>sz_fund_facility_participation</a><span class='relatedKey'>.repaymentaccountreferenceid</span></td>
+                                                <td class="constraint detail">FK_sz_fund_facility_participation_repaymentaccount</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td title="sz_fundingaccount_periodicstatement.fundingaccountreferenceid references sz_fundingaccount.referenceid via FK_sz_fundingaccount_periodicstatement"><a href='sz_fundingaccount_periodicstatement.html'>sz_fundingaccount_periodicstatement</a><span class='relatedKey'>.fundingaccountreferenceid</span></td>
                                                 <td class="constraint detail">FK_sz_fundingaccount_periodicstatement</td>
                                                 <td class="constraint detail"><span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
@@ -547,18 +562,21 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_fundingaccount.html" target="_top" title="sz_fundingaccount" alt="" coords="373,5,851,691">
-<area shape="rect" id="node2" href="sz_funder.html" target="_top" title="sz_funder" alt="" coords="5,37,329,155">
-<area shape="rect" id="node3" href="sz_fundingaccount_periodicstatement.html" target="_top" title="sz_fundingaccount_periodicstatement" alt="" coords="895,8,1348,184">
+<area shape="rect" id="node1" href="sz_fund_facility_participation.html" target="_top" title="sz_fund_facility_participation" alt="" coords="935,5,1308,269">
+<area shape="rect" id="node2" href="sz_fundingaccount.html" target="_top" title="sz_fundingaccount" alt="" coords="373,140,851,825">
+<area shape="rect" id="node3" href="sz_funder.html" target="_top" title="sz_funder" alt="" coords="5,119,329,236">
+<area shape="rect" id="node4" href="sz_fundingaccount_periodicstatement.html" target="_top" title="sz_fundingaccount_periodicstatement" alt="" coords="895,287,1348,463">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sz_fundingaccount.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="sz_fund_facility_participation.html" target="_top" title="sz_fund_facility_participation" alt="" coords="429,5,795,93">
-<area shape="rect" id="node2" href="sz_funder.html" target="_top" title="sz_funder" alt="" coords="5,73,329,191">
-<area shape="rect" id="node3" href="sz_fundingaccount.html" target="_top" title="sz_fundingaccount" alt="" coords="373,111,851,796">
-<area shape="rect" id="node4" href="sz_fundingaccount_periodicstatement.html" target="_top" title="sz_fundingaccount_periodicstatement" alt="" coords="895,113,1348,289">
+<area shape="rect" id="node1" href="sz_fund_facility_participation.html" target="_top" title="sz_fund_facility_participation" alt="" coords="791,456,1158,544">
+<area shape="rect" id="node2" href="sz_fundingaccount.html" target="_top" title="sz_fundingaccount" alt="" coords="227,5,704,691">
+<area shape="rect" id="node3" href="sz_facilityreference.html" target="_top" title="sz_facilityreference" alt="" coords="329,708,602,796">
+<area shape="rect" id="node4" href="sz_funder.html" target="_top" title="sz_funder" alt="" coords="5,411,183,499">
+<area shape="rect" id="node5" href="sz_fund.html" target="_top" title="sz_fund" alt="" coords="387,849,544,937">
+<area shape="rect" id="node6" href="sz_fundingaccount_periodicstatement.html" target="_top" title="sz_fundingaccount_periodicstatement" alt="" coords="748,8,1201,184">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sz_fundingaccount.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

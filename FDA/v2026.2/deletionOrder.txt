@@ -1,9 +1,9 @@
 sz_metadata
+sz_fund_facility_participation
 sz_relation
 sz_statuschangedefinition
 sz_periodicstatement_invoice
 sz_periodicstatement_futureobligationdepot
-sz_fund_facility_participation
 sz_collateral_object_taxation
 sz_collateral_object_rental
 sz_collateral_object_monumentregistration
@@ -30,12 +30,12 @@ sz_calcmodel_customerbaseddetails
 sz_annualaccountsdetails
 sz_sli
 sz_calcmodel_processbased
-sz_fundingaccount
 sz_calcmodel_customerbased
 sz_annualaccounts
 sz_financinggoal
 sz_facility_periodicstatement
 sz_businessrules
+sz_fundingaccount
 sz_periodicstatement_agreementlevel
 sz_collateral_object
 sz_approval

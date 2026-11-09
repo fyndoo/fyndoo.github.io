@@ -870,6 +870,15 @@
          </column>
          <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="participation_amount" nullable="true" remarks="The participation_amount of the funder in this facility" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="5" id="4" name="managementfee" nullable="true" remarks="The managementfee of the funder of this facility" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="disbursementaccountreferenceid" nullable="true" remarks="ReferenceId of an account where the disbursement for the funder is done" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_sz_fund_facility_participation_disbursementaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fundingaccount"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="interestaccountreferenceid" nullable="true" remarks="ReferenceId of an account where the interest for the funder is done" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_sz_fund_facility_participation_interestaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fundingaccount"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="repaymentaccountreferenceid" nullable="true" remarks="ReferenceId of an account where the repayment for the funder is done" size="128" type="varchar" typeCode="12">
+            <parent column="referenceid" foreignKey="FK_sz_fund_facility_participation_repaymentaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fundingaccount"/>
+         </column>
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
          <primaryKey column="fundreferenceid" sequenceNumberInPK="2"/>
          <primaryKey column="funderreferenceid" sequenceNumberInPK="3"/>
@@ -897,6 +906,9 @@
       </table>
       <table name="sz_fundingaccount" remarks="Funding account information." schema="wlc" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="referenceid" nullable="false" remarks="Unique identifier of a funding account" size="128" type="varchar" typeCode="12">
+            <child column="disbursementaccountreferenceid" foreignKey="FK_sz_fund_facility_participation_disbursementaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_facility_participation"/>
+            <child column="interestaccountreferenceid" foreignKey="FK_sz_fund_facility_participation_interestaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_facility_participation"/>
+            <child column="repaymentaccountreferenceid" foreignKey="FK_sz_fund_facility_participation_repaymentaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_facility_participation"/>
             <child column="fundingaccountreferenceid" foreignKey="FK_sz_fundingaccount_periodicstatement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fundingaccount_periodicstatement"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="funderreferenceid" nullable="false" remarks="Unique identifier of a funder" size="128" type="varchar" typeCode="12">
