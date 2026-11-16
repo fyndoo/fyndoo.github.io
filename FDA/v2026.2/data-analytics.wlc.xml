@@ -775,6 +775,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="arrearssolveddate" nullable="true" remarks="Date on which the arrears were resolved. Is only filled in case the facility has been in arrears and subsequently resolved." size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="arrearsamount1monthago" nullable="true" remarks="Arrears amount one month ago." size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="arrearsamount2monthsago" nullable="true" remarks="Arrears amount two months ago." size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="balancezerodate" nullable="true" remarks="Date on which the balance reached zero." size="13" type="date" typeCode="91"/>
          <primaryKey column="facilityreferenceid" sequenceNumberInPK="1"/>
          <index name="PK_sz_financialstate" unique="true">
             <column ascending="true" name="facilityreferenceid"/>
