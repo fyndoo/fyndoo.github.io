@@ -346,6 +346,9 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="29" name="canonannualamount" nullable="true" remarks="Annual amount of the canon" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="30" name="percentageforrent" nullable="true" remarks="Percentage of the property used for rent" size="19" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="mutationtype" nullable="true" remarks="Type of mutation of the entity. E.g. 'New', 'Unchanged', 'changed, etc" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="32" name="operationalcosts" nullable="true" remarks="Operational costs of the rental" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="33" name="existingannualinterestexpense" nullable="true" remarks="Existing annual interest expense" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="34" name="existingannualrepayment" nullable="true" remarks="Existing annual repayment" size="19" type="numeric" typeCode="2"/>
          <primaryKey column="referenceid" sequenceNumberInPK="1"/>
          <primaryKey column="processnumber" sequenceNumberInPK="2"/>
          <primaryKey column="collateralreferenceid" sequenceNumberInPK="3"/>
@@ -912,7 +915,7 @@
             <child column="repaymentaccountreferenceid" foreignKey="FK_sz_fund_facility_participation_repaymentaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_fund_facility_participation"/>
             <child column="fundingaccountreferenceid" foreignKey="FK_sz_fundingaccount_periodicstatement" implied="false" onDeleteCascade="true" schema="wlc" table="sz_fundingaccount_periodicstatement"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="funderreferenceid" nullable="false" remarks="Unique identifier of a funder" size="128" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="funderreferenceid" nullable="true" remarks="Unique identifier of a funder" size="128" type="varchar" typeCode="12">
             <parent column="referenceid" foreignKey="FK_sz_fundingaccount" implied="false" onDeleteCascade="false" schema="wlc" table="sz_funder"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tenantformattedreferenceid" nullable="true" remarks="Tenantformatted reference of fundingaccount" size="128" type="varchar" typeCode="12"/>

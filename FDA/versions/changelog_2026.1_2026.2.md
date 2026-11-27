@@ -106,3 +106,10 @@ Changelog FDA Standard Zone version from 2026.1 to 2026.2:
 * Added column repaymentaccountreferenceid in table sz_fund_facility_participation
 
 * Added column balancezerodate in table sz_financialstate
+
+# Since release Data Analytics 2026.20
+
+### Columns added
+* Added column operationalcosts in table sz_collateral_object
+* Added column existingannualinterestexpense in table sz_collateral_object
+* Added column existingannualrepayment in table sz_collateral_object
